@@ -9,7 +9,7 @@
 - images 本地图片目录
 - icons 本地图标目录
 - lib 公共方法目录（主要关于对wx原生方法包装的模块）
-  - request.js 包装请求方法
+  - request.js 包装HTTPS请求方法
 - pages 小程序页面目录
   - index 首页
   - mine 个人中心|我的

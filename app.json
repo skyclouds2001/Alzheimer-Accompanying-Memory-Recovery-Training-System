@@ -14,8 +14,7 @@
     "backgroundTextStyle": "dark",
     "restartStrategy": "homePage",
     "initialRenderingCache": "static",
-    "visualEffectInBackground": "hidden",
-    "handleWebviewPreload": "static"
+    "visualEffectInBackground": "hidden"
   },
   "tabBar": {
     "color": "#2c2c2c",
