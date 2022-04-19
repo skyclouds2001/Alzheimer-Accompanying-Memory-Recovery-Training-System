@@ -1,13 +1,54 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/mine/mine",
     "pages/logs/logs"
   ],
+  "entryPagePath": "pages/index/index",
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "AD陪伴型恢复训练小助手",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "restartStrategy": "homePage",
+    "initialRenderingCache": "static",
+    "visualEffectInBackground": "hidden",
+    "handleWebviewPreload": "static"
   },
-  "sitemapLocation": "sitemap.json"
+  "tabBar": {
+    "color": "#2c2c2c",
+    "selectedColor": "#158261",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home-selected.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "icons/mine.png",
+        "selectedIconPath": "icons/mine-selected.png"
+      }
+    ],
+    "position": "bottom"
+  },
+  "networkTimeout": {
+    "request": 15000,
+    "uploadFile": 15000,
+    "downloadFile": 15000,
+    "connectSocket": 15000
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+
+  "debug": true,
+  "debugOptions": {
+    "enableFPSPanel": true
+  }
 }
