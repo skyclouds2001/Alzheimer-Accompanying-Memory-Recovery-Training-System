@@ -17,7 +17,7 @@
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
-    "uglifyFileName": false,
+    "uglifyFileName": true,
     "checkInvalidKey": true,
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
@@ -27,9 +27,11 @@
     "useApiHook": true,
     "useApiHostProcess": true,
     "babelSetting": {
-      "ignore": [],
+      "ignore": [
+        "node_modules"
+      ],
       "disablePlugins": [],
-      "outputPath": ""
+      "outputPath": "@babel/runtime"
     },
     "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
@@ -44,9 +46,13 @@
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false,
+    "useCompilerPlugins": [
+      "less",
+      "typescript"
+    ],
     "ignoreUploadUnusedFiles": true,
-    "useStaticServer": true
+    "useStaticServer": true,
+    "ignoreDevUnusedFiles": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.23.4",
