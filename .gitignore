@@ -2,6 +2,7 @@
 [Dd]esktop.ini
 Thumbs.db
 $RECYCLE.BIN/
+.vscode/
 
 # macOS
 .DS_Store
@@ -12,3 +13,4 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
+miniprogram_npm/

@@ -1,0 +1,25 @@
+{
+  "name": "recovery-training-system",
+  "version": "1.0.0",
+  "description": "阿尔兹海默症陪伴型记忆恢复训练系统",
+  "main": "app.js",
+  "keywords": [
+    "阿尔兹海默症陪伴型记忆恢复训练系统",
+    "Alzheimer-Accompanying-Memory-Recovery-Training-System"
+  ],
+  "scripts": {
+    "test": "npm run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System/issues"
+  },
+  "homepage": "https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.2"
+  }
+}
