@@ -8,7 +8,8 @@
     "Alzheimer-Accompanying-Memory-Recovery-Training-System"
   ],
   "scripts": {
-    "test": "npm run"
+    "test": "npm run",
+    "lint": "eslint --fix app.js pages"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,12 @@
   "homepage": "https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System#readme",
   "dependencies": {
     "@vant/weapp": "^1.10.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0"
   }
 }

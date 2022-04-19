@@ -23,7 +23,7 @@
 
 ## 项目初始化
 
-- 预先安装npm并配置npm的系统变量
+- 预先安装node/npm并配置node/npm的系统变量
 
 - 根目录运行命令行
   安装npm下的所有依赖包
@@ -35,7 +35,12 @@
 - 小程序开发工具菜单
   工具-构建npm
 
+## 项目插件使用
+
 - 使用vant
+
+  参考 https://youzan.github.io/vant-weapp/
+
   以使用van-button为例
 
   - 页面json文件配置
@@ -54,10 +59,20 @@
   <van-button type="default">默认按钮</van-button>
   ```
 
-## 项目其他设定
+- 使用 eslint
+
+  格式化js文件
+  参考 https://eslint.bootcss.com/
+  项目根目录使用终端或命令行
+
+  ```shell
+  npm run lint
+  ```
+
+## 项目设定
 
 - 总体色调
-  Green    `#044937`    `#476897`    `#e5f5f1`
+  Green    `#044937`    `#47B961`    `#e5f5f1`
 
 - tabbar 标签栏
   选中配色 `#158261`    未选中配色 `#2c2c2c`
