@@ -8,8 +8,7 @@
     "Alzheimer-Accompanying-Memory-Recovery-Training-System"
   ],
   "scripts": {
-    "test": "npm run",
-    "lint": "eslint --fix app.js pages"
+    "lint": "eslint --fix app.js api componments lib pages utils"
   },
   "repository": {
     "type": "git",

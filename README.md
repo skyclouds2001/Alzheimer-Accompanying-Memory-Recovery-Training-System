@@ -15,7 +15,7 @@
   - mine 个人中心|我的
   - logs 日志【不用管它】
 - style 共用样式表目录
-- utils 工具目录（其他模块）
+- utils 工具目录（主要关于外部导入的模块）
   - util.js 时间格式化及数字格式化
 - app.js
 - app.json
