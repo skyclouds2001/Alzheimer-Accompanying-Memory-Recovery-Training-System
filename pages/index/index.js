@@ -1,4 +1,4 @@
-Page ({
+Page({
   data: {
     tabs: [],
     activeTab: 0,
@@ -14,18 +14,18 @@ Page ({
 
   onLoad () {
     const titles = ['病情评定', '线上预约挂号', '失认症恢复训练', '失用症恢复训练', '每日打卡', '紧急呼叫', '个人中心', '更多'];
-    const tabs = titles.map (item => ({ title: item }));
-    this.setData ({ tabs });
+    const tabs = titles.map(item => ({ title: item }));
+    this.setData({ tabs });
   },
 
   onTabCLick (e) {
     const index = e.detail.index;
-    this.setData ({ activeTab: index });
+    this.setData({ activeTab: index });
   },
 
   onChange (e) {
     const index = e.detail.index;
-    this.setData ({ activeTab: index });
+    this.setData({ activeTab: index });
   },
 
 });
