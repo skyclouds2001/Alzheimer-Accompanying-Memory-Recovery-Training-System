@@ -2,6 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/mine/mine",
+    "pages/checkin/checkin",
+    "pages/evaluate/evaluate",
+    "pages/apraxia/apraxia",
+    "pages/agnosia/agnosia",
     "pages/logs/logs"
   ],
   "entryPagePath": "pages/index/index",

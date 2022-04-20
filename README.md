@@ -1,22 +1,34 @@
 # 阿尔兹海默症陪伴型记忆恢复训练系统
 
+## 项目资料
+
+- 产品文档
+  参见 https://otkyd4jmkr.feishu.cn/docs/doccn1xGtWViE7fqJGLv60ybmDf
+  亦可参见 ./docs/ 目录
+- 接口文档
+  参见 https://www.apifox.cn/apidoc/shared-1d723974-d54a-41cb-a670-37321c8a53a8
+
 ## 项目结构
 
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
-- components 公共组件目录
+- components 项目组件目录
   - tabs 导航栏
 - docs 项目文档目录
 - images 本地图片目录
 - icons 本地图标目录
 - lib 公共方法目录（主要关于对wx原生方法包装的模块）
   - request.js 包装HTTPS请求方法
-- pages 小程序页面目录
+- pages 项目页面目录
   - index 首页
+  - evaluate 病情评定模块
+  - agnosia 失认症恢复模块
+  - apraxia 失用症恢复模块
   - mine 个人中心|我的
+  - checkin 每日打卡
   - logs 日志【不用管它】
 - style 共用样式表目录
 - utils 工具目录（主要关于外部导入的模块）
-  - util.js 时间格式化及数字格式化
+  - util.js 时间格式化
 - app.js
 - app.json
 - app.wxss
@@ -71,7 +83,7 @@
 
 ## 项目设定
 
-- 项目已开启 typescript 与 less 及 sass 支持，可以直接使用
+- 项目已开启 `typescript` 与 `less` 及 `sass` 支持，可以直接使用
 
 - 总体色调
   Green    `#044937`    `#47B961`    `#e5f5f1`
