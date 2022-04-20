@@ -48,7 +48,8 @@
     "showES6CompileOption": false,
     "useCompilerPlugins": [
       "less",
-      "typescript"
+      "typescript",
+      "sass"
     ],
     "ignoreUploadUnusedFiles": true,
     "useStaticServer": true,
