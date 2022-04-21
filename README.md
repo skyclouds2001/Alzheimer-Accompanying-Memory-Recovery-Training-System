@@ -7,6 +7,8 @@
   亦可参见 ./docs/ 目录
 - 接口文档
   参见 https://www.apifox.cn/apidoc/shared-1d723974-d54a-41cb-a670-37321c8a53a8
+- git 仓库
+  参见 https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git
 
 ## 项目结构
 
@@ -47,7 +49,7 @@
 - 小程序开发工具菜单
   工具-构建npm
 
-## 项目插件使用
+## 项目插件
 
 - 使用vant
 
@@ -55,7 +57,7 @@
 
   以使用van-button为例
 
-  - 页面json文件配置
+  - 页面json文件配置（注意不需要最后的`/index`字段）
 
   ```json
   {
@@ -75,11 +77,15 @@
 
   格式化js文件
   参考 https://eslint.bootcss.com/
-  项目根目录使用终端或命令行
+  项目根目录使用终端或命令行运行命令行
 
   ```shell
   npm run lint
   ```
+
+- 使用 `typescript` 与 `less` 及 `sass`
+  可以直接使用，无需额外配置
+  注意可能会覆盖对应的 `javascript` 与 `wxss` 文件
 
 ## 项目设定
 
@@ -102,6 +108,9 @@
   临时在app.json中开启debug模式，方便后续调试（发布时应当移除！！！）
   
 - 请求判断成功方法
-  code
+  使用 code 字段
   成功：10000
   失败：其他
+
+- 请求 token 问题
+  请求时需在 header 内添加 token 字段
