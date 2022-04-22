@@ -6,9 +6,10 @@
   参见 https://otkyd4jmkr.feishu.cn/docs/doccn1xGtWViE7fqJGLv60ybmDf
   亦可参见 ./docs/ 目录
 - 接口文档
-  参见 https://www.apifox.cn/apidoc/shared-1d723974-d54a-41cb-a670-37321c8a53a8
+  参见 https://www.apifox.cn/apidoc/shared-1d723974-d54a-41cb-a670-37321c8a53a8/
 - git 仓库
   参见 https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git
+  此仓库为私有仓库，需申请权限
 
 ## 项目结构
 
@@ -53,16 +54,16 @@
 
 - 使用vant
 
-  参考 https://youzan.github.io/vant-weapp/
+  参考 https://vant-contrib.gitee.io/
 
   以使用van-button为例
 
-  - 页面json文件配置（注意不需要最后的`/index`字段）
+  - 页面json文件配置
 
   ```json
   {
     "usingComponents": {
-      "van-button": "@vant/weapp/button"
+      "van-button": "@vant/weapp/button/index"
     }
   }
   ```
@@ -75,8 +76,11 @@
 
 - 使用 eslint
 
+  在开发者工具内安装 eslint 插件，编辑时实时检测代码格式化
   格式化js文件
+
   参考 https://eslint.bootcss.com/
+
   项目根目录使用终端或命令行运行命令行
 
   ```shell
@@ -84,6 +88,7 @@
   ```
 
 - 使用 `typescript` 与 `less` 及 `sass`
+
   可以直接使用，无需额外配置
   注意可能会覆盖对应的 `javascript` 与 `wxss` 文件
 
@@ -97,6 +102,7 @@
 - tabbar 标签栏
   选中配色 `#158261`    未选中配色 `#2c2c2c`
   首页    我的/个人中心
+  暂时使用系统默认标签栏
 
 - navigator 导航栏
   暂时使用系统默认导航栏
@@ -113,4 +119,4 @@
   失败：其他
 
 - 请求 token 问题
-  请求时需在 header 内添加 token 字段
+  request 请求时需在 header 内添加 token 字段
