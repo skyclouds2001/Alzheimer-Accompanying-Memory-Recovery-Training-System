@@ -1,0 +1,6 @@
+# default package lib
+node_modules
+miniprogram_npm
+
+# special file
+components/tabs/index.js

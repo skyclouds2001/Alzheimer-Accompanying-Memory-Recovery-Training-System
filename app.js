@@ -1,39 +1,73 @@
+'use strict';
+
+import { formatTime } from './utils/util.js';
+import { request } from './lib/request.js';
+
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
+
+  onLaunch: async function () {
+    try {
+      // // 登录
+      // const { code } = await wx.login({
+      //   timeout: 15000,
+      // });
+      // console.log({ code });
+
+      // // 获取密钥
+      // const { iv, encryptedData } = await wx.getUserInfo({
+      //   withCredentials: true,
+      //   lang: 'zh_CN',
+      // });
+      // console.log({ iv });
+      // console.log({ encryptedData });
+
+      // // 向服务器请求换取 openid 与 token
+      // const { data: res } = await request({
+      //   url: '/v1/login/wx',
+      //   method: 'POST',
+      //   data: {
+      //     code,
+      //     iv,
+      //     encryptedData,
+      //   },
+      //   header: {
+      //     'content-type': 'application/json',
+      //   },
+      // });
+      // console.log(res);
+      // const { openid, token } = res;
+      // console.log({ openid, token });
+
+      // this.globalData.openid = openid;
+      // this.globalData.token = token;
+      // wx.setStorageSync('openid', openid);
+      // wx.setStorageSync('token', token);
+    } catch (err) {
+      console.log(err);
+    }
+
+    // 存储本地日志
     const logs = wx.getStorageSync('logs') || [];
-    logs.unshift(Date.now());
+    logs.unshift(formatTime(new Date()));
     wx.setStorageSync('logs', logs);
-
-    // 登录
-    wx.login({
-      success: res => {
-        console.log(res);
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      },
-    });
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo;
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res);
-              }
-            },
-          });
-        }
-      },
-    });
   },
+
+  onPageNotFound: function (res) {
+    console.log({ res });
+  },
+
+  onError: function (err) {
+    console.log({ err });
+  },
+
+  onUnhandledRejection: function (res) {
+    console.log({ reason: res.reason });
+    res.promise.catch(err => console.log({ err }));
+  },
+
   globalData: {
-    userInfo: null,
+    openid: '',
+    token: '',
   },
+
 });
