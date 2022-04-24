@@ -1,66 +1,87 @@
-// pages/mine/mine.js
+'use strict';
+
+import Toast from '@vant/weapp/toast/toast';
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
+    /**
+     * 用户昵称
+     * @type {string}
+     * @default '请点击头像登录'
+     */
+    nickName: '请点击头像登录',
 
+    /**
+     * 用户头像url
+     * @type {string}
+     * @default './../../images/empty-image-default.png'
+     */
+    avatarUrl: '/images/empty-image-default.png',
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 标记用户是否已登录
+   * @type {boolean}
+   * @default false
    */
-  onLoad (options) {
+  isLogined: false,
 
+  onLoad () {
+    // 从存储提取用户信息
+    const userInfo = wx.getStorageSync('userInfo') || {};
+
+    // 判断是否已存在信息
+    // 设置数据并更新
+    if ('nickName' in userInfo && 'avatarUrl' in userInfo) {
+      this.setData({
+        avatarUrl: userInfo.avatarUrl,
+        nickName: userInfo.nickName,
+      });
+      this.isLogined = true;
+    }
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 处理用户登录换取用户微信头像及微信昵称
+   * @function
+   * @returns {Promise<void>}
    */
-  onReady () {
+  async onGetUserProfile () {
+    // 判断用户是否已获取微信头像与昵称
+    if (this.isLogined) {
+      return;
+    }
 
+    try {
+      // 调用wx接口获取用户信息
+      const { userInfo } = await wx.getUserProfile({
+        desc: '请授权我们使用您的个人信息',
+        lang: 'zh_CN',
+      });
+
+      // data设置用户信息
+      this.setData({
+        avatarUrl: userInfo.avatarUrl,
+        nickName: userInfo.nickName,
+      });
+
+      // 显示授权失败提示
+      Toast.success('授权成功');
+
+      // 保存用户信息到存储内
+      wx.setStorageSync('userInfo', {
+        avatarUrl: userInfo.avatarUrl,
+        nickName: userInfo.nickName,
+      });
+
+      // 更新已登录状态
+      this.isLogined = true;
+    } catch (err) {
+      console.log(err);
+      // 显示授权失败提示
+      Toast.fail('授权失败');
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage () {
-
-  },
 });

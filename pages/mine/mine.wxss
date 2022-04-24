@@ -1,1 +1,62 @@
-/* pages/mine/mine.wxss */
+page {
+  font-size: 36rpx;
+  /* background-color: #f0fff3; */
+  background-color: whitesmoke;
+
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 50rpx 0;
+
+  position: relative;
+}
+
+/* page::after {
+  content: '';
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(33, 209, 68, 0.5);
+  clip-path: polygon(0 0, 100% 0, 100% 15%, 0 15%);
+  z-index: -1;
+} */
+
+/* 用户头像及昵称 */
+.head-nickname {
+  width: calc(100vw - 100rpx);
+  margin: 0 50rpx;
+  
+  box-shadow: 7.5rpx 7.5rpx 20rpx #ccc, -7.5rpx -7.5rpx 20rpx #fff;
+  background-color: white;
+  border-radius: 25rpx;
+}
+
+/* 昵称 */
+.nickname {
+  width: auto;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  color: black;
+  letter-spacing: 1rpx;
+}
+
+/* 头像 */
+.avatar {
+  box-shadow: 5rpx 5rpx 15rpx #ccc;
+}
+
+/* 列表样式 */
+.list {
+  margin-top: 50rpx !important;
+  margin-bottom: 50rpx !important;
+  box-shadow: 7.5rpx 7.5rpx 20rpx #ccc, -7.5rpx -7.5rpx 20rpx #fff;
+}
