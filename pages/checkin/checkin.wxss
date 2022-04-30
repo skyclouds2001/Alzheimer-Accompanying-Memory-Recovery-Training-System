@@ -1,0 +1,84 @@
+page {
+  background-color: #e4fce7;
+}
+
+/* 背景图片 */
+.checkin-img {
+  width: 100vw;
+  height: 500rpx;
+}
+.checkin-img > image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 提示文字 */
+.checkin-text {
+  width: calc(100vw - 100rpx);
+  height: 100rpx;
+  padding: 0 50rpx;
+  margin: 50rpx;
+  box-sizing: border-box;
+
+  background-color: white;
+  border-radius: 25rpx;
+
+  white-space: normal;
+}
+.checkin-text > text {
+  font-size: 34rpx;
+  line-height: 100rpx;
+  letter-spacing: 1rpx;
+}
+.checkin-text .date {
+  font-weight: bold;
+  color: rgb(243, 81, 44);
+}
+
+/* 日历部分 */
+.checkin-calendar {
+  width: 100vw;
+  height: auto;
+  margin: 50rpx 0;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+}
+
+.van-calendar {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 15rpx !important;
+  overflow: hidden !important;
+}
+
+/* 打卡按钮部分 */
+.checkin-btn {
+  width: 100vw;
+  height: auto;
+  margin: 50rpx 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock-btn {
+  width: 250rpx;
+  height: 250rpx;
+
+  border-radius: 50%;
+  background-color: #3eb65a;
+  box-shadow: 5rpx 5rpx 10rpx #18722d;
+
+  color: white;
+  font-size: 50rpx;
+  line-height: 250rpx;
+  text-align: center;
+  letter-spacing: 5rpx;
+
+  transition: all 500ms ease 0;
+}
+.clock-btn:active {
+  box-shadow: 0 0 5rpx #18722d;
+}

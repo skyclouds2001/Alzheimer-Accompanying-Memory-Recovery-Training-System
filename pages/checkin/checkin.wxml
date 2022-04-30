@@ -1,1 +1,19 @@
-<text>pages/checkin/checkin.wxml</text>
+<!-- 背景图片 -->
+<view class="checkin-img">
+  <image mode="aspectFill" src="{{ url }}"></image>
+</view>
+
+<!-- 提示文字 -->
+<view class="checkin-text">
+  <text decode>您已坚持打卡&nbsp;<text class="date">{{ clock }}</text>&nbsp;天</text>
+</view>
+
+<!-- 日历 -->
+<view class="checkin-calendar">
+  <van-calendar poppable="{{ false }}" type="multiple" readonly color="#044937" minDate="{{ minDate }}" maxDate="{{ maxDate }}" default-date="{{ defaultDate }}" formatter="{{ formatter }}" first-day-of-week="{{ 1 }}" show-title="{{ false }}" show-subtitle="{{ false }}" show-confirm="{{ false }}" show-mark="{{ false }}" row-height="{{ 50 }}" />
+</view>
+
+<!-- 打卡按钮 -->
+<view class="checkin-btn">
+  <view class="clock-btn">打卡</view>
+</view>
