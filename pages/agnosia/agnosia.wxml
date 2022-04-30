@@ -1,7 +1,4 @@
 
-<!-- 返回按钮 -->
-<van-button type="primary" bindtap="back">返回</van-button>
-
 <!-- 弹出框 -->
 <van-transition show="{{ show }}" custom-class="block"
 duration="{{ { enter: 500, leave: 500 } }}">
@@ -11,8 +8,6 @@ duration="{{ { enter: 500, leave: 500 } }}">
 <!-- 分数显示框 -->
 <view id="scoreshow" hidden="{{condition}}" ><van-tag plain size='large' color="#ffe1e1" text-color="#ad0000" >score：{{score}}</van-tag></view>
 
-<!-- 标题栏 -->
-<view id="head1" hidden="{{condition}}">请选择与图片对应的选项</view> 
 
 <!-- 图片 -->
 <view id="tu" hidden="{{condition}}">
