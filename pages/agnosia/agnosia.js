@@ -36,7 +36,7 @@ Page({
       ['1', '2', '5', '9'],
     ],
     // 答案
-    answer: [1, 3, 1, 4],
+    answer: ["1", "3", "1", "4"],
     // 成绩
     score: 0,
     radio: '-1',
@@ -91,13 +91,6 @@ Page({
     this.setData({
       radio: name,
       isdisable: false,
-    });
-  },
-  back () {
-    audioRefRadio.play();
-    this.restart();
-    wx.navigateTo({
-      url: '../index/index',
     });
   },
   restart () {
