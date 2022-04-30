@@ -1,23 +1,14 @@
 page {
   --button-primary-background-color: rgb(71,185,151);
   --button-primary-border-color:rgb(71,185,151);
-  background-color: #d6fcee;
+  background-color: #e2f8ef;
 }
 #scoreshow{
   position:absolute;
   right: 10rpx;
   top:100rpx;
 }
-#head1 {
-  position :absolute;
-  top:150rpx;
-  left:60rpx;
-  color: rgb(71,185,151);
-  font-weight: 900;
-  font-size: xx-large;
-  
-  
-}
+
 #tip{
   text-align:center;
   line-height:350rpx ;
@@ -30,7 +21,7 @@ page {
   color: white;
   border-radius: 20rpx;
   left:200rpx;
-  top: 400rpx;
+  top: 350rpx;
   z-index: 10;
 }
 #tu{
@@ -45,33 +36,38 @@ page {
 #chose {
   height: 300rpx;
   font-weight: 700;
-  margin-bottom: 50rpx;
+  margin-bottom: 100rpx;
   
 }
 #submit {
     height: 100rpx;
     width: 300rpx;
-    margin-left: 210rpx;
+    margin-left: 215rpx;
 }
 #final_score{
-   text-align: center;
-   height: 400rpx;
+   position: relative;
+   height: 500rpx;
    background-color: rgb(71,185,151);
    font-weight: 900;
    color: yellow;
    margin-top: 300rpx;
-   padding-top: 100rpx;
+
 }
 #head {
+  position: absolute;
+  top: 100rpx;
+  left: 120rpx;
   font-size: xx-large;
 }
 #score_show {
-  margin-top: 150rpx;
+  position: absolute;
+  top: 300rpx;
+  left: 187rpx;
   font-size: x-large;
 }
 #restart {
   margin-top: 150rpx;
   height: 100rpx;
   width: 300rpx;
-  margin-left: 210rpx;
+  margin-left: 215rpx;
 }
