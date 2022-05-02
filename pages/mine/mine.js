@@ -45,6 +45,7 @@ Page({
   /**
    * 处理用户登录换取用户微信头像及微信昵称
    * @function
+   * @async
    * @returns {Promise<void>}
    */
   async onGetUserProfile () {
@@ -66,7 +67,7 @@ Page({
         nickName: userInfo.nickName,
       });
 
-      // 显示授权失败提示
+      // 显示授权成功提示
       Toast.success('授权成功');
 
       // 保存用户信息到存储内
