@@ -2,12 +2,23 @@ page {
   background-color: #e4fce7;
 }
 
-/* 背景图片 */
+/* 背景轮播图 */
 .checkin-img {
   width: 100vw;
   height: 500rpx;
 }
-.checkin-img > image {
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-item {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-item > image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -19,19 +30,22 @@ page {
   width: calc(100vw - 100rpx);
   height: 100rpx;
   padding: 0 50rpx;
-  margin: 50rpx;
+  margin: 75rpx 50rpx;
   box-sizing: border-box;
 
   background-color: white;
   border-radius: 25rpx;
+  box-shadow: 5rpx 5rpx 10rpx #afd6b8;
 
   white-space: normal;
 }
+
 .checkin-text > text {
   font-size: 34rpx;
   line-height: 100rpx;
   letter-spacing: 1rpx;
 }
+
 .checkin-text .date {
   font-weight: bold;
   color: rgb(243, 81, 44);
@@ -49,6 +63,7 @@ page {
 .van-calendar {
   background-color: rgba(255, 255, 255, 0.9) !important;
   border-radius: 15rpx !important;
+  box-shadow: 5rpx 5rpx 10rpx #afd6b8;
   overflow: hidden !important;
 }
 
@@ -63,13 +78,14 @@ page {
   justify-content: center;
   align-items: center;
 }
+
 .clock-btn {
   width: 250rpx;
   height: 250rpx;
 
   border-radius: 50%;
   background-color: #3eb65a;
-  box-shadow: 5rpx 5rpx 10rpx #18722d;
+  box-shadow: 5rpx 5rpx 10rpx #555;
 
   color: white;
   font-size: 50rpx;
@@ -80,5 +96,69 @@ page {
   transition: all 500ms ease 0;
 }
 .clock-btn:active {
-  box-shadow: 0 0 5rpx #18722d;
+  box-shadow: 2.5rpx 2.5rpx 5rpx #555;
+}
+
+/* 弹出框及打卡部分 */
+.clock-dialog {
+  width: 600rpx;
+  height: 200rpx;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(222, 255, 229, 0.6);
+  backdrop-filter: blur(5rpx);
+}
+
+/* 弹出框问题内容 */
+.clock-title {
+  width: 100%;
+  height: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 40rpx;
+  font-weight: bold;
+  letter-spacing: 1rpx;
+}
+
+/* 弹出框问题输入 */
+.clock-input {
+  width: 100%;
+  height: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 32rpx;
+}
+.clock-input > input {
+  width: 80%;
+  height: 1.25em;
+  margin: 0;
+  padding: 5rpx 10rpx;
+
+  border-bottom: 1rpx solid #084201;
+
+  font-size: 32rpx;
+  line-height: 1.25em;
+}
+.input-placeholder {
+  font-size: 32rpx;
+  line-height: 1.25em;
+}
+
+/* 覆盖 dialog 背景颜色 */
+.van-popup {
+  background-color: transparent !important;
+}
+/* 覆盖 overlay 背景颜色 */
+.van-transition {
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }
