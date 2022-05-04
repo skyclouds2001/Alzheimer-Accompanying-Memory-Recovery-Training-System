@@ -1,5 +1,3 @@
-// pages/recognize/recognize.js
-
 // 答完题后播放的音频
 const audioRef = wx.createInnerAudioContext();
 // 点击按钮时音频
@@ -36,7 +34,7 @@ Page({
       ['1', '2', '5', '9'],
     ],
     // 答案
-    answer: ['1', '3', '1', '4'],
+    answer: [1, 3, 1, 4],
     // 成绩
     score: 0,
     radio: '-1',
