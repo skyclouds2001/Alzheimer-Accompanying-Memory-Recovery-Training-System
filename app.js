@@ -1,7 +1,7 @@
 'use strict';
 
 import { formatTime } from './utils/util.js';
-import { request } from './lib/request.js';
+// import { request } from './lib/request.js';
 
 App({
 
@@ -48,21 +48,25 @@ App({
 
     // 存储本地日志
     const logs = wx.getStorageSync('logs') || [];
-    logs.unshift(formatTime(new Date()));
+    logs.unshift({
+      time: formatTime(new Date()),
+      messsage: '',
+    });
+    while (logs.length >= 10) {
+      logs.pop();
+    }
     wx.setStorageSync('logs', logs);
   },
 
   onPageNotFound: function (res) {
+    wx.showToast({
+      title: 'Unexpected Error!',
+      icon: 'error',
+    });
+    wx.switchTab({
+      url: './pages/index/index',
+    });
     console.log({ res });
-  },
-
-  onError: function (err) {
-    console.log({ err });
-  },
-
-  onUnhandledRejection: function (res) {
-    console.log({ reason: res.reason });
-    res.promise.catch(err => console.log({ err }));
   },
 
   globalData: {
