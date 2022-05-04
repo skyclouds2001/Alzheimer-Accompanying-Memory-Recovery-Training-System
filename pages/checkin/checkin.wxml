@@ -1,1 +1,36 @@
-<text>pages/checkin/checkin.wxml</text>
+<!-- 背景图片 -->
+<view class="checkin-img">
+  <swiper autoplay circular class="swiper">
+    <swiper-item wx:for="{{ images }}" wx:key="*this" class="swiper-item">  
+      <image mode="aspectFill" src="{{ item }}" lazy-load></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 提示文字 -->
+<view class="checkin-text">
+  <text decode>您已坚持打卡&nbsp;<text class="date">{{ clockDays }}</text>&nbsp;天</text>
+</view>
+
+<!-- 日历 -->
+<view class="checkin-calendar">
+  <van-calendar poppable="{{ false }}" type="multiple" readonly color="#32CD32" minDate="{{ minDate }}" maxDate="{{ maxDate }}" default-date="{{ defaultDate }}" formatter="{{ formatter }}" first-day-of-week="{{ 1 }}" show-title="{{ false }}" show-subtitle="{{ false }}" show-confirm="{{ false }}" show-mark="{{ false }}" row-height="{{ 50 }}" />
+</view>
+
+<!-- 打卡按钮 -->
+<view class="checkin-btn">
+  <view class="clock-btn" bindtap="handleClock">打卡</view>
+</view>
+
+<!-- 打卡框 -->
+<van-dialog width="600rpx" use-slot show="{{ showDialog }}" showConfirmButton="{{ false }}" showCancelButton="{{ false }}">
+  <view class="clock-dialog">
+    <view class="clock-title">{{ question }}</view>
+    <view class="clock-input">
+      <input type="text" placeholder="{{ recommend }}" placeholder-class="input-placeholder" maxlength="100" bindconfirm="handleClock" model:value="{{ inputValue }}" />
+    </view>
+  </view>
+</van-dialog>
+
+<!-- 提示框 -->
+<van-toast id="van-toast" />

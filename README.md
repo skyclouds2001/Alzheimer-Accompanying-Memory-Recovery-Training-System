@@ -6,7 +6,10 @@
   参见 https://otkyd4jmkr.feishu.cn/docs/doccn1xGtWViE7fqJGLv60ybmDf
   亦可参见 ./docs/ 目录
 - 接口文档
-  参见 https://www.apifox.cn/apidoc/shared-1d723974-d54a-41cb-a670-37321c8a53a8
+  参见 https://www.apifox.cn/apidoc/shared-1d723974-d54a-41cb-a670-37321c8a53a8/
+- git 仓库
+  参见 https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git
+  此仓库为私有仓库，需申请权限
 
 ## 项目结构
 
@@ -47,11 +50,11 @@
 - 小程序开发工具菜单
   工具-构建npm
 
-## 项目插件使用
+## 项目插件
 
 - 使用vant
 
-  参考 https://youzan.github.io/vant-weapp/
+  参考 https://vant-contrib.gitee.io/
 
   以使用van-button为例
 
@@ -60,7 +63,7 @@
   ```json
   {
     "usingComponents": {
-      "van-button": "@vant/weapp/button"
+      "van-button": "@vant/weapp/button/index"
     }
   }
   ```
@@ -73,9 +76,12 @@
 
 - 使用 eslint
 
+  在开发者工具内安装 eslint 扩展，在编辑时实时检测代码格式化
   格式化js文件
+
   参考 https://eslint.bootcss.com/
-  项目根目录使用终端或命令行
+
+  项目根目录使用终端或命令行运行命令行
 
   ```shell
   npm run lint
@@ -83,25 +89,40 @@
 
 ## 项目设定
 
-- 项目已开启 `typescript` 与 `less` 及 `sass` 支持，可以直接使用
-
 - 总体色调
   Green    `#044937`    `#47B961`    `#e5f5f1`
+  可以根据需要在合适范围内自行调整颜色
+
+- background 背景
+  背景色 `#e4fce7`
 
 - tabbar 标签栏
   选中配色 `#158261`    未选中配色 `#2c2c2c`
   首页    我的/个人中心
+  暂时使用系统默认标签栏
 
 - navigator 导航栏
   暂时使用系统默认导航栏
 
-- 微信小程序基础库版本
+- 小程序基础库版本
   `2.23.4`
 
 - DEBUG模式
   临时在app.json中开启debug模式，方便后续调试（发布时应当移除！！！）
-  
-- 请求判断成功方法
-  code
-  成功：10000
-  失败：其他
+
+- 请求
+  请求时需在 header 内添加 token 字段
+  请求成功判断方法根据 code 字段：成功-10000；失败-其他
+
+- globalData 设定
+  openid
+  token
+
+- Storage 设定
+  openid
+  token
+  userinfo
+  logs
+
+## TODO
+- 失认症治疗模块：需要回传问题id
