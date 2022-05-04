@@ -29,14 +29,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "icons/home.png",
-        "selectedIconPath": "icons/home-selected.png"
+        "iconPath": "./icons/home.png",
+        "selectedIconPath": "./icons/home-selected.png"
+      },
+      {
+        "pagePath": "pages/evaluate/evaluate",
+        "text": "诊断",
+        "iconPath": "./icons/diagnose.png",
+        "selectedIconPath": "./icons/diagnose-selected.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "icons/mine.png",
-        "selectedIconPath": "icons/mine-selected.png"
+        "iconPath": "./icons/mine.png",
+        "selectedIconPath": "./icons/mine-selected.png"
       }
     ],
     "position": "bottom"
