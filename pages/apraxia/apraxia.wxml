@@ -1,1 +1,18 @@
-<text>pages/apraxia/apraxia.wxml</text>
+<!-- 背景图片 -->
+<view class="image">
+  <image mode="aspectFill" class="background_img" src="https://img0.baidu.com/it/u=730453306,2696643017&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=188"></image>
+</view>
+
+<!-- 页面跳转按钮 -->
+<view class="content">
+  <view>
+    <button class="custom-btn btn-6">
+      <span class="span" bindtap="handleSports">和我来动一动吧^-^</span>
+    </button>
+  </view>
+  <view>
+    <button class="custom-btn btn-6">
+      <span class="span" bindtap="handleMusic">一起来听音乐吧^-^</span>
+    </button>
+  </view>
+</view>

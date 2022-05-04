@@ -5,6 +5,12 @@
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
     "pages/apraxia/apraxia",
+    "pages/apraxia/index/index",
+    "pages/apraxia/list/list",
+    "pages/apraxia/mysong/mysong",
+    "pages/apraxia/play/play",
+    "pages/apraxia/sports/sports",
+    "pages/apraxia/vedio/vedio",
     "pages/agnosia/agnosia",
     "pages/logs/logs"
   ],

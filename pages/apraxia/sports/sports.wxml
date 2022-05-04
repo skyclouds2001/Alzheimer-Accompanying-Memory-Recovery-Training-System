@@ -1,0 +1,8 @@
+<!--pages/music/sports/sports.wxml-->
+<view class="frame">
+  <view wx:for-items="{{train_text}}" wx:for-index="index" wx:key="{{item.id}}" bindtap="handleClick">
+    <button class="custom-btn btn-12">
+      <span>点击!</span><span>{{train_text[index]}}</span>
+    </button>
+  </view>
+</view>

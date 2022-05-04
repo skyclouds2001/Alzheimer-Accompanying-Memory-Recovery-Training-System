@@ -1,0 +1,27 @@
+<!--pages/music/list/list.wxml-->
+<view class="header">
+  <view>
+    <image src="{{coverImg}}" class="cover_img"></image>
+  </view>
+  <view class="cover_name">
+    <view class="listname">歌单名称：</view>
+    <view >{{name}}</view>
+  </view>
+</view>
+<view class="image">
+  <image class="background_img" src="https://img2.baidu.com/it/u=4189431909,4125093537&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=281"></image>
+</view>
+<view class="content">
+  <view wx:for-items="{{song_array}}" wx:for-index="index" wx:key="id">
+    <view bindtap="handleSong" data-id="{{item.id}}" data-picUrl="{{item.al.picUrl}}" data-song="{{item}}" class="item_song">
+      <view class="index {{index>=9?'index_big':'index_small'}}">
+        <text>{{index+1}}</text>
+      </view>
+      <view>
+        <view class="item_name">{{item.name}}</view>
+        <view class="singer_name">{{item.ar[0].name}} - {{item.al.name}}</view>
+      </view>
+    </view>
+    <van-divider class="divider"></van-divider>
+  </view>
+</view>

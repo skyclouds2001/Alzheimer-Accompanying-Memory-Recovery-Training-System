@@ -1,0 +1,15 @@
+<!--pages/music/index/index.wxml-->
+<view class="image"><image class="background_img" src="https://img2.baidu.com/it/u=4253176896,1055633857&fm=253&fmt=auto&app=138&f=JPEG?w=748&h=500"></image></view>
+<view class="container">
+    <view  wx:for-items="{{array}}" wx:key="id" class="content_item">
+      <view class="item" bindtap="handleItem" data-id="{{item.id}}">
+        <image src="{{item.picUrl}}"></image>
+        <text>{{item.name}}</text>
+    </view>
+  </view>
+ 
+</view>
+<view class="my_songs">
+    <button class="button" bindtap="handleMySongs"><span>我的喜欢</span></button>
+</view>
+

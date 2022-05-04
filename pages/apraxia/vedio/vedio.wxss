@@ -1,0 +1,5 @@
+/* pages/music/vedio/vedio.wxss */
+.section{
+  margin-top: 50rpx;
+  margin-left: 25rpx;
+}
