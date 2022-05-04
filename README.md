@@ -3,10 +3,11 @@
 ## 项目资料
 
 - 产品文档
-  参见 https://otkyd4jmkr.feishu.cn/docs/doccn1xGtWViE7fqJGLv60ybmDf
-  亦可参见 ./docs/ 目录
+  参见 https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
 - 接口文档
   参见 https://www.apifox.cn/apidoc/shared-1d723974-d54a-41cb-a670-37321c8a53a8/
+- 页面文档
+  参加 https://otkyd4jmkr.feishu.cn/docs/doccnZaTQiQ8QIuf9nC07IPIx5f
 - git 仓库
   参见 https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git
   此仓库为私有仓库，需申请权限
@@ -41,11 +42,12 @@
 - 预先安装node/npm并配置node/npm的系统变量
 
 - 根目录运行命令行
-  安装npm下的所有依赖包
 
   ```shell
   npm install
   ```
+
+  安装npm下的所有依赖包
 
 - 小程序开发工具菜单
   工具-构建npm
@@ -86,6 +88,8 @@
   ```shell
   npm run lint
   ```
+
+  自动检测代码并尝试进行代码格式化
 
 ## 项目设定
 
