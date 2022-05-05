@@ -52,7 +52,7 @@
     "ignoreDevUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.23.4",
+  "libVersion": "2.24.0",
   "appid": "wxe2338866c2fecb01",
   "projectname": "AD个性化恢复训练小助手",
   "simulatorType": "wechat",
