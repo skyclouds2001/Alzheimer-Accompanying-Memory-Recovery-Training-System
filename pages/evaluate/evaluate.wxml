@@ -5,7 +5,6 @@
   <!--显示问题的内容-->
   <view class="question" style="font-size: 20px;">{{ question }}</view>
 
-
   <view wx:if="{{ qpicture }}">
     <image class="qpicture" src="../../static/手表.png" wx:if="{{ qpicture1 }}"></image>
     <image class="qpicture" src="../../static/火柴.png" wx:if="{{ qpicture2 }}"></image>
@@ -14,15 +13,16 @@
     <image class="qpicture5" src="../../static/钥匙.png" wx:if="{{ qpicture5 }}"></image>
   </view>
 
-
-  <!--显示四个选项-->
+  <!--客观题四个选项-->
   <view class="answer" style="{{ ans1 }}" bind:tap="answer1" wx:if="{{ ans }}">{{ an1 }}</view>
   <view class="answer" style="{{ ans2 }}" bind:tap="answer2" wx:if="{{ ans }}">{{ an2 }}</view>
   <view class="answer" style="{{ ans3 }}" bind:tap="answer3" wx:if="{{ ans }}">{{ an3 }}</view>
   <view class="answer" style="{{ ans4 }}" bind:tap="answer4" wx:if="{{ ans }}">{{ an4 }}</view>
 
-  <input wx:if="blankjudge" class="fillblank" type="text" placeholder="点击在此输入内容" model:value="fillblank" />
+  <!-- 主观题输入框 -->
+  <input wx:if="blankjudge" class="fillblank" type="text" placeholder="点击在此输入内容" model:value="{{ fillblank }}" />
 
+  <!-- 切换按钮 -->
   <view bind:tap="buttondouble">
     <!--上一题的按钮-->
     <view wx:if="shangyiti" class="selfbutton1" style="{{ button1 }}" bind:touchstart="button1a1" bind:touchend="button1a2" bind:tap="butt1">{{ previous }}</view>
