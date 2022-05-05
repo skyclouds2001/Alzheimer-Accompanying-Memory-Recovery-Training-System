@@ -4,6 +4,7 @@
     "pages/mine/mine",
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
+    "pages/evaluate/main/main",
     "pages/apraxia/apraxia",
     "pages/apraxia/index/index",
     "pages/apraxia/list/list",
@@ -61,6 +62,7 @@
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
+  "requiredBackgroundModes": ["audio"],
 
   "debug": true,
   "debugOptions": {
