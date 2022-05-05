@@ -28,6 +28,7 @@
 - pages 项目页面目录
   - index 首页
   - evaluate 病情评定模块
+    - main 反馈结果页
   - agnosia 失认症恢复模块
   - apraxia 失用症恢复模块
     - sports 手指训练列表
