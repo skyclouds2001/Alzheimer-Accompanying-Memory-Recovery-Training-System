@@ -1,0 +1,46 @@
+/* 得分 */
+.score {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* 判断结果 */
+.result {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 200px;
+
+  /* csy */
+  margin-bottom: 200rpx;
+}
+
+/* 返回按钮 */
+.back-button {
+  border: 1px solid #e6e5e3;
+  width: 260px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 5%;
+  background-color: #51d36d;
+
+  /* csy */
+  font-size: 50rpx;
+  letter-spacing: 5rpx;
+  font-weight: bold;
+  color: white;
+  border-radius: 25rpx;
+}
+
+/* 提示 */
+.tips {
+  margin-top: 150rpx;
+  color: #838383;
+
+  /* csy */
+  padding: 0 50rpx;
+  font-size: 35rpx;
+}

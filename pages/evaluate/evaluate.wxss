@@ -1,0 +1,94 @@
+.top {
+  /* 此项为顶部问题显示栏的相关配置 */
+  border: 1px solid #e6e5e3;
+  text-align: center;
+  height: 50%;
+  line-height: 50%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  background-color: #47B961;
+}
+
+.below {
+  /*此项为灰底方框*/
+  background-color: #f1f1f1;
+  height: 80%;
+  width: 100%;
+  position: absolute;
+}
+
+/*问题框的配置*/
+.question {
+  border: 1px solid #e6e5e3;
+  background-color: #ffffff;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 8px;
+}
+
+.qpicture {
+  /*最后一题的图片的配置*/
+  height: 100px;
+  width: 100px;
+  border-radius: 10%;
+  float: left;
+  margin-left: 25px;
+}
+
+.qpicture5 {
+  /*最后一题的第五张图片的配置，因为第五张图片不用加float，所以给它单独配置*/
+  height: 100px;
+  width: 100px;
+  border-radius: 10%;
+  margin-left: 25px;
+}
+
+.answer {
+  /*四个选项框的配置*/
+  border: 1px solid #e6e5e3;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+  margin-top: 10px;
+  padding-left: 8px;
+}
+
+.fillblank {
+  /*填空题框*/
+  border: 1px solid #e6e5e3;
+  height: 28px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 25px;
+  background-color: #ffffff;
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+.selfbutton1 {
+  /*上一题的按钮框*/
+  border: 1px solid #e6e5e3;
+  width: 150px;
+  margin-top: 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  margin-left: 30px;
+  float: left;
+  border-radius: 10%;
+  background-color: #f9f9fa;
+}
+
+.selfbutton2 {
+  /*下一题的按钮框*/
+  border: 1px solid #e6e5e3;
+  width: 150px;
+  margin-top: 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  margin-right: 30px;
+  float: right;
+  border-radius: 10%;
+  background-color: #51d36d;
+}

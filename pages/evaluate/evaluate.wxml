@@ -1,1 +1,34 @@
-<text>pages/evaluate/evaluate.wxml</text>
+<view class="top">问题{{ serialNumber }}(共13题)</view>
+<!--关于实时显示总分数积累，实时显示感觉会让人紧张，没必要，就没加上了-->
+
+<view class="below">
+  <!--显示问题的内容-->
+  <view class="question" style="font-size: 20px;">{{ question }}</view>
+
+
+  <view wx:if="{{ qpicture }}">
+    <image class="qpicture" src="../../static/手表.png" wx:if="{{ qpicture1 }}"></image>
+    <image class="qpicture" src="../../static/火柴.png" wx:if="{{ qpicture2 }}"></image>
+    <image class="qpicture" src="../../static/烟.png" wx:if="{{ qpicture3 }}"></image>
+    <image class="qpicture" src="../../static/钢笔.png" wx:if="{{ qpicture4 }}"></image>
+    <image class="qpicture5" src="../../static/钥匙.png" wx:if="{{ qpicture5 }}"></image>
+  </view>
+
+
+  <!--显示四个选项-->
+  <view class="answer" style="{{ ans1 }}" bind:tap="answer1" wx:if="{{ ans }}">{{ an1 }}</view>
+  <view class="answer" style="{{ ans2 }}" bind:tap="answer2" wx:if="{{ ans }}">{{ an2 }}</view>
+  <view class="answer" style="{{ ans3 }}" bind:tap="answer3" wx:if="{{ ans }}">{{ an3 }}</view>
+  <view class="answer" style="{{ ans4 }}" bind:tap="answer4" wx:if="{{ ans }}">{{ an4 }}</view>
+
+  <input wx:if="blankjudge" class="fillblank" type="text" placeholder="点击在此输入内容" model:value="fillblank" />
+
+  <view bind:tap="buttondouble">
+    <!--上一题的按钮-->
+    <view wx:if="shangyiti" class="selfbutton1" style="{{ button1 }}" bind:touchstart="button1a1" bind:touchend="button1a2" bind:tap="butt1">{{ previous }}</view>
+
+    <!--下一题的按钮-->
+    <view wx:if="nextq" class="selfbutton2" style="{{ button2 }}" bind:touchstart="button2a1" bind:touchend="button2a2" bind:tap="butt2">{{ next }}</view>
+  </view>
+
+</view>
