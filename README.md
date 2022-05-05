@@ -5,9 +5,11 @@
 - 产品文档
   参见 https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
 - 接口文档
-  参见 <暂无>
+  参见 http://www.thylovezj.space/swagger-ui.html
 - 页面文档
-  参加 https://otkyd4jmkr.feishu.cn/docs/doccnZaTQiQ8QIuf9nC07IPIx5f
+  参见 https://otkyd4jmkr.feishu.cn/docs/doccnZaTQiQ8QIuf9nC07IPIx5f
+- 进度表
+  参见 https://otkyd4jmkr.feishu.cn/docs/doccncy0NdQd5nXGJsIgA829AKd
 - git 仓库
   参见 https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git
   此仓库为私有仓库，需向仓库所有者申请访问及编辑权限
