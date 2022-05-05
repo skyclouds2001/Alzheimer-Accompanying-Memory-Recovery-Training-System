@@ -1,8 +1,9 @@
-/* pages/music/sports/sports.wxss */
 page{
   width: 100%;
   height: 100%;
- }
+}
+
+/* 按钮 */
 .frame {
   width: 90%;
   margin: 40px auto;
@@ -11,6 +12,8 @@ page{
 button {
   margin: 20px;
 }
+
+/* 自引入按钮样式 */
 .custom-btn {
   width: 130px;
   height: 40px;
@@ -23,210 +26,64 @@ button {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow:
+    inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
-}
-.btn-4 {
-  background-color: #4dccc6;
-background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
-  line-height: 42px;
-  border: none;
-}
-.btn-4:hover{
-  background-color: #89d8d3;
-background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
-}
-.btn-4 span {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-.btn-4:before,
-.btn-4:after {
-  position: absolute;
-  content: "";
-  right: 0;
-  top: 0;
-   box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.9),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
-  transition: all 0.3s ease;
-}
-.btn-4:before {
-  height: 0%;
-  width: .1px;
-}
-.btn-4:after {
-  width: 0%;
-  height: .1px;
-}
-.btn-4:hover:before {
-  height: 100%;
-}
-.btn-4:hover:after {
-  width: 100%;
-}
-.btn-4 span:before,
-.btn-4 span:after {
-  position: absolute;
-  content: "";
-  left: 0;
-  bottom: 0;
-  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
-              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.9),
-    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
-  transition: all 0.3s ease;
-}
-.btn-4 span:before {
-  width: .1px;
-  height: 0%;
-}
-.btn-4 span:after {
-  width: 0%;
-  height: .1px;
-}
-.btn-4 span:hover:before {
-  height: 100%;
-}
-.btn-4 span:hover:after {
-  width: 100%;
 }
 .btn-12{
   position: relative;
-  /*right: 20px;
-  bottom: 20px;
-  */
   padding-left: 0rpx;
   border:none;
   box-shadow: none;
   width: 140px;
   height: 40px;
   line-height: 42px;
-  -webkit-perspective: 230px;
   perspective: 230px;
 }
 .btn-12 span {
   background: rgb(0,172,238);
-background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+  background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
   display: block;
   position: absolute;
   width: 140px;
   height: 40px;
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow:
+    inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
   border-radius: 5px;
   margin:0px;
   text-align: center;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: all .3s;
   transition: all .3s;
 }
 .btn-12 span:nth-child(1) {
   box-shadow:
-   -7px -7px 20px 0px #fff9,
-   -4px -4px 5px 0px #fff9,
-   7px 7px 20px 0px #0002,
-   4px 4px 5px 0px #0001;
-  -webkit-transform: rotateX(90deg);
-  -moz-transform: rotateX(90deg);
+    -7px -7px 20px 0px #fff9,
+    -4px -4px 5px 0px #fff9,
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001;
   transform: rotateX(90deg);
-  -webkit-transform-origin: 50% 50% -20px;
-  -moz-transform-origin: 50% 50% -20px;
   transform-origin: 50% 50% -20px;
 }
 .btn-12 span:nth-child(2) {
-  -webkit-transform: rotateX(0deg);
-  -moz-transform: rotateX(0deg);
   transform: rotateX(0deg);
-  -webkit-transform-origin: 50% 50% -20px;
-  -moz-transform-origin: 50% 50% -20px;
   transform-origin: 50% 50% -20px;
 }
 .btn-12:hover span:nth-child(1) {
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  -webkit-transform: rotateX(0deg);
-  -moz-transform: rotateX(0deg);
+  box-shadow:
+    inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
   transform: rotateX(0deg);
 }
 .btn-12:hover span:nth-child(2) {
-  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
- color: transparent;
-  -webkit-transform: rotateX(-90deg);
-  -moz-transform: rotateX(-90deg);
+  box-shadow:
+    inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+  color: transparent;
   transform: rotateX(-90deg);
-}
-
-.btn-14 {
-  background: rgb(255,151,0);
-  border: none;
-  z-index: 1;
-}
-.btn-14:after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 0;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: 5px;
-  background-color: #eaf818;
-  background-image: linear-gradient(315deg, #eaf818 0%, #f6fc9c 74%);
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5)，
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  transition: all 0.3s ease;
-}
-.btn-14:hover {
-  color: #000;
-}
-.btn-14:hover:after {
-  top: auto;
-  bottom: 0;
-  height: 100%;
-}
-.btn-14:active {
-  top: 2px;
-}
-.btn-15 {
-  background: #b621fe;
-  border: none;
-  z-index: 1;
-}
-.btn-15:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  background-color: #663dff;
-  border-radius: 5px;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  transition: all 0.3s ease;
-}
-.btn-15:hover {
-  color: #fff;
-}
-.btn-15:hover:after {
-  left: 0;
-  width: 100%;
-}
-.btn-15:active {
-  top: 2px;
 }

@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3355450 */
+  src: url('//at.alicdn.com/t/font_3355450_lnk9a2h1ddk.woff2?t=1651127247684') format('woff2'),
+       url('//at.alicdn.com/t/font_3355450_lnk9a2h1ddk.woff?t=1651127247684') format('woff'),
+       url('//at.alicdn.com/t/font_3355450_lnk9a2h1ddk.ttf?t=1651127247684') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 60px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dislike:before {
+  content: "\e6e9";
+}
+
+.icon-heart-fill:before {
+  content: "\e7d1";
+}
+
+.icon-heart-fill-copy:before {
+  content: "\e7d2";
+}
+
+.icon-stop:before {
+  content: "\e750";
+}
+
+.icon-a-huaban2fuben7:before {
+  content: "\e60d";
+}
+
+.icon-like:before {
+  content: "\e69c";
+}
+
+.icon-iconfontstop:before {
+  content: "\e71a";
+}
+
+.icon-nextsong:before {
+  content: "\e69d";
+}
+
+.icon-play:before {
+  content: "\e701";
+}
+
+.icon-icon_lastsong:before {
+  content: "\e607";
+}
+
+.icon-icon_nextsong:before {
+  content: "\e608";
+}

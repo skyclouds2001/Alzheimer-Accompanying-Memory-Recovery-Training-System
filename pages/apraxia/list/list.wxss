@@ -1,4 +1,4 @@
-/* pages/music/list/list.wxss */
+/* 歌单名称及图片部分 */
 .image{
   width: 100%;
   height: 100%;
@@ -34,7 +34,7 @@
   z-index:1
 }
 
-
+/* 歌单歌曲 */
 .item_song{
   display: flex;
 }

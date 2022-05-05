@@ -1,11 +1,3 @@
-<!--pages/music/vedio/vedio.wxml-->
 <view class="section">
-  <video
-    id="myVideo"
-    src="{{vedio_src[index]}}"
-    danmu-list="{{danmuList}}"
-    enable-danmu
-    danmu-btn
-    controls
-  ></video>
+  <video id="myVideo" src="{{ vedio_src[index] }}" controls title="手指训练{{ index }}"></video>
 </view>

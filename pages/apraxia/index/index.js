@@ -1,90 +1,73 @@
-// pages/music/index/index.js
+/**
+ * @typedef timestamp
+ * @type {number}
+ */
+/**
+ * @typedef Song
+ * @type {Object}
+ * @property {string} alg
+ * @property {boolean} canDislike
+ * @property {string} copywriter
+ * @property {boolean} highQuality
+ * @property {number} id
+ * @property {string} name
+ * @property {string} picUrl
+ * @property {number} playCount
+ * @property {number} trackCount
+ * @property {timestamp} trackNumberUpdateTime
+ * @property {number} type
+ */
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    array:[]
+    /**
+     * 歌曲列表
+     * @type {Song[]}
+     */
+    array: [],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var that = this;
+  onLoad: function () {
+    const that = this;
     wx.request({
-      url: 'https://api.xaneon.com/personalized', 
+      url: 'https://api.xaneon.com/personalized',
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json', // 默认值
       },
       success (res) {
         that.setData({
-          //默认选取前9个歌单
-          array:res.data.result.slice(0,9)
-        })
-      }
-    })
+          // 默认选取前9个歌单
+          array: res.data.result.slice(0, 9),
+        });
+      },
+    });
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 跳转至歌曲详情页
+   * @function
+   * @param {Event} e
+   * @returns {void}
    */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-  handleItem(id){
-    var app = getApp();
-    app.globalData.id = id.currentTarget.dataset.id;
+  handleItem (e) {
+    const { id } = e.currentTarget.dataset;
+    const app = getApp();
+    app.globalData.id = id;
     wx.navigateTo({
-      url: '../list/list?listid='+id.currentTarget.dataset.id,
-    })
+      url: `../list/list?listid=${id}`,
+    });
   },
-  handleMySongs:function(){
+
+  /**
+   * 跳转至我的喜欢歌曲页
+   * @function
+   * @returns {void}
+   */
+  handleMySongs: function () {
     wx.navigateTo({
-      url: '../mysong/mysong'
-    })
-  }
-})
+      url: '../mysong/mysong',
+    });
+  },
+
+});

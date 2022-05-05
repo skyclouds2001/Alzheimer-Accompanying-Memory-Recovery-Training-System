@@ -1,71 +1,24 @@
-// pages/music/sports/sports.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    train_text:["恢复训练一","恢复训练二","恢复训练三","恢复训练四"]
+    /**
+     * 训练按钮文案
+     * @type {string[]}
+     */
+    train_text: ['恢复训练一', '恢复训练二', '恢复训练三', '恢复训练四'],
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 跳转至相应的训练页面
+   * @function
+   * @param {Event} e
+   * @returns {void}
    */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-  handleClick:function(){
+  handleClick: function (e) {
+    const { index } = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `../vedio/vedio`,
-    })
-  }
-})
+      url: `./../../../pages/apraxia/vedio/vedio?id=${index}`,
+    });
+  },
+
+});

@@ -1,4 +1,5 @@
-/* pages/music/play/play.wxss */
+@import './../../../style/iconfont.wxss';
+
 .content{
   width: 100%;
   height: 100%;

@@ -1,5 +1,6 @@
-/* pages/music/mysong/mysong.wxss */
-/* pages/music/list/list.wxss */
+@import './../../../style/iconfont.wxss';
+
+/* 背景图片？ */
 .image{
   width: 100%;
   height: 100%;
@@ -24,6 +25,8 @@
   height: 100%;
   opacity: 0.5;
 }
+
+/* 内容区 */
 .content{
   position: relative;
   z-index:1

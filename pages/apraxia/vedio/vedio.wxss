@@ -1,5 +1,7 @@
-/* pages/music/vedio/vedio.wxss */
 .section{
-  margin-top: 50rpx;
-  margin-left: 25rpx;
+  margin: 50rpx auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
