@@ -5,12 +5,15 @@
 - 产品文档
   参见 https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
 - 接口文档
-  参见 https://www.apifox.cn/apidoc/shared-1d723974-d54a-41cb-a670-37321c8a53a8/
+  参见 <暂无>
 - 页面文档
   参加 https://otkyd4jmkr.feishu.cn/docs/doccnZaTQiQ8QIuf9nC07IPIx5f
 - git 仓库
   参见 https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git
-  此仓库为私有仓库，需申请权限
+  此仓库为私有仓库，需向仓库所有者申请访问及编辑权限
+- 网易云音乐API
+  请求host https://api.xaneon.com
+  接口文档 https://neteasecloudmusicapi.vercel.app/
 
 ## 项目结构
 
@@ -27,6 +30,12 @@
   - evaluate 病情评定模块
   - agnosia 失认症恢复模块
   - apraxia 失用症恢复模块
+    - sports 手指训练列表
+    - vedio 训练视频播放
+    - index 音乐治疗列表
+    - list 歌单列表
+    - mysong 我的收藏歌曲
+    - play 歌曲播放
   - mine 个人中心|我的
   - checkin 每日打卡
   - logs 日志【不用管它】
