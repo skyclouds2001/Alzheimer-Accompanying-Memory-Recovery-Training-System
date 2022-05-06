@@ -22,6 +22,8 @@
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
 - components 项目组件目录
   - tabs 导航栏
+- data 静态数据目录
+  - question.js  长谷川问题列表
 - docs 项目文档目录
 - images 本地图片目录
 - icons 本地图标目录
