@@ -24,6 +24,8 @@
   padding-top: 13px;
   padding-bottom: 13px;
   padding-left: 8px;
+
+  font-size: 20px;
 }
 
 .qpicture {
@@ -51,6 +53,11 @@
   background-color: #ffffff;
   margin-top: 10px;
   padding-left: 8px;
+
+  transition: all 250ms ease-in-out 0;
+}
+.answer.select {
+  background: #d0dedb;
 }
 
 .fillblank {
@@ -78,6 +85,9 @@
   border-radius: 10%;
   background-color: #f9f9fa;
 }
+.selfbutton1:active {
+  background:#dad9d8;
+}
 
 .selfbutton2 {
   /*下一题的按钮框*/
@@ -91,4 +101,7 @@
   float: right;
   border-radius: 10%;
   background-color: #51d36d;
+}
+.selfbutton2:active {
+  background:#47B961;
 }

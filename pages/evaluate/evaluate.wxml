@@ -1,34 +1,39 @@
-<view class="top">问题{{ serialNumber }}(共13题)</view>
-<!--关于实时显示总分数积累，实时显示感觉会让人紧张，没必要，就没加上了-->
+<view class="top">问题{{ index }}(共13题)</view>
 
 <view class="below">
-  <!--显示问题的内容-->
-  <view class="question" style="font-size: 20px;">{{ question }}</view>
 
-  <view wx:if="{{ qpicture }}">
-    <image class="qpicture" src="../../static/手表.png" wx:if="{{ qpicture1 }}"></image>
-    <image class="qpicture" src="../../static/火柴.png" wx:if="{{ qpicture2 }}"></image>
-    <image class="qpicture" src="../../static/烟.png" wx:if="{{ qpicture3 }}"></image>
-    <image class="qpicture" src="../../static/钢笔.png" wx:if="{{ qpicture4 }}"></image>
-    <image class="qpicture5" src="../../static/钥匙.png" wx:if="{{ qpicture5 }}"></image>
+  <!-- 显示问题的内容 -->
+  <view class="question">{{ question.content }}</view>
+
+  <!-- [type=5存在] 类型问题的图片 -->
+  <view wx:if="{{ question.type === 5 }}">
+    <block wx:for="{{ question.img }}" wx:key="*this">
+      <image class="qpicture" src="{{ item }}" wx:if="{{ true }}"></image>
+    </block>
   </view>
 
-  <!--客观题四个选项-->
-  <view class="answer" style="{{ ans1 }}" bind:tap="answer1" wx:if="{{ ans }}">{{ an1 }}</view>
-  <view class="answer" style="{{ ans2 }}" bind:tap="answer2" wx:if="{{ ans }}">{{ an2 }}</view>
-  <view class="answer" style="{{ ans3 }}" bind:tap="answer3" wx:if="{{ ans }}">{{ an3 }}</view>
-  <view class="answer" style="{{ ans4 }}" bind:tap="answer4" wx:if="{{ ans }}">{{ an4 }}</view>
+  <!-- [type=6不存在] 客观题四个选项 -->
+  <view wx:if="{{ question.type !== 6 }}" bind:tap="handleChooseAnswer">
+    <view class="answer {{ question.answer !== index + 1 ? '' : 'select' }}" wx:for="{{ question.choice }}" wx:key="*this" data-id="{{ index + 1 }}">{{ item }}</view>
+  </view>
 
-  <!-- 主观题输入框 -->
-  <input wx:if="blankjudge" class="fillblank" type="text" placeholder="点击在此输入内容" model:value="{{ fillblank }}" />
+  <!-- [type=6存在] 主观题输入框 -->
+  <block wx:if="{{ question.type === 6 }}">
+    <input class="fillblank" type="text" value="{{ question.answer }}" placeholder="点击在此输入内容" bind:confirm="handleInputConfirm" />
+  </block>
 
   <!-- 切换按钮 -->
-  <view bind:tap="buttondouble">
+  <view bind:tap="handleChangePage">
+  
     <!--上一题的按钮-->
-    <view wx:if="shangyiti" class="selfbutton1" style="{{ button1 }}" bind:touchstart="button1a1" bind:touchend="button1a2" bind:tap="butt1">{{ previous }}</view>
+    <view wx:if="{{ index > 1 && index <= 13 }}" class="selfbutton1" data-flag="{{ -1 }}">上一题</view>
 
     <!--下一题的按钮-->
-    <view wx:if="nextq" class="selfbutton2" style="{{ button2 }}" bind:touchstart="button2a1" bind:touchend="button2a2" bind:tap="butt2">{{ next }}</view>
+    <view wx:if="{{ index >= 1 && index < 13  }}" class="selfbutton2" data-flag="{{ 1 }}">下一题</view>
+
+    <!--结束答题的按钮-->
+    <navigator wx:if="{{ index === 13  }}" url="./../../pages/evaluate/main/main?score={{ 0 }}" class="selfbutton2">提交答案</navigator>
+
   </view>
 
 </view>

@@ -25,7 +25,7 @@ Page({
   },
 
   onLoad (options) {
-    const { score, type } = options;
+    const { score, type = 1 } = options;
     const result = this.getHDSresult(score, type);
     this.setData({
       score,
