@@ -198,7 +198,13 @@ const question = [
     choice: null,
     key: null,
     info: '以下哪个是刚才消失的物品？',
-    img: [],
+    img: [
+      './../images/cigarette.png',
+      './../images/key.png',
+      './../images/match.png',
+      './../images/pen.png',
+      './../images/watch.png',
+    ],
     answer: null,
   },
 ];
