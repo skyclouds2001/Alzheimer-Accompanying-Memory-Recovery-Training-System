@@ -4,7 +4,14 @@
     "pages/mine/mine",
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
+    "pages/evaluate/main/main",
     "pages/apraxia/apraxia",
+    "pages/apraxia/index/index",
+    "pages/apraxia/list/list",
+    "pages/apraxia/mysong/mysong",
+    "pages/apraxia/play/play",
+    "pages/apraxia/sports/sports",
+    "pages/apraxia/vedio/vedio",
     "pages/agnosia/agnosia",
     "pages/logs/logs"
   ],
@@ -29,14 +36,20 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "icons/home.png",
-        "selectedIconPath": "icons/home-selected.png"
+        "iconPath": "./icons/home.png",
+        "selectedIconPath": "./icons/home-selected.png"
+      },
+      {
+        "pagePath": "pages/evaluate/evaluate",
+        "text": "诊断",
+        "iconPath": "./icons/diagnose.png",
+        "selectedIconPath": "./icons/diagnose-selected.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "icons/mine.png",
-        "selectedIconPath": "icons/mine-selected.png"
+        "iconPath": "./icons/mine.png",
+        "selectedIconPath": "./icons/mine-selected.png"
       }
     ],
     "position": "bottom"
@@ -49,6 +62,7 @@
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
+  "requiredBackgroundModes": ["audio"],
 
   "debug": true,
   "debugOptions": {

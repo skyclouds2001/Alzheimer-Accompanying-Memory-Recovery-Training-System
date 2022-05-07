@@ -1,0 +1,3 @@
+<view class="section">
+  <video id="myVideo" src="{{ vedio_src[index] }}" controls title="手指训练{{ index }}"></video>
+</view>

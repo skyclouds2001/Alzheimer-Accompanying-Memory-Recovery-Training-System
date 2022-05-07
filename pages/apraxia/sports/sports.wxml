@@ -1,0 +1,8 @@
+<view class="frame">
+  <view wx:for="{{ train_text }}" wx:key="id" bindtap="handleClick" data-index="{{ index }}">
+    <button class="custom-btn btn-12">
+      <span>点击!</span>
+      <span>{{ item }}</span>
+    </button>
+  </view>
+</view>

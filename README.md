@@ -3,19 +3,27 @@
 ## 项目资料
 
 - 产品文档
-  参见 https://otkyd4jmkr.feishu.cn/docs/doccn1xGtWViE7fqJGLv60ybmDf
-  亦可参见 ./docs/ 目录
+  参见 https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
 - 接口文档
-  参见 https://www.apifox.cn/apidoc/shared-1d723974-d54a-41cb-a670-37321c8a53a8/
+  参见 http://www.thylovezj.space/swagger-ui.html
+- 页面文档
+  参见 https://otkyd4jmkr.feishu.cn/docs/doccnZaTQiQ8QIuf9nC07IPIx5f
+- 进度表
+  参见 https://otkyd4jmkr.feishu.cn/docs/doccncy0NdQd5nXGJsIgA829AKd
 - git 仓库
   参见 https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git
-  此仓库为私有仓库，需申请权限
+  此仓库为私有仓库，需向仓库所有者申请访问及编辑权限
+- 网易云音乐API
+  请求host https://api.xaneon.com
+  接口文档 https://neteasecloudmusicapi.vercel.app/
 
 ## 项目结构
 
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
 - components 项目组件目录
   - tabs 导航栏
+- data 静态数据目录
+  - question.js  长谷川问题列表
 - docs 项目文档目录
 - images 本地图片目录
 - icons 本地图标目录
@@ -24,8 +32,15 @@
 - pages 项目页面目录
   - index 首页
   - evaluate 病情评定模块
+    - main 反馈结果页
   - agnosia 失认症恢复模块
   - apraxia 失用症恢复模块
+    - sports 手指训练列表
+    - vedio 训练视频播放
+    - index 音乐治疗列表
+    - list 歌单列表
+    - mysong 我的收藏歌曲
+    - play 歌曲播放
   - mine 个人中心|我的
   - checkin 每日打卡
   - logs 日志【不用管它】
@@ -41,11 +56,12 @@
 - 预先安装node/npm并配置node/npm的系统变量
 
 - 根目录运行命令行
-  安装npm下的所有依赖包
 
   ```shell
   npm install
   ```
+
+  安装npm下的所有依赖包
 
 - 小程序开发工具菜单
   工具-构建npm
@@ -86,6 +102,8 @@
   ```shell
   npm run lint
   ```
+
+  自动检测代码并尝试进行代码格式化
 
 ## 项目设定
 

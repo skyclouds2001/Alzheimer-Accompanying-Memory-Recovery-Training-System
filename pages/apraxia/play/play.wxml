@@ -1,0 +1,24 @@
+<view class="content">
+  <!-- 背景大图 -->
+  <image class="big_img" src="{{ imgUrl }}"></image>
+  <view class="title">{{ name }}</view>
+
+  <!-- 中间区域 -->
+  <view class="middle">
+    <swiper class="middle-swiper">
+      <swiper-item class="cd-wrapper">
+        <view class="cd-image">
+          <image src="{{ imgUrl }}"></image>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 播放控制 -->
+  <view class="controls">
+    <text class="text">{{ isPlayingText }}</text>
+    <text class="icon {{ isPlaying ? 'iconfont icon-stop' : 'iconfont icon-play' }}" bindtap="play"></text>
+    <text class="text">{{ isLikeText }}</text>
+    <text class="icon {{ isLike ? 'iconfont icon-like' : 'iconfont icon-dislike' }}" bindtap="like"></text>
+  </view>
+</view>
