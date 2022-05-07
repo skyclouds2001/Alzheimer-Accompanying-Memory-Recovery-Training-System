@@ -10,25 +10,25 @@
   font-size: 25px;
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 200px;
+  margin-bottom: 350rpx;
 
   /* csy */
-  margin-bottom: 200rpx;
+  color: #000000b7;
 }
 
 /* 返回按钮 */
 .back-button {
   border: 1px solid #e6e5e3;
   width: 260px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   text-align: center;
   margin: 0 auto;
   border-radius: 5%;
-  background-color: #51d36d;
+  background-color: #54b7ab;
 
   /* csy */
-  font-size: 50rpx;
+  font-size: 37rpx;
   letter-spacing: 5rpx;
   font-weight: bold;
   color: white;
@@ -41,6 +41,6 @@
   color: #838383;
 
   /* csy */
-  padding: 0 50rpx;
-  font-size: 35rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
 }

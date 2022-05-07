@@ -48,7 +48,6 @@
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
     "ignoreUploadUnusedFiles": true,
-    "useStaticServer": true,
     "ignoreDevUnusedFiles": true
   },
   "compileType": "miniprogram",
@@ -57,9 +56,9 @@
   "projectname": "AD个性化恢复训练小助手",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "condition": {}
 }

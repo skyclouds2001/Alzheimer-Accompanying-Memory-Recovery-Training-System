@@ -13,6 +13,7 @@
   </view>
 
   <!-- [type=6不存在] 客观题四个选项 -->
+<view class="allans">
   <view wx:if="{{ question.type !== 6 }}" bind:tap="handleChooseAnswer">
     <view class="answer {{ question.answer !== index + 1 ? '' : 'select' }}" wx:for="{{ question.choice }}" wx:key="*this" data-id="{{ index + 1 }}">{{ item }}</view>
   </view>
@@ -21,6 +22,7 @@
   <block wx:if="{{ question.type === 6 }}">
     <input class="fillblank" type="text" value="{{ question.answer }}" placeholder="点击在此输入内容" bind:confirm="handleInputConfirm" />
   </block>
+</view>
 
   <!-- 切换按钮 -->
   <view bind:tap="handleChangePage">
