@@ -1,7 +1,5 @@
 page {
-  --button-primary-background-color: rgb(71,185,151);
-  --button-primary-border-color:rgb(71,185,151);
-  background-color: #e2f8ef;
+  background-color: rgb(214, 252, 239);
 }
 
 #scoreshow{
@@ -41,38 +39,53 @@ page {
 #chose {
   height: 300rpx;
   font-weight: 700;
-  margin-bottom: 100rpx;
+  margin-bottom: 90rpx;
   
 }
 #submit {
-    height: 100rpx;
-    width: 300rpx;
-    margin-left: 215rpx;
+    height: 90rpx;
+    width: 650rpx;
+    margin-left: 50rpx;
+    background-color: rgb(84, 182, 171);
+    color: white;
+    font-weight: 400;
+    border-radius: 30rpx;
+    line-height: 90rpx;
 }
 #final_score{
    position: relative;
    height: 500rpx;
-   background-color: rgb(71,185,151);
+   background-color: rgb(84, 182, 171);
    font-weight: 900;
-   color: yellow;
+   color: white;
    margin-top: 300rpx;
-
+  border-radius: 30rpx;
 }
 #head {
   position: absolute;
   top: 100rpx;
-  left: 120rpx;
+  left: 130rpx;
   font-size: xx-large;
 }
 #score_show {
   position: absolute;
   top: 300rpx;
-  left: 187rpx;
-  font-size: x-large;
+  left: 220rpx;
+  font-size: large;
 }
 #restart {
   margin-top: 150rpx;
-  height: 100rpx;
-  width: 300rpx;
-  margin-left: 215rpx;
+  height: 110rpx;
+  width: 350rpx;
+  background-color: rgb(84, 182, 171);
+  margin-left: 200rpx;
+  border-radius: 25rpx;
+  color: white;
+  text-align: center;
+  line-height: 110rpx;
+}
+#loadingtip{
+  position:absolute;
+  left:240rpx;
+  top: 450rpx;
 }
