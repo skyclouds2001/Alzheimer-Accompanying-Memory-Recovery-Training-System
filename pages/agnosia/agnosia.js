@@ -9,7 +9,7 @@ const audioRefTrue = wx.createInnerAudioContext();
 
 Page({
   data: {
-    isloading:true,
+    isloading: true,
     isdisable: true,
     // 是否隐藏组件
     condition: false,
@@ -21,7 +21,7 @@ Page({
     // 题目组索引
     index: 0,
     // 问题对象
-    question_obj:[],
+    question_obj: [],
 
     // 成绩
     score: 0,
@@ -34,7 +34,7 @@ Page({
   // 点击submit按钮事件
   change () {
     audioRefRadio.play();
-    this.setData({'isdisable':true})
+    this.setData({ isdisable: true });
     // 点击下一题
     if (this.data.index < this.data.question_obj.length - 1) {
       if (this.data.radio === this.data.question_obj[this.data.index].answer) {
@@ -47,7 +47,8 @@ Page({
       }
       this.setData({ show: true });
       setTimeout(this.disappear, 2000);
-    } else { // 点击提交，算成绩放音乐
+    } else {
+      // 点击提交，算成绩放音乐
       if (this.data.radio === this.data.question_obj[this.data.index].answer) {
         audioRefTrue.play();
         this.setData({ score: this.data.score + 1 });
@@ -56,14 +57,14 @@ Page({
       }
       audioRef.play();
       this.setData({ condition: true });
-      this.sendscore()
+      this.sendscore();
     }
   },
 
   disappear () {
     this.setData({ show: false });
     this.setData({ index: this.data.index + 1 });
-    this.setData({ radio: '-1'});
+    this.setData({ radio: '-1' });
     if (this.data.index === this.data.question_obj.length - 1) {
       this.setData({ submit_text: '提交' });
     }
@@ -98,32 +99,19 @@ Page({
   },
 
   // 训练结束发送成绩
-  sendscore(){
+  sendscore () {
     wx.request({
       url: 'http://www.thylovezj.space/v1/exercise/add',
-      data:{"exTime":""
-            ,"exType":2,
-            "score":this.data.score},
-      method:"POST",
-      success:()=>{
+      data: { exTime: '', exType: 2, score: this.data.score },
+      method: 'POST',
+      success: () => {
         console.log('push successfully');
       },
-      fail:()=>{
+      fail: () => {
         console.log('push fail');
-      }
-    })
-
+      },
+    });
   },
-  str_to_arr(a){
-  for(item in a)
-  a=a.slice(1,a.length-1)
-  arr1 = (a.split(','))
-  for(var i=0;i<arr1.length;i++){
-      arr1[i] = arr1[i].slice(1,arr1[i].length-1)
-  }
-  return arr1
-  },
-
 
   onLoad: function () {
     // 初始化音频文件
@@ -133,46 +121,47 @@ Page({
     audioRefFalse.src = 'http://gaofeifei.3vfree.cn/anniu/fault.mp3';
     audioRefTrue.src = 'http://gaofeifei.3vfree.cn/anniu/victory.mp3';
     wx.request({
-      url: "http://www.thylovezj.space/v1/problem/get",
+      url: 'http://www.thylovezj.space/v1/problem/get',
       method: 'post',
       data: {
-        "subNumber":1,
-        "objNumber":1,
-        "picNumber":5
+        subNumber: 1,
+        objNumber: 1,
+        picNumber: 5,
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json', // 默认值
       },
-      success:(res)=> {
-        this.setData({question_obj:wx.request({
-      url: "http://www.thylovezj.space/v1/problem/get",
-      method: 'post',
-      data: {
-        "subNumber":0,
-        "objNumber":0,
-        "picNumber":10
+      success: (res) => {
+        this.setData({
+          question_obj: wx.request({
+            url: 'http://www.thylovezj.space/v1/problem/get',
+            method: 'post',
+            data: {
+              subNumber: 0,
+              objNumber: 0,
+              picNumber: 10,
+            },
+            header: {
+              'content-type': 'application/json', // 默认值
+            },
+            success: (res) => {
+              for (const item in res.data.data) {
+                let a = res.data.data[item].checks;
+                a = a.slice(1, a.length - 1);
+                const arr1 = a.split(',');
+                for (let i = 0; i < arr1.length; i++) {
+                  arr1[i] = arr1[i].slice(1, arr1[i].length - 1);
+                }
+                res.data.data[item].checks = arr1;
+              }
+              this.setData({ question_obj: res.data.data, isloading: false });
+            },
+            fail: () => {
+              this.setData({ isloading: true });
+            },
+          }),
+        });
       },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success:(res)=> {
-        for(var item in res.data.data){ 
-          var a = res.data.data[item].checks
-          a=a.slice(1,a.length-1)
-          var arr1 = (a.split(','))
-          for(var i=0;i<arr1.length;i++){
-              arr1[i] = arr1[i].slice(1,arr1[i].length-1)
-          }
-          res.data.data[item].checks = arr1
-          }
-        this.setData({question_obj:res.data.data,
-                      isloading:false })
-      },
-      fail:()=>{
-        this.setData({isloading:true})
-      }
-    })})
-      }
-    })
+    });
   },
 });
