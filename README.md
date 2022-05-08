@@ -30,19 +30,19 @@
 - lib 公共方法目录（主要关于对wx原生方法包装的模块）
   - request.js 包装HTTPS请求方法
 - pages 项目页面目录
-  - index 首页
-  - evaluate 病情评定模块
+  - index 首页 `??`
+  - evaluate 病情评定模块 `李响`
     - main 反馈结果页
-  - agnosia 失认症恢复模块
-  - apraxia 失用症恢复模块
+  - agnosia 失认症恢复模块 `高飞`
+  - apraxia 失用症恢复模块 `王家祥=>邵昕晨`
     - sports 手指训练列表
     - vedio 训练视频播放
     - index 音乐治疗列表
     - list 歌单列表
     - mysong 我的收藏歌曲
     - play 歌曲播放
-  - mine 个人中心|我的
-  - checkin 每日打卡
+  - mine 个人中心|我的 `陈思远`
+  - checkin 每日打卡 `陈思远`
   - logs 日志【不用管它】
 - style 共用样式表目录
 - utils 工具目录（主要关于外部导入的模块）
