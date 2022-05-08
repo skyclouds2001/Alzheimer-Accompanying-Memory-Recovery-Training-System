@@ -1,8 +1,14 @@
+<page-meta page-style="{{ show ? 'overflow: hidden;' : '' }}" />
+
+<!-- 背景图案 -->
+<view class="bg"></view>
+<view class="bg-bg"></view>
+
 <!-- 用户头像及昵称部分 -->
 <view class="user-info">
   <!-- 用户头像 -->
   <view class="avatar">
-    <van-image width="100" height="100" src="{{avatarUrl}}" round fit="cover" show-loading show-error lazy-load bind:click="onGetUserProfile" custom-class="avatar-img"></van-image>
+    <van-image width="100" height="100" src="{{avatarUrl}}" fit="cover" show-loading show-error lazy-load bind:click="onGetUserProfile" custom-class="avatar-img" image-class="img"></van-image>
   </view>
   <!-- 用户昵称 -->
   <view class="nickname">
@@ -11,15 +17,24 @@
 </view>
 
 <!-- 个人中心详细选项 -->
-<van-cell-group inset border custom-class="list">
-  <van-cell border title="我的积分" is-link url="" icon="award-o" />
-  <van-cell border title="打卡记录" is-link url="" icon="certificate" />
-  <van-cell border title="训练记录" is-link url="" icon="chart-trending-o" />
-  <van-cell border title="个人信息" is-link url="" icon="more-o" />
-  <van-cell border title="积分商城" is-link url="" icon="shopping-cart-o" />
-  <van-cell border title="问题反馈" is-link url="" icon="comment-o" />
-  <van-cell border title="关于我们" is-link url="" icon="info-o" />
+<van-cell-group inset border custom-class="list" bind:tap="handleOpenPopup">
+  <van-cell border title="个人信息" is-link data-id="{{ 1 }}" icon="info-o" />
+  <van-cell border title="打卡记录" is-link data-id="{{ 2 }}" icon="certificate" />
+  <van-cell border title="训练记录" is-link data-id="{{ 3 }}" icon="chart-trending-o" />
+  <van-cell border title="我的积分" is-link data-id="{{ 4 }}" icon="award-o" />
+  <van-cell border title="积分商城" is-link data-id="{{ 5 }}" icon="shopping-cart-o" />
+  <van-cell border title="问题反馈" is-link data-id="{{ 6 }}" icon="envelop-o" />
+  <van-cell border title="关于我们" is-link data-id="{{ 7 }}" icon="info-o" />
+  <van-cell border title="退出登录" title-class="exit-warning" is-link data-id="{{ 8 }}" icon="cross" />
 </van-cell-group>
 
 <!-- 提示框 -->
 <van-toast id="van-toast" />
+
+<!-- 弹出模态框 -->
+<van-dialog id="van-dialog" />
+
+<!-- 弹出页 -->
+<van-popup custom-class="popup" show="{{ show }}" position="bottom" safe-area-inset-top closeable round lock-scroll bind:close="handleClosePopup">
+  <view>ls</view>
+</van-popup>

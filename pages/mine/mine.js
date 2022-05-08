@@ -1,6 +1,5 @@
-'use strict';
-
 import Toast from '@vant/weapp/toast/toast';
+import Dialog from '@vant/weapp/dialog/dialog';
 
 Page({
 
@@ -8,22 +7,25 @@ Page({
     /**
      * 用户昵称
      * @type {string}
-     * @default '请点击头像登录'
      */
     nickName: '请点击头像登录',
 
     /**
      * 用户头像url
      * @type {string}
-     * @default './../../images/empty-image-default.png'
      */
     avatarUrl: '/images/empty-image-default.png',
+
+    /**
+     * 标记显示popup与否及其下标
+     * @type {0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8}
+     */
+    show: 0,
   },
 
   /**
    * 标记用户是否已登录
    * @type {boolean}
-   * @default false
    */
   isLogined: false,
 
@@ -44,8 +46,6 @@ Page({
 
   /**
    * 处理用户登录换取用户微信头像及微信昵称
-   * @function
-   * @async
    * @returns {Promise<void>}
    */
   async onGetUserProfile () {
@@ -79,10 +79,47 @@ Page({
       // 更新已登录状态
       this.isLogined = true;
     } catch (err) {
-      console.log(err);
       // 显示授权失败提示
       Toast.fail('授权失败');
     }
+  },
+
+  /**
+   * 点击菜单列表
+   * 显示对应的popup
+   * @param {TouchEvent} e 触摸事件
+   */
+  handleOpenPopup (e) {
+    const { id } = e.target.dataset;
+    if ([1, 2, 3, 4, 5, 6, 7].includes(id)) {
+      this.setData({
+        show: id,
+      });
+    } else if (id === 8) {
+      // 弹出退出登录确认模态框
+      Dialog.confirm({
+        message: '是否确认退出登录？',
+      }).then(() => {
+        // 确认退出，清空个人信息
+        this.isLogined = false;
+        this.setData({
+          avatarUrl: '/images/empty-image-default.png',
+          nickName: '请点击头像登录',
+        });
+        wx.removeStorageSync('userInfo');
+      }).catch(() => {
+        // 取消退出，无额外操作
+      });
+    }
+  },
+
+  /**
+   * 关闭popup事件
+   */
+  handleClosePopup () {
+    this.setData({
+      show: 0,
+    });
   },
 
 });
