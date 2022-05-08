@@ -1,11 +1,11 @@
 <!-- 背景图片 -->
-<view class="checkin-img">
+<!-- <view class="checkin-img">
   <swiper autoplay circular class="swiper">
     <swiper-item wx:for="{{ images }}" wx:key="*this" class="swiper-item">  
       <image mode="aspectFill" src="{{ item }}" lazy-load></image>
     </swiper-item>
   </swiper>
-</view>
+</view> -->
 
 <!-- 提示文字 -->
 <view class="checkin-text">
@@ -14,7 +14,7 @@
 
 <!-- 日历 -->
 <view class="checkin-calendar">
-  <van-calendar poppable="{{ false }}" type="multiple" readonly color="#32CD32" minDate="{{ minDate }}" maxDate="{{ maxDate }}" default-date="{{ defaultDate }}" formatter="{{ formatter }}" first-day-of-week="{{ 1 }}" show-title="{{ false }}" show-subtitle="{{ false }}" show-confirm="{{ false }}" show-mark="{{ false }}" row-height="{{ 50 }}" />
+  <van-calendar poppable="{{ false }}" type="multiple" readonly color="#32CD32" minDate="{{ minDate }}" maxDate="{{ maxDate }}" formatter="{{ formatter }}" first-day-of-week="{{ 1 }}" show-title="{{ false }}" show-subtitle="{{ false }}" show-confirm="{{ false }}" show-mark="{{ false }}" row-height="{{ 50 }}" />
 </view>
 
 <!-- 打卡按钮 -->
