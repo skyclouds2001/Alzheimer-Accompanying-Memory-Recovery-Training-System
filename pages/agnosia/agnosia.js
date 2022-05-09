@@ -114,16 +114,6 @@ Page({
     })
 
   },
-  str_to_arr(a){
-  for(item in a)
-  a=a.slice(1,a.length-1)
-  arr1 = (a.split(','))
-  for(var i=0;i<arr1.length;i++){
-      arr1[i] = arr1[i].slice(1,arr1[i].length-1)
-  }
-  return arr1
-  },
-
 
   onLoad: function () {
     // 初始化音频文件
