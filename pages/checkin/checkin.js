@@ -1,5 +1,7 @@
 import Toast from '@vant/weapp/toast/toast';
 
+import { request } from './../../lib/request.js';
+
 /**
  * @typedef Day
  * @type {Object}
@@ -86,7 +88,16 @@ Page({
 
   },
 
-  onLoad: function () {
+  onLoad: async function () {
+    // 获取用户已打卡次数及已打卡日期
+    const res = await request({
+      url: '',
+      method: '',
+      data: {},
+      header: {},
+    });
+    console.log(res);
+
     // 当天的日期
     const date = new Date();
     // 当天的年份、月份、日份
@@ -157,6 +168,25 @@ Page({
       case 3:
         Toast('您已打卡啦！');
         break;
+    }
+  },
+
+  /**
+   * 实现打卡功能函数
+   * @function
+   * @async
+   * @returns {void}
+   */
+  async checkinMain () {
+    try {
+      const res = await request({
+        url: '',
+        method: '',
+        data: {},
+        header: {},
+      });
+      console.log(res);
+    } catch (err) {
     }
   },
 
