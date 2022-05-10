@@ -2,6 +2,10 @@ page {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
 }
 
+view, scroll-view, swiper, button, input, textarea, label, navigator, image {
+	box-sizing: border-box;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -10,4 +14,4 @@ page {
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
