@@ -22,6 +22,7 @@
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
 - components 项目组件目录
   - tabs 导航栏
+  - timeline 时间轴（自colorUI引入）
 - data 静态数据目录
   - question.js  长谷川问题列表
 - docs 项目文档目录
@@ -45,6 +46,8 @@
   - checkin 每日打卡 `陈思远`
   - logs 日志【不用管它】
 - style 共用样式表目录
+  - icon.wxss 图标样式表（from colorUI）（for mine）
+  - iconfont.wxss 图标样式表（from iconfont）（for apraxia）
 - utils 工具目录（主要关于外部导入的模块）
   - util.js 时间格式化
 - app.js
