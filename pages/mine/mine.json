@@ -6,7 +6,11 @@
     "van-image": "@vant/weapp/image/index",
     "van-toast": "@vant/weapp/toast/index",
     "van-popup": "@vant/weapp/popup/index",
-    "van-dialog": "@vant/weapp/dialog/index"
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-card": "@vant/weapp/card/index",
+    "timeline": "/components/timeline/timeline"
   },
   "navigationBarTitleText": "我的"
 }

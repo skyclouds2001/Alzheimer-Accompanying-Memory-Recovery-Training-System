@@ -2,39 +2,82 @@
 
 <!-- 背景图案 -->
 <view class="bg"></view>
-<view class="bg-bg"></view>
 
 <!-- 用户头像及昵称部分 -->
 <view class="user-info">
   <!-- 用户头像 -->
   <view class="avatar">
-    <van-image width="100" height="100" src="{{avatarUrl}}" fit="cover" show-loading show-error lazy-load bind:click="onGetUserProfile" custom-class="avatar-img" image-class="img"></van-image>
+    <van-image width="100" height="100" src="{{ avatarUrl }}" fit="cover" show-loading show-error lazy-load bind:click="onGetUserProfile" custom-class="avatar-img" image-class="img"></van-image>
   </view>
   <!-- 用户昵称 -->
   <view class="nickname">
-    <view class="nickname-text">{{nickName}}</view>
+    <view class="nickname-text">{{ nickName }}</view>
   </view>
 </view>
 
 <!-- 个人中心详细选项 -->
-<van-cell-group inset border custom-class="list" bind:tap="handleOpenPopup">
-  <van-cell border title="个人信息" is-link data-id="{{ 1 }}" icon="info-o" />
-  <van-cell border title="打卡记录" is-link data-id="{{ 2 }}" icon="certificate" />
-  <van-cell border title="训练记录" is-link data-id="{{ 3 }}" icon="chart-trending-o" />
-  <van-cell border title="我的积分" is-link data-id="{{ 4 }}" icon="award-o" />
-  <van-cell border title="积分商城" is-link data-id="{{ 5 }}" icon="shopping-cart-o" />
-  <van-cell border title="问题反馈" is-link data-id="{{ 6 }}" icon="envelop-o" />
-  <van-cell border title="关于我们" is-link data-id="{{ 7 }}" icon="info-o" />
-  <van-cell border title="退出登录" title-class="exit-warning" is-link data-id="{{ 8 }}" icon="cross" />
+<van-cell-group inset custom-class="list" bind:tap="handleOpenPopup">
+  <van-cell title="个人信息" is-link data-id="{{ 1 }}" icon="user-o" />
+  <van-cell title="打卡记录" is-link data-id="{{ 2 }}" icon="certificate" />
+  <van-cell title="训练记录" is-link data-id="{{ 3 }}" icon="chart-trending-o" />
+  <van-cell title="我的积分" is-link data-id="{{ 4 }}" icon="award-o" />
+  <van-cell title="积分商城" is-link data-id="{{ 5 }}" icon="shopping-cart-o" />
+  <van-cell title="问题反馈" is-link data-id="{{ 6 }}" icon="envelop-o" />
+  <van-cell title="关于我们" is-link data-id="{{ 7 }}" icon="info-o" />
+  <van-cell title="退出登录" title-class="exit-warning" is-link data-id="{{ 8 }}" icon="cross" />
 </van-cell-group>
 
 <!-- 提示框 -->
 <van-toast id="van-toast" />
 
-<!-- 弹出模态框 -->
+<!-- 弹出模态框 show=8 -->
 <van-dialog id="van-dialog" />
 
-<!-- 弹出页 -->
-<van-popup custom-class="popup" show="{{ show }}" position="bottom" safe-area-inset-top closeable round lock-scroll bind:close="handleClosePopup">
-  <view>ls</view>
+<!-- 个人信息 show=1 -->
+<van-popup custom-class="popup" show="{{ show === 1 }}" position="bottom" safe-area-inset-top closeable lock-scroll bind:close="handleClosePopup">
+  <van-cell-group inset custom-class="person-info">
+    <van-cell title="姓名" value="{{ personInfo.name }}" />
+    <van-cell title="性别" value="{{ personInfo.gender }}" />
+    <van-cell title="年龄" value="{{ personInfo.age }}" />
+    <van-cell title="家庭住址" value="{{ personInfo.location }}" />
+    <van-cell title="出生省份" value="{{ personInfo.birthSite }}" />
+    <van-cell title="文化水平" value="{{ personInfo.educate }}" />
+  </van-cell-group>
+</van-popup>
+
+<!-- 打卡记录 show=2 -->
+<van-popup custom-class="popup" show="{{ show === 2 }}" position="bottom" safe-area-inset-top closeable lock-scroll bind:close="handleClosePopup">
+  <van-calendar poppable="{{ false }}" type="multiple" readonly color="#32CD32" minDate="{{ minDate }}" maxDate="{{ maxDate }}" formatter="{{ formatter }}" first-day-of-week="{{ 1 }}" show-title="{{ false }}" show-subtitle="{{ false }}" show-confirm="{{ false }}" show-mark="{{ false }}" row-height="{{ 50 }}" />
+</van-popup>
+
+<!-- 训练记录 show=3 -->
+<van-popup custom-class="popup" show="{{ show === 3 }}" position="bottom" safe-area-inset-top closeable lock-scroll bind:close="handleClosePopup">
+  <timeline record="{{ record }}"></timeline>
+</van-popup>
+
+<!-- 我的积分 show=4 -->
+<van-popup custom-class="popup" show="{{ show === 4 }}" position="bottom" safe-area-inset-top closeable lock-scroll bind:close="handleClosePopup">
+  <view class="credit-title">您目前的积分为</view>
+  <view class="credit-count">{{ credit }}</view>
+</van-popup>
+
+<!-- 积分商城 show=5 -->
+<van-popup custom-class="popup" show="{{ show === 5 }}" position="bottom" safe-area-inset-top closeable lock-scroll bind:close="handleClosePopup">
+  <block wx:for="{{ goods }}" wx:key="id">
+    <van-card currency="" num="" price="{{ item.credit }}" desc="{{ item.desc }}" title="{{ item.title }}" thumb="{{ item.url }}" thumb-mode="aspectFill" custom-class="card-item" />
+  </block>
+</van-popup>
+
+<!-- 问题反馈 show=6 -->
+<van-popup custom-class="popup" show="{{ show === 6 }}" position="bottom" safe-area-inset-top closeable lock-scroll bind:close="handleClosePopup">
+  <textarea model:value="{{ feedback }}" placeholder="请输入您想反馈的内容~" maxlength="500" class="feedback-input"></textarea>
+  <van-button custom-class="feedback-button" type="default" round block color="#54b8ac" loading="{{ false }}" bind:click="handleFeedback">提交</van-button>
+</van-popup>
+
+<!-- 关于我们 show=7 -->
+<van-popup custom-class="popup" show="{{ show === 7 }}" position="bottom" safe-area-inset-top closeable lock-scroll bind:close="handleClosePopup">
+  <view class="about">
+    觅忆（全称：阿尔兹海默症陪伴型记忆恢复训练系统）是在动态脑电和行为控制基础上研发的可视化、综合化、个性化的预防记忆力退化和早期症状恢复的训练系统。
+    系统集合病情评定、训练模块、线上医生诊断、每日打卡等多种功能，带来独创的陪伴温暖感受；采用记忆训练、语言训练、认知训练、心理治疗、亲情护理等多种疗法，以注意力、记忆力、计算力、定向力、语言力等多维度指标提升为训练目标，帮助患者减轻病情进展，提高患病老人的生活质量。
+  </view>
 </van-popup>
