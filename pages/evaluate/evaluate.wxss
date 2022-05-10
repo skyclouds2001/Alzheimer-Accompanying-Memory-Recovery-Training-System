@@ -46,7 +46,7 @@
 }
 
 .allans{
-  /* 四个选择题和一个填空题框的配置 */
+  /* 四个选择题选项和一个填空题框的配置 */
   margin: 0 auto;
   margin-top: -78rpx;
   width: 625rpx;

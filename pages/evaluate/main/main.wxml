@@ -5,7 +5,7 @@
 <view class="result">初步判断为{{ result }}</view>
 
 <!-- 返回主页面按钮 -->
-<view class="back-button">返回主页面</view>
+<view class="back-button" bindtap="backhome">返回主页面</view>
 
 <!-- 提示 -->
 <view class="tips">

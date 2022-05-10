@@ -54,5 +54,10 @@ Page({
     }
     return res;
   },
+  
+  backhome(){
+    /**返回主页面 */
+    wx.switchTab({ url: '/pages/index/index'})
+  }
 
 });
