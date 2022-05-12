@@ -3,12 +3,12 @@ Page({
   data: {
     btn_list: [
       {
-        text: '病情评定',
-        url: '/pages/evaluate/evaluate',
+        text: '失认症训练',
+        url: '/pages/agnosia/agnosia',
       },
       {
-        text: '线上问诊',
-        url: '/',
+        text: '失用症训练',
+        url: '/pages/apraxia/apraxia',
       },
     ],
   },
