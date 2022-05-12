@@ -5,8 +5,7 @@ page {
 
   width: 100vw;
   height: 100vh;
-  box-sizing: border-box;
-  padding: 100rpx 0;
+  padding: 100rpx 0 0;
 
   position: relative;
 
@@ -112,9 +111,12 @@ page {
   min-height: 50vh;
   max-height: 100vh;
 
-  background-color: rgb(167, 255, 245) !important;
+  background-color: rgb(241, 255, 253) !important;
 
   overflow: scroll;
+}
+.van-icon.van-icon-cross {
+  color: black;
 }
 
 /* 个人信息 show=1 */
