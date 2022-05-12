@@ -13,7 +13,8 @@
     "pages/apraxia/sports/sports",
     "pages/apraxia/vedio/vedio",
     "pages/agnosia/agnosia",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/train/train"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
@@ -62,11 +63,13 @@
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
-  "requiredBackgroundModes": ["audio"],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
   "usingComponents": {
-    "df-tabbar": "/components/df-tabbar/df-tabbar"
+    "df-tabbar": "/components/df-tabbar/df-tabbar",
+    "i-menu": "/components/menu/menu"
   },
-
   "debug": true,
   "debugOptions": {
     "enableFPSPanel": true
