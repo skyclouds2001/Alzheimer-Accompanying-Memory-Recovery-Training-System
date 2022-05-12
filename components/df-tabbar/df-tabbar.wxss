@@ -1,5 +1,5 @@
 .df-tabbar {
-  position: sticky;
+  position: fixed;
   left: 0;
   bottom: 0;
   z-index: 9;
@@ -9,16 +9,18 @@
   align-items: center;
 
   width: 100vw;
-  height: 3em;
+  height: 6em;
   margin: 0;
   padding: 0 10vw;
+
+  background-color: white;
 
   font-size: 32rpx;
 }
 
 .unselected, .selected {
   width: 33%;
-  height: 100%;
+  height: 50%;
 
   display: flex;
   justify-content: center;
