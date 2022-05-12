@@ -1,10 +1,3 @@
-:root {
-  width: 100vw;
-  height: 100vh;
-
-  --themt-color: rgb(84, 184, 172);
-}
-
 .menu-img {
 width: 100%;
 height: 50%;
@@ -46,7 +39,7 @@ margin: 25rpx 0;
 padding: 0;
 
 border-radius: 1em;
-background-color: var(--themt-color);
+background-color: rgb(84, 184, 172);
 
 font-size: 40rpx;
 text-align: center;
