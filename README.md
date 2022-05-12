@@ -21,7 +21,8 @@
 
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
 - components 项目组件目录
-  - tabs 导航栏
+  - menu 菜单页
+  - df-tabbar 导航栏
   - timeline 时间轴（自colorUI引入）
 - data 静态数据目录
   - question.js  长谷川问题列表
@@ -31,9 +32,10 @@
 - lib 公共方法目录（主要关于对wx原生方法包装的模块）
   - request.js 包装HTTPS请求方法
 - pages 项目页面目录
-  - index 首页 `??`
+  - index 首页&诊断及训练的菜单页面
   - evaluate 病情评定模块 `李响`
     - main 反馈结果页
+  - train 训练模块首页
   - agnosia 失认症恢复模块 `高飞`
   - apraxia 失用症恢复模块 `王家祥=>邵昕晨`
     - sports 手指训练列表
