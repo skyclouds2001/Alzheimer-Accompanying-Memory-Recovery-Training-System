@@ -1,0 +1,56 @@
+:root {
+  width: 100vw;
+  height: 100vh;
+
+  --themt-color: rgb(84, 184, 172);
+}
+
+.menu-img {
+width: 100%;
+height: 50%;
+margin: 0;
+padding: 0;
+
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+}
+
+.c-text {
+font-size: 36rpx;
+font-weight: 500;
+letter-spacing: 1rpx;
+}
+.e-text {
+font-size: 30rpx;
+color: #aaa;
+}
+
+.select-group {
+width: 100%;
+height: 50%;
+margin: 0;
+padding: 25rpx 0;
+
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+}
+
+.select-btn {
+width: 90%;
+height: 3em;
+margin: 25rpx 0;
+padding: 0;
+
+border-radius: 1em;
+background-color: var(--themt-color);
+
+font-size: 40rpx;
+text-align: center;
+line-height: 3em;
+color: white;
+letter-spacing: 2.5rpx;
+}
