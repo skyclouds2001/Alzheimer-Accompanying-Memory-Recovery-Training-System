@@ -1,7 +1,3 @@
-<mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
-	<block wx:for="{{tabs}}" wx:key="title">
-		<view class="tab-content" slot="tab-content-{{index}}">
-			<image src="{{images[index]}}"></image>
-		</view>
-	</block>
-</mp-tabs>
+<i-menu bgimg="/images/index-bgimg.jpg" ctext="你需要一个优秀的线上诊疗医生" etext="you need an excellent online doctor" btns="{{ btn_list }}"></i-menu>
+
+<df-tabbar select="{{ 0 }}"></df-tabbar>
