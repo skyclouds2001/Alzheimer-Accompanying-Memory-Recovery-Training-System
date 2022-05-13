@@ -67,7 +67,7 @@
     "audio"
   ],
   "usingComponents": {
-    "df-tabbar": "/components/df-tabbar/df-tabbar",
+    "df-tabbar": "/df-tabbar/df-tabbar",
     "i-menu": "/components/menu/menu"
   },
   "debug": true,
