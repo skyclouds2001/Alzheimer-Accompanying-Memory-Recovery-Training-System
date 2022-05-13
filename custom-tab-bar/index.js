@@ -1,10 +1,7 @@
 Component({
 
-  properties: {
-    select: {
-      type: Number,
-      default: 0,
-    },
+  data: {
+    select: 0,
   },
 
 });
