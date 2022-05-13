@@ -1,3 +1,3 @@
 <i-menu bgimg="/images/index-train.jpg" ctext="训练是治疗的最佳方式" etext="Train is the best way of treatment" btns="{{ btn_list }}"></i-menu>
 
-<df-tabbar></df-tabbar>
+<df-tabbar select="{{ 1 }}"></df-tabbar>
