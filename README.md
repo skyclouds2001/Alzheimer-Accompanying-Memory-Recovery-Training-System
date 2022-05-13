@@ -5,7 +5,7 @@
 - 产品文档
   参见 https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
 - 接口文档
-  参见 http://www.thylovezj.space/swagger-ui.html
+  参见 https://www.apifox.cn/web/project/977035 与
 - 页面文档
   参见 https://otkyd4jmkr.feishu.cn/docs/doccnZaTQiQ8QIuf9nC07IPIx5f
 - 进度表
@@ -22,8 +22,9 @@
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
 - components 项目组件目录
   - menu 菜单页
-  - df-tabbar 导航栏
   - timeline 时间轴（自colorUI引入）
+- custom-tab-bar 自定义tabbar目录
+  - index
 - data 静态数据目录
   - question.js  长谷川问题列表
 - docs 项目文档目录
@@ -32,7 +33,7 @@
 - lib 公共方法目录（主要关于对wx原生方法包装的模块）
   - request.js 包装HTTPS请求方法
 - pages 项目页面目录
-  - index 首页&诊断及训练的菜单页面
+  - index 诊断模块首页
   - evaluate 病情评定模块 `李响`
     - main 反馈结果页
   - train 训练模块首页
