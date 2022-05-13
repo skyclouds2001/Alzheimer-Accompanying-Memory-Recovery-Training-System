@@ -36,13 +36,13 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "诊断",
         "iconPath": "./icons/home.png",
         "selectedIconPath": "./icons/home-selected.png"
       },
       {
-        "pagePath": "pages/evaluate/evaluate",
-        "text": "诊断",
+        "pagePath": "pages/train/train",
+        "text": "训练",
         "iconPath": "./icons/diagnose.png",
         "selectedIconPath": "./icons/diagnose-selected.png"
       },

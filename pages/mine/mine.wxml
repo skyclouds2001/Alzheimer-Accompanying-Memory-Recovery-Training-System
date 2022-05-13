@@ -28,7 +28,7 @@
 </van-cell-group>
 
 <!-- tabbar 控件 -->
-<df-tabbar select="{{ 2 }}"></df-tabbar>
+<df-tabbar></df-tabbar>
 
 <!-- 提示框 -->
 <van-toast id="van-toast" />
