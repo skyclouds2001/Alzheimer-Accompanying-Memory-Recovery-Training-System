@@ -13,7 +13,9 @@
     "pages/apraxia/sports/sports",
     "pages/apraxia/vedio/vedio",
     "pages/agnosia/agnosia",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/train/train",
+    "pages/patient/patient"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
@@ -24,24 +26,24 @@
     "backgroundColor": "#fff",
     "backgroundTextStyle": "dark",
     "restartStrategy": "homePage",
-    "initialRenderingCache": "static",
-    "visualEffectInBackground": "hidden"
+    "initialRenderingCache": "static"
   },
   "tabBar": {
+    "custom": true,
     "color": "#2c2c2c",
     "selectedColor": "#158261",
     "backgroundColor": "#fff",
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "首页",
+        "pagePath": "pages/patient/patient",
+        "text": "诊断",
         "iconPath": "./icons/home.png",
         "selectedIconPath": "./icons/home-selected.png"
       },
       {
-        "pagePath": "pages/evaluate/evaluate",
-        "text": "诊断",
+        "pagePath": "pages/train/train",
+        "text": "训练",
         "iconPath": "./icons/diagnose.png",
         "selectedIconPath": "./icons/diagnose-selected.png"
       },
@@ -55,15 +57,20 @@
     "position": "bottom"
   },
   "networkTimeout": {
-    "request": 15000,
-    "uploadFile": 15000,
-    "downloadFile": 15000,
-    "connectSocket": 15000
+    "request": 30000,
+    "uploadFile": 30000,
+    "downloadFile": 30000,
+    "connectSocket": 30000
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
-  "requiredBackgroundModes": ["audio"],
-
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "usingComponents": {
+    "df-tabbar": "./custom-tab-bar/index",
+    "i-menu": "./components/menu/menu"
+  },
   "debug": true,
   "debugOptions": {
     "enableFPSPanel": true

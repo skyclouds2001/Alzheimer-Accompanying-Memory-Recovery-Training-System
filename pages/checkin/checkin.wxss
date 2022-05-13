@@ -1,5 +1,7 @@
 page {
   background-color: #e4fce7;
+
+  --theme-color: rgb(84, 184, 172);
 }
 
 /* 背景轮播图 */
@@ -60,11 +62,27 @@ page {
   box-sizing: border-box;
 }
 
+/* 覆盖vantUI */
 .van-calendar {
   background-color: rgba(255, 255, 255, 0.9) !important;
   border-radius: 15rpx !important;
   box-shadow: 5rpx 5rpx 10rpx #afd6b8;
   overflow: hidden !important;
+}
+
+/* 打卡按钮覆盖打卡日期样式 */
+/* 覆盖vantUI */
+.select .van-calendar__bottom-info::after {
+  content: '\2714';
+
+  color: red;
+  font-size: 50rpx;
+  font-weight: bold;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* 打卡按钮部分 */
@@ -84,7 +102,7 @@ page {
   height: 250rpx;
 
   border-radius: 50%;
-  background-color: #3eb65a;
+  background-color: var(--theme-color, rgb(84, 184, 172));
   box-shadow: 5rpx 5rpx 10rpx #555;
 
   color: white;
@@ -155,10 +173,13 @@ page {
 }
 
 /* 覆盖 dialog 背景颜色 */
+/* 覆盖vantUI */
 .van-popup {
   background-color: transparent !important;
 }
+
 /* 覆盖 overlay 背景颜色 */
+/* 覆盖vantUI */
 .van-transition {
   background-color: rgba(0, 0, 0, 0.5) !important;
 }

@@ -1,0 +1,11 @@
+<view class="menu-img">
+  <image src="{{ bgimg }}" mode="aspectFill"></image>
+  <view class="c-text">{{ ctext }}</view>
+  <view class="e-text">{{ etext }}</view>
+</view>
+
+<view class="select-group">
+  <block wx:for="{{ btns }}" wx:key="text">
+    <navigator url="{{ item.url }}" class="select-btn">{{ item.text }}</navigator>
+  </block>
+</view>

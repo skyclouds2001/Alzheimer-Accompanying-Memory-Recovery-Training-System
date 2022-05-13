@@ -6,7 +6,8 @@
     "van-radio-group": "../../miniprogram_npm/@vant/weapp/radio-group/index",
     "van-cell": "../../miniprogram_npm/@vant/weapp/cell/index",
     "van-cell-group": "../../miniprogram_npm/@vant/weapp/cell-group/index",
-    "van-tag": "@vant/weapp/tag/index"
+    "van-tag": "@vant/weapp/tag/index",
+    "van-loading": "@vant/weapp/loading/index"
   }
 
   

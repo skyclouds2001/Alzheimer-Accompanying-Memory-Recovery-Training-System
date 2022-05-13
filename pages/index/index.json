@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "mp-tabs": "../../components/tabs/index",
-    "van-button": "@vant/weapp/button"
-  }
+  "usingComponents": {},
+  "navigationBarTitleText": "登录"
 }

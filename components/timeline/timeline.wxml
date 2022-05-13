@@ -1,0 +1,13 @@
+<view class="cu-timeline">
+  <block wx:for="{{ record }}" wx:key="date" wx:for-item="i">
+    <view class="cu-time">{{ i.date }}</view>
+    <block wx:for="{{ i.logs }}" wx:key="time" wx:for-item="j">
+      <view class="cu-item text-blue">
+        <view class="content bg-blue shadow-blur">
+          <text>{{ j.time }}</text>
+          {{ j.content }}
+        </view>
+      </view>
+    </block>
+  </block>
+</view>

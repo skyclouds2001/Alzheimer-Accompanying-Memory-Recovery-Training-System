@@ -1,0 +1,3 @@
+<i-menu bgimg="/images/index-bgimg.jpg" ctext="你需要一个优秀的线上诊疗医生" etext="You need an excellent online doctor" btns="{{ btn_list }}"></i-menu>
+
+<df-tabbar></df-tabbar>

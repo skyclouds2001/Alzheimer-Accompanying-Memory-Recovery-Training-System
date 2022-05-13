@@ -9,6 +9,7 @@ const audioRefTrue = wx.createInnerAudioContext();
 
 Page({
   data: {
+    isloading: true,
     isdisable: true,
     // 是否隐藏组件
     condition: false,
@@ -19,25 +20,13 @@ Page({
     submit_text: '下一题',
     // 题目组索引
     index: 0,
-    // 图片显示
-    image_src: [
-      'https://img.yzcdn.cn/vant/cat.jpeg',
-      'https://s1.ax1x.com/2022/04/20/LrX6N6.jpg',
-      'https://s1.ax1x.com/2022/04/20/Lrj9U0.jpg',
-      'https://s1.ax1x.com/2022/04/29/LjNiWV.png',
-    ],
-    // 选项模块
-    chose: [
-      ['猫 cat', '狗 dog', '猪 pig', '牛 cow'],
-      ['熊猫 pandas', '猪 pig', '狗 dog', '西瓜'],
-      ['熊猫 pandas', '牛 cow', '兔子 rabbit', '苹果'],
-      ['1', '2', '5', '9'],
-    ],
-    // 答案
-    answer: [1, 3, 1, 4],
+    // 问题对象
+    question_obj: [],
+
     // 成绩
     score: 0,
-    radio: '-1',
+    radio: -1,
+    // 结尾音频地址
     audio_src:
       'http://aimg8.dlszyht.net.cn/ueditor/file/823/1644869/1553422829215244.mp3',
   },
@@ -45,9 +34,10 @@ Page({
   // 点击submit按钮事件
   change () {
     audioRefRadio.play();
+    this.setData({ isdisable: true });
     // 点击下一题
-    if (this.data.index < this.data.answer.length - 1) {
-      if (this.data.radio === this.data.answer[this.data.index]) {
+    if (this.data.index < this.data.question_obj.length - 1) {
+      if (this.data.radio === this.data.question_obj[this.data.index].answer) {
         this.setData({ judge: '正确' });
         this.setData({ score: this.data.score + 1 });
         audioRefTrue.play();
@@ -57,8 +47,9 @@ Page({
       }
       this.setData({ show: true });
       setTimeout(this.disappear, 2000);
-    } else { // 点击提交，算成绩放音乐
-      if (this.data.radio === this.data.answer[this.data.index]) {
+    } else {
+      // 点击提交，算成绩放音乐
+      if (this.data.radio === this.data.question_obj[this.data.index].answer) {
         audioRefTrue.play();
         this.setData({ score: this.data.score + 1 });
       } else {
@@ -66,14 +57,15 @@ Page({
       }
       audioRef.play();
       this.setData({ condition: true });
+      this.sendscore();
     }
   },
 
   disappear () {
     this.setData({ show: false });
     this.setData({ index: this.data.index + 1 });
-    this.setData({ radio: '-1', isdisable: true });
-    if (this.data.index === this.data.answer.length - 1) {
+    this.setData({ radio: '-1' });
+    if (this.data.index === this.data.question_obj.length - 1) {
       this.setData({ submit_text: '提交' });
     }
   },
@@ -105,6 +97,22 @@ Page({
     audioRef.pause();
     audioRef.seek(0);
   },
+
+  // 训练结束发送成绩
+  sendscore () {
+    wx.request({
+      url: 'http://www.thylovezj.space/v1/exercise/add',
+      data: { exTime: '', exType: 2, score: this.data.score },
+      method: 'POST',
+      success: () => {
+        console.log('push successfully');
+      },
+      fail: () => {
+        console.log('push fail');
+      },
+    });
+  },
+
   onLoad: function () {
     // 初始化音频文件
     audioRef.obeyMuteSwitch = false; // 是否遵循系统静音原则
@@ -112,5 +120,48 @@ Page({
     audioRefRadio.src = 'http://gaofeifei.3vfree.cn/anniu/click.mp3';
     audioRefFalse.src = 'http://gaofeifei.3vfree.cn/anniu/fault.mp3';
     audioRefTrue.src = 'http://gaofeifei.3vfree.cn/anniu/victory.mp3';
+    wx.request({
+      url: 'http://www.thylovezj.space/v1/problem/get',
+      method: 'post',
+      data: {
+        subNumber: 1,
+        objNumber: 1,
+        picNumber: 5,
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+      },
+      success: (res) => {
+        this.setData({
+          question_obj: wx.request({
+            url: 'http://www.thylovezj.space/v1/problem/get',
+            method: 'post',
+            data: {
+              subNumber: 0,
+              objNumber: 0,
+              picNumber: 10,
+            },
+            header: {
+              'content-type': 'application/json', // 默认值
+            },
+            success: (res) => {
+              for (const item in res.data.data) {
+                let a = res.data.data[item].checks;
+                a = a.slice(1, a.length - 1);
+                const arr1 = a.split(',');
+                for (let i = 0; i < arr1.length; i++) {
+                  arr1[i] = arr1[i].slice(1, arr1[i].length - 1);
+                }
+                res.data.data[item].checks = arr1;
+              }
+              this.setData({ question_obj: res.data.data, isloading: false });
+            },
+            fail: () => {
+              this.setData({ isloading: true });
+            },
+          }),
+        });
+      },
+    });
   },
 });
