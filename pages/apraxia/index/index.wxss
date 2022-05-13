@@ -8,13 +8,12 @@ page{
  /* 歌曲内容 */
 .container{
   z-index: 1;
-  height:100vm;
+  height: 100vm;
   width: 100vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-around;
-  margin-top: -170rpx;
+  justify-content: space-around;
 }
 .content_item{
   height: 280rpx;

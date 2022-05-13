@@ -41,12 +41,19 @@
   width: 600rpx;
   height: 600rpx;
   margin: 50rpx auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .cd-image image{
+  box-sizing: content-box;
   width: 400rpx;
   height: 400rpx;
+
   border-radius: 50%;
   border:#222 solid 100rpx;
+
   animation:zhuan 6s linear infinite
 }
 @keyframes zhuan{

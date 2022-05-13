@@ -8,7 +8,7 @@
     <swiper class="middle-swiper">
       <swiper-item class="cd-wrapper">
         <view class="cd-image">
-          <image src="{{ imgUrl }}"></image>
+          <image mode="aspectFill" src="{{ imgUrl }}"></image>
         </view>
       </swiper-item>
     </swiper>
