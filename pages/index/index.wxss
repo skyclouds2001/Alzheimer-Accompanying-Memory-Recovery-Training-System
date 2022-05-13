@@ -57,9 +57,9 @@ border-radius: 25rpx;
   justify-content: space-around;
   align-items: center;
 }
-.phone {
+/* .phone {
   
-}
+} */
 .tt {
   width: 80rpx;
 }
@@ -71,7 +71,7 @@ border-radius: 25rpx;
   height: 150rpx;
   padding-top: 25rpx;
   margin: 0 auto;
-  margin-top: 350rpx;
+  margin-top: 150rpx;
   box-shadow:  6rpx 6rpx 5rpx 2rpx rgba(0, 0, 0, 0.1);
   border-radius: 25rpx;
 }
