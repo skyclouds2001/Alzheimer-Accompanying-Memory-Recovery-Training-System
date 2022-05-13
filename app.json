@@ -14,7 +14,8 @@
     "pages/apraxia/vedio/vedio",
     "pages/agnosia/agnosia",
     "pages/logs/logs",
-    "pages/train/train"
+    "pages/train/train",
+    "pages/patient/patient"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
@@ -27,34 +28,7 @@
     "restartStrategy": "homePage",
     "initialRenderingCache": "static"
   },
-  "tabBar": {
-    "custom": true,
-    "color": "#2c2c2c",
-    "selectedColor": "#158261",
-    "backgroundColor": "#fff",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "诊断",
-        "iconPath": "./icons/home.png",
-        "selectedIconPath": "./icons/home-selected.png"
-      },
-      {
-        "pagePath": "pages/train/train",
-        "text": "训练",
-        "iconPath": "./icons/diagnose.png",
-        "selectedIconPath": "./icons/diagnose-selected.png"
-      },
-      {
-        "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "./icons/mine.png",
-        "selectedIconPath": "./icons/mine-selected.png"
-      }
-    ],
-    "position": "bottom"
-  },
+
   "networkTimeout": {
     "request": 30000,
     "uploadFile": 30000,

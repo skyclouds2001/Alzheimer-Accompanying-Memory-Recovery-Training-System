@@ -217,14 +217,6 @@ Page({
     // console.log(res);
   },
 
-  onShow: function () {
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        select: 2,
-      });
-    }
-  },
-
   /**
    * 处理用户登录换取用户微信头像及微信昵称
    */
