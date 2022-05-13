@@ -14,6 +14,10 @@ Page({
      * @type {number}
      */
     index: 0,
+    /**
+    存放从后端调取的关键数据
+    */
+    alldata: [],
   },
 
   onLoad: function () {
@@ -23,6 +27,21 @@ Page({
       question: question[current - 1],
       index: current,
     });
+    //通过接口引入问题和选项
+    self = this,
+    wx.request({
+      url: 'www.thylovezj.space/v1/problem/getcgc',
+      method:'GET',
+      success:function(res){
+        console.log(res.data);
+        self.setData({
+          alldata : res.data.date,
+        })
+      },
+      fail:function(err){
+        console.log(err);
+      }
+    })
   },
 
   /**
