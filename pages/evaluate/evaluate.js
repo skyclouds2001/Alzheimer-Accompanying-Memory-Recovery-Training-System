@@ -17,7 +17,7 @@ Page({
     /**
     存放从后端调取的关键数据
     */
-    alldata: [],
+    alldata: []
   },
 
   onLoad: function () {
@@ -30,7 +30,7 @@ Page({
     //通过接口引入问题和选项
     self = this,
     wx.request({
-      url: 'www.thylovezj.space/v1/problem/getcgc',
+      url: 'https://www.thylovezj.space/v1/problem/getcgc',
       method:'GET',
       success:function(res){
         console.log(res.data);
