@@ -3,15 +3,15 @@
 ## 项目资料
 
 - 产品文档
-  参见 https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
+  https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
+- 后端HOST
+  http://www.thylovezj.space
 - 接口文档
-  参见 https://www.apifox.cn/web/project/977035 与
-- 页面文档
-  参见 https://otkyd4jmkr.feishu.cn/docs/doccnZaTQiQ8QIuf9nC07IPIx5f
-- 进度表
-  参见 https://otkyd4jmkr.feishu.cn/docs/doccncy0NdQd5nXGJsIgA829AKd
+  https://www.apifox.cn/web/project/977035
+- UI文档
+  https://otkyd4jmkr.feishu.cn/docs/doccncy0NdQd5nXGJsIgA829AKd
 - git 仓库
-  参见 https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git
+  https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.git
   此仓库为私有仓库，需向仓库所有者申请访问及编辑权限
 - 网易云音乐API
   请求host https://api.xaneon.com
@@ -33,20 +33,24 @@
 - lib 公共方法目录（主要关于对wx原生方法包装的模块）
   - request.js 包装HTTPS请求方法
 - pages 项目页面目录
-  - index 诊断模块首页
-  - evaluate 病情评定模块 `李响`
+  - index 登录首页 `高飞`
+  - patient 患者端 | 诊断模块首页 `陈思远`
+  - evaluate 患者端 | 病情评定模块 `李响`
     - main 反馈结果页
-  - train 训练模块首页
-  - agnosia 失认症恢复模块 `高飞`
-  - apraxia 失用症恢复模块 `王家祥=>邵昕晨`
+  - train 患者端 | 训练模块首页 `陈思远`
+  - agnosia 患者端 | 失认症恢复模块 `高飞`
+  - apraxia 患者端 | 失用症恢复模块 `王家祥=>邵昕晨`
     - sports 手指训练列表
     - vedio 训练视频播放
     - index 音乐治疗列表
     - list 歌单列表
     - mysong 我的收藏歌曲
     - play 歌曲播放
-  - mine 个人中心|我的 `陈思远`
-  - checkin 每日打卡 `陈思远`
+  - checkin 患者端 | 每日打卡 `陈思远`
+  - mine 患者端 | 个人中心|我的 `陈思远`
+    - auction 积分商城
+    - train-record 训练记录
+  - family 子女端 | 首页 `高飞`
   - logs 日志【不用管它】
 - style 共用样式表目录
   - icon.wxss 图标样式表（from colorUI）（for mine）
