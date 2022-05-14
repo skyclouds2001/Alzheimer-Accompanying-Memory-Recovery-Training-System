@@ -1,7 +1,12 @@
-Component({
 
-  data: {
-    select: 0,
-  },
+  Component({
+    
+    data: {
+      select: 0,
+      kind: 0
+    },
+    properties: {
 
-});
+    },
+  
+  });

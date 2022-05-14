@@ -15,7 +15,9 @@
     "pages/agnosia/agnosia",
     "pages/logs/logs",
     "pages/train/train",
-    "pages/patient/patient"
+    "pages/patient/patient",
+    "pages/family/family",
+    "pages/submitinfo/submitinfo"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
@@ -37,21 +39,19 @@
     "list": [
       {
         "pagePath": "pages/patient/patient",
-        "text": "诊断",
-        "iconPath": "./icons/home.png",
-        "selectedIconPath": "./icons/home-selected.png"
+        "text": "诊断"
       },
       {
         "pagePath": "pages/train/train",
-        "text": "训练",
-        "iconPath": "./icons/diagnose.png",
-        "selectedIconPath": "./icons/diagnose-selected.png"
+        "text": "训练"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "./icons/mine.png",
-        "selectedIconPath": "./icons/mine-selected.png"
+        "text": "我的"
+      },
+      {
+        "pagePath": "pages/family/family",
+        "text": "首页"
       }
     ],
     "position": "bottom"

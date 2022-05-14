@@ -1,0 +1,4 @@
+{
+  "usingComponents": { "van-image": "@vant/weapp/image/index",
+                       "df-tabbar":"../../custom-tab-bar/index"}
+}
