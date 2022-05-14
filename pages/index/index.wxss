@@ -71,7 +71,7 @@ border-radius: 25rpx;
   height: 150rpx;
   padding-top: 25rpx;
   margin: 0 auto;
-  margin-top: 150rpx;
+  margin-top: 300rpx;
   box-shadow:  6rpx 6rpx 5rpx 2rpx rgba(0, 0, 0, 0.1);
   border-radius: 25rpx;
 }
