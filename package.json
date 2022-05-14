@@ -36,5 +36,10 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0"
   },
-  "private": true
+  "private": true,
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "author": ""
 }

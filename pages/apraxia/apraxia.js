@@ -4,11 +4,11 @@ Page({
     btn_list: [
       {
         text: '指尖训练',
-        url: '/pages/apraxia/index/index',
+        url: '/pages/apraxia/sports/sports',
       },
       {
         text: '音乐治疗',
-        url: '/pages/apraxia/sports/sports',
+        url: '/pages/apraxia/index/index',
       },
     ],
   },

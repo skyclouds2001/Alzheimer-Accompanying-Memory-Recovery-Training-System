@@ -1,13 +1,21 @@
-<!-- 背景图片 -->
-<view class="image">
-  <image class="background_img" src="https://img2.baidu.com/it/u=4253176896,1055633857&fm=253&fmt=auto&app=138&f=JPEG?w=748&h=500"></image>
+ <!-- 背景图片  -->
+<view class="bg">
+  <!-- <image class="background_img" src="https://img2.baidu.com/it/u=831324505,4109834327&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=957"></image> -->
 </view>
-
+<view class="block"></view>
 <!-- 歌曲内容区 -->
 <view class="container">
     <view wx:for="{{ array }}" wx:key="id" class="content_item">
       <view class="item" bindtap="handleItem" data-id="{{item.id}}">
-        <image src="{{ item.picUrl }}"></image>
+        <image src="{{ item.coverImgUrl }}"></image>
+        <text>{{ item.name }}</text>
+    </view>
+  </view>
+</view>
+<view class="container">
+    <view wx:for="{{ array2 }}" wx:key="id" class="content_item">
+      <view class="item" bindtap="handleItem" data-id="{{item.id}}">
+        <image mode="widthFix" src="{{ item.coverImgUrl }}"></image>
         <text>{{ item.name }}</text>
     </view>
   </view>
@@ -15,8 +23,8 @@
 
 <!-- 我的喜欢按钮 -->
 <view class="my_songs">
-    <button class="button" bindtap="handleMySongs">
-      <span>我的喜欢</span>
-    </button>
+  <view class="btn">
+    <van-button color="#00ae9d" size="large" round type="info" bindtap="handleMySongs" plain type="primary">我的喜欢</van-button>
+  </view>
 </view>
 

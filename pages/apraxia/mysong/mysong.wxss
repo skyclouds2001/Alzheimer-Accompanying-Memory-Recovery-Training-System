@@ -31,13 +31,10 @@
   position: relative;
   z-index:1
 }
-.introduce{
-  margin-top: 20rpx;
-}
 
+/* 歌单歌曲 */
 .item_song{
   display: flex;
-  justify-content:space-between;
 }
 .index{
   text-align: center;
@@ -67,7 +64,4 @@
   margin-top: 0rpx;
   margin-bottom: 0rpx;
   padding: 0rpx;
-}
-.header{
-  font-size: 60rpx;
 }

@@ -12,6 +12,7 @@ Page({
      * @type {number}
      */
     index: Infinity,
+    song_index:Infinity
   },
 
   onShow: function () {
@@ -27,6 +28,7 @@ Page({
    * @param {Event} e 点击事件对象
    * @returns {void}
    */
+  /*
   play: function (e) {
     const index = e.currentTarget.dataset.index;
     const preIndex = this.data.index;
@@ -54,4 +56,19 @@ Page({
     }
     console.log(this.data.mysongs);
   },
+  */
+ handleSong(e){
+  const backgroundAudioManager = wx.getBackgroundAudioManager();
+  console.log(e.currentTarget.dataset)
+  backgroundAudioManager.title = e.currentTarget.dataset.name;
+  backgroundAudioManager.epname = e.currentTarget.dataset.album;
+  backgroundAudioManager.singer = e.currentTarget.dataset.singer;
+  backgroundAudioManager.src = e.currentTarget.dataset.src;
+  this.setData({
+    song_index: e.currentTarget.dataset.index,
+  });
+  console.log(this.data.song_index)
+ 
+ }
+
 });

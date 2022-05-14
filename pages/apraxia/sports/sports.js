@@ -14,7 +14,7 @@ Page({
    * @param {Event} e
    * @returns {void}
    */
-  handleClick: function (e) {
+  handleSports: function (e) {
     const { index } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `./../../../pages/apraxia/vedio/vedio?id=${index}`,

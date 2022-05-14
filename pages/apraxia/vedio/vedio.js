@@ -32,7 +32,7 @@ Page({
 
   onLoad: function (options) {
     this.setData({
-      index: options.index,
+      index: options.id,
     });
   },
 

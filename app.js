@@ -57,6 +57,7 @@ App({
   globalData: {
     openid: '',
     token: '',
+    mysongs:[],
   },
 
 });
