@@ -40,10 +40,10 @@ Page({
         url: './../../pages/patient/patient',
       });
     }
-    if (index0 === 2) { 
+    if (index0 === 2) {
       wx.switchTab({
         url: '../../pages/family/family',
-      })
+      });
     }
   },
 
