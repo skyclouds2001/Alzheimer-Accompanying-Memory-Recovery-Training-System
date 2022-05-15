@@ -9,31 +9,29 @@ Page({
   /**
    * tab模块组
    */
-  tab_list:[
-    {
-      src1:"https://s1.ax1x.com/2022/05/14/O6XE34.png",
-      text:"完善信息",
-      src2:"https://s1.ax1x.com/2022/05/14/O6vAX9.png"
-     },
-     {
-      src1:"https://s1.ax1x.com/2022/05/14/O6XVgJ.png",
-      text:"录入语音",
-      src2:"https://s1.ax1x.com/2022/05/14/O6vVmR.png"
-     },
-     {
-      src1:"https://s1.ax1x.com/2022/05/14/O6XZv9.png",
-      text:"训练情况",
-      src2:"https://s1.ax1x.com/2022/05/14/O6vk6J.png"
-     },
-     {
-      src1:"https://s1.ax1x.com/2022/05/14/O6XmuR.png",
-      text:"最新诊断",
-      src2:"https://s1.ax1x.com/2022/05/14/O6vZ01.png"
-     },
+    tab_list: [
+      {
+        src1: 'https://s1.ax1x.com/2022/05/14/O6XE34.png',
+        text: '完善信息',
+        src2: 'https://s1.ax1x.com/2022/05/14/O6vAX9.png',
+      },
+      {
+        src1: 'https://s1.ax1x.com/2022/05/14/O6XVgJ.png',
+        text: '录入语音',
+        src2: 'https://s1.ax1x.com/2022/05/14/O6vVmR.png',
+      },
+      {
+        src1: 'https://s1.ax1x.com/2022/05/14/O6XZv9.png',
+        text: '训练情况',
+        src2: 'https://s1.ax1x.com/2022/05/14/O6vk6J.png',
+      },
+      {
+        src1: 'https://s1.ax1x.com/2022/05/14/O6XmuR.png',
+        text: '最新诊断',
+        src2: 'https://s1.ax1x.com/2022/05/14/O6vZ01.png',
+      },
 
-
-  ]
-  ,
+    ],
     /**
      * 用户昵称
      * @type {string}
@@ -47,8 +45,8 @@ Page({
     avatarUrl: '/images/empty-image-default.png',
 
   },
-  jumpto:function (event){
-    const {index} = event.currentTarget.dataset
+  jumpto: function (event) {
+    const { index } = event.currentTarget.dataset;
     console.log(index);
   },
   async onGetUserProfile () {
@@ -104,9 +102,9 @@ Page({
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         select: 0,
-        kind:1
+        kind: 1,
       });
     }
-  }
+  },
 
-})
+});
