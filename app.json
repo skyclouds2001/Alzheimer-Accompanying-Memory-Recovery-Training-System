@@ -17,7 +17,8 @@
     "pages/train/train",
     "pages/patient/patient",
     "pages/family/family",
-    "pages/submitinfo/submitinfo"
+    "pages/submitinfo/submitinfo",
+    "pages/evaluate/report-of-family/report-of-family"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
