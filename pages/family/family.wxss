@@ -62,7 +62,7 @@
 }
 #tab_bar {
   width: calc(100vw - 100rpx);
-  height: 450rpx;
+  height: 600rpx;
   margin: 0 auto;
   margin-top:75rpx;
   display: flex;

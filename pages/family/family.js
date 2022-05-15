@@ -1,5 +1,5 @@
-// pages/family/family.js
 import Toast from '@vant/weapp/toast/toast';
+
 Page({
 
   /**
@@ -30,6 +30,17 @@ Page({
         text: '最新诊断',
         src2: 'https://s1.ax1x.com/2022/05/14/O6vZ01.png',
       },
+      {
+        src1: 'https://s1.ax1x.com/2022/05/15/OR8NbF.png',
+        text: 'AD科普',
+        src2: 'https://s1.ax1x.com/2022/05/15/ORGka4.png',
+      },
+      {
+        src1: 'https://s1.ax1x.com/2022/05/15/OR8dUJ.png',
+        text: '回忆时光',
+        src2: 'https://s1.ax1x.com/2022/05/15/ORGAIJ.png',
+      },
+      
 
     ],
     /**
@@ -45,10 +56,29 @@ Page({
     avatarUrl: '/images/empty-image-default.png',
 
   },
-  jumpto: function (event) {
-    const { index } = event.currentTarget.dataset;
-    console.log(index);
+
+    /**
+   * 标记用户是否已登录
+   * @type {boolean}
+   */
+  isLogined: false,
+
+  // 界面跳转
+  jumpto:function (event){
+    const {index} = event.currentTarget.dataset
+    if(this.isLogined){
+      if(index===0){
+        wx.navigateTo({
+          url: '../submitinfo/submitinfo',
+        })
+      }
+    }else{
+      Toast.fail("请先登录")
+    }
   },
+
+
+
   async onGetUserProfile () {
     // 判断用户是否已获取微信头像与昵称
     if (this.isLogined) {

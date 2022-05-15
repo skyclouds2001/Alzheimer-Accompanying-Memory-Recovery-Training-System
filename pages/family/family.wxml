@@ -27,4 +27,6 @@ bindtap="jumpto"
 
 </view>
 
-<df-tabbar></df-tabbar>
+<van-toast id="van-toast" /> 
+
+<df-tabbar kind="1"></df-tabbar>
