@@ -27,4 +27,4 @@ bindtap="jumpto"
 
 </view>
 
-<df-tabbar kind="1"></df-tabbar>
+<df-tabbar></df-tabbar>
