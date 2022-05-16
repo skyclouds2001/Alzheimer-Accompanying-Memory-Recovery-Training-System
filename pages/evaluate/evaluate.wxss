@@ -1,103 +1,122 @@
-.top{
+.top {
   /* 此项为顶部问题显示栏的相关配置 */
- border: 1px solid #ffffff;
- text-align: center;
- height:50%;
- line-height: 50%;
- padding-top: 14px;
- padding-bottom: 12px;
- margin-bottom: 13rpx;
- color: #919191;
- 
+  border: 1px solid #ffffff;
+  text-align: center;
+  height: 50%;
+  line-height: 50%;
+  padding-top: 14px;
+  padding-bottom: 12px;
+  margin-bottom: 13rpx;
+  color: #919191;
 }
-.question{
- /*问题框的配置*/
- border: 1px solid #e6e5e3;
- color: #585757;
- background-color: #ffffff;
- width: 650rpx;
- border-radius: 20px;
- padding-top: 50rpx;
- padding-bottom: 100rpx;
- padding-left: 25px;
- margin: 0 auto;
-   -moz-box-shadow:100px 100px;
-   -webkit-box-shadow:100px 100px;
-   box-shadow:5px 5px #f0f0f0;
+
+.question {
+  /*问题框的配置*/
+  border: 1px solid #e6e5e3;
+  color: #585757;
+  background-color: #ffffff;
+  width: 650rpx;
+  border-radius: 20px;
+  padding-top: 50rpx;
+  padding-bottom: 100rpx;
+  padding-left: 25px;
+  margin: 0 auto;
+  box-shadow: 5px 5px #f0f0f0;
+
+  font-size: large;
 }
-.qpicture{ 
- /*最后一题的图片的配置*/
- height: 100px;
- width: 100px;
- border-radius: 10%;
- float: left;
- margin-left: 25px;
+
+.qpicture {
+  /*最后一题的图片的配置*/
+  height: 100px;
+  width: 100px;
+  border-radius: 10%;
+  float: left;
+  margin-left: 25px;
 }
-.qpicture5{
- /*最后一题的第五张图片的配置，因为第五张图片不用加float，所以给它单独配置*/
- height: 100px;
- width: 100px;
- border-radius: 10%;
- margin-left: 25px;
+
+.qpicture5 {
+  /*最后一题的第五张图片的配置，因为第五张图片不用加float，所以给它单独配置*/
+  height: 100px;
+  width: 100px;
+  border-radius: 10%;
+  margin-left: 25px;
 }
-.allans{
- /* 四个选择题和一个填空题框的配置 */
- margin: 0 auto;
- margin-top: -78rpx;
- width: 625rpx;
+
+.allans {
+  /* 四个选择题选项和一个填空题框的配置 */
+  margin: 0 auto;
+  margin-top: -78rpx;
+  width: 625rpx;
 }
-.answer{
- /*四个选项框的配置*/
- border: 2px solid #f3f3f3;
- width: 615rpx;
- padding-top: 30rpx;
- padding-bottom: 30rpx;
- margin-top: 60rpx;
- padding-left: 8px;
- border-radius: 21px;
- color: #737272;
- background-color: #edfbfb;
- text-align: center;
+
+.answer {
+  /*四个选项框的配置*/
+  border: 2px solid #f3f3f3;
+  width: 615rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin-top: 60rpx;
+  padding-left: 8px;
+  border-radius: 21px;
+  color: #737272;
+  background-color: #edfbfb;
+  text-align: center;
+
+  transition: all 250ms ease-in-out 0;
 }
-.fillblank{
- /*填空题框*/
- border: 2px solid #e6e5e3;
- height: 28px;
- padding-top: 20px;
- padding-bottom: 20px;
- font-size: 23px;
- background-color: #ffffff;
- margin-top: 20px;
- padding-left: 10px;
- border-radius: 21px;
+
+.answer.select {
+  background: #54b7ab;
 }
-.selfbutton1{
- /*上一题的按钮框*/
- border: 1px solid #f1f0f0;
- width: 150px;
- margin-top: 13px;
- padding-top: 20px;
- padding-bottom: 20px;
- text-align: center;
- margin-left: 30px;
- float: left;
- border-radius: 15px;
- color: #797878;
- background-color: #fdfdfd;
- 
+
+.fillblank {
+  /*填空题框*/
+  border: 2px solid #e6e5e3;
+  height: 28px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 22px;
+  background-color: #ffffff;
+  margin-top: 20px;
+  padding-left: 10px;
+  border-radius: 21px;
 }
-.selfbutton2{
- /*下一题的按钮框*/
- border: 1px solid #e6e5e3;
- width: 150px;
- margin-top: 13px;
- padding-top: 20px;
- padding-bottom: 20px;
- text-align: center;
- margin-right: 30px;
- float: right;
- border-radius: 15px;
- color: #ffffff;
- background-color: #54b7ab;
- 
+
+.selfbutton1 {
+  /*上一题的按钮框*/
+  border: 1px solid #f1f0f0;
+  width: 150px;
+  margin-top: 13px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  margin-left: 30px;
+  float: left;
+  border-radius: 15px;
+  color: #797878;
+  background-color: #fdfdfd;
+}
+
+.selfbutton1:active {
+  background: #dad9d8;
+}
+
+.selfbutton2 {
+  /*下一题的按钮框*/
+  border: 1px solid #e6e5e3;
+  width: 150px;
+  margin-top: 13px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  margin-right: 30px;
+  float: right;
+  border-radius: 15px;
+  color: #ffffff;
+  background-color: #54b7ab;
+}
+
+.selfbutton2:active {
+  background: #44958a;
 }

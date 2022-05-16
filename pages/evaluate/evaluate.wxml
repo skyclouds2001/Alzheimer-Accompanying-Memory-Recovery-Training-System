@@ -1,31 +1,44 @@
-		<view class="top">问题{{Serialnumber}}(共13题)</view>
+<view class="top">问题{{ index }}(共{{ length }}题)</view>
 
-			<view class="question" style="font-size: 20px; ">{{question}}</view>  <!--显示问题的内容-->
-			
-		
-			<!-- <view wx:if="qpicture">
-			<image class="qpicture" src="../../static/手表.png" v-if="qpicture1"></image>
-			<image class="qpicture" src="../../static/火柴.png" v-if="qpicture2"></image>
-			<image class="qpicture" src="../../static/烟.png" v-if="qpicture3"></image>
-			<image class="qpicture" src="../../static/钢笔.png" v-if="qpicture4"></image>
-			<image class="qpicture5" src="../../static/钥匙.png" v-if="qpicture5"></image>
-			</view> -->
-			
-			<view class="allans">
-			 <view class="answer" style="background-color:{{ans1}}" bindtap="answer1" wx:if="{{ans}}">{{an1}}</view>   <!--显示四个选项-->
-			 <view class="answer" style="background-color:{{ans2}}" bindtap="answer2" wx:if="{{ans}}">{{an2}}</view>
-			 <view class="answer" style="background-color:{{ans3}}" bindtap="answer3" wx:if="{{ans}}">{{an3}}</view>
-			 <view class="answer" style="background-color:{{ans4}}" bindtap="answer4" wx:if="{{ans}}">{{an4}}</view>
-			 
-			 <!-- <input type="text" placeholder="点击在此输入内容" v-model="fillblank" wx:if="{{blankjudge}}" class="fillblank"> -->
-       <!-- <view class="fillblank"><input class="input" placeholder="点击在此输入内容" auto-focus="true" wx:if="{{blankjudge}}/></view> -->
+<view class="below">
 
-		  </view>
-			
-		<view bindtap="buttondouble">
-		  <view wx:if="{{shangyiti}}">            <!--为了在第一题时隐藏此方框按钮，加了个if-->
-		   <view class="selfbutton1" bindtap="butt1">{{previous}}</view>
-		  </view>                              <!--上一题的按钮-->
-		
-		  <view class="selfbutton2" bindtap="butt2" wx:if="{{nextq}}">{{next}}</view>
-		</view>                            <!--下一题的按钮-->
+  <!-- 显示问题的内容 -->
+  <view class="question">{{ question.name }}</view>
+
+  <!-- [type=5存在] 类型问题的图片 -->
+  <!-- <view wx:if="{{ question.type === 5 }}">
+    <block wx:for="{{ question.img }}" wx:key="*this">
+      <image class="qpicture" src="{{ item }}" wx:if="{{ true }}"></image>
+    </block>
+  </view> -->
+
+  <!-- 客观题四个选项 -->
+  <view class="allans">
+    <view bind:tap="handleChooseAnswer">
+      <view class="answer {{ question.reply === index + 1 ? 'select' : '' }}" wx:for="{{ question.choice }}" wx:key="*this" data-id="{{ index + 1 }}">{{ item }}</view>
+    </view>
+
+    <!-- 主观题输入框 -->
+    <!-- <block wx:if="{{ question.type === 6 }}">
+      <input class="fillblank" type="text" value="{{ question.answer }}" placeholder="点击在此输入内容" bind:confirm="handleInputConfirm" />
+    </block> -->
+  </view>
+
+  <!-- 切换按钮 -->
+  <view bind:tap="handleChangePage">
+  
+    <!--上一题的按钮-->
+    <view wx:if="{{ index > 1 && index <= length }}" class="selfbutton1" data-flag="{{ -1 }}">上一题</view>
+
+    <!--下一题的按钮-->
+    <view wx:if="{{ index >= 1 && index < length  }}" class="selfbutton2" data-flag="{{ 1 }}">下一题</view>
+
+    <!--结束答题的按钮-->
+    <view wx:if="{{ index === length  }}" catch:tap="handleEndAnswer" class="selfbutton2">提交答案</view>
+
+  </view>
+
+</view>
+
+<!-- toast提示框 -->
+<van-toast id="van-toast" />

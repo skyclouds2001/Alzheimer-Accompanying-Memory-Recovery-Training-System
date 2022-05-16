@@ -1,12 +1,3 @@
-/* 上面的方框盒子 */
-.topbox{
-  border: 1px solid #e6e5e3;
-  margin-left: 60rpx;
-  margin-right: 60rpx;
-  border-radius: 15px;
-  box-shadow: 0 0 10px 1px #a5a5a544;
-}
-
 /* 得分 */
 .score {
   font-size: 30px;
@@ -21,7 +12,7 @@
   margin-top: 10px;
   margin-bottom: 350rpx;
 
-  /* csy */
+  /* by csy */
   color: #000000b7;
 }
 
@@ -33,11 +24,10 @@
   padding-bottom: 15px;
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 50rpx;
   border-radius: 5%;
   background-color: #54b7ab;
 
-  /* csy */
+  /* by csy */
   font-size: 37rpx;
   letter-spacing: 5rpx;
   font-weight: bold;
@@ -47,10 +37,10 @@
 
 /* 提示 */
 .tips {
-  margin-top: 100rpx;
-  
-  /* csy */
+  margin-top: 150rpx;
+  color: #838383;
+
+  /* by csy */
   padding: 0 20rpx;
-  font-size: 28rpx;
-  color: #838383d3;
+  font-size: 30rpx;
 }
