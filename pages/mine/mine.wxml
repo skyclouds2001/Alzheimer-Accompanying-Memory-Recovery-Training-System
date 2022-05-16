@@ -17,7 +17,7 @@
 
 <!-- 个人中心详细选项 -->
 <van-cell-group inset custom-class="list" bind:tap="handleOpenPopup">
-  <van-cell title="个人信息" is-link data-id="{{ 1 }}" icon="user-o" />
+  <van-cell title="个人信息" url="/pages/mine/patient-info/patient-info" is-link icon="user-o" />
   <van-cell title="打卡记录" url="/pages/checkin/checkin" is-link icon="certificate" />
   <van-cell title="训练记录" url="/pages/mine/train-record/train-record" is-link icon="chart-trending-o" />
   <van-cell title="我的积分" is-link data-id="{{ 4 }}" icon="award-o" />
@@ -33,22 +33,10 @@
 <!-- 提示框 -->
 <van-toast id="van-toast" />
 
-<!-- 弹出模态框 show=8 -->
+<!-- 弹出模态框 -->
 <van-dialog id="van-dialog" />
 
 <van-popup custom-class="popup" show="{{ show }}" position="bottom" safe-area-inset-top closeable lock-scroll bind:close="handleClosePopup">
-
-  <!-- 个人信息 show=1 -->
-  <block wx:if="{{ show === 1 }}">
-    <van-cell-group inset custom-class="person-info">
-      <van-cell title="姓名" value="{{ personInfo.name }}" />
-      <van-cell title="性别" value="{{ personInfo.gender }}" />
-      <van-cell title="年龄" value="{{ personInfo.age }}" />
-      <van-cell title="家庭住址" value="{{ personInfo.location }}" />
-      <van-cell title="出生省份" value="{{ personInfo.birthSite }}" />
-      <van-cell title="文化水平" value="{{ personInfo.educate }}" />
-    </van-cell-group>
-  </block>
 
   <!-- 我的积分 show=4 -->
   <block wx:if="{{ show === 4 }}">

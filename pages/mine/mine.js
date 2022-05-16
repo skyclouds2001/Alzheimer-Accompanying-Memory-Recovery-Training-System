@@ -271,7 +271,7 @@ Page({
    */
   handleOpenPopup (e) {
     const { id } = e.target.dataset;
-    if ([1, 4, 5, 6, 7].includes(id)) {
+    if ([4, 6, 7].includes(id)) {
       // 检测是否已登录
       if (!this.isLogined) {
         return Toast('请先登录！');
