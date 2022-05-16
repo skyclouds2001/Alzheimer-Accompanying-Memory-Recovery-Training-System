@@ -1,10 +1,16 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/train/train",
+    "pages/patient/patient",
     "pages/mine/mine",
+    "pages/mine/train-record/train-record",
+    "pages/mine/auction/auction",
+    "pages/mine/patient-info/patient-info",
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
     "pages/evaluate/main/main",
+    "pages/evaluate/report-of-family/report-of-family",
     "pages/apraxia/apraxia",
     "pages/apraxia/index/index",
     "pages/apraxia/list/list",
@@ -13,14 +19,9 @@
     "pages/apraxia/sports/sports",
     "pages/apraxia/vedio/vedio",
     "pages/agnosia/agnosia",
-    "pages/logs/logs",
-    "pages/train/train",
-    "pages/patient/patient",
     "pages/family/family",
     "pages/submitinfo/submitinfo",
-    "pages/evaluate/report-of-family/report-of-family",
-    "pages/mine/train-record/train-record",
-    "pages/mine/auction/auction"
+    "pages/logs/logs"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
