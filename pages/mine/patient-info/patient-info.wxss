@@ -1,1 +1,71 @@
-/* pages/mine/patient-info/patient-info.wxss */
+page {
+  width: 100vw;
+  height: 100vh;
+
+  position: relative;
+}
+
+/* 背景 */
+.bg {
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+
+  background-color: white;
+}
+.bg::after {
+  content: '';
+
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  background-color: rgb(84, 182, 172);
+  border-radius: 150rpx;
+
+  transform: translateY(-50%);
+}
+
+/* 信息列表 */
+.content {
+  width: 90%;
+  height: auto;
+  margin: 0 5%;
+  padding: 150rpx 0 0;
+
+  position: relative;
+}
+
+/* 头像 */
+.avator-img {
+  position: absolute;
+  left: calc((90vw - 250rpx) / 2);
+  top: calc(-250rpx / 2 + 150rpx);
+  z-index: 9;
+}
+.avator {
+  width: 250rpx !important;
+  height: 250rpx !important;
+
+  box-shadow: 5rpx 5rpx 10rpx #999;
+  border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* 用户信息 */
+.userinfo-list {
+  margin: 0 !important;
+  padding: 100rpx 0 50rpx !important;
+
+  background-color: white !important;
+  box-shadow: 5rpx 5rpx 10rpx #aaa !important;
+}
