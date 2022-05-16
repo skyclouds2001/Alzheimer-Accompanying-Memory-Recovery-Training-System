@@ -1,19 +1,21 @@
+<view class="topbox">
 <!-- 得分 -->
-<view class="score">您的总分得分为 {{ score }} 分</view>
-
+<view class="score">患者总分得分为 {{ score }} 分</view>
 <!-- 判断结果 -->
 <view class="result">初步判断为{{ result }}</view>
-
 <!-- 返回主页面按钮 -->
 <view class="back-button" bindtap="backhome">返回主页面</view>
+</view>
 
 <!-- 提示 -->
 <view class="tips">
-  <view>tips：</view>
-  <view>长谷川痴呆量表(HDS)虽只有11项.但包括了常识，识记，记忆，计算攻定向5个方向的测试</view>
-  <view>总分为32.5分</view>
-  <view>· 32.5-{{ [30.5, 30.5, 28.5][type] }}为正常</view>
-  <view>· {{ [30.5, 30.5, 28.5][type] }}-{{ [24, 22, 20][type] }}之间为亚正常</view>
-  <view>· {{ [24, 22, 20][type] }}-{{ [12.5, 10.5, 9.5][type] }}为可疑痴呆</view>
-  <view>· {{ [12.5, 10.5, 9.5][type] }}-0为痴呆</view>
+ <text>
+    tips：
+     长谷川痴呆量表(HDS)虽只11项.但包括了常识，识记，记忆，计算攻定向5个方向的测试。
+     总分为32.5分
+     HDS>30.2为正常
+     30.5-22之间为亚正常
+     21.5-10.5为可疑痴呆
+     10-0为痴呆
+  </text>
 </view>

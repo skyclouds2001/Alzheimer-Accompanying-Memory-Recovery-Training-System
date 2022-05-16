@@ -1,3 +1,12 @@
+/* 上面的方框盒子 */
+.topbox{
+  border: 1px solid #e6e5e3;
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 1px #a5a5a544;
+}
+
 /* 得分 */
 .score {
   font-size: 30px;
@@ -24,6 +33,7 @@
   padding-bottom: 15px;
   text-align: center;
   margin: 0 auto;
+  margin-bottom: 50rpx;
   border-radius: 5%;
   background-color: #54b7ab;
 
@@ -37,10 +47,10 @@
 
 /* 提示 */
 .tips {
-  margin-top: 150rpx;
-  color: #838383;
-
+  margin-top: 100rpx;
+  
   /* csy */
   padding: 0 20rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
+  color: #838383d3;
 }
