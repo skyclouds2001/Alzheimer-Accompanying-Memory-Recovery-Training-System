@@ -10,7 +10,7 @@
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
     "pages/evaluate/main/main",
-    "pages/evaluate/report-of-family/report-of-family",
+    "pages/family/latest_diagnosis/report-of-family",
     "pages/apraxia/apraxia",
     "pages/apraxia/index/index",
     "pages/apraxia/list/list",
