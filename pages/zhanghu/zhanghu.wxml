@@ -1,0 +1,23 @@
+<view id="bgcbox">账户</view>
+
+<!-- 用户头像及昵称部分 -->
+<view class="user-info">
+  <!-- 用户头像 -->
+  <view class="avatar">
+    <van-image width="100" height="100" src="{{ avatarUrl }}" fit="cover" show-loading show-error lazy-load bind:click="onGetUserProfile" custom-class="avatar-img" image-class="img"></van-image>
+  </view>
+  <!-- 用户昵称 -->
+  <view class="nickname">
+    <view class="nickname-text">{{ nickName }}</view>
+  </view>
+</view>
+<!-- 选项 -->
+
+<van-cell-group inset custom-class="list" >
+  <van-cell title="详细信息" url="/pages/mine/patient-info/patient-info" is-link icon="user-o" />
+  <van-cell title="vip会员" url="vip_page/vip_page" is-link icon="vip-card-o" />
+  <van-cell title="会员兑换码"  is-link icon="gift-o" />
+  <van-cell title="帮助" is-link  icon="question-o" />
+  <van-cell title="退出"  is-link icon="close" bindtap="quit"/>
+
+</van-cell-group>
