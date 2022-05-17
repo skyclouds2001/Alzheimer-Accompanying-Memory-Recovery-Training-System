@@ -22,7 +22,6 @@
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
 - components 项目组件目录
   - menu 菜单页
-  - timeline 时间轴（自colorUI引入）
 - custom-tab-bar 自定义tabbar目录
   - index
 - data 静态数据目录
@@ -48,12 +47,14 @@
     - play 歌曲播放
   - checkin 患者端 | 每日打卡 `陈思远`
   - mine 患者端 | 个人中心|我的 `陈思远`
+    - patient-info 个人信息
     - auction 积分商城
     - train-record 训练记录
+    - problem-feedback 问题反馈
+    - about 关于我们
   - family 子女端 | 首页 `高飞`
   - logs 日志【不用管它】
 - style 共用样式表目录
-  - icon.wxss 图标样式表（from colorUI）（for mine）
   - iconfont.wxss 图标样式表（from iconfont）（for apraxia）
 - utils 工具目录（主要关于外部导入的模块）
   - util.js 时间格式化
@@ -135,10 +136,10 @@
 - 小程序基础库版本
   `2.23.4`
 
-- DEBUG模式
+- DEBUG 模式
   临时在app.json中开启debug模式，方便后续调试（发布时应当移除！！！）
 
-- 请求
+- HTTPS 请求
   请求时需在 header 内添加 token 字段
   请求成功判断方法根据 code 字段：成功-10000；失败-其他
 
