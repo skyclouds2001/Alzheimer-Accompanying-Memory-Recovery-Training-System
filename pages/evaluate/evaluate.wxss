@@ -1,29 +1,26 @@
 .top {
   /* 此项为顶部问题显示栏的相关配置 */
-  border: 1px solid #ffffff;
-  text-align: center;
+  border: 1rpx solid #ffffff;
+  text-align: left;
   height: 50%;
   line-height: 50%;
-  padding-top: 14px;
-  padding-bottom: 12px;
-  margin-bottom: 13rpx;
+  padding: 25rpx 100rpx;
+  margin-bottom: 15rpx;
   color: #919191;
 }
 
 .question {
   /*问题框的配置*/
-  border: 1px solid #e6e5e3;
-  color: #585757;
-  background-color: #ffffff;
   width: 650rpx;
-  border-radius: 20px;
-  padding-top: 50rpx;
-  padding-bottom: 100rpx;
-  padding-left: 25px;
-  margin: 0 auto;
-  box-shadow: 5px 5px #f0f0f0;
+  padding: 50rpx 25rpx;
+  margin: 50rpx auto;
 
-  font-size: large;
+  box-shadow: 5rpx 5rpx 12.5rpx #ccc, -5rpx -5rpx 12.5rpx #fff;
+  background-color: #fff;
+  border-radius: 40rpx;
+
+  font-size: 50rpx;
+  color: #585757;
 }
 
 .qpicture {
@@ -45,42 +42,48 @@
 
 .allans {
   /* 四个选择题选项和一个填空题框的配置 */
-  margin: 0 auto;
-  margin-top: -78rpx;
+  margin: 50rpx auto;
   width: 625rpx;
 }
 
 .answer {
   /*四个选项框的配置*/
-  border: 2px solid #f3f3f3;
   width: 615rpx;
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
-  margin-top: 60rpx;
-  padding-left: 8px;
-  border-radius: 21px;
-  color: #737272;
+  padding: 30rpx 0;
+  margin: 50rpx 0;
+
+  border-radius: 40rpx;
   background-color: #edfbfb;
+
+  color: #555;
   text-align: center;
+  font-size: 30rpx;
 
   transition: all 250ms ease-in-out 0;
 }
 
 .answer.select {
-  background: #54b7ab;
+  background: rgb(84, 184, 172);
+  color: white;
 }
 
 .fillblank {
   /*填空题框*/
-  border: 2px solid #e6e5e3;
-  height: 28px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 22px;
+  height: 2.5em;
+  margin: 0;
+  padding: 0 25rpx;
+
+  font-size: 40rpx;
+  line-height: 2.5em;
+
   background-color: #ffffff;
-  margin-top: 20px;
-  padding-left: 10px;
-  border-radius: 21px;
+  border: 1rpx solid rgb(84, 184, 172);
+  border-radius: 50rpx;
+}
+.fillblank.pl {
+  font-size: 30rpx;
+  line-height: 1.5em;
+  color: rgb(237, 251, 251);
 }
 
 .selfbutton1 {

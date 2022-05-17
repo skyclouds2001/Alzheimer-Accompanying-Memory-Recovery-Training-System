@@ -48,7 +48,7 @@ Page({
     try {
       // 请求获取问题和选项
       const { data: res } = await request({
-        url: 'https://www.thylovezj.space/v1/problem/getcgc',
+        url: '/v1/problem/getcgc',
         method: 'GET',
       });
 
@@ -59,8 +59,8 @@ Page({
 
       // 预处理问题（选项）及保存问题内容
       const question = res.data;
-      question.forEach(v => {
-        v.checks = v.checks ? v.checks.slice(1, -1).split(',').map(v => v.split('.')) : null;
+      question.forEach((v) => {
+        v.checks = v.checksn ? v.checks.slice(1, -1).split(',').map((v) => v.split('.')) : null;
         v.reply = 0;
       });
       /** todo:根据问题类型做初始化操作 */
@@ -149,11 +149,12 @@ Page({
    * @returns {void}
    */
   handleEndAnswer () {
-    let score = 0;
-    score = this.allQuestion.reduce((p, c) => c.reply === c.answer ? p + c.score : 0, 0);
+    const score = this.allQuestion.reduce(
+      (p, c) => (c.reply === c.answer ? p + c.score : 0),
+      0,
+    );
     wx.navigateTo({
       url: `./../../pages/evaluate/main/main?score=${score}`,
     });
   },
-
 });

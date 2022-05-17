@@ -1,16 +1,22 @@
 {
-  "name": "recovery-training-system",
+  "name": "keep-memory",
   "version": "1.0.0",
   "description": "阿尔兹海默症陪伴型记忆恢复训练系统",
   "main": "app.js",
   "contributors": [
     "李欣悦",
+    "李雨菲",
+    "冯媛霞",
     "李响",
     "高飞",
     "王家祥",
-    "陈思远"
+    "陈思远",
+    "邵昕晨",
+    "唐浩瑜",
+    "米国良"
   ],
   "keywords": [
+    "觅忆",
     "阿尔兹海默症陪伴型记忆恢复训练系统",
     "Alzheimer-Accompanying-Memory-Recovery-Training-System"
   ],
@@ -40,6 +46,5 @@
   "directories": {
     "doc": "docs",
     "lib": "lib"
-  },
-  "author": ""
+  }
 }
