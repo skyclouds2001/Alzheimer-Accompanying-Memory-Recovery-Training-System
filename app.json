@@ -27,7 +27,7 @@
     "pages/family/adscience/adscience",
     "pages/family/Recalltime/Recalltime"
   ],
-  "entryPagePath": "pages/family/Recalltime/Recalltime",
+  "entryPagePath": "pages/index/index",
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "觅忆",
