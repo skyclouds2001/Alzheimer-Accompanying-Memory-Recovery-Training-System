@@ -19,7 +19,7 @@ Page({
       name: options.name,
       singer: options.singer,
       album: options.album,
-    });
+    });console.log(1);
   },
 
   onShow: function () {
@@ -64,12 +64,15 @@ Page({
    * @returns {void}
    */
   like: function () {
+    console.log("222");
     const app = getApp();
     const src = `https://music.163.com/song/media/outer/url?id=${this.data.song_id}.mp3`;
     this.setData({
       isLike: !this.data.isLike,
       isLikeText: this.data.isLikeText === '不喜欢' ? '喜欢' : '不喜欢',
     });
+    console.log(this.data.isLike);
+    console.log(this.data.join);
     if (this.data.isLike && !this.data.join) {
       const song = {
         id: this.data.song_id,
@@ -79,7 +82,31 @@ Page({
         src: src,
         isplay: false,
       };
-      app.globalData.mysongs.push(song);
+      // app.globalData.mysongs.push(song);
+      
+      wx.request({
+        url: 'http://www.thylovezj.space/v1/song/add', //仅为示例，并非真实的接口地址
+        data: {
+        songId: this.data.song_id,
+        songName: this.data.name,
+        album: this.data.album,
+        src: src,
+        singer: this.data.singer,
+        },
+        method: 'POST',
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success (res) {
+          console.log(res.data)
+        },
+        fail(err){
+          console.log(err);
+        },
+        fail: () => {
+          console.log('push fail');
+        },
+      });
       this.setData({
         join: true,
       });

@@ -69,11 +69,14 @@ border-radius: 25rpx;
 #box {
   width: 700rpx;
   height: 150rpx;
-  padding-top: 25rpx;
+
   margin: 0 auto;
   margin-top: 300rpx;
   box-shadow:  6rpx 6rpx 5rpx 2rpx rgba(0, 0, 0, 0.1);
   border-radius: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #detail {
   width: 600rpx;
@@ -81,4 +84,5 @@ border-radius: 25rpx;
   background-color: #53b6aa;
   border-radius: 20rpx;
   color: white;
+  line-height: 100rpx;
 }
