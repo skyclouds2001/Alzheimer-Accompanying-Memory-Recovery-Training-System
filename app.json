@@ -7,6 +7,8 @@
     "pages/mine/train-record/train-record",
     "pages/mine/auction/auction",
     "pages/mine/patient-info/patient-info",
+    "pages/mine/problem-feedback/problem-feedback",
+    "pages/mine/about/about",
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
     "pages/evaluate/main/main",

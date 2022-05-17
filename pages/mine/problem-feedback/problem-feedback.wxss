@@ -1,0 +1,35 @@
+page {
+  width: 100vw;
+  height: 100vh;
+
+  position: relative;
+}
+
+/* 背景 */
+.bg {
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+
+  background-color: white;
+}
+.bg::after {
+  content: '';
+
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  background-color: rgb(84, 182, 172);
+  border-radius: 150rpx;
+
+  transform: translateY(-50%);
+}
