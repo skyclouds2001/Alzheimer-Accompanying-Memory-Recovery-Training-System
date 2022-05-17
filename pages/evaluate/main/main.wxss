@@ -12,7 +12,7 @@
   margin-top: 10px;
   margin-bottom: 350rpx;
 
-  /* csy */
+  /* by csy */
   color: #000000b7;
 }
 
@@ -27,7 +27,7 @@
   border-radius: 5%;
   background-color: #54b7ab;
 
-  /* csy */
+  /* by csy */
   font-size: 37rpx;
   letter-spacing: 5rpx;
   font-weight: bold;
@@ -40,7 +40,7 @@
   margin-top: 150rpx;
   color: #838383;
 
-  /* csy */
+  /* by csy */
   padding: 0 20rpx;
   font-size: 30rpx;
 }

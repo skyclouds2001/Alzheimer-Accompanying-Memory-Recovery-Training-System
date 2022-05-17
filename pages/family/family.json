@@ -1,0 +1,7 @@
+{
+  "usingComponents": { 
+                       "van-image": "@vant/weapp/image/index",
+                       "df-tabbar":"../../custom-tab-bar/index",
+                       "van-toast": "@vant/weapp/toast/index"
+                      }
+}

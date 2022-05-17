@@ -1,0 +1,9 @@
+<view class="bg"></view>
+
+<view class="pro-add">
+  <textarea class="pro-input" model:value="{{ feedback }}" placeholder="请输入问题反馈内容" placeholder-class="ph" maxlength="1000"></textarea>
+</view>
+
+<view class="pro-submit">
+  <button class="pro-btn" bind:tap="handleSubmitFeedback">提交</button>
+</view>

@@ -228,7 +228,7 @@ Page({
   /**
    * 处理用户登录换取用户微信头像及微信昵称
    */
-  async onGetUserProfile () {
+  async handleGetUserProfile () {
     // 判断用户是否已获取微信头像与昵称
     if (this.isLogined) {
       return;
@@ -271,11 +271,7 @@ Page({
    */
   handleOpenPopup (e) {
     const { id } = e.target.dataset;
-    if ([1, 2, 3, 4, 5, 6, 7].includes(id)) {
-      // 检测是否已登录
-      if (!this.isLogined) {
-        return Toast('请先登录！');
-      }
+    if (id === 4) {
       // 显示对应弹窗
       this.setData({
         show: id,
@@ -283,7 +279,7 @@ Page({
     } else if (id === 8) {
       // 弹出退出登录确认模态框
       Dialog.confirm({
-        message: '是否确认退出登录？',
+        message: '确认退出登录？',
       }).then(() => {
         // 确认退出，清空个人信息
         this.isLogined = false;
@@ -304,25 +300,6 @@ Page({
   handleClosePopup () {
     this.setData({
       show: 0,
-    });
-  },
-
-  /**
-   * 提交问题反馈内容
-   */
-  async handleFeedback () {
-    // const { feedback } = this.data;
-    // const res = await request({
-    //   url: '',
-    //   method: '',
-    //   data: {
-    //     feedback,
-    //   },
-    //   header: {},
-    // });
-    // console.log(res);
-    this.setData({
-      feedback: '',
     });
   },
 

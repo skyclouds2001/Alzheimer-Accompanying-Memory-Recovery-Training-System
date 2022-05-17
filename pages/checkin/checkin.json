@@ -3,5 +3,6 @@
     "van-calendar": "@vant/weapp/calendar/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-toast": "@vant/weapp/toast/index"
-  }
+  },
+  "navigationBarTitleText": "打卡记录"
 }
