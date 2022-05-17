@@ -271,11 +271,7 @@ Page({
    */
   handleOpenPopup (e) {
     const { id } = e.target.dataset;
-    if ([4, 6, 7].includes(id)) {
-      // 检测是否已登录
-      if (!this.isLogined) {
-        return Toast('请先登录！');
-      }
+    if (id === 4) {
       // 显示对应弹窗
       this.setData({
         show: id,
@@ -304,25 +300,6 @@ Page({
   handleClosePopup () {
     this.setData({
       show: 0,
-    });
-  },
-
-  /**
-   * 提交问题反馈内容
-   */
-  async handleFeedback () {
-    // const { feedback } = this.data;
-    // const res = await request({
-    //   url: '',
-    //   method: '',
-    //   data: {
-    //     feedback,
-    //   },
-    //   header: {},
-    // });
-    // console.log(res);
-    this.setData({
-      feedback: '',
     });
   },
 

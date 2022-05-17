@@ -1,5 +1,3 @@
-@import './../../style/icon.wxss';
-
 page {
   font-size: 36rpx;
 
@@ -119,36 +117,7 @@ page {
   color: black;
 }
 
-/* 个人信息 show=1 */
-.person-info {
-  margin: 0 !important;
-  background-color: transparent !important;
-  box-shadow: 5rpx 5rpx 10rpx rgb(205, 223, 221);
-}
-
-/* 打卡记录 show=2 */
-.van-calendar {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-radius: 15rpx !important;
-  box-shadow: 5rpx 5rpx 10rpx #ccc !important;
-  overflow: hidden !important;
-}
-.select .van-calendar__bottom-info::after {
-  content: '\2714';
-
-  color: red;
-  font-size: 50rpx;
-  font-weight: bold;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-/* 训练记录 show=3 */
-
-/* 我的积分 show=4 */
+/* 我的积分弹出框 */
 .credit-title {
   width: 100%;
   height: 1.25em;
@@ -171,41 +140,4 @@ page {
   text-align: center;
   line-height: 2.5em;
   font-weight: bold;
-}
-
-/* 积分商城 show=5 */
-.card-item {
-  margin: 25rpx 0 !important;
-  border-radius: 25rpx !important;
-  box-shadow: 5rpx 5rpx 12.5rpx #ccc;
-}
-
-/* 问题反馈 show=6 */
-.feedback-input {
-  width: 100%;
-  height: 60vh;
-  margin: 0;
-  padding: 25rpx;
-  box-sizing: border-box;
-
-  border: 1rpx solid greenyellow;
-  border-radius: 25rpx;
-  background-color: white;
-}
-.feedback-button {
-  margin: 50rpx auto 0;
-}
-
-/* 关于我们 show = 7 */
-.about {
-  margin: 0;
-  padding: 25rpx;
-
-  background-color: rgb(199, 223, 220);
-  border-radius: 25rpx;
-
-  font-size: 30rpx;
-  letter-spacing: 1rpx;
-  text-indent: 2em;
-  line-height: 1.25em;
 }
