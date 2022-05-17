@@ -17,8 +17,27 @@ Page({
 
   onShow: function () {
     const app = getApp();
-    this.setData({
-      mysongs: app.globalData.mysongs,
+    const that = this;
+    wx.request({
+        url: 'example.php', //仅为示例，并非真实的接口地址
+        method="GET",
+        // data: {
+        //   x: '',
+        //   y: ''
+        // },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success (res) {
+          console.log(res)
+          that.setData({
+            // 默认选取前9个歌单
+            mysongs: res,
+          });
+        }
+      });
+      this.setData({
+      // mysongs: app.globalData.mysongs,
     });
   },
 
