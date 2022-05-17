@@ -21,9 +21,11 @@
     "pages/agnosia/agnosia",
     "pages/family/family",
     "pages/submitinfo/submitinfo",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/family/adscience/adscience",
+    "pages/family/Recalltime/Recalltime"
   ],
-  "entryPagePath": "pages/index/index",
+  "entryPagePath": "pages/family/Recalltime/Recalltime",
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "觅忆",
