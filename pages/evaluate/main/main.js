@@ -24,7 +24,8 @@ Page({
     type: 1,
 
     /**
-     * 长谷川问题基于患者文化水平不同的等级评定标准
+     * 长谷川问题等级评定标准
+     * 基于患者文化水平不同
      * * 文化水平高
      *   * 分值大于30.5正常
      *   * 30.5-24为亚正常
@@ -58,7 +59,7 @@ Page({
     ];
 
     // 获取文化水平类型
-    const level = standard.reduce((p, v) => v > score ? 1 : 0 + p, 0) - 1;
+    const level = standard.reduce((p, v) => p + (v > score ? 1 : 0), 0) - 1;
     const result = ['正常', '亚正常', '可疑痴呆', '痴呆'][level];
 
     this.setData({
