@@ -63,6 +63,10 @@
       {
         "pagePath": "pages/family/family",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/zhanghu/zhanghu",
+        "text": "账户"
       }
     ],
     "position": "bottom"
