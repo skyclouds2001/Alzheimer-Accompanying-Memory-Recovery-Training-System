@@ -43,3 +43,19 @@
   color: #3d3d3d;
   margin-top: 15px;
 }
+.false_tabbar{
+  border:1px solid #ffffff;
+  position: absolute;
+  margin-top: 125%;
+  margin-left: 4.3%;
+  width: 690rpx;
+  height: 70rpx;
+}
+.skippage{
+  border:1px solid #6363632d;
+  width: 215rpx;
+  height: 95rpx;
+  margin-left: 5px;
+  border-radius: 30px;
+  float:left
+}
