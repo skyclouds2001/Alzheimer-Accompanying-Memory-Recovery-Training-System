@@ -1,11 +1,5 @@
-<!-- 背景图片 -->
-<!-- <view class="checkin-img">
-  <swiper autoplay circular class="swiper">
-    <swiper-item wx:for="{{ images }}" wx:key="*this" class="swiper-item">  
-      <image mode="aspectFill" src="{{ item }}" lazy-load></image>
-    </swiper-item>
-  </swiper>
-</view> -->
+<!-- 背景图案 -->
+<view class="bg"></view>
 
 <!-- 提示文字 -->
 <view class="checkin-text">
