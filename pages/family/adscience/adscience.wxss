@@ -2,10 +2,11 @@
   /* 整个展示框 */
   border: 1px solid #ffffff;
   height: 255rpx;
+  margin-bottom: 15px;
 }
 .picture{
   /* 图片 */
-  border: 1px solid #e21515;
+  border: 1px solid #6161614f;
   width: 200rpx;
   height: 200rpx;
   margin-left: 22rpx;
@@ -16,7 +17,7 @@
 }
 .newstext{
   /* 把标题和内容框框起来的一个盒子 */
-  border: 1px solid #e21515;
+  border: 1px solid #ffffff;
   width: 420rpx;
   float: left;
   margin-left: 25rpx;
@@ -24,15 +25,16 @@
 }
 .newstitle{
   /* 标题 */
-  border: 1px solid #e21515;
+  border: 1px solid #ffffff;
   font-weight: 500;
   font-size: 20px;
 }
 .partcontent{
-  /* 文章的开头部分内容 */
-  border: 1px solid #e21515;
+  /* 文章的部分内容 */
+  border: 1px solid #ffffff;
   height: 100rpx;
   margin-top: 3px;
+  color: #181818c0;
 }
 .jumptip{
   /* 右边的一个小箭头 */
@@ -47,5 +49,5 @@
   border-top: 1px solid #83838360;
   margin-left: 30rpx;
   margin-right: 30rpx;
-  margin-top: 250rpx;
+  margin-top: 245rpx;
 }

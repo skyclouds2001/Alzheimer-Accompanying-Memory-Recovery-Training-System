@@ -11,7 +11,7 @@ $RECYCLE.BIN/
 .TemporaryItems
 .Trashes
 
-# Node.js
+# npm
 node_modules/
 miniprogram_npm/
 

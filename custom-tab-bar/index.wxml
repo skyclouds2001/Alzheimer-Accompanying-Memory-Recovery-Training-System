@@ -11,6 +11,7 @@
     个人中心
   </navigator>
 </block>
+
 <!-- 子女端kind=1 -->
 <block wx:if="{{kind===1}}">
   <navigator open-type="switchTab" url="/pages/family/family" class="{{ select !== 0 ? 'unselected' : 'selected' }}">
@@ -20,6 +21,5 @@
     账户
   </navigator>
 
-</block>
-  
+  </block>
 </view>

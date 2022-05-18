@@ -8,14 +8,13 @@
 <view class class="photobox"><image src="/images/add_album.png" class="photo"></image></view>
 <view class="text">新建相册</view>
 </view>
-<view class="totalbox">
-<view class class="photobox"><image src="/images/add_album.png" class="photo"></image></view>
-<view class="text">新建相册</view>
-</view>
-<view class="totalbox">
-<view class class="photobox"><image src="/images/add_album.png" class="photo"></image></view>
-<view class="text">新建相册</view>
-</view>
 
+<view class="false_tabbar">
+<view class="skippage">相册</view>
+<view class="skippage">照片</view>
+<view class="skippage">视频</view>
+</view>
+<!-- tabbar页面相关 -->
+<!-- <df-tabbar></df-tabbar> -->
 
 
