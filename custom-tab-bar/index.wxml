@@ -16,7 +16,7 @@
   <navigator open-type="switchTab" url="/pages/family/family" class="{{ select !== 0 ? 'unselected' : 'selected' }}">
     首页
   </navigator>
-  <navigator open-type="switchTab" url="#" class="{{ select !== 1 ? 'unselected' : 'selected' }}">
+  <navigator open-type="switchTab" url="/pages/zhanghu/zhanghu" class="{{ select !== 1 ? 'unselected' : 'selected' }}">
     账户
   </navigator>
 
