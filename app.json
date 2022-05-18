@@ -25,7 +25,9 @@
     "pages/submitinfo/submitinfo",
     "pages/logs/logs",
     "pages/family/adscience/adscience",
-    "pages/family/Recalltime/Recalltime"
+    "pages/family/Recalltime/Recalltime",
+    "pages/family/Recalltime/vedio/vedio",
+    "pages/family/Recalltime/photo/photo"
   ],
   "entryPagePath": "pages/index/index",
   "window": {

@@ -129,12 +129,12 @@ Page({
     }
   },
   onShow: function () {
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        select: 0,
-        kind: 1,
-      });
-    }
+    // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+    //   this.getTabBar().setData({
+    //     select: 0,
+    //     kind: 1,
+    //   });
+    // }
   },
 
 });

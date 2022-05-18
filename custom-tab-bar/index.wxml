@@ -19,7 +19,18 @@
   <navigator open-type="switchTab" url="#" class="{{ select !== 1 ? 'unselected' : 'selected' }}">
     账户
   </navigator>
-
 </block>
+<!-- 相册页面（“回忆时光”）    ***由于list限制，暂时加不上tabbar页面，难以完善可删掉***
+<block wx:if="{{kind===2}}">
+  <navigator open-type="switchTab" url="/pages/family/Recalltime/Recalltime" class="{{ select !== 0 ? 'unselected' : 'selected' }}">
+    相册
+  </navigator>
+  <navigator open-type="switchTab" url="/pages/family/Recalltime/photo/photo" class="{{ select !== 1 ? 'unselected' : 'selected' }}">
+    照片
+  </navigator>
+  <navigator open-type="switchTab" url="/pages/family/Recalltime/vedio/vedio" class="{{ select !== 2 ? 'unselected' : 'selected' }}">
+    视频
+  </navigator>
+</block> -->
   
 </view>

@@ -30,12 +30,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow() {
     // tabbar页面相关
     // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
     //   this.getTabBar().setData({
-    //     select: 0,
-    //     kind: 2,
+    //     select: 2,
+    //     kind: 1
     //   });
     // }
   },
