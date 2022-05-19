@@ -121,10 +121,11 @@ Page({
       Toast.fail('授权失败');
     }
   },
-  onLoad: async function () {
+
+  check_userinfo: async function () {
     // 从存储提取用户信息
     const userInfo = wx.getStorageSync('userInfo') || {};
-
+  
     // 判断是否已存在信息
     // 设置数据并更新
     if ('nickName' in userInfo && 'avatarUrl' in userInfo) {
@@ -133,9 +134,17 @@ Page({
         nickName: userInfo.nickName,
       });
       this.isLogined = true;
+    }else{
+      this.setData({
+        nickName: '请点击头像登录',
+        avatarUrl: '/images/empty-image-default.png'
+      });
     }
   },
+  
+
   onShow: function () {
+    this.check_userinfo();
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         select: 0,
