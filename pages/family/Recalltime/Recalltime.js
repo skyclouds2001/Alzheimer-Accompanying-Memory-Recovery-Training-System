@@ -12,6 +12,17 @@ Page({
     /**视频数量 */
     videoquantity:0
   },
+  // falshtabbar
+  photo(){
+    wx.redirectTo({
+      url: '/pages/family/Recalltime/photo/photo',
+    })
+  },
+  vedio(){
+    wx.redirectTo({
+      url: '/pages/family/Recalltime/vedio/vedio',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

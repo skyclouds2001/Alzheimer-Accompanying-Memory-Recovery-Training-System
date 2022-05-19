@@ -9,6 +9,11 @@
 <view class="text">新建照片</view>
 </view>
 
+<view class="false_tabbar">
+<view class="skippage" bindtap="album">相册</view>
+<view class="skippage1">照片</view>
+<view class="skippage" bindtap="vedio">视频</view>
+</view>
 <!-- <df-tabbar></df-tabbar> -->
 
 

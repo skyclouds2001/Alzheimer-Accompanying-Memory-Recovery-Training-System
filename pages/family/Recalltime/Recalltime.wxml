@@ -10,9 +10,9 @@
 </view>
 
 <view class="false_tabbar">
-<view class="skippage">相册</view>
-<view class="skippage">照片</view>
-<view class="skippage">视频</view>
+<view class="skippage1">相册</view>
+<view class="skippage" bindtap="photo">照片</view>
+<view class="skippage" bindtap="vedio">视频</view>
 </view>
 <!-- tabbar页面相关 -->
 <!-- <df-tabbar></df-tabbar> -->
