@@ -4,7 +4,7 @@
   width: 680rpx;
   border-radius: 35rpx;
   box-shadow:  6rpx 6rpx 5rpx 2rpx rgba(0, 0, 0, 0.1);
-  margin: 40rpx auto;
+  margin: 60rpx auto;
   justify-content: space-around;
   align-items: center;
 }
@@ -57,9 +57,7 @@ border-radius: 25rpx;
   justify-content: space-around;
   align-items: center;
 }
-/* .phone {
-  
-} */
+
 .tt {
   width: 80rpx;
 }
@@ -69,9 +67,8 @@ border-radius: 25rpx;
 #box {
   width: 700rpx;
   height: 150rpx;
-
   margin: 0 auto;
-  margin-top: 300rpx;
+  margin-top: 350rpx;
   box-shadow:  6rpx 6rpx 5rpx 2rpx rgba(0, 0, 0, 0.1);
   border-radius: 25rpx;
   display: flex;

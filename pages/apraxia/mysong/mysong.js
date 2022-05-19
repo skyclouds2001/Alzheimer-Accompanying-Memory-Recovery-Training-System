@@ -20,7 +20,7 @@ Page({
     const that = this;
     wx.request({
         url: 'example.php', //仅为示例，并非真实的接口地址
-        method="GET",
+        method:"GET",
         // data: {
         //   x: '',
         //   y: ''

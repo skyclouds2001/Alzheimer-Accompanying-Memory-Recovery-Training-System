@@ -16,7 +16,7 @@
 <van-cell-group inset custom-class="list" >
   <van-cell title="详细信息" url="/pages/mine/patient-info/patient-info" is-link icon="user-o" />
   <van-cell title="vip会员" url="vip_page/vip_page" is-link icon="vip-card-o" />
-  <van-cell title="会员兑换码"  is-link icon="gift-o" />
+  <van-cell title="会员兑换码" url="code/code" is-link icon="gift-o" />
   <van-cell title="帮助" is-link  icon="question-o" />
   <van-cell title="退出"  is-link icon="close" bindtap="quit"/>
 

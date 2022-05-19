@@ -67,11 +67,18 @@ Page({
   jumpto:function (event){
     const {index} = event.currentTarget.dataset
     if(this.isLogined){
-      if(index===0){
-        wx.navigateTo({
-          url: '../submitinfo/submitinfo',
-        })
-      }
+       switch(index){
+         case 0 : wx.navigateTo({url: 'submitinfo/submitinfo'});break;
+         case 1 : wx.navigateTo({ url: '#' });break;
+         case 2 : wx.navigateTo({ url: '#' });break;
+         case 3 : wx.navigateTo({ url: 'latest_diagnosis/report-of-family' });break;
+         case 4 : wx.navigateTo({ url: 'adscience/adscience' });break;
+         case 5 : wx.navigateTo({ url: 'Recalltime/Recalltime' });break;
+       }
+
+
+  
+      
     }else{
       Toast.fail("请先登录")
     }
@@ -129,12 +136,12 @@ Page({
     }
   },
   onShow: function () {
-    // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-    //   this.getTabBar().setData({
-    //     select: 0,
-    //     kind: 1,
-    //   });
-    // }
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        select: 0,
+        kind: 1,
+      });
+    }
   },
 
 });
