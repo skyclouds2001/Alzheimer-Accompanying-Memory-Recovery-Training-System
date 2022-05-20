@@ -31,7 +31,8 @@
 
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
 - components 项目组件目录
-  - menu 菜单页
+  - menu 菜单
+  - timeline 时间轴
 - custom-tab-bar 自定义tabbar目录
   - index
 - docs 项目文档目录
