@@ -1,27 +1,11 @@
-// pages/family/Recalltime/Recalltime.js
+// pages/zhanghu/help/help.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    /** 相册数量*/
-    albumquantity:0,
-    /**照片数量 */
-    photoquantity:0,
-    /**视频数量 */
-    videoquantity:0
-  },
-  // falshtabbar
-  photo(){
-    wx.redirectTo({
-      url: '/pages/family/Recalltime/photo/photo',
-    })
-  },
-  vedio(){
-    wx.redirectTo({
-      url: '/pages/family/Recalltime/vedio/vedio',
-    })
+
   },
 
   /**
@@ -41,14 +25,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    // tabbar页面相关
-    // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-    //   this.getTabBar().setData({
-    //     select: 0,
-    //     kind: 2,
-    //   });
-    // }
+  onShow() {
+
   },
 
   /**

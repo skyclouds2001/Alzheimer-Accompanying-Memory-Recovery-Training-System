@@ -13,9 +13,9 @@ Page({
     videoquantity:0
   },
   // falshtabbar
-  photo(){
+  album(){
     wx.redirectTo({
-      url: '/pages/family/Recalltime/photo/photo',
+      url: '/pages/family/Recalltime/Recalltime',
     })
   },
   vedio(){
@@ -41,16 +41,15 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    // tabbar页面相关
+  onShow() {
+    //tabbar页面相关
     // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
     //   this.getTabBar().setData({
-    //     select: 0,
-    //     kind: 2,
+    //     select: 1,
+    //     kind: 2
     //   });
     // }
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */

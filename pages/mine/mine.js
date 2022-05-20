@@ -221,6 +221,7 @@ Page({
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         select: 2,
+        kind:0
       });
     }
   },

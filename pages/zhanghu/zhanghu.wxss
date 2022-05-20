@@ -14,7 +14,11 @@
   border-radius: 0 0 60rpx 60rpx;
   z-index: -1;
 }
-
+.scanico{
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+}
 /* 用户头像及昵称 */
 .user-info {
   width: calc(100vw - 100rpx);
@@ -65,4 +69,61 @@
   margin: 100rpx 50rpx !important;
 
   box-shadow: 10rpx 10rpx 25rpx #ccc;
+}
+.input_area{
+  height: 250rpx;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: #55c5ab;
+  font-size: x-large;
+}
+.title{
+  height: 150rpx;
+  font-size: x-large;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.content{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.iptbox{
+  width: 110rpx;
+  height: 110rpx;
+  border:1rpx solid #b2b0bb;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.ipt{
+  width: 0;
+  height: 0;
+}
+.btn_area{
+  height: 200rpx;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+
+
+}
+.check,
+.cancel{
+   height: 100rpx;
+   width: 300rpx;
+   background-color: #54b5aa;
+   color: white;
+   font-size: large;
+   border-radius: 30rpx;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
