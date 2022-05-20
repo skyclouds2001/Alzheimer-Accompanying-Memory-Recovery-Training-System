@@ -14,7 +14,11 @@
   border-radius: 0 0 60rpx 60rpx;
   z-index: -1;
 }
-
+.scanico{
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+}
 /* 用户头像及昵称 */
 .user-info {
   width: calc(100vw - 100rpx);

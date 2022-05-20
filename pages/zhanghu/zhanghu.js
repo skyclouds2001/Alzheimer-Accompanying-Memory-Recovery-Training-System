@@ -157,7 +157,19 @@ Page({
     // 取消退出，无额外操作
   });
 },
+scanCode(){
+  wx.scanCode({
+    success:(res)=>{
+      console.log(res);
+      Toast.success("成功")
+    },
+    fail:()=>{
+      console.log('fail');
+      Toast.fail("失败请重试")
+    }
+  })
 
+},
 
 check_userinfo: async function () {
   // 从存储提取用户信息

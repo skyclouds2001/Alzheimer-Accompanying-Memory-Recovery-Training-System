@@ -1,5 +1,6 @@
 <view id="bgcbox">账户</view>
-
+<!-- 扫一扫 -->
+<van-icon name="scan" size="35"  class="scanico" bindtap="scanCode"/>
 <!-- 用户头像及昵称部分 -->
 <view class="user-info">
   <!-- 用户头像 -->
