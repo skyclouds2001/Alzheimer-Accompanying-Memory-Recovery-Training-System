@@ -65,10 +65,11 @@
     - adscience AD科普 `李响`
     - latest_diagnosis 最新诊断 `李响`
     - Recalltime 回忆时光 `李响`
-  - submitinfo 子女端 | 完善患者信息 `高飞`
+    - submitinfo 完善患者信息 `高飞`
   - zhanghu 子女端 | 账户 `高飞`
     - detail_info 详细信息 `高飞`
     - vip_page VIP会员 `高飞`
+    - help 帮助 `高飞`
   - logs 日志【不用管它】
 - style 共用样式表目录
   - iconfont.wxss 图标样式表（from iconfont）（for apraxia）
