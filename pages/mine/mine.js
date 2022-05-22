@@ -221,6 +221,10 @@ Page({
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         select: 2,
+<<<<<<< HEAD
+=======
+        kind: 0,
+>>>>>>> 95f70cc1da7c2ca36578f453e3cd85032fb15338
       });
     }
   },
@@ -237,7 +241,7 @@ Page({
     try {
       // 调用wx接口获取用户信息
       const { userInfo } = await wx.getUserProfile({
-        desc: '请授权我们使用您的个人信息',
+        desc: '请授权我们使用您的昵称及头像',
         lang: 'zh_CN',
       });
 
@@ -256,7 +260,7 @@ Page({
         nickName: userInfo.nickName,
       });
 
-      // 更新已登录状态
+      // 更新登录状态
       this.isLogined = true;
     } catch (err) {
       // 显示授权失败提示

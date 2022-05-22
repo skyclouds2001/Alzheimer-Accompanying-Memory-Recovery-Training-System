@@ -4,7 +4,7 @@
     "pages/train/train",
     "pages/patient/patient",
     "pages/mine/mine",
-    "pages/mine/train-record/train-record",
+    "pages/train-record/train-record",
     "pages/mine/auction/auction",
     "pages/mine/patient-info/patient-info",
     "pages/mine/problem-feedback/problem-feedback",
