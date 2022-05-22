@@ -64,7 +64,7 @@ Page({
       const urls = [
         './submitinfo/submitinfo',
         '#',
-        '#',
+        './../train-record/train-record',
         './latest_diagnosis/report-of-family',
         './adscience/adscience',
         './Recalltime/Recalltime',
