@@ -11,18 +11,19 @@
     <view class="nickname-text">{{ nickName }}</view>
   </view>
 </view>
+
 <!-- 标签栏部分 -->
 <view id="tab_bar">
 
 <view class="tab" 
-wx:for="{{tab_list}}" 
-data-index="{{index}}"
+wx:for="{{ tab_list }}" 
+data-index="{{ index }}"
 wx:key="text"
 bindtap="jumpto"
 >
-<view class="i1"><image src="{{item.src1}}" mode="aspectFit"></image></view>
-<view class="i2">{{item.text}}</view>
-<view class="i3"><image src="{{item.src2}}"  mode="aspectFit"></image></view>
+  <view class="i1"><image src="{{ item.src1 }}" mode="aspectFit"></image></view>
+  <view class="i2">{{ item.text }}</view>
+  <view class="i3"><image src="{{ item.src2 }}"  mode="aspectFit"></image></view>
 </view>
 
 </view>
