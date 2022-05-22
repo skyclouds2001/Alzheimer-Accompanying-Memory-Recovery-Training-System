@@ -4,19 +4,19 @@
 
 - 产品文档
   - https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
-- 后端HOST
+- 后端 HOST
   - http://www.thylovezj.space
 - 接口文档
   - https://www.apifox.cn/web/project/977035
-- UI文档
+- UI 文档
   - https://otkyd4jmkr.feishu.cn/docs/doccncy0NdQd5nXGJsIgA829AKd
 - git 仓库
   - https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System
   - 仓库为私有仓库，需申请访问及编辑权限
-- 网易云音乐API
+- 网易云音乐 API
   - 请求host https://api.xaneon.com
   - 接口文档 https://neteasecloudmusicapi.vercel.app/
-- 开发者Github
+- 开发者 Github
   - 陈思远 https://github.com/skyclouds2001
   - 高飞 https://github.com/s5das
   - 王家祥 https://github.com/wjx213
@@ -43,7 +43,8 @@
 - pages 项目页面目录
   - index 登录首页 `高飞`
   - patient 患者端 | 诊断模块首页 `陈思远`
-  - evaluate 患者端 | 病情评定模块 `李响=>陈思远`
+  - evaluate 患者端 | 病情评定 `李响=>陈思远`
+    - init 开始答题 `陈思远` 
     - main 反馈结果页 `李响=>陈思远`
   - train 患者端 | 训练模块首页 `陈思远`
   - agnosia 患者端 | 失认症恢复模块 `高飞`
@@ -55,12 +56,12 @@
     - mysong 我的收藏歌曲 `王家祥=>邵昕晨`
     - play 歌曲播放 `王家祥=>邵昕晨`
   - checkin 患者端 | 每日打卡 `陈思远`
-  - mine 患者端 | 个人中心|我的 `陈思远`
+  - mine 患者端 | 个人中心 | 我的 `陈思远`
     - patient-info 个人信息 `陈思远`
     - auction 积分商城 `陈思远`
-    - train-record 训练记录 `陈思远`
     - problem-feedback 问题反馈 `陈思远`
     - about 关于我们 `陈思远`
+  - train-record 患者端&子女端 | 训练记录 `陈思远`
   - family 子女端 | 首页 `高飞`
     - adscience AD科普 `李响`
     - latest_diagnosis 最新诊断 `李响`
