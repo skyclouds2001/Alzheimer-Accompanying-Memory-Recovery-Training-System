@@ -7,6 +7,12 @@ Page({
    */
   data: {
   /**
+   * 导航栏
+   */
+    element_list:[{title:'首页',url:"../family/family"},{title:"账户",url:"../zhanghu/zhanghu"}],
+    select_index:0,
+   
+  /**
    * tab模块组
    */
     tab_list: [
@@ -139,18 +145,13 @@ Page({
         nickName: '请点击头像登录',
         avatarUrl: '/images/empty-image-default.png'
       });
+      this.isLogined=false;
     }
   },
   
 
   onShow: function () {
     this.check_userinfo();
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        select: 0,
-        kind: 1,
-      });
-    }
-  },
 
+  }
 });
