@@ -22,12 +22,6 @@ Page({
   data: {
 
     /**
-     * 轮播图图片
-     * @type {string[]}
-     */
-    images: [],
-
-    /**
      * 已打卡天数
      * @type {number}
      */
@@ -52,7 +46,7 @@ Page({
      * @returns {Day}
      */
     formatter: function (day) {
-      if (day.date.getDate() === 1) {
+      if (this.days.includes(day.date.getDate())) {
         day.bottomInfo = ' ';
         day.type = 'selected';
         day.className = 'select';
@@ -87,16 +81,14 @@ Page({
     inputValue: '',
 
   },
+  /**
+   * 已打卡的天
+   * @type {number[]}
+   */
+  days: [],
 
   onLoad: async function () {
-    // 获取用户已打卡次数及已打卡日期
-    const res = await request({
-      url: '',
-      method: '',
-      data: {},
-      header: {},
-    });
-    console.log(res);
+    const token = wx.getStorageSync('token');
 
     // 当天的日期
     const date = new Date();
@@ -106,10 +98,49 @@ Page({
     const day = new Date(year, month + 1, 0).getDate();
 
     // 设置日历时间范围，默认为所在月份的第一天与最后一天
-    this.setData({
-      minDate: new Date(year, month, 1).getTime(),
-      maxDate: new Date(year, month, day).getTime(),
+    wx.nextTick(() => {
+      this.setData({
+        minDate: new Date(year, month, 1).getTime(),
+        maxDate: new Date(year, month, day).getTime(),
+      });
     });
+
+    try {
+      // 获取用户已打卡日期
+      const { data: res1 } = await request({
+        url: '/v1/patient/sign/signRecord',
+        method: 'GET',
+        data: {},
+        header: {
+          token,
+          'content-type': 'application/x-www-form-urlencoded',
+        },
+      });
+
+      // 获取用户已打卡次数
+      const { data: res2 } = await request({
+        url: '/v1/patient/sign/count/1',
+        method: 'GET',
+        data: {},
+        header: {
+          token,
+          'content-type': 'application/x-www-form-urlencoded',
+        },
+      });
+
+      // 检测请求是否成功
+      if (Number(res1.success) !== 10000 || Number(res2.success) !== 10000) {
+        throw new Error();
+      }
+
+      // 设置已打卡日期及已打卡次数
+      this.days = res1.data.days;
+      this.setData({
+        clockDays: res2.data.count,
+      });
+    } catch (err) {
+      Toast.fail('网络异常，请稍后重试');
+    }
   },
 
   /**
@@ -178,15 +209,21 @@ Page({
    * @returns {void}
    */
   async checkinMain () {
+    const token = wx.getStorageSync('token');
     try {
-      const res = await request({
-        url: '',
-        method: '',
+      const { data: res } = await request({
+        url: '/v1/patient/sign',
+        method: 'POST',
         data: {},
-        header: {},
+        header: {
+          token,
+        },
       });
-      console.log(res);
+      if (Number(res.success) !== 10000) {
+        throw new Error();
+      }
     } catch (err) {
+      Toast.fail('打卡失败，请稍后再试');
     }
   },
 

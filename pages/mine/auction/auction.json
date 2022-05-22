@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-image": "@vant/weapp/image/index"
+  },
+  "navigationBarTitleText": "积分商城"
+}

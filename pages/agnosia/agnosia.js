@@ -102,7 +102,7 @@ Page({
   sendscore () {
     wx.request({
       url: 'http://www.thylovezj.space/v1/exercise/add',
-      data: { exTime: '', exType: 2, score: this.data.score },
+      data: { exTime: 0, exType: 2, score: this.data.score },
       method: 'POST',
       success: () => {
         console.log('push successfully');

@@ -1,7 +1,14 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/train/train",
+    "pages/patient/patient",
     "pages/mine/mine",
+    "pages/mine/train-record/train-record",
+    "pages/mine/auction/auction",
+    "pages/mine/patient-info/patient-info",
+    "pages/mine/problem-feedback/problem-feedback",
+    "pages/mine/about/about",
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
     "pages/evaluate/main/main",
@@ -13,9 +20,16 @@
     "pages/apraxia/sports/sports",
     "pages/apraxia/vedio/vedio",
     "pages/agnosia/agnosia",
+    "pages/family/family",
+    "pages/family/submitinfo/submitinfo",
     "pages/logs/logs",
-    "pages/train/train",
-    "pages/patient/patient"
+    "pages/family/adscience/adscience",
+    "pages/family/Recalltime/Recalltime",
+    "pages/zhanghu/zhanghu",
+    "pages/zhanghu/detail_info/detail_info",
+    "pages/zhanghu/vip_page/vip_page",
+    "pages/family/latest_diagnosis/report-of-family",
+    "pages/zhanghu/help/help"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
@@ -37,21 +51,23 @@
     "list": [
       {
         "pagePath": "pages/patient/patient",
-        "text": "诊断",
-        "iconPath": "./icons/home.png",
-        "selectedIconPath": "./icons/home-selected.png"
+        "text": "诊断"
       },
       {
         "pagePath": "pages/train/train",
-        "text": "训练",
-        "iconPath": "./icons/diagnose.png",
-        "selectedIconPath": "./icons/diagnose-selected.png"
+        "text": "训练"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "./icons/mine.png",
-        "selectedIconPath": "./icons/mine-selected.png"
+        "text": "我的"
+      },
+      {
+        "pagePath": "pages/family/family",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/zhanghu/zhanghu",
+        "text": "账户"
       }
     ],
     "position": "bottom"

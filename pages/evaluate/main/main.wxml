@@ -5,9 +5,9 @@
 <view class="result">初步判断为{{ result }}</view>
 
 <!-- 返回主页面按钮 -->
-<view class="back-button" bindtap="backhome">返回主页面</view>
+<navigator class="back-button" open-type="switchTab" url="/pages/patient/patient">返回主页面</navigator>
 
-<!-- 提示 -->
+<!-- 提示信息 -->
 <view class="tips">
   <view>tips：</view>
   <view>长谷川痴呆量表(HDS)虽只有11项.但包括了常识，识记，记忆，计算攻定向5个方向的测试</view>

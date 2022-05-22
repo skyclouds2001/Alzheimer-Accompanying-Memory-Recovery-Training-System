@@ -8,12 +8,14 @@ page{
  /* 歌曲内容 */
 .container{
   z-index: 1;
-  height: 100vm;
+  height:100vm;
   width: 100vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content:space-around;
+  margin-top: -250rpx;
+  height: 600rpx;
 }
 .content_item{
   height: 280rpx;
@@ -52,13 +54,36 @@ page{
   height: 100%;
   opacity: 0.5;
 }
+.bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -10;
+
+  background-color: white;
+
+  width: 100vw;
+  height: 100vh;
+}
+.bg::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -5;
+
+  content: '';
+
+  background-color: var(--theme-color, rgb(84, 184, 172));
+  border-radius: 50rpx;
+
+  width: 100vw;
+  height: 100vw;
+
+  transform: translateY(calc(200rpx - 100vw));
+}
 
 /* 我的喜欢按钮 */
-.my_songs{
-  position: fixed;
-  bottom: 5px;
-  left: 30%;
-}
+
 .button{
   width: 130px;
   height: 40px;
@@ -147,4 +172,19 @@ page{
 }
 .button span:hover:after {
  width: 100%;
+}
+.my_songs{
+  flex-direction:column;
+  align-items:center;
+  display: flex;
+}
+.btn{
+  margin-top: 50rpx;
+  width: 90%;
+  flex-direction:column;
+  align-items:center;
+  margin-bottom: 10rpx;
+}
+.block{
+  height: 300rpx;
 }

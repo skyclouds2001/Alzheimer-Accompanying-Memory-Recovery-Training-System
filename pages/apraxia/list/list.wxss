@@ -18,6 +18,7 @@
 }
 .listname{
   margin-left: 0;
+  font-size: 60rpx;
 }
 .cover_name{
   font-size: 44rpx;
@@ -37,6 +38,7 @@
 /* 歌单歌曲 */
 .item_song{
   display: flex;
+  height: 120rpx;
 }
 .index{
   text-align: center;
@@ -66,4 +68,7 @@
   margin-top: 0rpx;
   margin-bottom: 0rpx;
   padding: 0rpx;
+}
+.txt{
+  font-size: medium;
 }

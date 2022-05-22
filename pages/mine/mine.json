@@ -7,10 +7,7 @@
     "van-toast": "@vant/weapp/toast/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-dialog": "@vant/weapp/dialog/index",
-    "van-button": "@vant/weapp/button/index",
-    "van-calendar": "@vant/weapp/calendar/index",
-    "van-card": "@vant/weapp/card/index",
-    "timeline": "/components/timeline/timeline"
+    "van-button": "@vant/weapp/button/index"
   },
-  "navigationBarTitleText": "我的"
+  "navigationBarTitleText": "个人中心"
 }

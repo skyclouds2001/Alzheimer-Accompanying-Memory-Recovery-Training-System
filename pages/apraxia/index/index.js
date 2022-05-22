@@ -26,19 +26,34 @@ Page({
      * @type {Song[]}
      */
     array: [],
+    array2: [],
   },
 
   onLoad: function () {
     const that = this;
     wx.request({
-      url: 'https://api.xaneon.com/personalized',
+      url: 'https://api.xaneon.com/cloudsearch?keywords=阿尔法脑波音乐&type=1000&timestamps=1503019930000',
       header: {
         'content-type': 'application/json', // 默认值
       },
       success (res) {
+        console.log(res);
         that.setData({
           // 默认选取前9个歌单
-          array: res.data.result.slice(0, 9),
+          array: res.data.result.playlists.slice(0, 2),
+        });
+      },
+    });
+    wx.request({
+      url: 'https://api.xaneon.com/cloudsearch?keywords=贝尔塔脑波音乐&type=1000',
+      header: {
+        'content-type': 'application/json', // 默认值
+      },
+      success (res1) {
+        console.log(res1);
+        that.setData({
+          // 默认选取前9个歌单
+          array2: res1.data.result.playlists.slice(0, 2),
         });
       },
     });

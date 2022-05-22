@@ -40,7 +40,11 @@ Page({
         url: './../../pages/patient/patient',
       });
     }
-    if (index0 === 2) { console.log(2); }
+    if (index0 === 2) {
+      wx.switchTab({
+        url: '../../pages/family/family',
+      });
+    }
   },
 
   /** 详情界面跳转函数**/
