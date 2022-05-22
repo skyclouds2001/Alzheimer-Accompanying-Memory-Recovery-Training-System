@@ -1,1 +1,36 @@
-/* pages/evaluate/init/init.wxss */
+/* 标题 */
+.title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 2.5rpx;
+
+  margin: 50px 0 350rpx;
+}
+
+/* 开始答题按钮 */
+.back-button {
+  width: 260px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0 auto;
+
+  font-size: 37rpx;
+  text-align: center;
+  letter-spacing: 5rpx;
+  font-weight: bold;
+  color: white;
+
+  border-radius: 25rpx;
+  border: 1px solid #e6e5e3;
+  background-color: #54b7ab;
+}
+
+/* 提示 */
+.tips {
+  margin-top: 150rpx;
+  padding: 0 50rpx;
+
+  color: #838383;
+  font-size: 30rpx;
+}
