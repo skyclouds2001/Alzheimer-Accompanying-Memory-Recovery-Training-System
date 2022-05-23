@@ -1,9 +1,0 @@
-<!-- 标题 -->
-<view class="title">{{article.title}}</view>
-<!-- 正文 -->
-<view class="text">
-<rich-text nodes="{{article.text}}"></rich-text>
-</view>
-
-
-

@@ -13,6 +13,8 @@
   margin: 0;
   padding: 0 5vw 2em;
 
+  background-color: white;
+
   font-size: 32rpx;
 }
 
@@ -23,6 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   border-radius: 1000rpx;
 }
 
@@ -34,7 +37,3 @@
   color: rgb(230, 250, 250);
   background-color: rgb(84, 184, 172);
 }
-navigator{
-  margin: 5rpx;
-}
-

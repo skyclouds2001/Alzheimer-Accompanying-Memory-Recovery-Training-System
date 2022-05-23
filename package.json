@@ -4,7 +4,6 @@
   "description": "阿尔兹海默症陪伴型记忆恢复训练系统",
   "main": "app.js",
   "contributors": [
-    "刘美含",
     "李欣悦",
     "李雨菲",
     "冯媛霞",
@@ -14,11 +13,7 @@
     "陈思远",
     "邵昕晨",
     "唐浩瑜",
-    "米国良",
-    "陈浩宇",
-    "周馨怡",
-    "吴璇",
-    "司钊瑞"
+    "米国良"
   ],
   "keywords": [
     "觅忆",
@@ -26,7 +21,7 @@
     "Alzheimer-Accompanying-Memory-Recovery-Training-System"
   ],
   "scripts": {
-    "lint": "eslint --fix app.js api components lib pages utils"
+    "lint": "eslint --fix app.js api componments lib pages utils"
   },
   "repository": {
     "type": "git",
@@ -38,8 +33,7 @@
   },
   "homepage": "https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System#readme",
   "dependencies": {
-    "@vant/weapp": "^1.10.2",
-    "wx-qr": "^0.1.2"
+    "@vant/weapp": "^1.10.2"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -52,6 +46,5 @@
   "directories": {
     "doc": "docs",
     "lib": "lib"
-  },
-  "author": ""
+  }
 }
