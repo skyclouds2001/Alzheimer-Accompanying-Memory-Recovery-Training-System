@@ -29,6 +29,11 @@ Page({
      * @type {number}
      */
     credit: 123,
+
+    /**
+     * 二维码显示字符串信息
+     */
+    qrTxt: 'wx-qr',
   },
 
   /**

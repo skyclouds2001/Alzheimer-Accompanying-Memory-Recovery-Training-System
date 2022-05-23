@@ -41,3 +41,8 @@
 
 <!-- 提示框 -->
 <van-toast id="van-toast" />
+
+<!-- 用户端绑定二维码 -->
+<block wx:if="{{ true }}">
+  <qr-container text="{{qrTxt}}" size="750"></qr-container>
+</block>
