@@ -76,6 +76,34 @@ Page({
           }
       }, 100);
       
-  }
+  },
+  ended(e){
+  wx.navigateTo({
+      url: '../testing/testing',
+  });
+  setTimeout(function () {
+    if (app.globalData.onHide) {
+        app.globalData.onHide = 0;
+        console.log("还在当前页面活动")
+    }
+    else {
+        endTime = +new Date();
+        console.log("demo页面停留时间：" + (endTime - startTime))
+        stayTime = endTime - startTime;
+        console.log(stayTime);
+        wx.request({
+          url: 'http://www.thylovezj.space/v1/exercise/add',
+          data: { exTime: stayTime, exType: 3, score: 0 },
+          method: 'POST',
+          success: () => {
+            console.log('push successfully');
+          },
+          fail: () => {
+            console.log('push fail');
+          },
+        });
+    }
+}, 100);
 
+  }
 });

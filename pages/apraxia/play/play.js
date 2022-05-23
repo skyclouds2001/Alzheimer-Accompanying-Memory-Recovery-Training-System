@@ -93,7 +93,7 @@ Page({
         src: src,
         singer: this.data.singer,
         },
-        method="POST",
+        method: 'POST',
         header: {
           'content-type': 'application/json' // 默认值
         },

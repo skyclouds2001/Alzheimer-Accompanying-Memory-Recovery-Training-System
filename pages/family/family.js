@@ -72,6 +72,11 @@ Page({
           url: '../submitinfo/submitinfo',
         })
       }
+      else if(index==1){
+        wx.navigateTo({
+          url: '../family/voice/voice',
+      })
+    }
     }else{
       Toast.fail("请先登录")
     }
