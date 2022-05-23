@@ -1,6 +1,6 @@
 <view class="df-tabbar">
 <!-- 病患端（默认） -->
-<block wx:if="{{kind===0}}">
+<block>
   <navigator open-type="switchTab" url="/pages/patient/patient" class="{{ select !== 0 ? 'unselected' : 'selected' }}">
     诊断
   </navigator>
@@ -10,16 +10,8 @@
   <navigator open-type="switchTab" url="/pages/mine/mine" class="{{ select !== 2 ? 'unselected' : 'selected' }}">
     个人中心
   </navigator>
-</block>
-<!-- 子女端kind=1 -->
-<block wx:if="{{kind===1}}">
-  <navigator open-type="switchTab" url="/pages/family/family" class="{{ select !== 0 ? 'unselected' : 'selected' }}">
-    首页
+  <navigator open-type="switchTab" url="/pages/recall_mode/recall_mode" class="{{ select !== 3 ? 'unselected' : 'selected' }}">
+    回忆模式
   </navigator>
-  <navigator open-type="switchTab" url="#" class="{{ select !== 1 ? 'unselected' : 'selected' }}">
-    账户
-  </navigator>
-
 </block>
-  
 </view>

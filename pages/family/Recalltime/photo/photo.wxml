@@ -1,0 +1,19 @@
+<view class="count_summary">
+<view class="toptext">{{albumquantity}}相册</view>
+<view class="toptext">{{photoquantity}}照片</view>
+<view class="toptext">{{videoquantity}}视频</view>
+</view>
+
+<view class="totalbox">
+<view class class="photobox"><image src="/images/add_photo.png" class="photo"></image></view>
+<view class="text">新建照片</view>
+</view>
+
+<view class="false_tabbar">
+<view class="skippage" bindtap="album">相册</view>
+<view class="skippage1">照片</view>
+<view class="skippage" bindtap="vedio">视频</view>
+</view>
+<!-- <df-tabbar></df-tabbar> -->
+
+

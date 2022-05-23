@@ -1,0 +1,9 @@
+<view class="box" style="--bg-color: {{ color }} !important; z-index: {{ zindex }};">
+  <view class="center-line"></view>
+  <view class="corner-turn {{ direction ? 'left-turn' : 'right-turn' }}"></view>
+  <view class="level-line {{ direction ? 'left-line' : 'right-line' }}"></view>
+  <view class="text {{ direction ? 'left-text' : 'right-text' }}">
+    <view class="date">{{ time }}</view>
+    <view class="info">{{ text }}</view>
+  </view>
+</view>

@@ -1,0 +1,106 @@
+.box {
+  width: 750rpx;
+  height: 300rpx;
+
+  position: relative;
+  z-index: 9;
+
+  --line-width: 25rpx;
+  --bg-color: #000;
+}
+
+.center-line {
+  width: var(--line-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+
+  background-color: var(--bg-color, #000);
+}
+
+.corner-turn {
+  width: calc(4 * var(--line-width));
+  height: calc(4 * var(--line-width));
+  margin: 0 auto;
+  padding: 0;
+
+  background-color: var(--bg-color, #000);
+  border-radius: 50%;
+
+  position: absolute;
+}
+.corner-turn:after {
+  content: "";
+
+  display: block;
+  width: calc(2 * var(--line-width));
+  height: calc(2 * var(--line-width));
+
+  border-radius: 50%;
+  background-color: white;
+
+  position: relative;
+}
+
+.left-turn {
+  clip-path: inset(50% 50% 0 0);
+
+  left: calc(50% - 0.5 * var(--line-width));
+  bottom: calc(-2 * var(--line-width));
+}
+.left-turn:after {
+  clip-path: inset(50% 50% 0 0);
+
+  top: calc(var(--line-width));
+  left: calc(var(--line-width));
+}
+.right-turn {
+  clip-path: inset(50% 0 0 50%);
+
+  right: calc(50% - 0.5 * var(--line-width));
+  bottom: calc(-2 * var(--line-width));
+}
+.right-turn:after {
+  clip-path: inset(50% 0 0 50%);
+
+  top: calc(var(--line-width));
+  left: calc(var(--line-width));
+}
+
+.level-line {
+  width: calc(3 * var(--line-width));
+  height: calc(2 * var(--line-width));
+
+  background-color: var(--bg-color, #000);
+
+  position: absolute;
+}
+.left-line {
+  clip-path: polygon(0 25%, 60% 25%, 60% 0%, 100% 50%, 60% 100%, 60% 75%, 0 75%);
+
+  bottom: calc(-2.5 * var(--line-width));
+  left: calc((100% - var(--line-width)) / 2 + 2 * var(--line-width));
+}
+.right-line {
+  clip-path: polygon(100% 25%, 40% 25%, 40% 0%, 0 50%, 40% 100%, 40% 75%, 100% 75%);
+
+  bottom: calc(-2.5 * var(--line-width));
+  right: calc((100% - var(--line-width)) / 2 + 2 * var(--line-width));
+}
+
+.text {
+  position: absolute;
+
+  color: var(--bg-color);
+  font-weight: bold;
+  font-size: 36rpx;
+  letter-spacing: 2.5rpx;
+}
+.left-text {
+  left: calc(50% + 5.5 * var(--line-width));
+  bottom: calc(-2.5 * var(--line-width));
+}
+.right-text {
+  right: calc(50% + 5.5 * var(--line-width));
+  bottom: calc(-2.5 * var(--line-width));
+}

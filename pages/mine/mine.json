@@ -7,7 +7,8 @@
     "van-toast": "@vant/weapp/toast/index",
     "van-popup": "@vant/weapp/popup/index",
     "van-dialog": "@vant/weapp/dialog/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "qr-container": "wx-qr"
   },
   "navigationBarTitleText": "个人中心"
 }
