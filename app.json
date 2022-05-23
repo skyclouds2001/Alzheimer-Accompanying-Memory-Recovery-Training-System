@@ -30,7 +30,10 @@
     "pages/zhanghu/detail_info/detail_info",
     "pages/zhanghu/vip_page/vip_page",
     "pages/family/latest_diagnosis/report-of-family",
-    "pages/zhanghu/help/help"
+    "pages/zhanghu/help/help",
+    "pages/beiwanglu/beiwanglu",
+    "pages/recall_mode/recall_mode",
+    "pages/test/test"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
@@ -63,13 +66,11 @@
         "text": "我的"
       },
       {
-        "pagePath": "pages/family/family",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/zhanghu/zhanghu",
-        "text": "账户"
+        "pagePath":"pages/recall_mode/recall_mode",
+        "text":"回忆模式"
       }
+
+
     ],
     "position": "bottom"
   },

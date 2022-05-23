@@ -6,6 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+  /**
+   * 导航栏
+   */
+  element_list:[{title:'首页',url:"../family/family"},{title:"账户",url:"../zhanghu/zhanghu"}],
+  select_index:1,
+
     Length:4,        //输入框个数
     isFocus:false,    //聚焦
     Value:"",        //输入的内容
@@ -188,6 +194,7 @@ check_userinfo: async function () {
       nickName: '请点击头像登录',
       avatarUrl: '/images/empty-image-default.png'
     });
+    this.isLogined=false;
   }
 },
 

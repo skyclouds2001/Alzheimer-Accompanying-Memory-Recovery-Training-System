@@ -2,9 +2,21 @@ import Toast from '@vant/weapp/toast/toast';
 
 Page({
   data: {
+<<<<<<< HEAD
+  /**
+   * 导航栏
+   */
+    element_list:[{title:'首页',url:"../family/family"},{title:"账户",url:"../zhanghu/zhanghu"}],
+    select_index:0,
+   
+  /**
+   * tab模块组
+   */
+=======
     /**
      * tab模块组
      */
+>>>>>>> 95f70cc1da7c2ca36578f453e3cd85032fb15338
     tab_list: [
       {
         src1: 'https://s1.ax1x.com/2022/05/14/O6XE34.png',
@@ -133,11 +145,16 @@ Page({
         nickName: '请点击头像登录',
         avatarUrl: '/images/empty-image-default.png',
       });
+      this.isLogined=false;
     }
   },
 
   onShow: function () {
     this.check_userinfo();
+<<<<<<< HEAD
+
+  }
+=======
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         select: 0,
@@ -145,4 +162,5 @@ Page({
       });
     }
   },
+>>>>>>> 95f70cc1da7c2ca36578f453e3cd85032fb15338
 });

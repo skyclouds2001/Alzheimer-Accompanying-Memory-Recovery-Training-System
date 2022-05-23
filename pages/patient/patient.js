@@ -12,12 +12,16 @@ Page({
       },
     ],
   },
+  goTobeiwanglu(){
+     wx.navigateTo({
+       url: '../beiwanglu/beiwanglu',
+     })
 
+  },
   onShow: function () {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
-        kind: 0,
-        select: 0,
+        select: 0
       });
     }
   },
