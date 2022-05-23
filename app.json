@@ -28,7 +28,8 @@
     "pages/zhanghu/zhanghu",
     "pages/zhanghu/detail_info/detail_info",
     "pages/zhanghu/vip_page/vip_page",
-    "pages/zhanghu/code/code"
+    "pages/zhanghu/code/code",
+    "pages/family/adscience/article_show/article_show"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
