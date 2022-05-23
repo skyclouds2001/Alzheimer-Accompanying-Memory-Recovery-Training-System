@@ -28,17 +28,6 @@ App({
     } catch (err) {
       console.log(err);
     }
-
-    // 存储本地日志
-    const logs = wx.getStorageSync('logs') || [];
-    logs.unshift({
-      time: formatTime(new Date()),
-      messsage: '',
-    });
-    while (logs.length >= 10) {
-      logs.pop();
-    }
-    wx.setStorageSync('logs', logs);
   },
 
   onPageNotFound: function (res) {

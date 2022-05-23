@@ -73,7 +73,6 @@
     - detail_info 详细信息 `高飞`
     - vip_page VIP会员 `高飞`
     - help 帮助 `高飞`
-  - logs 日志【不用管它】
 - style 共用样式表目录
   - iconfont.wxss 图标样式表（from iconfont）（for apraxia）
 - utils 工具目录（主要关于外部导入的模块）
