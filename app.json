@@ -34,9 +34,7 @@
     "pages/family/adscience/article_show/article_show",
     "pages/family/latest_diagnosis/report-of-family",
     "pages/zhanghu/help/help",
-    "pages/beiwanglu/beiwanglu",
-    "pages/recall_mode/recall_mode",
-    "pages/test/test"
+    "pages/recall_mode/recall_mode"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
@@ -69,11 +67,9 @@
         "text": "我的"
       },
       {
-        "pagePath":"pages/recall_mode/recall_mode",
-        "text":"回忆模式"
+        "pagePath": "pages/recall_mode/recall_mode",
+        "text": "回忆模式"
       }
-
-
     ],
     "position": "bottom"
   },
