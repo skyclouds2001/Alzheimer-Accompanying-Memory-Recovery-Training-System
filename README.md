@@ -16,6 +16,8 @@
 - 网易云音乐 API
   - 请求host https://api.xaneon.com
   - 接口文档 https://neteasecloudmusicapi.vercel.app/
+- 微信产生二维码库 wx-qr
+  - https://github.com/liuxdi/wx-qr
 - 开发者 Github
   - 陈思远 https://github.com/skyclouds2001
   - 高飞 https://github.com/s5das
