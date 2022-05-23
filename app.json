@@ -4,14 +4,15 @@
     "pages/train/train",
     "pages/patient/patient",
     "pages/mine/mine",
-    "pages/mine/train-record/train-record",
     "pages/mine/auction/auction",
     "pages/mine/patient-info/patient-info",
     "pages/mine/problem-feedback/problem-feedback",
     "pages/mine/about/about",
+    "pages/train-record/train-record",
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
     "pages/evaluate/main/main",
+    "pages/evaluate/init/init",
     "pages/apraxia/apraxia",
     "pages/apraxia/index/index",
     "pages/apraxia/list/list",
@@ -29,7 +30,12 @@
     "pages/zhanghu/detail_info/detail_info",
     "pages/zhanghu/vip_page/vip_page",
     "pages/zhanghu/code/code",
-    "pages/family/adscience/article_show/article_show"
+    "pages/family/adscience/article_show/article_show",
+    "pages/family/latest_diagnosis/report-of-family",
+    "pages/zhanghu/help/help",
+    "pages/beiwanglu/beiwanglu",
+    "pages/recall_mode/recall_mode",
+    "pages/test/test"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
@@ -62,13 +68,11 @@
         "text": "我的"
       },
       {
-        "pagePath": "pages/family/family",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/zhanghu/zhanghu",
-        "text": "账户"
+        "pagePath":"pages/recall_mode/recall_mode",
+        "text":"回忆模式"
       }
+
+
     ],
     "position": "bottom"
   },

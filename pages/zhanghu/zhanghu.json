@@ -5,6 +5,8 @@
     "van-toast": "@vant/weapp/toast/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-icon": "@vant/weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "new_tab":"../../components/new_tabbar/new_tabbar"
   }
 }

@@ -38,7 +38,8 @@
   },
   "homepage": "https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System#readme",
   "dependencies": {
-    "@vant/weapp": "^1.10.2"
+    "@vant/weapp": "^1.10.2",
+    "wx-qr": "^0.1.2"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
