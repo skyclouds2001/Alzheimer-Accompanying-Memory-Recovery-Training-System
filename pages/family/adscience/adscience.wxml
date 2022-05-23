@@ -1,49 +1,16 @@
-  <view class="showbox">
-    <image src="/images/picture(loading).png" class="picture"></image>
+<view class="showbox" wx:for="{{newslist}}" wx:key="id" bindtap="gotodetail" data-id="{{item.id}}">
+    <image src="{{item.poster}}" class="picture"></image>
     <image src="/images/Jump_arrow.png" class="jumptip"></image>
     <view class="newstext">
     <!-- 标题只能承载11个字 -->
-    <view class="newstitle">标题</view>
+    <view class="newstitle">{{item.title}}</view>
     <!-- 内容最佳范围是24个字 -->
-    <view class="partcontent">内容</view>
+    <view class="partcontent">{{item.maincontent}}</view>
     </view>
     <view class="line"></view>
   </view>
 
-  <view class="showbox">
-    <image src="/images/picture(loading).png" class="picture"></image>
-    <image src="/images/Jump_arrow.png" class="jumptip"></image>
-    <view class="newstext">
-    <!-- 标题只能承载11个字 -->
-    <view class="newstitle">标题</view>
-    <!-- 内容最佳范围是24个字 -->
-    <view class="partcontent">内容</view>
-    </view>
-    <view class="line"></view>
-  </view>
-
-  <view class="showbox">
-    <image src="/images/picture(loading).png" class="picture"></image>
-    <image src="/images/Jump_arrow.png" class="jumptip"></image>
-    <view class="newstext">
-    <!-- 标题只能承载11个字 -->
-    <view class="newstitle">标题</view>
-    <!-- 内容最佳范围是24个字 -->
-    <view class="partcontent">内容</view>
-    </view>
-    <view class="line"></view>
-  </view>
-
-  <view class="showbox">
-    <image src="/images/picture(loading).png" class="picture"></image>
-    <image src="/images/Jump_arrow.png" class="jumptip"></image>
-    <view class="newstext">
-    <!-- 标题只能承载11个字 -->
-    <view class="newstitle">标题</view>
-    <!-- 内容最佳范围是24个字 -->
-    <view class="partcontent">内容</view>
-    </view>
-    <view class="line"></view>
-  </view>
+<!-- 加载失败显示的内容 -->
+<view wx:if="{{loadfail}}">加载失败，请检查网络连接</view>
 
   

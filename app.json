@@ -24,6 +24,7 @@
     "pages/family/submitinfo/submitinfo",
     "pages/logs/logs",
     "pages/family/adscience/adscience",
+    "pages/family/adscience/article_show/article_show",
     "pages/family/Recalltime/Recalltime",
     "pages/zhanghu/zhanghu",
     "pages/zhanghu/detail_info/detail_info",
