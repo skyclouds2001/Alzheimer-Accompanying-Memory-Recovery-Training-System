@@ -2,5 +2,5 @@
   "usingComponents": {
     "van-toast": "@vant/weapp/toast/index"
   },
-  "navigationBarTitleText": "诊断"
+  "navigationBarTitleText": "病情评定"
 }

@@ -22,6 +22,12 @@ Page({
   data: {
 
     /**
+     * 轮播图图片
+     * @type {string[]}
+     */
+    images: [],
+
+    /**
      * 已打卡天数
      * @type {number}
      */

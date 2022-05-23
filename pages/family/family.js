@@ -1,10 +1,14 @@
 import Toast from '@vant/weapp/toast/toast';
 
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    /**
-     * tab模块组
-     */
+  /**
+   * tab模块组
+   */
     tab_list: [
       {
         src1: 'https://s1.ax1x.com/2022/05/14/O6XE34.png',
@@ -36,8 +40,9 @@ Page({
         text: '回忆时光',
         src2: 'https://s1.ax1x.com/2022/05/15/ORGAIJ.png',
       },
-    ],
+      
 
+    ],
     /**
      * 用户昵称
      * @type {string}
@@ -49,37 +54,36 @@ Page({
      * @type {string}
      */
     avatarUrl: '/images/empty-image-default.png',
+
   },
 
-  /**
+    /**
    * 标记用户是否已登录
    * @type {boolean}
    */
   isLogined: false,
 
   // 界面跳转
-  jumpto: function (event) {
-    const { index } = event.currentTarget.dataset;
-    if (this.isLogined) {
-      const urls = [
-        './submitinfo/submitinfo',
-        './voice/voice',
-        './../train-record/train-record',
-        './latest_diagnosis/report-of-family',
-        './adscience/adscience',
-        './Recalltime/Recalltime',
-      ];
-      wx.navigateTo({
-        url: urls[index],
-      });
-    } else {
-      Toast.fail('请先登录');
+  jumpto:function (event){
+    const {index} = event.currentTarget.dataset
+    if(this.isLogined){
+      if(index===0){
+        wx.navigateTo({
+          url: '../submitinfo/submitinfo',
+        })
+      }
+      else if(index==1){
+        wx.navigateTo({
+          url: '../family/voice/voice',
+      })
+    }
+    }else{
+      Toast.fail("请先登录")
     }
   },
 
-  /**
-   * 获取用户昵称及头像
-   */
+
+
   async onGetUserProfile () {
     // 判断用户是否已获取微信头像与昵称
     if (this.isLogined) {
@@ -89,7 +93,7 @@ Page({
     try {
       // 调用wx接口获取用户信息
       const { userInfo } = await wx.getUserProfile({
-        desc: '请授权我们使用您的头像及昵称',
+        desc: '请授权我们使用您的个人信息',
         lang: 'zh_CN',
       });
 
@@ -108,15 +112,14 @@ Page({
         nickName: userInfo.nickName,
       });
 
-      // 更新登录状态
+      // 更新已登录状态
       this.isLogined = true;
     } catch (err) {
       // 显示授权失败提示
       Toast.fail('授权失败');
     }
   },
-
-  check_userinfo () {
+  onLoad: async function () {
     // 从存储提取用户信息
     const userInfo = wx.getStorageSync('userInfo') || {};
 
@@ -128,17 +131,9 @@ Page({
         nickName: userInfo.nickName,
       });
       this.isLogined = true;
-    } else {
-      this.setData({
-        nickName: '请点击头像登录',
-        avatarUrl: '/images/empty-image-default.png',
-      });
-      this.isLogined=false;
     }
   },
-
   onShow: function () {
-    this.check_userinfo();
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         select: 0,
@@ -146,4 +141,5 @@ Page({
       });
     }
   },
+
 });
