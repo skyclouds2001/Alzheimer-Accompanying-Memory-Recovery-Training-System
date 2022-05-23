@@ -43,6 +43,6 @@
 <van-toast id="van-toast" />
 
 <!-- 用户端绑定二维码 -->
-<block wx:if="{{ true }}">
+<block wx:if="{{ false }}">
   <qr-container text="{{qrTxt}}" size="750"></qr-container>
 </block>
