@@ -32,7 +32,9 @@
     "pages/zhanghu/help/help",
     "pages/beiwanglu/beiwanglu",
     "pages/recall_mode/recall_mode",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/beiwanglu/detail/detail",
+    "pages/beiwanglu/add_item/add_item"
   ],
   "entryPagePath": "pages/index/index",
   "window": {

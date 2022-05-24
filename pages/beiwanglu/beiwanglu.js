@@ -1,56 +1,76 @@
 import { request } from '../../lib/request.js';
 
 Page({
-
-
   data: {
-   search_item:[
-     {title:"    415641sf5da41f5as14523f6das45fd41s5a364f156d3as4sssssssssssssssssssss",
-    time:"5月6日",
-    recode_id:0},
-    {title:"    415641sf5da41f5as14523f6das45fd41s5a364f156d3as4sssssssssssssssssssss",
-    time:"5月6日",
-    recode_id:1}
-                ]
-  },
+    /**
+   * 导航栏
+   */
+    element_list: [{ title: '事项', url: '../beiwanglu/beiwanglu' }, { title: '添加事项', url: 'add_item/add_item' }],
+    select_index: 0,
 
+    /**
+     * 记录信息
+     */
+    search_item: [
+      {
+        title:
+          '吃饭',
+        time: '5月6日',
+        record_id: '0',
+      },
+      {
+        title:
+          '睡觉',
+        time: '5月6日',
+        record_id: '1',
+      },
+    ],
+  },
 
   /**
    * 搜索模块
    * 当搜索框中有值时发请求
    */
-  Timeid:-1,
-  // input事件
-  handdleInput(e){
+  Timeid: -1,
+  /**
+   *  input事件
+   */
 
-    let {value} = e.detail;
+  handdleInput (e) {
+    let { value } = e.detail;
     /**
      * 空值返回*显示全部
      * 非空返回value显示符合条件的部分记录
      */
-    if(!value.trim()){
-       value="*";
+
+    if (!value.trim()) {
+      value = '*';
     }
     // 防止重复请求
-    clearTimeout(this.Timeid)
-    this.Timeid=setTimeout(() => {this.search_info(value)},1500)
+    clearTimeout(this.Timeid);
+    this.Timeid = setTimeout(() => {
+      this.search_info(value);
+    }, 1500);
   },
 
-
-  search_info:async function(querry){
-    try{
-      const res = await request({url:"#",data:{querry}});
+  /**
+ *信息申请函数
+ * @param {string} querry
+ */
+  search_info: async function (querry) {
+    const openid = wx.getStorageSync('openid');
+    try {
+      const res = await request({ url: '#', data: { querry, openid } });
       console.log(res);
-      /**修改data */
-    }catch(err){
-       console.log(err);
-       
+      /** 修改data */
+    } catch (err) {
+      console.log(err);
     }
   },
-  
-  onload:function(){
-      /**请求全部并缓存 */
-      this.search_info("*")
-  }
-  
-})
+
+  onLoad: function () {
+    /** 请求全部并缓存 */
+    this.search_info('*');
+  },
+
+});

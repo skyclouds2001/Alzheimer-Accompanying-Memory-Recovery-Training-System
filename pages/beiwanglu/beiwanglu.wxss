@@ -18,13 +18,22 @@ Page {
   top: 15rpx;
   right: 20rpx;
 }
+.search_content {
+  margin-top: 20rpx;
+}
 .search_content .search_item {
+  position: relative;
   height: 150rpx;
   margin: 35rpx 0;
   box-shadow: 5rpx 5rpx 5rpx #aaa;
   border-radius: 20rpx;
   background-color: white;
   padding: 25rpx;
+}
+.search_content .search_item .ico {
+  position: absolute;
+  right: 20rpx;
+  top: 55rpx;
 }
 .search_content .search_item .title {
   font-size: larger;

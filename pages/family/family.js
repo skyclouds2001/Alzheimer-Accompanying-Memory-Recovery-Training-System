@@ -5,10 +5,10 @@ Page({
   /**
    * 导航栏
    */
-    element_list:[{title:'首页',url:"../family/family"},{title:"账户",url:"../zhanghu/zhanghu"}],
-    select_index:0,
-   
-  /**
+    element_list: [{ title: '首页', url: '../family/family' }, { title: '账户', url: '../zhanghu/zhanghu' }],
+    select_index: 0,
+
+    /**
    * tab模块组
    */
     tab_list: [
@@ -139,12 +139,11 @@ Page({
         nickName: '请点击头像登录',
         avatarUrl: '/images/empty-image-default.png',
       });
-      this.isLogined=false;
+      this.isLogined = false;
     }
   },
 
   onShow: function () {
     this.check_userinfo();
-
-  }
+  },
 });
