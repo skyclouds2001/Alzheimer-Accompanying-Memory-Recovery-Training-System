@@ -12,6 +12,17 @@ Page({
     /**视频数量 */
     videoquantity:0
   },
+  // falshtabbar
+  photo(){
+    wx.redirectTo({
+      url: '/pages/family/Recalltime/photo/photo',
+    })
+  },
+  vedio(){
+    wx.redirectTo({
+      url: '/pages/family/Recalltime/vedio/vedio',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -30,8 +41,14 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-
+  onShow: function () {
+    // tabbar页面相关
+    // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+    //   this.getTabBar().setData({
+    //     select: 0,
+    //     kind: 2,
+    //   });
+    // }
   },
 
   /**

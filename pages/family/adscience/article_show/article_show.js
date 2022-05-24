@@ -17,8 +17,7 @@ Page({
       success:function(res){
         console.log(res.data);
         self.setData({
-          alldata : res.data.date.records,
-          newsquantity:res.data.data.total
+          alldata : res.data.date.records
         })
       },
       fail:function(err){
@@ -28,7 +27,7 @@ Page({
     // options.id是用户点击上一个页面后传回的相应的新闻的id值，根据此展示出相应的新闻
     // console.log(options.id)
     let idmatching = options.id
-    for (let index = 0; idmatching != alldata.id; index++) {
+    for (let index = 0; idmatching != alldata[index].id; index++) {
       this.setData({
         title:this.data.common[index].title,
         text:this.data.common[index].content
