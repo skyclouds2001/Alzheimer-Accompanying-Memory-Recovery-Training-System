@@ -43,3 +43,40 @@
   color: #3d3d3d;
   margin-top: 15px;
 }
+/* 包括相册照片视频三个项 */
+.false_tabbar{
+  border:1px solid #ffffff;
+  position: absolute;
+  margin-top: 135%;
+  margin-left: 4.5%;
+  width: 690rpx;
+}
+/* 下面两项是false-tabbar部分 */
+/* 单个项 */
+.skippage{
+  border:1px solid #6868680a;
+  width: 215rpx;
+  height: 95rpx;
+  margin-left: 5px;
+  border-radius: 30px;
+  background-color:  #edfbfb;
+  font-size: 18px;
+  color: #54b7ab;
+  text-align: center;
+  padding-top: 20rpx;
+  float:left
+}
+/* 当前页面下被选择的项 */
+.skippage1{
+  border:1px solid #6868680a;
+  width: 215rpx;
+  height: 95rpx;
+  margin-left: 5px;
+  border-radius: 30px;
+  background-color: #54b7ab;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 20rpx;
+  float:left
+}
