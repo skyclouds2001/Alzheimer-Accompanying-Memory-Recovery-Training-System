@@ -22,6 +22,7 @@
     "pages/apraxia/testing/testing",
     "pages/agnosia/agnosia",
     "pages/family/family",
+    "pages/family/voice/voice",
     "pages/family/submitinfo/submitinfo",
     "pages/logs/logs",
     "pages/family/adscience/adscience",
