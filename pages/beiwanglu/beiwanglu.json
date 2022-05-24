@@ -1,3 +1,4 @@
 {
-  "usingComponents": {}
+  "usingComponents": {"van-icon": "@vant/weapp/icon/index"},
+  "navigationBarTitleText": "备忘录"
 }

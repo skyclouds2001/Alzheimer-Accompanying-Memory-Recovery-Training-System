@@ -1,66 +1,56 @@
-// pages/beiwanglu/beiwanglu.js
+import { request } from '../../lib/request.js';
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
+
   data: {
-
+   search_item:[
+     {title:"    415641sf5da41f5as14523f6das45fd41s5a364f156d3as4sssssssssssssssssssss",
+    time:"5月6日",
+    recode_id:0},
+    {title:"    415641sf5da41f5as14523f6das45fd41s5a364f156d3as4sssssssssssssssssssss",
+    time:"5月6日",
+    recode_id:1}
+                ]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
 
+  /**
+   * 搜索模块
+   * 当搜索框中有值时发请求
+   */
+  Timeid:-1,
+  // input事件
+  handdleInput(e){
+
+    let {value} = e.detail;
+    /**
+     * 空值返回*显示全部
+     * 非空返回value显示符合条件的部分记录
+     */
+    if(!value.trim()){
+       value="*";
+    }
+    // 防止重复请求
+    clearTimeout(this.Timeid)
+    this.Timeid=setTimeout(() => {this.search_info(value)},1500)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
 
+  search_info:async function(querry){
+    try{
+      const res = await request({url:"#",data:{querry}});
+      console.log(res);
+      /**修改data */
+    }catch(err){
+       console.log(err);
+       
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  
+  onload:function(){
+      /**请求全部并缓存 */
+      this.search_info("*")
   }
+  
 })

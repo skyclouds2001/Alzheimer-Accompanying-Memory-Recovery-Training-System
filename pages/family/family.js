@@ -2,7 +2,6 @@ import Toast from '@vant/weapp/toast/toast';
 
 Page({
   data: {
-<<<<<<< HEAD
   /**
    * 导航栏
    */
@@ -12,11 +11,6 @@ Page({
   /**
    * tab模块组
    */
-=======
-    /**
-     * tab模块组
-     */
->>>>>>> 95f70cc1da7c2ca36578f453e3cd85032fb15338
     tab_list: [
       {
         src1: 'https://s1.ax1x.com/2022/05/14/O6XE34.png',
@@ -151,16 +145,6 @@ Page({
 
   onShow: function () {
     this.check_userinfo();
-<<<<<<< HEAD
 
   }
-=======
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        select: 0,
-        kind: 1,
-      });
-    }
-  },
->>>>>>> 95f70cc1da7c2ca36578f453e3cd85032fb15338
 });

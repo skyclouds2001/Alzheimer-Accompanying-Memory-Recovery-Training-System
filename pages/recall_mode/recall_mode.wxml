@@ -1,1 +1,5 @@
-111
+<view class="content" bindtap="handleJump">
+<view class="item" wx:for="{{item_list}}" wx:key="text" data-index="{{index}}">{{item.text}}</view>
+</view>
+
+

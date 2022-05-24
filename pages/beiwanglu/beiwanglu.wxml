@@ -1,2 +1,23 @@
-<!--pages/beiwanglu/beiwanglu.wxml-->
-<text>pages/beiwanglu/beiwanglu.wxml</text>
+
+<!--搜索框-->
+<view class="search_area">
+<input class="search_ipt"  placeholder="搜索备忘录" placeholder-class="input-placeholder" bindinput = "handdleInput"> 
+</input>
+<view class="search_ico" >
+    <van-icon name="search" color="blue" size="30"/>
+</view>
+</view>
+
+<!--请求结果list -->
+
+<view class="search_content">
+<view class="search_item" wx:for="{{search_item}}" wx:key="record_id" data-record_id="{{item.recoed_id}}">
+    <view class="title" >
+        {{item.title}}
+    </view>
+    <view class="time">
+        {{item.time}}
+    </view>
+</view>
+
+</view>

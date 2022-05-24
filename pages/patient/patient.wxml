@@ -2,7 +2,7 @@
 
 <df-tabbar></df-tabbar>
 <!-- 备忘录悬浮图标 -->
-<view class="beiwanglu" bindtap="gotobeiwanglu"> 
+<view class="beiwanglu" bindtap="goTobeiwanglu"> 
 <van-icon name="label-o" size="50"/>
 <view class="font0" >备忘录</view>
 </view>

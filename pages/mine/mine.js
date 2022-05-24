@@ -221,10 +221,6 @@ Page({
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
         select: 2,
-<<<<<<< HEAD
-=======
-        kind: 0,
->>>>>>> 95f70cc1da7c2ca36578f453e3cd85032fb15338
       });
     }
   },
