@@ -60,7 +60,7 @@ Page({
     const singer = e.currentTarget.dataset.song.ar[0].name;
     const album = e.currentTarget.dataset.song.al.name;
     app.globalData.song = e.currentTarget.dataset.song;
-    wx.reLaunch({
+    wx.navigateTo({
       url: `../play/play?id=${id}&name=${name}&singer=${singer}&album=${album}`,
     });
   },

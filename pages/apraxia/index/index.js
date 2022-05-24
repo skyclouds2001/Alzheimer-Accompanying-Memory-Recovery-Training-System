@@ -45,7 +45,7 @@ Page({
       },
     });
     wx.request({
-      url: 'https://api.xaneon.com/cloudsearch?keywords=贝尔塔脑波音乐&type=1000',
+      url: 'https://api.xaneon.com/cloudsearch?keywords=脑部治疗&type=1000',
       header: {
         'content-type': 'application/json', // 默认值
       },
