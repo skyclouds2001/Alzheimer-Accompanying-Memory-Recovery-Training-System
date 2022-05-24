@@ -15,8 +15,10 @@
 </view>  
 </view>
 
-
-<button class="del" bindtap="delitem">
+<view class="del_area">
+    <button class="del" bindtap="delitem">
     删除该事项
-</button>
+    </button>
+</view>
+
 

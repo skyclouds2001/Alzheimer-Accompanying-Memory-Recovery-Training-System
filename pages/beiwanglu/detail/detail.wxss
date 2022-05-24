@@ -1,6 +1,6 @@
 Page {
   padding: 35rpx;
-  background-color: #e6fafa;
+  background-color: #d0e2e2;
 }
 .head {
   display: flex;
@@ -29,15 +29,22 @@ Page {
   background-color: white;
   border-radius: 15rpx;
 }
-.del {
-  margin-top: 100rpx;
-  width: 80%;
+.del_area {
+  position: fixed;
+  width: 600rpx;
+  bottom: 50rpx;
+  left: 75rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.del_area .del {
+  width: 500rpx;
   height: 100rpx;
   background-color: #54b8ac;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 100rpx auto;
   border-radius: 35rpx;
   color: white;
   font-weight: 500;
