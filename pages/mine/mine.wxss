@@ -75,8 +75,18 @@ page {
 /* 昵称 */
 .nickname {
   flex: 2;
+
+  width: auto;
+  height: 75%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .nickname-text {
+  flex: 2;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,6 +94,17 @@ page {
   font-size: 40rpx;
   color: black;
   letter-spacing: 2.5rpx;
+}
+.link-with {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 32rpx;
+  color: #999;
+  letter-spacing: 1rpx;
 }
 
 /* 列表样式 */
@@ -107,6 +128,11 @@ page {
   border-radius: 50rpx !important;
 
   z-index: 99999 !important;
+}
+
+.qrcode {
+  background-color: rgba(255, 255, 255, 1) !important;
+  backdrop-filter: blur(5rpx);
 }
 .van-icon.van-icon-cross {
   color: black;

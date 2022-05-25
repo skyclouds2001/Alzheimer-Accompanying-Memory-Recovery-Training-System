@@ -34,6 +34,16 @@ Page({
      * 二维码显示字符串信息
      */
     qrTxt: 'wx-qr',
+
+    /**
+     * 标记是否已绑定
+     */
+    linked: false,
+
+    /**
+     * 标记是否显示二维码
+     */
+    showQRcode: false,
   },
 
   /**
@@ -138,6 +148,27 @@ Page({
       wx.removeStorageSync('userInfo');
     }).catch(() => {
       // 取消退出，无额外操作
+    });
+  },
+
+  /**
+   * 绑定患者端及子女端
+   * 显示二维码
+   */
+  handleBind () {
+    // todo linked
+    this.setData({
+      showQRcode: true,
+    });
+  },
+  /**
+   * 绑定患者端及子女端
+   * 显示二维码
+   */
+  handleClose () {
+    // todo linked
+    this.setData({
+      showQRcode: false,
     });
   },
 

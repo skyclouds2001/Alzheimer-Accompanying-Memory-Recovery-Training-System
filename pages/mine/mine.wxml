@@ -12,6 +12,7 @@
   <!-- 用户昵称 -->
   <view class="nickname">
     <view class="nickname-text">{{ nickName }}</view>
+    <view class="link-with" bind:tap="handleBind">{{ linked ? '已绑定' : '未绑定' }}</view>
   </view>
 </view>
 
@@ -43,6 +44,6 @@
 <van-toast id="van-toast" />
 
 <!-- 用户端绑定二维码 -->
-<block wx:if="{{ false }}">
+<van-popup custom-class="popup qrcode" show="{{ showQRcode }}" position="center" closeable safe-area-inset-top lock-scroll bind:close="handleClose">
   <qr-container canvasMode text="{{ qrTxt }}" size="500"></qr-container>
-</block>
+</van-popup>
