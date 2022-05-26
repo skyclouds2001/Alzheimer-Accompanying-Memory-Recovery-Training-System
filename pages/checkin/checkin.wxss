@@ -1,30 +1,39 @@
 page {
-  background-color: #e4fce7;
+  width: 100vw;
+  height: 100vh;
+
+  position: relative;
 
   --theme-color: rgb(84, 184, 172);
 }
 
-/* 背景轮播图 */
-.checkin-img {
+/* 背景特殊图案元素 */
+.bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -10;
+
+  background-color: white;
+
   width: 100vw;
-  height: 500rpx;
+  height: 100vh;
 }
+.bg::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -5;
 
-.swiper {
-  width: 100%;
-  height: 100%;
-}
+  content: '';
 
-.swiper-item {
-  width: 100%;
-  height: 100%;
-}
+  background-color: var(--theme-color, rgb(84, 184, 172));
+  border-radius: 50rpx;
 
-.swiper-item > image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  width: 100vw;
+  height: 100vh;
+
+  transform: translateY(-75vh);
 }
 
 /* 提示文字 */
@@ -66,7 +75,7 @@ page {
 .van-calendar {
   background-color: rgba(255, 255, 255, 0.9) !important;
   border-radius: 15rpx !important;
-  box-shadow: 5rpx 5rpx 10rpx #afd6b8;
+  box-shadow: 5rpx 5rpx 10rpx #999 !important;
   overflow: hidden !important;
 }
 
