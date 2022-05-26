@@ -12,7 +12,7 @@ Page({
     /**视频数量 */
     videoquantity:0
   },
-  // 实现falshtabbar
+  // falshtabbar
   album(){
     wx.redirectTo({
       url: '/pages/family/Recalltime/Recalltime',
