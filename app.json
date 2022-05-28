@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/train/train",
     "pages/patient/patient",
+    "pages/patient/consultation/consultation",    
     "pages/mine/mine",
     "pages/mine/train-record/train-record",
     "pages/mine/auction/auction",

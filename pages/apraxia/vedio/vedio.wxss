@@ -1,5 +1,5 @@
 .section{
-  margin: 300rpx auto;
+  margin: 500rpx auto;
   display: flex;
   justify-content: center;
   align-items: center;

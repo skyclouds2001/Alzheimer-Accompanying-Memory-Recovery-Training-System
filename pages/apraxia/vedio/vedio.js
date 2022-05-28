@@ -1,7 +1,7 @@
-var startTime,
-      endTime,
-      stayTime,
-      app = getApp();
+let startTime;
+let endTime;
+let stayTime;
+const app = getApp();
 Page({
 
   data: {
@@ -39,56 +39,25 @@ Page({
       index: options.id,
     });
   },
-  onShow(){
+  onShow () {
     setTimeout(function () {
-        if (app.globalData.onShow) {
-            app.globalData.onShow = 0;
-            console.log("demo前后台切换之切到前台")
-        }
-        else {
-            console.log("demo页面被切换显示")
-            startTime = +new Date();
-        }
-    }, 100)
+      if (app.globalData.onShow) {
+        app.globalData.onShow = 0;
+        console.log('demo前后台切换之切到前台');
+      } else {
+        console.log('demo页面被切换显示');
+        startTime = +new Date();
+      }
+    }, 100);
   },
-  onUnload(){
-      setTimeout(function () {
-          if (app.globalData.onHide) {
-              app.globalData.onHide = 0;
-              console.log("还在当前页面活动")
-          }
-          else {
-              endTime = +new Date();
-              console.log("demo页面停留时间：" + (endTime - startTime))
-              stayTime = endTime - startTime;
-              console.log(stayTime);
-              wx.request({
-                url: 'http://www.thylovezj.space/v1/exercise/add',
-                data: { exTime: stayTime, exType: 3, score: 0 },
-                method: 'POST',
-                success: () => {
-                  console.log('push successfully');
-                },
-                fail: () => {
-                  console.log('push fail');
-                },
-              });
-          }
-      }, 100);
-      
-  },
-  ended(e){
-  wx.navigateTo({
-      url: '../testing/testing',
-  });
-  setTimeout(function () {
-    if (app.globalData.onHide) {
+  onUnload () {
+    setTimeout(function () {
+      if (app.globalData.onHide) {
         app.globalData.onHide = 0;
-        console.log("还在当前页面活动")
-    }
-    else {
+        console.log('还在当前页面活动');
+      } else {
         endTime = +new Date();
-        console.log("demo页面停留时间：" + (endTime - startTime))
+        console.log('demo页面停留时间：' + (endTime - startTime));
         stayTime = endTime - startTime;
         console.log(stayTime);
         wx.request({
@@ -102,8 +71,34 @@ Page({
             console.log('push fail');
           },
         });
-    }
-}, 100);
-
-  }
+      }
+    }, 100);
+  },
+  ended (e) {
+    wx.navigateTo({
+      url: '../testing/testing',
+    });
+    setTimeout(function () {
+      if (app.globalData.onHide) {
+        app.globalData.onHide = 0;
+        console.log('还在当前页面活动');
+      } else {
+        endTime = +new Date();
+        console.log('demo页面停留时间：' + (endTime - startTime));
+        stayTime = endTime - startTime;
+        console.log(stayTime);
+        wx.request({
+          url: 'http://www.thylovezj.space/v1/exercise/add',
+          data: { exTime: stayTime, exType: 3, score: 0 },
+          method: 'POST',
+          success: () => {
+            console.log('push successfully');
+          },
+          fail: () => {
+            console.log('push fail');
+          },
+        });
+      }
+    }, 100);
+  },
 });
