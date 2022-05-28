@@ -84,6 +84,7 @@
 <input name="hobby" type="text" placeholder="请输入患者的兴趣爱好" class="input" placeholder-style="color:#bebec7;"/>
 <view>患者照片</view>
 
+<view class="block2"></view>
 <van-uploader name="img" file-list="{{ fileList }}" preview-full-image="true" multiple="true" 
         preview-image="true"
         max-count="1"

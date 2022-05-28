@@ -3,7 +3,7 @@
 
 <view class="tab_elements {{index===select_index?'selected':''}}" wx:for="{{element_list}}" wx:key="title">
 
-<navigator url="{{item.url}}" open-type="redirect">{{item.title}}</navigator>
+<navigator url="{{item.url}}" open-type="redirect" >{{item.title}}</navigator>
 
 </view>
 

@@ -8,12 +8,12 @@ Page {
 }
 .title_area {
   height: 200rpx;
-  background-color: white;
   border-radius: 25rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  font-size: x-large;
 }
 .title_area .title {
   width: 90%;
@@ -27,17 +27,17 @@ Page {
 .content_area {
   margin-top: 150rpx;
   height: 600rpx;
-  background-color: white;
   border-radius: 25rpx;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  font-size: x-large;
 }
 .content_area .content {
   width: 90%;
   border-radius: 25rpx;
-  height: 300rpx;
+  height: 400rpx;
   border: 3rpx solid #54b8ac;
   font-size: larger;
   font-size: large;
@@ -47,7 +47,6 @@ Page {
   margin-top: 150rpx;
   height: 150rpx;
   width: 60vm;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;

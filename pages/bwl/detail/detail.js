@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    content: 'gaofeifeifeifei',
+    content: '',
     time: '',
     title: '',
     recordid: '',
@@ -21,17 +21,21 @@ Page({
     console.log(options);
     const { recordid, time, title } = options;
     this.getDetail(recordid);
-    this.setData({ time, title, recordid });
+    const timeformat =  time.slice(0,10)
+    this.setData({ time:timeformat, title, recordid });
   },
   /**
    * 通过recordid和openid获取记录详情
    * @param {String} recordid
    */
   getDetail: async function (recordid) {
-    const openid = wx.getStorageSync('openid');
     try {
-      const content = await request({ url: '/#', data: { openid, recordid } });
-      this.setData({ content });
+      const token = wx.getStorageSync('token');
+      const id = Number(recordid)
+      const res = await request({ url: `/v1/memorandum//get/detail/${id}`,header: { 'authorization': token }});
+      console.log(res);
+      const {data} = res.data
+      this.setData({ content:data[0].content });
     } catch (err) {
       console.log(err);
     }
@@ -40,9 +44,10 @@ Page({
    * 用openid和recoedid删除记录
    */
   delitem () {
-    const openid = wx.getStorageSync('openid');
+    const token = wx.getStorageSync('token');
     const recordid = this.data.recordid;
-    const p = request({ url: '/#', data: { openid, recordid } });
+    const id = Number(recordid)
+    const p = request({ url: `/v1/memorandum/delete/${id}` , header:{ 'authorization': token },method:'POST'});
     p.catch(
       (err) => { console.log(err); },
     );

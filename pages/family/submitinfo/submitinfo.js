@@ -82,19 +82,19 @@ Page({
       Toast.fail('请输入完整信息');
     }
   },
-  /** 提交信息 */
+  /** 提交信息(已调试) */
   postInfo (value) {
     const value2 = {};
-
+    const edu_level = ['无', '低', '中', '高'];
     // 要传的六个字段-------------------
-    value2.age = value.age;
-    value2.address = value.address;
-    value2.province = value.province;
-    value2.eduBgcground = value.eduBgcground;
-    value2.photos = value.photos;
-    value2.pname = value.pname;
+    value2.age = Number(value.age); // int
+    value2.address = value.address[0];// string
+    value2.province = value.province[0];// string
+    value2.eduBackground = edu_level[Number(value.eduBgcground)];// string
+    value2.childPhotos = value.photos;// string
+    value2.pname = value.pname;// string
     // --------------------------------
-
+    console.log(value2);
     const token = wx.getStorageSync('token');
     const p = request({ url: '/v1/patient', method: 'PUT', header: { authorization: token }, data: value2 });
     p.then(() => { Toast.success('putsuccess'); }, () => { Toast.fail('putfail'); });
@@ -120,14 +120,15 @@ Page({
     const { url } = event.detail.file[0];
     console.log(url);
     const that = this;
-    const openId = this.getStorageSync('openid');
+    const token = wx.getStorageSync('token');
     const p = new Promise((resolve, reject) => {
       wx.uploadFile({
-        url: `http://127.0.0.1www.thylovezj.space/v1/user/login/upload?openId=${openId}`,
+        url: 'http://www.thylovezj.space/v1/user/login/upload',
+        header: { authorization: token },
         filePath: url,
         name: 'file',
         success (res) {
-          resolve(res.data);
+          resolve(res);
         },
         fail (err) {
           reject(err);
@@ -136,7 +137,14 @@ Page({
     },
     );
 
-    p.then((value) => { that.setData({ fileList: [{ url: value }] }); }, (err) => { console.log(err); });
+    p.then((value) => {
+      console.log(value);
+      const url = value.data.slice(value.data.search('"uri":"') + 7, -3);
+      console.log(url);
+
+      that.setData({ fileList: [{ url }] });
+    },
+    (err) => { console.log(err); });
   },
 
   /**

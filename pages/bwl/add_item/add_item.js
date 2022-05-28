@@ -8,7 +8,7 @@ Page({
     /**
    * 导航栏
    */
-    element_list: [{ title: '事项', url: '../../beiwanglu/beiwanglu' }, { title: '添加事项', url: 'add_item/add_item' }],
+    element_list: [{ title: '事项', url: '../../bwl/beiwanglu' }, { title: '添加事项', url: 'add_item/add_item' }],
     select_index: 1,
   },
   /**
@@ -28,7 +28,8 @@ Page({
    * @param {obj} param
    */
   send_info: function (param) {
-    const p = request({ url: '/#', data: param, method: 'POST' });
+    const token = wx.getStorageSync('token')
+    const p = request({ url: '/v1/memorandum/add', data: param, method: 'POST',header: { 'authorization': token } });
     p.catch((err) => { console.log(err); });
   },
 });
