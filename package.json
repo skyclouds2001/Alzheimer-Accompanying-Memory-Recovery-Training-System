@@ -26,7 +26,7 @@
     "Alzheimer-Accompanying-Memory-Recovery-Training-System"
   ],
   "scripts": {
-    "lint": "eslint --fix app.js api components lib pages utils"
+    "lint": "eslint --fix app.js api components custom-tab-bar lib pages utils"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,8 @@
   },
   "homepage": "https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System#readme",
   "dependencies": {
-    "@vant/weapp": "^1.10.2"
+    "@vant/weapp": "^1.10.2",
+    "wx-qr": "^0.1.2"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -51,5 +52,6 @@
   "directories": {
     "doc": "docs",
     "lib": "lib"
-  }
+  },
+  "author": ""
 }

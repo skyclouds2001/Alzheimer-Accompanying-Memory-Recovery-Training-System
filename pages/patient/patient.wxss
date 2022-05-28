@@ -2,6 +2,7 @@ page{
   width: 100vw;
   height: 100vh;
 }
+
 .beiwanglu{
   position:fixed;
   top: 15rpx;

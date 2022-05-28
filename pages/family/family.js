@@ -3,7 +3,7 @@ import Toast from '@vant/weapp/toast/toast';
 Page({
   data: {
   /**
-   * 导航栏
+   * 页面的初始数据
    */
     element_list: [{ title: '首页', url: '../family/family' }, { title: '账户', url: '../zhanghu/zhanghu' }],
     select_index: 0,
@@ -42,8 +42,8 @@ Page({
         text: '回忆时光',
         src2: 'https://s1.ax1x.com/2022/05/15/ORGAIJ.png',
       },
-    ],
 
+    ],
     /**
      * 用户昵称
      * @type {string}
@@ -55,6 +55,7 @@ Page({
      * @type {string}
      */
     avatarUrl: '/images/empty-image-default.png',
+
   },
 
   /**
@@ -67,25 +68,19 @@ Page({
   jumpto: function (event) {
     const { index } = event.currentTarget.dataset;
     if (this.isLogined) {
-      const urls = [
-        './submitinfo/submitinfo',
-        '#',
-        './../train-record/train-record',
-        './latest_diagnosis/report-of-family',
-        './adscience/adscience',
-        './Recalltime/Recalltime',
-      ];
-      wx.navigateTo({
-        url: urls[index],
-      });
+      switch (index) {
+        case 0: wx.navigateTo({ url: 'submitinfo/submitinfo' }); break;
+        case 1: wx.navigateTo({ url: 'voice/voice' }); break;
+        case 2: wx.navigateTo({ url: '#' }); break;
+        case 3: wx.navigateTo({ url: 'latest_diagnosis/report-of-family' }); break;
+        case 4: wx.navigateTo({ url: 'adscience/adscience' }); break;
+        case 5: wx.navigateTo({ url: 'Recalltime/Recalltime' }); break;
+      }
     } else {
       Toast.fail('请先登录');
     }
   },
 
-  /**
-   * 获取用户昵称及头像
-   */
   async onGetUserProfile () {
     // 判断用户是否已获取微信头像与昵称
     if (this.isLogined) {
@@ -95,7 +90,7 @@ Page({
     try {
       // 调用wx接口获取用户信息
       const { userInfo } = await wx.getUserProfile({
-        desc: '请授权我们使用您的头像及昵称',
+        desc: '请授权我们使用您的个人信息',
         lang: 'zh_CN',
       });
 
@@ -114,15 +109,17 @@ Page({
         nickName: userInfo.nickName,
       });
 
-      // 更新登录状态
+      // 更新已登录状态
       this.isLogined = true;
     } catch (err) {
       // 显示授权失败提示
       Toast.fail('授权失败');
     }
   },
-
-  check_userinfo () {
+  /**
+   * 检测用户信息是否在缓存中
+   */
+  check_userinfo: async function () {
     // 从存储提取用户信息
     const userInfo = wx.getStorageSync('userInfo') || {};
 
@@ -142,7 +139,6 @@ Page({
       this.isLogined = false;
     }
   },
-
   onShow: function () {
     this.check_userinfo();
   },

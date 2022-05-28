@@ -4,14 +4,15 @@
     "pages/train/train",
     "pages/patient/patient",
     "pages/mine/mine",
-    "pages/train-record/train-record",
     "pages/mine/auction/auction",
     "pages/mine/patient-info/patient-info",
     "pages/mine/problem-feedback/problem-feedback",
     "pages/mine/about/about",
+    "pages/train-record/train-record",
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
     "pages/evaluate/main/main",
+    "pages/evaluate/init/init",
     "pages/apraxia/apraxia",
     "pages/apraxia/index/index",
     "pages/apraxia/list/list",
@@ -22,9 +23,12 @@
     "pages/agnosia/agnosia",
     "pages/family/family",
     "pages/family/submitinfo/submitinfo",
-    "pages/logs/logs",
     "pages/family/adscience/adscience",
+    "pages/family/adscience/article_show/article_show",
     "pages/family/Recalltime/Recalltime",
+    "pages/family/Recalltime/photo/photo",
+    "pages/family/Recalltime/vedio/vedio",
+    "pages/family/voice/voice",
     "pages/zhanghu/zhanghu",
     "pages/zhanghu/detail_info/detail_info",
     "pages/zhanghu/vip_page/vip_page",
@@ -67,11 +71,9 @@
         "text": "我的"
       },
       {
-        "pagePath":"pages/recall_mode/recall_mode",
-        "text":"回忆模式"
+        "pagePath": "pages/recall_mode/recall_mode",
+        "text": "回忆模式"
       }
-
-
     ],
     "position": "bottom"
   },

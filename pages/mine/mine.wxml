@@ -12,36 +12,38 @@
   <!-- 用户昵称 -->
   <view class="nickname">
     <view class="nickname-text">{{ nickName }}</view>
+    <view class="link-with" bind:tap="handleBind">{{ linked ? '已绑定' : '未绑定' }}</view>
   </view>
 </view>
 
 <!-- 个人中心详细选项 -->
-<van-cell-group inset custom-class="list" bind:tap="handleOpenPopup">
+<van-cell-group inset custom-class="list">
   <van-cell title="个人信息" url="/pages/mine/patient-info/patient-info" is-link icon="user-o" />
   <van-cell title="打卡记录" url="/pages/checkin/checkin" is-link icon="certificate" />
-  <van-cell title="训练记录" url="/pages/mine/train-record/train-record" is-link icon="chart-trending-o" />
-  <van-cell title="我的积分" is-link data-id="{{ 4 }}" icon="award-o" />
+  <van-cell title="训练记录" url="/pages/train-record/train-record" is-link icon="chart-trending-o" />
+  <van-cell title="我的积分" bind:tap="handleOpenCredit" is-link icon="award-o" />
   <van-cell title="积分商城" url="/pages/mine/auction/auction" is-link icon="shopping-cart-o" />
   <van-cell title="问题反馈" url="/pages/mine/problem-feedback/problem-feedback" is-link icon="envelop-o" />
   <van-cell title="关于我们" url="/pages/mine/about/about" is-link icon="info-o" />
-  <van-cell title="退出登录" title-class="exit-warning" is-link data-id="{{ 8 }}" icon="cross" />
+  <van-cell title="退出登录" bind:tap="handleExitLogin" title-class="exit-warning" is-link icon="cross" />
 </van-cell-group>
 
-<!-- tabbar 控件 -->
+<!-- 自定义 tabbar -->
 <df-tabbar></df-tabbar>
-
-<!-- 提示框 -->
-<van-toast id="van-toast" />
 
 <!-- 弹出模态框：退出登录使用 -->
 <van-dialog id="van-dialog" />
 
-<van-popup custom-class="popup" show="{{ show }}" position="bottom" safe-area-inset-top closeable lock-scroll bind:close="handleClosePopup">
+<!-- 我的积分 -->
+<van-popup custom-class="popup" show="{{ show }}" position="center" safe-area-inset-top closeable lock-scroll bind:close="handleCloseCredit">
+  <view class="credit-title">您目前的积分为</view>
+  <view class="credit-count">{{ credit }}</view>
+</van-popup>
 
-  <!-- 我的积分 show=4 -->
-  <block wx:if="{{ show === 4 }}">
-    <view class="credit-title">您目前的积分为</view>
-    <view class="credit-count">{{ credit }}</view>
-  </block>
+<!-- 提示框 -->
+<van-toast id="van-toast" />
 
+<!-- 用户端绑定二维码 -->
+<van-popup custom-class="popup qrcode" show="{{ showQRcode }}" position="center" closeable safe-area-inset-top lock-scroll bind:close="handleClose">
+  <qr-container canvasMode text="{{ qrTxt }}" size="500"></qr-container>
 </van-popup>

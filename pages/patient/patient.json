@@ -1,4 +1,6 @@
 {
-  "usingComponents": {"van-icon": "@vant/weapp/icon/index"},
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index"
+  },
   "navigationBarTitleText": "诊断"
 }

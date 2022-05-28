@@ -28,17 +28,6 @@ App({
     } catch (err) {
       console.log(err);
     }
-
-    // 存储本地日志
-    const logs = wx.getStorageSync('logs') || [];
-    logs.unshift({
-      time: formatTime(new Date()),
-      messsage: '',
-    });
-    while (logs.length >= 10) {
-      logs.pop();
-    }
-    wx.setStorageSync('logs', logs);
   },
 
   onPageNotFound: function (res) {
@@ -51,9 +40,25 @@ App({
     });
     console.log({ res });
   },
-
-  globalData: {
-    mysongs: [],
+  onShow(){ 
+    if(this.globalData.firstIn){
+        this.globalData.firstIn = 0; 
+    } else{ 
+        this.globalData.onShow = 1; 
+    } 
+  }, 
+  onHide(){ 
+      this.globalData.onHide = 1; 
   },
 
+  globalData: {
+    openid: '',
+    token: '',
+    mysongs:[],
+    firstIn:1,
+    onShow: 0, 
+    onHide: 0
+  },
+  
 });
+

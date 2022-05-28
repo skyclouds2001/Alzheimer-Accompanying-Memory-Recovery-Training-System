@@ -116,17 +116,16 @@ Page({
    * @param {e} event
    */
   uoload (event) {
+    // tempurl url
     const { url } = event.detail.file[0];
     console.log(url);
     const that = this;
+    const openId = this.getStorageSync('openid');
     const p = new Promise((resolve, reject) => {
       wx.uploadFile({
-        url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
+        url: `http://127.0.0.1www.thylovezj.space/v1/user/login/upload?openId=${openId}`,
         filePath: url,
         name: 'file',
-        formData: {
-          user: 'test',
-        },
         success (res) {
           resolve(res.data);
         },

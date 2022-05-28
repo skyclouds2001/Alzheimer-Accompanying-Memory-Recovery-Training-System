@@ -5,15 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    score:66,    //得分
-    result:'',    //判断痴呆程度
-   
-    
+    score: 66, // 得分
+    result: '', // 判断痴呆程度
+
   },
 
-  tohome(){
-    /**返回主页面 */
-    wx.switchTab({ url: '/pages/family/family'})
+  tohome () {
+    /** 返回主页面 */
+    wx.switchTab({ url: '/pages/family/family' });
   },
 
   /**
@@ -70,5 +69,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
-})
+  },
+});
