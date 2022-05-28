@@ -30,11 +30,11 @@
     "pages/zhanghu/vip_page/vip_page",
     "pages/family/latest_diagnosis/report-of-family",
     "pages/zhanghu/help/help",
-    "pages/beiwanglu/beiwanglu",
+    "pages/bwl/beiwanglu",
     "pages/recall_mode/recall_mode",
     "pages/test/test",
-    "pages/beiwanglu/detail/detail",
-    "pages/beiwanglu/add_item/add_item"
+    "pages/bwl/detail/detail",
+    "pages/bwl/add_item/add_item"
   ],
   "entryPagePath": "pages/index/index",
   "window": {

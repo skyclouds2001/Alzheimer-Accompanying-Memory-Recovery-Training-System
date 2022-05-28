@@ -14,7 +14,7 @@ Page({
   },
   goTobeiwanglu(){
      wx.navigateTo({
-       url: '../beiwanglu/beiwanglu',
+       url: '../bwl/beiwanglu',
      })
 
   },
