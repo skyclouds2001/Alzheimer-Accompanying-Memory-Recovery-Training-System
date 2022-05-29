@@ -19,7 +19,6 @@ Page({
      * @type {string}
      */
     coverImg: '',
-    
   },
 
   onShow: function () {

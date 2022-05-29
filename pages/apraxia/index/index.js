@@ -31,10 +31,20 @@ Page({
 
   onLoad: function () {
     const that = this;
+    const app = getApp();
+    console.log();
     wx.request({
-      url: 'https://api.xaneon.com/cloudsearch?keywords=阿尔法脑波音乐&type=1000&timestamps=1503019930000',
+      url: 'https://api.xaneon.com/cloudsearch?',
+      method: 'post',
+      data: {
+        cookie: app.globalData.cookie,
+        keywords: '阿尔法脑波音乐',
+        type: 1000,
+        timestamp: 1503019930000,
+      },
       header: {
         'content-type': 'application/json', // 默认值
+
       },
       success (res) {
         console.log(res);
@@ -45,7 +55,14 @@ Page({
       },
     });
     wx.request({
-      url: 'https://api.xaneon.com/cloudsearch?keywords=脑部治疗&type=1000',
+      url: 'https://api.xaneon.com/cloudsearch?',
+      method: 'post',
+      data: {
+        cookie: app.globalData.cookie,
+        keywords: '脑部治疗',
+        type: 1000,
+        timestamp: 1503019930011,
+      },
       header: {
         'content-type': 'application/json', // 默认值
       },

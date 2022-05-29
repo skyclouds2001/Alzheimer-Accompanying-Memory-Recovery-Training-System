@@ -1,6 +1,7 @@
 var alldata = Array()
 // 为了解决未“登录”的问题
 const token = wx.getStorageSync('token')
+
 Page({
 
   /**
@@ -14,6 +15,7 @@ Page({
     //调用后端接口
     self = this,
     wx.request({
+
       url: 'http://www.thylovezj.space/v1/news/get?pageNum=1&pageSize=1',
       method:'GET',
       header:{

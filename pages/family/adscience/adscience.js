@@ -4,6 +4,7 @@ var alldata = Array()
 let newsquantity = 0
 // 为了解决未“登录”的问题
 const token = wx.getStorageSync('token')
+
 Page({
 
   /**
@@ -12,7 +13,9 @@ Page({
   data: {
     /**首页展示新闻列表 */
     newslist:[],
+
     loadfail:false
+
   },
   gotodetail:function(e){
     //需携带data-id的数据
@@ -31,6 +34,7 @@ Page({
     //调用后端接口
     self = this,
     wx.request({
+
       url: 'http://www.thylovezj.space/v1/news/get?pageNum=1&pageSize=1',
       method:'GET',
       header:{
@@ -69,6 +73,7 @@ Page({
           })
         }
       },1000)
+
 // 看是否获取到了后端数据，如果没有，则页面显示网络错误
       setTimeout(()=>
       {
