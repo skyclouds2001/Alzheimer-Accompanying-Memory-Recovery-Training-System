@@ -20,18 +20,27 @@ Page({
     trainRecord: [
       {
         date: '2022年5月1日',
-        text: '跑步60分钟',
+        type: '手指训练',
+        time: 34,
         id: 0,
       },
       {
-        date: '2022年5月1日',
-        text: '跑步60分钟',
+        date: '2022年5月5日',
+        type: '失认症训练',
+        time: 22,
         id: 1,
       },
       {
-        date: '2022年5月1日',
-        text: '跑步60分钟',
+        date: '2022年5月13日',
+        type: '失认症训练',
+        time: 34,
         id: 2,
+      },
+      {
+        date: '2022年5月25日',
+        type: '手指训练',
+        time: 22,
+        id: 3,
       },
     ],
   },
@@ -43,7 +52,7 @@ Page({
 
     this.setData({
       trainRecord: record.map((item, index) => {
-        item.direction = index % 2;
+        item.direction = index % 2 === 0;
         item.color = colors[index % len];
         return item;
       }),
