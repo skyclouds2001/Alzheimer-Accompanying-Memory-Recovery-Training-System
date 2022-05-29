@@ -100,11 +100,9 @@ Page({
     const day = new Date(year, month + 1, 0).getDate();
 
     // 设置日历时间范围，默认为所在月份的第一天与最后一天
-    wx.nextTick(() => {
-      this.setData({
-        minDate: new Date(year, month, 1).getTime(),
-        maxDate: new Date(year, month, day).getTime(),
-      });
+    this.setData({
+      minDate: new Date(year, month, 1).getTime(),
+      maxDate: new Date(year, month, day).getTime(),
     });
 
     try {
@@ -114,7 +112,7 @@ Page({
         method: 'GET',
         data: {},
         header: {
-          token,
+          authorization: token,
           'content-type': 'application/x-www-form-urlencoded',
         },
       });
@@ -125,7 +123,7 @@ Page({
         method: 'GET',
         data: {},
         header: {
-          token,
+          authorization: token,
           'content-type': 'application/x-www-form-urlencoded',
         },
       });
@@ -137,8 +135,10 @@ Page({
 
       // 设置已打卡日期及已打卡次数
       this.days = res1.data.days;
-      this.setData({
-        clockDays: res2.data.count,
+      wx.nextTick(() => {
+        this.setData({
+          clockDays: res2.data.count,
+        });
       });
     } catch (err) {
       Toast.fail('网络异常，请稍后重试');

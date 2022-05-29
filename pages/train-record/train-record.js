@@ -1,3 +1,7 @@
+import { request } from './../../lib/request.js';
+
+const app = getApp();
+
 /**
  * 训练记录的颜色
  */
@@ -45,7 +49,22 @@ Page({
     ],
   },
 
-  onLoad () {
+  onLoad: async function () {
+    // const { token } = app.globalData;
+    // const { data: res } = await request({
+    //   url: '/v1/exercise/get',
+    //   method: 'GET',
+    //   data: {
+    //     PageNum: 1,
+    //     PageSize: 10,
+    //   },
+    //   header: {
+    //     authorization: token,
+    //     'content-type': 'application/x-www-form-urlencoded',
+    //   },
+    // });
+    // console.log(res);
+
     const { trainRecord: record } = this.data;
     const len = colors.length;
     record.sort((a, b) => a.id < b.id);
