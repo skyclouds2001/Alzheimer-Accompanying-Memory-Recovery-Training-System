@@ -5,8 +5,8 @@ Page({
     /**
    * 导航栏
    */
-    element_list: [{ title: '事项', url: 'beiwanglu' }, { title: '添加事项', url: 'add_item/add_item' }],
-    select_index: 0,
+  element_list: [{ title: '事项', url: 'beiwanglu' }, { title: '添加事项', url: 'add_item/add_item' }],
+  select_index: 0,
 
     /**
      * 记录信息
@@ -48,11 +48,11 @@ Page({
   search_info: async function () {
     try {
       const token = wx.getStorageSync('token');
-      const res = await request({ url: '/v1/memorandum/get/simple', header: { authorization: token, 'content-type': 'application/x-www-form-urlencoded' } });
+      const res = await request({ url: '/v1/memorandum/get/simple' , header: { 'authorization': token , 'content-type': 'application/x-www-form-urlencoded'}});
       console.log(res);
-      const { data } = res.data;
-      this.setData({ search_item: data });
-
+      const{data} = res.data;
+      this.setData({search_item:data});
+      
       /** 修改data */
     } catch (err) {
       console.log(err);

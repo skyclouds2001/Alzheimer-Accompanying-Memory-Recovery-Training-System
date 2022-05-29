@@ -82,7 +82,7 @@ Page({
         src: src,
         isplay: false,
       };
-      app.globalData.mysongs.push(song);
+      // app.globalData.mysongs.push(song);
 
       wx.request({
         url: 'http://www.thylovezj.space/v1/song/add', // 仅为示例，并非真实的接口地址
@@ -102,6 +102,9 @@ Page({
         },
         fail (err) {
           console.log(err);
+        },
+        fail: () => {
+          console.log('push fail');
         },
       });
       this.setData({

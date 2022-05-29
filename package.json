@@ -26,7 +26,7 @@
     "Alzheimer-Accompanying-Memory-Recovery-Training-System"
   ],
   "scripts": {
-    "lint": "eslint --fix app.js components custom-tab-bar lib pages utils"
+    "lint": "eslint --fix app.js api components custom-tab-bar lib pages utils"
   },
   "repository": {
     "type": "git",

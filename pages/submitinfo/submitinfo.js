@@ -6,31 +6,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl: '',
-    nickName: '',
+    avatarUrl:'',
+    nickName:'',
     // 性别
-    array1: ['男', '女'],
-    index1: 0,
+    array1:['男','女'],
+    index1:0,
     // 国家和地区
-    array2: ['中国', '其他'],
-    index2: 0,
+    array2:['中国','其他'],
+    index2:0,
     // 文化程度
-    index3: 0,
-    array3: ['低', '中', '高'],
+    index3:0,
+    array3:['低','中',"高"],
     // 出生地
-    place1: ['无'],
-    customitem: '无',
+    place1:['无'],
+    customitem:"无",
     // 居住地
-    place2: ['无'],
+    place2:["无"],
     // 照片
-    fileList: [{ url: 'https://img.yzcdn.cn/vant/leaf.jpg' }],
+    fileList: [{url: 'https://img.yzcdn.cn/vant/leaf.jpg'}]
+
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad (options) {
+  onLoad(options) {
     const userInfo = wx.getStorageSync('userInfo') || {};
     this.setData({
       avatarUrl: userInfo.avatarUrl,
@@ -38,47 +39,50 @@ Page({
     });
   },
 
-  //  选项处理
-  bindPickerChange1 (event) {
-    const { value } = event.detail;
+//  选项处理
+  bindPickerChange1(event){
+    const {value} = event.detail;
     this.setData({
-      index1: Number(value),
-    });
+      index1:Number(value)
+    })
   },
 
-  bindPickerChange2 (event) {
-    const { value } = event.detail;
+  bindPickerChange2(event){
+    const {value} = event.detail;
     this.setData({
-      index2: Number(value),
-    });
+      index2:Number(value)
+    })
   },
-  bindPickerChange3 (event) {
-    const { value } = event.detail;
+  bindPickerChange3(event){
+    const {value} = event.detail;
     this.setData({
-      index3: value,
-    });
+      index3:value
+    })
   },
 
-  bindPickerChange4 (event) {
-    const { value } = event.detail;
+  bindPickerChange4(event){
+    const {value} = event.detail;
     this.setData({
-      place1: value,
-    });
+      place1:value
+    })
+      
   },
-  bindPickerChange5 (event) {
-    const { value } = event.detail;
+  bindPickerChange5(event){
+    const {value} = event.detail;
     this.setData({
-      place2: value,
-    });
+      place2:value
+    })
+      
   },
-  formSubmit (event) {
-    const { value } = event.detail;
-    value.img = this.data.fileList;
+  formSubmit(event){
+
+    let {value}= event.detail
+    value.img = this.data.fileList
     console.log(value);
-    Toast.success('上传成功');
+    Toast.success("上传成功")
   },
   // 文件上传
-  uoload (event) {
-    console.log(event);
-  },
-});
+  uoload(event){
+     console.log(event);
+  }
+})

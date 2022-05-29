@@ -1,4 +1,4 @@
-// pages/zhanghu/help/help.js
+// pages/test/test.js
 Page({
 
   /**
