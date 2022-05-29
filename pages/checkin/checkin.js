@@ -2,6 +2,8 @@ import Toast from '@vant/weapp/toast/toast';
 
 import { request } from './../../lib/request.js';
 
+const app = getApp();
+
 /**
  * @typedef Day
  * @type {Object}
@@ -88,7 +90,7 @@ Page({
   days: [],
 
   onLoad: async function () {
-    const token = wx.getStorageSync('token');
+    const { token } = app.globalData;
 
     // 当天的日期
     const date = new Date();
@@ -119,7 +121,7 @@ Page({
 
       // 获取用户已打卡次数
       const { data: res2 } = await request({
-        url: '/v1/patient/sign/count/1',
+        url: '/v1/patient/sign/count/0',
         method: 'GET',
         data: {},
         header: {
