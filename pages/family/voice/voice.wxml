@@ -10,5 +10,7 @@
     <view class="b">
         <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" type="default"  bindtouchstart='startRecord' bindtouchend="stopRecord">开始录入</van-button>
     </view>
+    <view class="b">
+        <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" type="default"  bindtap='pushRecord'>上传</van-button>
+    </view>
 </view>
-<text>{{recognize_result}}</text>

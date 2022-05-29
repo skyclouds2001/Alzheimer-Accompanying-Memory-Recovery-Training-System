@@ -21,7 +21,7 @@ page {
   font-size: large !important;
 }
 .b{
-  margin-top: 0rpx;
+  margin-top: 20rpx;
   width: 90%;
   flex-direction:column;
   align-items:center

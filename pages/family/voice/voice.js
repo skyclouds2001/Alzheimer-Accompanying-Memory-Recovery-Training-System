@@ -18,19 +18,19 @@ function getToken () {
 
 // 语音识别
 function soundReco (data) {
-  const token = wx.getStorageSync('user-token');
-  if (!token) {
-    getToken();
-  }
   return new Promise((resolve, reject) => {
-    wx.request({
-      url: `https://vop.baidu.com/server_api?dev_pid=1537&cuid=frommiyiapp&token=${token}`,
-      method: 'POST',
-      data: data,
-      header: { 'Content-Type': 'audio/pcm;rate=16000' },
+    wx.uploadFile({
+      url: 'https://4b4e-111-18-45-56.jp.ngrok.io/v1/user/login/upload',
+      filePath: data,
+      name: 'file',
+      header: {
+        authorization: wx.getStorageSync('token'),
+      },
+      formData: {
+        method: 'POST',
+      },
       success: (res) => {
-        resolve(res.data.result);
-        console.log(res);
+        resolve(res);
       },
       fail: reject,
     });
@@ -45,6 +45,7 @@ Page({
     audio_path: '',
     audio_data: undefined,
     recognize_result: '',
+    URL: '',
   },
   startRecord () {
     const options = {
@@ -60,23 +61,40 @@ Page({
       console.log(err);
     });
   },
+
+  pushRecord () {
+    soundReco(this.audio_path).then(res => {
+      console.log(res);
+      const aB = res.data;
+      this.setData({
+        URL: 'http' + aB.match(/http(\S*)M/)[1] + 'M',
+      });
+      const that = this;
+      console.log(this.data.URL);
+      wx.request({
+        url: 'https://4b4e-111-18-45-56.jp.ngrok.io/v1/voice',
+        data: { url: that.data.URL },
+        header: {
+          authorization: wx.getStorageSync('token'),
+        },
+        method: 'POST',
+        success: (result) => {},
+        fail: (res) => { console.log('fail'); },
+        complete: (res) => {},
+      });
+    });
+  },
+
   stopRecord () {
     recorder.stop();
     recorder.onStop(res => {
       this.audio_path = res.tempFilePath;
-      // 这里借鉴了一位大佬的方案
       const fs = wx.getFileSystemManager();
       fs.readFile({
         filePath: this.audio_path,
         success: (res) => {
           this.audio_data = res.data;
         },
-      });
-    });
-    soundReco(this.audio_data).then(res => {
-      console.log(res);
-      this.setData({
-        recognize_result: res,
       });
     });
   },
@@ -92,7 +110,6 @@ Page({
           wx.authorize({
             scope: 'scope.record',
             success () {
-              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
               wx.startRecord();
             },
           });
