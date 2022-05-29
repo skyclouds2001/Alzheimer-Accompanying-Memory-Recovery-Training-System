@@ -14,11 +14,5 @@ Component({
      */
     select: 0,
 
-    /**
-     * 标记当前选择的tabbar类型
-     * @type {number}
-     */
-    kind: -1,
-
   },
 });

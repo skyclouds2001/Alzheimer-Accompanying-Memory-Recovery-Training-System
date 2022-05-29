@@ -91,16 +91,26 @@
 .text {
   position: absolute;
 
+  width: 12ch;
+
   color: var(--bg-color);
   font-weight: bold;
   font-size: 36rpx;
   letter-spacing: 2.5rpx;
+  text-align: center;
 }
 .left-text {
   left: calc(50% + 5.5 * var(--line-width));
-  bottom: calc(-2.5 * var(--line-width));
+  bottom: calc(-4 * var(--line-width));
 }
 .right-text {
   right: calc(50% + 5.5 * var(--line-width));
-  bottom: calc(-2.5 * var(--line-width));
+  bottom: calc(-4 * var(--line-width));
+}
+
+.date {
+  font-size: 28rpx;
+}
+.time {
+  font-size: 32rpx;
 }

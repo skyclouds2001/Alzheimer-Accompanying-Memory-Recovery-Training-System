@@ -1,3 +1,9 @@
 <i-menu bgimg="/images/index-bgimg.jpg" ctext="你需要一个优秀的线上诊疗医生" etext="You need an excellent online doctor" btns="{{ btn_list }}"></i-menu>
 
 <df-tabbar></df-tabbar>
+
+<!-- 备忘录悬浮图标 -->
+<view class="beiwanglu" bindtap="goTobeiwanglu"> 
+<van-icon name="label-o" size="50"/>
+<view class="font0" >备忘录</view>
+</view>

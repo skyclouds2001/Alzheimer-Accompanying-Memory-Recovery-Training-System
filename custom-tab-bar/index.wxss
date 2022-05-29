@@ -35,6 +35,6 @@
   background-color: rgb(84, 184, 172);
 }
 navigator{
-  margin: 20rpx;
+  margin: 5rpx;
 }
 

@@ -2,6 +2,8 @@ import Toast from '@vant/weapp/toast/toast';
 
 import { request } from './../../lib/request.js';
 
+const app = getApp();
+
 /**
  * @typedef Day
  * @type {Object}
@@ -88,7 +90,7 @@ Page({
   days: [],
 
   onLoad: async function () {
-    const token = wx.getStorageSync('token');
+    const { token } = app.globalData;
 
     // 当天的日期
     const date = new Date();
@@ -98,11 +100,9 @@ Page({
     const day = new Date(year, month + 1, 0).getDate();
 
     // 设置日历时间范围，默认为所在月份的第一天与最后一天
-    wx.nextTick(() => {
-      this.setData({
-        minDate: new Date(year, month, 1).getTime(),
-        maxDate: new Date(year, month, day).getTime(),
-      });
+    this.setData({
+      minDate: new Date(year, month, 1).getTime(),
+      maxDate: new Date(year, month, day).getTime(),
     });
 
     try {
@@ -112,18 +112,18 @@ Page({
         method: 'GET',
         data: {},
         header: {
-          token,
+          authorization: token,
           'content-type': 'application/x-www-form-urlencoded',
         },
       });
 
       // 获取用户已打卡次数
       const { data: res2 } = await request({
-        url: '/v1/patient/sign/count/1',
+        url: '/v1/patient/sign/count/0',
         method: 'GET',
         data: {},
         header: {
-          token,
+          authorization: token,
           'content-type': 'application/x-www-form-urlencoded',
         },
       });
@@ -135,8 +135,10 @@ Page({
 
       // 设置已打卡日期及已打卡次数
       this.days = res1.data.days;
-      this.setData({
-        clockDays: res2.data.count,
+      wx.nextTick(() => {
+        this.setData({
+          clockDays: res2.data.count,
+        });
       });
     } catch (err) {
       Toast.fail('网络异常，请稍后重试');

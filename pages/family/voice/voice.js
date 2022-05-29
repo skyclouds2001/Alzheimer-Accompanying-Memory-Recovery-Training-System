@@ -16,7 +16,7 @@ function getToken () {
   });
 }
 
-// 语音识别
+
 function soundReco (data) {
   return new Promise((resolve, reject) => {
     wx.uploadFile({
@@ -34,6 +34,7 @@ function soundReco (data) {
       },
       fail: reject,
     });
+
   });
 }
 Page({
@@ -42,6 +43,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+
     audio_path: '',
     audio_data: undefined,
     recognize_result: '',
@@ -97,12 +99,14 @@ Page({
         },
       });
     });
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     getToken();
+
     console.log(wx.getStorageSync('user-token'));
     wx.getSetting({
       success (res) {
@@ -118,3 +122,4 @@ Page({
     });
   },
 });
+

@@ -1,12 +1,14 @@
 import Toast from '@vant/weapp/toast/toast';
 
 Page({
-
+  data: {
   /**
    * 页面的初始数据
    */
-  data: {
-  /**
+    element_list: [{ title: '首页', url: '../family/family' }, { title: '账户', url: '../zhanghu/zhanghu' }],
+    select_index: 0,
+
+    /**
    * tab模块组
    */
     tab_list: [
@@ -67,12 +69,12 @@ Page({
     const { index } = event.currentTarget.dataset;
     if (this.isLogined) {
       switch (index) {
-        case 0 : wx.navigateTo({ url: 'submitinfo/submitinfo' }); break;
-        case 1 : wx.navigateTo({ url: 'voice/voice' }); break;
-        case 2 : wx.navigateTo({ url: '#' }); break;
-        case 3 : wx.navigateTo({ url: 'latest_diagnosis/report-of-family' }); break;
-        case 4 : wx.navigateTo({ url: 'adscience/adscience' }); break;
-        case 5 : wx.navigateTo({ url: 'Recalltime/Recalltime' }); break;
+        case 0: wx.navigateTo({ url: 'submitinfo/submitinfo' }); break;
+        case 1: wx.navigateTo({ url: 'voice/voice' }); break;
+        case 2: wx.navigateTo({ url: '#' }); break;
+        case 3: wx.navigateTo({ url: 'latest_diagnosis/report-of-family' }); break;
+        case 4: wx.navigateTo({ url: 'adscience/adscience' }); break;
+        case 5: wx.navigateTo({ url: 'Recalltime/Recalltime' }); break;
       }
     } else {
       Toast.fail('请先登录');
@@ -114,7 +116,9 @@ Page({
       Toast.fail('授权失败');
     }
   },
-
+  /**
+   * 检测用户信息是否在缓存中
+   */
   check_userinfo: async function () {
     // 从存储提取用户信息
     const userInfo = wx.getStorageSync('userInfo') || {};
@@ -132,17 +136,11 @@ Page({
         nickName: '请点击头像登录',
         avatarUrl: '/images/empty-image-default.png',
       });
+      this.isLogined = false;
     }
   },
 
   onShow: function () {
     this.check_userinfo();
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        select: 0,
-        kind: 1,
-      });
-    }
   },
-
 });

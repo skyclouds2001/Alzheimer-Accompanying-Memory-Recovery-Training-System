@@ -4,7 +4,7 @@
   width: 680rpx;
   border-radius: 35rpx;
   box-shadow:  6rpx 6rpx 5rpx 2rpx rgba(0, 0, 0, 0.1);
-  margin: 60rpx auto;
+  margin: 40rpx auto;
   justify-content: space-around;
   align-items: center;
 }
@@ -57,7 +57,9 @@ border-radius: 25rpx;
   justify-content: space-around;
   align-items: center;
 }
-
+/* .phone {
+  
+} */
 .tt {
   width: 80rpx;
 }
@@ -67,8 +69,9 @@ border-radius: 25rpx;
 #box {
   width: 700rpx;
   height: 150rpx;
+  padding-top: 25rpx;
   margin: 0 auto;
-  margin-top: 350rpx;
+  margin-top: 300rpx;
   box-shadow:  6rpx 6rpx 5rpx 2rpx rgba(0, 0, 0, 0.1);
   border-radius: 25rpx;
   display: flex;
@@ -81,5 +84,4 @@ border-radius: 25rpx;
   background-color: #53b6aa;
   border-radius: 20rpx;
   color: white;
-  line-height: 100rpx;
 }
