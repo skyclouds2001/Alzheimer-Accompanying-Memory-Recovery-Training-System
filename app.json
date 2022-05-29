@@ -42,7 +42,7 @@
     "pages/bwl/detail/detail",
     "pages/bwl/add_item/add_item"
   ],
-  "entryPagePath": "pages/index/index",
+  "entryPagePath": "pages/family/adscience/adscience",
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "觅忆",

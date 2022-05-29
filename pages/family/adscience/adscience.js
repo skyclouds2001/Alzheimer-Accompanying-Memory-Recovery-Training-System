@@ -34,8 +34,7 @@ Page({
     //调用后端接口
     self = this,
     wx.request({
-
-      url: 'http://www.thylovezj.space/v1/news/get?pageNum=1&pageSize=1',
+      url: 'http://www.thylovezj.space/v1/news/get?pageNum=1&pageSize=999',
       method:'GET',
       header:{
         // 为了解决未“登录”的问题
@@ -62,14 +61,34 @@ Page({
     //首页渲染展示新闻列表，加个延时是因为后端数据获取要一段时间，而微信会直接先读取下面的代码，导致页面无法正常显示（不知道为啥微信有时没按代码从上到下的顺序检索）
     setTimeout(()=>
       {
-        for (let index = 0; index<newsquantity; index++) {
+        for (let index = 0; index<1; index++) {
           this.setData({
-            newslist:[{
-              id:alldata[index].id,
-              title:alldata[index].title,
-              maincontent:alldata[index].introduction,
-              poster:alldata[index].pic   //照片
-            }],
+            newslist :[
+            //   {
+            //   id:alldata[index].id,
+            //   title:alldata[index].title,
+            //   maincontent:alldata[index].introduction,
+            //   poster:alldata[index].pic   //照片
+            // },
+            {
+              id:alldata[0].id,
+              title:alldata[0].title,
+              maincontent:alldata[0].introduction,
+              poster:alldata[0].pic   //照片
+            },
+            {
+              id:alldata[1].id,
+              title:alldata[1].title,
+              maincontent:alldata[1].introduction,
+              poster:alldata[1].pic   //照片
+            },
+            {
+              id:alldata[2].id,
+              title:alldata[2].title,
+              maincontent:alldata[2].introduction,
+              poster:alldata[2].pic   //照片
+            }
+          ]
           })
         }
       },1000)
