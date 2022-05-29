@@ -1,36 +1,40 @@
 // 录音对象
 const recorder = wx.getRecorderManager();
-function getToken(){
+const ACCESS_KEY = 'YE3fgvbGgZeXtdk0OTdHHUFq';
+const ACCESS_SECRET = 'orGMQMLsdK6prPVInB81IlQCZhKZHiHB';
+function getToken () {
   wx.request({
-    url: `https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=${ACCESS_KEY}&client_secret=${ACCESS_SECRET}`,
-    method: "POST",
-    success: (res)=>{
+    url: `https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=${ACCESS_KEY}&client_secret=${ACCESS_SECRET}`,
+    method: 'POST',
+    success: (res) => {
       // console.log(res);
       wx.setStorage({
         data: res.data.refresh_token,
-        key: "user-token",
-      })
-    }
+        key: 'user-token',
+      });
+    },
   });
 }
 
-// 语音识别
-function soundReco(data){
-  let token = wx.getStorageSync("user-token");
-  if(!token){
-    getToken();
-  }
-  return new Promise((resolve, regest)=>{
-    wx.request({
-      url: `https://vop.baidu.com/server_api?dev_pid=1537&cuid=frommiyiapp&token=${token}`,
-      method: "POST",
-      data: data,
-      header: {"Content-Type": "audio/pcm;rate=16000"},
-      success: (res)=>{
-        resolve(res.data.result[0]);
+
+function soundReco (data) {
+  return new Promise((resolve, reject) => {
+    wx.uploadFile({
+      url: 'https://4b4e-111-18-45-56.jp.ngrok.io/v1/user/login/upload',
+      filePath: data,
+      name: 'file',
+      header: {
+        authorization: wx.getStorageSync('token'),
       },
-      fail: regest
-    })
+      formData: {
+        method: 'POST',
+      },
+      success: (res) => {
+        resolve(res);
+      },
+      fail: reject,
+    });
+
   });
 }
 Page({
@@ -39,61 +43,83 @@ Page({
    * 页面的初始数据
    */
   data: {
-    audio_path: "",
+
+    audio_path: '',
     audio_data: undefined,
-    recognize_result: ""
+    recognize_result: '',
+    URL: '',
   },
-  startRecord(){
+  startRecord () {
     const options = {
-      sampleRate: 16000,  // 采样率16k
+      sampleRate: 16000, // 采样率16k
       numberOfChannels: 1,
-      format: "PCM"  // 格式为pcm
+      format: 'PCM', // 格式为pcm
     };
     recorder.start(options);
-    recorder.onStart(()=>{
-      console.log("Recording!~~~");
+    recorder.onStart(() => {
+      console.log('Recording!~~~');
     });
-    recorder.onError(err=>{
+    recorder.onError(err => {
       console.log(err);
     });
   },
-  stopRecord(){
+
+  pushRecord () {
+    soundReco(this.audio_path).then(res => {
+      console.log(res);
+      const aB = res.data;
+      this.setData({
+        URL: 'http' + aB.match(/http(\S*)M/)[1] + 'M',
+      });
+      const that = this;
+      console.log(this.data.URL);
+      wx.request({
+        url: 'https://4b4e-111-18-45-56.jp.ngrok.io/v1/voice',
+        data: { url: that.data.URL },
+        header: {
+          authorization: wx.getStorageSync('token'),
+        },
+        method: 'POST',
+        success: (result) => {},
+        fail: (res) => { console.log('fail'); },
+        complete: (res) => {},
+      });
+    });
+  },
+
+  stopRecord () {
     recorder.stop();
-    recorder.onStop(res=>{
+    recorder.onStop(res => {
       this.audio_path = res.tempFilePath;
-      // 这里借鉴了一位大佬的方案
       const fs = wx.getFileSystemManager();
       fs.readFile({
         filePath: this.audio_path,
-        success: (res)=>{
+        success: (res) => {
           this.audio_data = res.data;
-        }
+        },
       });
     });
-    soundReco(this.audio_data).then(res=>{
-      console.log(res);
-      this.setData({
-      recognize_result: res   
-      })
-    });
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     getToken();
+
+    console.log(wx.getStorageSync('user-token'));
     wx.getSetting({
-      success(res) {
+      success (res) {
         if (!res.authSetting['scope.record']) {
           wx.authorize({
             scope: 'scope.record',
             success () {
-              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-              wx.startRecord()
-            }
-          })
+              wx.startRecord();
+            },
+          });
         }
-      }
-    })
-  }
-})
+      },
+    });
+  },
+});
+

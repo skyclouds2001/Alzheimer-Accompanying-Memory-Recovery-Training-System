@@ -139,6 +139,7 @@ Page({
       this.isLogined = false;
     }
   },
+
   onShow: function () {
     this.check_userinfo();
   },

@@ -1,5 +1,7 @@
 var alldata = Array()
+
 const token = wx.getStorageSync('token')
+
 Page({
 
   /**
@@ -13,6 +15,7 @@ Page({
     //调用后端接口
     self = this,
     wx.request({
+
       url: 'http://www.thylovezj.space/v1/news/get?pageNum=1&pageSize=1',
       method:'GET',
       header:{
@@ -31,7 +34,9 @@ Page({
     // options.id是用户点击上一个页面后传回的相应的新闻的id值，根据此展示出相应的新闻
     // console.log(options.id)
     let idmatching = options.id
+
     for (let index = 0; idmatching != alldata[index].id; index++) {
+
       this.setData({
         title:this.data.common[index].title,
         text:this.data.common[index].content

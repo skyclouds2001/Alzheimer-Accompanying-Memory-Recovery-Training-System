@@ -1,8 +1,10 @@
+
 /**存新闻标题，简介...的数组 */
 var alldata = Array()
 /**存新闻的总条数 */
 let newsquantity = 0
 const token = wx.getStorageSync('token')
+
 Page({
 
   /**
@@ -11,7 +13,9 @@ Page({
   data: {
     /**首页展示新闻列表 */
     newslist:[],
+
     loadfail:false
+
   },
   gotodetail:function(e){
     //需携带data-id的数据
@@ -30,6 +34,7 @@ Page({
     //调用后端接口
     self = this,
     wx.request({
+
       url: 'http://www.thylovezj.space/v1/news/get?pageNum=1&pageSize=1',
       method:'GET',
       header:{
@@ -54,6 +59,7 @@ Page({
     })
     
     //首页渲染展示新闻列表
+
     setTimeout(()=>
       {
         for (let index = 0; index<newsquantity; index++) {
@@ -69,6 +75,7 @@ Page({
       },1000)
 
       
+
   },
 
   /**

@@ -8,7 +8,7 @@ Page({
       },
       {
         text: '线上问诊',
-        url: '/',
+        url: './consultation/consultation',
       },
     ],
   },

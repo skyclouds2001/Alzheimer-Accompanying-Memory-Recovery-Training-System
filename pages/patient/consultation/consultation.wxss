@@ -1,0 +1,108 @@
+.items {
+  display: flex;
+  height: 250rpx;
+  width: 680rpx;
+  border-radius: 35rpx;
+  box-shadow:  6rpx 6rpx 5rpx 2rpx rgba(0, 0, 0, 0.1);
+  margin: 60rpx auto;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.left {
+flex: 2;
+height: 85%;
+border-radius: 25rpx;
+display: flex;
+flex-direction: column;
+
+}
+.kong {
+  flex:0.1 ;
+}
+.icon {
+height: 90%;
+flex: 1;
+border-radius: 25rpx;
+}
+.h1 {
+  flex: 10;
+  font-weight: 500;
+  font-size: large;
+}
+.describe {
+  flex:17;
+  color: rgb(133, 141, 172);
+}
+.buttom {
+  flex: 6;
+  display: flex;
+  justify-content: space-around;
+}
+.time{
+  width: 220rpx;
+  color: #d7d8df;
+  display: flex;
+}
+.icon1 {
+  margin-right: 8rpx;
+}
+.ico2{
+  background-color: #ffe3df;
+  color: #f2958f;
+  border-radius: 10rpx;
+  font-weight: 500;
+  width: 180rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tt {
+  width: 160rpx;
+  margin-left: 10rpx;
+}
+.kong2{
+  width: 0rpx;
+}
+.icon{
+  left: 5rpx !important;
+}
+.container{
+  z-index: 1;
+  height:280rpx;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  margin-top: -170rpx;
+}
+.content_item{
+  height: 280rpx;
+  width: 200rpx;
+  margin: 25rpx;
+
+}
+.item {
+  height: 200rpx;
+  width: 200rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+.item image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 20rpx;
+}
+.t{
+  text-align: center;
+  font-size: 8px;
+  color: rgb(133, 141, 172);
+}
+.h2{
+  margin-top: 100rpx;
+  margin-left: 20rpx;
+  font-weight: 500;
+  font-size: large;
+}
