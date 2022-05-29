@@ -1,4 +1,4 @@
-
+import { request } from '../../../lib/request';
 const grantType = 'client_credentials';
 const clientId = 'bE0U2VdG1TrjEk4667wlWf8K';
 const clientSecret = 'RhEuHaDziRMmPYOS9kIxZS3GSLlHmjMz';
@@ -89,22 +89,16 @@ Page({
               imageUrl2: 'https://mgl-image.oss-cn-beijing.aliyuncs.com/gesture/22.jpeg',
             });
           }
-          ;
-          wx.request({
-            url: 'http://127.0.0.1/v1/gesture',
+          const token = wx.getStorageSync('token');
+          const p = request({
+            url: '/v1/gesture',
             data: { recognizedName: that.result },
             method: 'POST',
             header: {
-              authorization: ' ',
+              authorization: token,
             },
-            success: (res) => {
-              that.setData({
-                imageUrl2: res.data.image,
-              });
-            },
-            fail: (res) => {},
-            complete: (res) => {},
           });
+          p.then((res) => { that.setData({ imageUrl2: res.data.image }); }, (err) => { console.log(err); });
         },
       });
     });

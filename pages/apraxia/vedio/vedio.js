@@ -1,3 +1,4 @@
+import { request } from '../../../lib/request';
 let startTime;
 let endTime;
 let stayTime;
@@ -60,17 +61,12 @@ Page({
         console.log('demo页面停留时间：' + (endTime - startTime));
         stayTime = endTime - startTime;
         console.log(stayTime);
-        wx.request({
-          url: 'http://www.thylovezj.space/v1/exercise/add',
+        const p = request({
+          url: '/v1/exercise/add',
           data: { exTime: stayTime, exType: 3, score: 0 },
           method: 'POST',
-          success: () => {
-            console.log('push successfully');
-          },
-          fail: () => {
-            console.log('push fail');
-          },
         });
+        p.then(() => { console.log('push successfully'); }, () => { console.log('push fail'); });
       }
     }, 100);
   },
@@ -87,17 +83,12 @@ Page({
         console.log('demo页面停留时间：' + (endTime - startTime));
         stayTime = endTime - startTime;
         console.log(stayTime);
-        wx.request({
-          url: 'http://www.thylovezj.space/v1/exercise/add',
+        const p = request({
+          url: '/v1/exercise/add',
           data: { exTime: stayTime, exType: 3, score: 0 },
           method: 'POST',
-          success: () => {
-            console.log('push successfully');
-          },
-          fail: () => {
-            console.log('push fail');
-          },
         });
+        p.then(() => { console.log('push successfully'); }, () => { console.log('push fail'); });
       }
     }, 100);
   },
