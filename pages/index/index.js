@@ -41,7 +41,7 @@ Page({
       });
     }
     if (index0 === 2) {
-      wx.switchTab({
+      wx.redirectTo({
         url: '../../pages/family/family',
       });
     }

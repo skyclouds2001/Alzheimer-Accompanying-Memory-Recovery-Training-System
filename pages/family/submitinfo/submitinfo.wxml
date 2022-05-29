@@ -8,7 +8,7 @@
 <!-- 姓名 -->
 <view id="name">
 <view>姓名</view>
-<input naem="name" type="text" placeholder="请输入患者的姓名" class="input" placeholder-style="color:#bebec7;"/>
+<input name="pname" type="text" placeholder="请输入患者的姓名" class="input" placeholder-style="color:#bebec7;"/>
 </view>
 
 <van-row gutter="15">
@@ -38,7 +38,7 @@
 <view class="block2"></view>
 <view>文化程度</view>
 <view class="block"></view>
-<picker name="edu" bindchange="bindPickerChange3" value="{{index3}}" range="{{array3}}">
+<picker name="eduBgcground" bindchange="bindPickerChange3"  value="{{index3}}" range="{{array3}}">
     <view class="picker1">
       {{array3[index3]}}
     </view>
@@ -53,7 +53,7 @@
   <van-row gutter="15">
   <!-- 出生地 -->
   <van-col span="12">
-    <picker name="birthplace" bindchange="bindPickerChange4" customItem="{{customitem}}"  level="province" mode = "region" value="{{place1}}">
+    <picker name="province" bindchange="bindPickerChange4" customItem="{{customitem}}"  level="province" mode = "region" value="{{place1}}">
     <view class="picker1" >
       {{place1[0]}} 
     </view>
@@ -61,7 +61,7 @@
   </van-col>
   <!-- 居住地-->
   <van-col span="12">
-    <picker name="livingplace" bindchange="bindPickerChange5" customItem="{{customitem}}"  level="province" mode = "region" value="{{place2}}">
+    <picker name="address" bindchange="bindPickerChange5" customItem="{{customitem}}"  level="province" mode = "region" value="{{place2}}">
     <view class="picker1" >
       {{place2[0]}} 
     </view>
@@ -77,17 +77,21 @@
 
 <view class="block2"></view>
 <view>电话号码</view>
-<input name="phone" type="text" placeholder="请输入患者的电话号码" class="input" placeholder-style="color:#bebec7;"/>
+<input  name="phone_number"type="text" placeholder="请输入患者的电话号码" class="input" placeholder-style="color:#bebec7;"/>
 
 <view class="block2"></view>
 <view>兴趣爱好</view>
 <input name="hobby" type="text" placeholder="请输入患者的兴趣爱好" class="input" placeholder-style="color:#bebec7;"/>
 <view>患者照片</view>
 
+<view class="block2"></view>
 <van-uploader name="img" file-list="{{ fileList }}" preview-full-image="true" multiple="true" 
         preview-image="true"
-        max-count="2"
-        bind:after-read="uoload" bind:delete="del" />
+        max-count="1"
+        bind:after-read="uoload" 
+        deletable="{{ true }}"
+        bind:delete="del"
+         />
 
 </view>
 <view id="btn_area">

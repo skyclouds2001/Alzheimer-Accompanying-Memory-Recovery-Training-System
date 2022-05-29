@@ -29,4 +29,5 @@ bindtap="jumpto"
 
 <van-toast id="van-toast" /> 
 
-<df-tabbar kind="1"></df-tabbar>
+<!-- tabbar -->
+<new_tab element_list="{{element_list}}" select_index="{{select_index}}"></new_tab>

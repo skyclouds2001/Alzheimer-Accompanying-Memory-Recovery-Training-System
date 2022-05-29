@@ -51,6 +51,7 @@
   margin-left: 4.5%;
   width: 690rpx;
 }
+/* 下面两项是false-tabbar部分 */
 /* 单个项 */
 .skippage{
   border:1px solid #6868680a;

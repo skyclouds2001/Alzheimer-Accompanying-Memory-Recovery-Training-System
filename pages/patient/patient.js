@@ -4,19 +4,22 @@ Page({
     btn_list: [
       {
         text: '病情评定',
-        url: '/pages/evaluate/evaluate',
+        url: '/pages/evaluate/init/init',
       },
       {
         text: '线上问诊',
-        url: '/',
+        url: './consultation/consultation',
       },
     ],
+  },
+
+  goTobeiwanglu () {
+    wx.navigateTo({ url: '../bwl/beiwanglu' });
   },
 
   onShow: function () {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
-        kind:0,
         select: 0,
       });
     }

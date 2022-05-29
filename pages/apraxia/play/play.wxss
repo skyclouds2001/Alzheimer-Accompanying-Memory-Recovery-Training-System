@@ -82,6 +82,10 @@
   position: absolute;
   bottom: 50rpx;
   left: 0rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-around;
 }
 .controls image{
   width: 120rpx;

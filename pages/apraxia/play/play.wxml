@@ -16,9 +16,7 @@
 
   <!-- 播放控制 -->
   <view class="controls">
-    <text class="text">{{ isPlayingText }}</text>
     <text class="icon {{ isPlaying ? 'iconfont icon-stop' : 'iconfont icon-play' }}" bindtap="play"></text>
-    <text class="text">{{ isLikeText }}</text>
     <text class="icon {{ isLike ? 'iconfont icon-like' : 'iconfont icon-dislike' }}" bindtap="like"></text>
   </view>
 </view>

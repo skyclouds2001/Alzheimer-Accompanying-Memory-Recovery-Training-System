@@ -63,3 +63,5 @@
 <!-- 激活是否成功提示 -->
 <van-toast id="van-toast" />
 
+<!-- tabbar -->
+<new_tab element_list="{{element_list}}" select_index="{{select_index}}"></new_tab>

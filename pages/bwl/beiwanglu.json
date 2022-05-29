@@ -1,0 +1,4 @@
+{
+  "usingComponents": {"new_tab":"../../components/new_tabbar/new_tabbar","van-icon": "@vant/weapp/icon/index"},
+  "navigationBarTitleText": "备忘录"
+}

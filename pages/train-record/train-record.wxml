@@ -1,0 +1,3 @@
+<block wx:for="{{ trainRecord }}" wx:key="id">
+  <timeline color="{{ item.color }}" date="{{ item.date }}" type="{{ item.type }}" time="{{ item.time }}" direction="{{ item.direction }}" zindex="{{ 100 - item.id }}"></timeline>
+</block>

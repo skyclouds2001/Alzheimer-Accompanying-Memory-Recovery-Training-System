@@ -12,7 +12,7 @@ Component({
     /**
      * 训练时间
      */
-    time: {
+    date: {
       type: String,
       value: '',
     },
@@ -20,9 +20,17 @@ Component({
     /**
      * 训练内容
      */
-    text: {
+    type: {
       type: String,
       value: '',
+    },
+
+    /**
+     * 训练时长
+     */
+    time: {
+      type: Number,
+      value: 0,
     },
 
     /**
