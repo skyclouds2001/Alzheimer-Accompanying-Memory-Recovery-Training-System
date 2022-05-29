@@ -1,7 +1,8 @@
 import Toast from '@vant/weapp/toast/toast';
 import Dialog from '@vant/weapp/dialog/dialog';
 
-// import { request } from './../../lib/request.js';
+const app = getApp();
+const { openid } = app.globalData;
 
 Page({
 
@@ -33,7 +34,7 @@ Page({
     /**
      * 二维码显示字符串信息
      */
-    qrTxt: 'wx-qr',
+    qrTxt: openid,
 
     /**
      * 标记是否已绑定
@@ -58,7 +59,7 @@ Page({
 
     // 判断是否已存在信息
     // 设置数据并更新
-    if ('nickName' in userInfo && 'avatarUrl' in userInfo) {
+    if (JSON.stringify(userInfo) !== '{}') {
       this.setData({
         avatarUrl: userInfo.avatarUrl,
         nickName: userInfo.nickName,
@@ -156,7 +157,6 @@ Page({
    * 显示二维码
    */
   handleBind () {
-    // todo linked
     this.setData({
       showQRcode: true,
     });
@@ -166,7 +166,6 @@ Page({
    * 显示二维码
    */
   handleClose () {
-    // todo linked
     this.setData({
       showQRcode: false,
     });

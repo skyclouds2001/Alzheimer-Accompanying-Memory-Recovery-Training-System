@@ -165,6 +165,8 @@
   - 请求成功判断方法根据 code 字段：成功-10000；失败-其他
 
 - globalData 设定
+  - openid
+  - token
 
 - Storage 设定
   - openid
