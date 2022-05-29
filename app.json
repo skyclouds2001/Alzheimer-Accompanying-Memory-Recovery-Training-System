@@ -38,7 +38,6 @@
     "pages/zhanghu/help/help",
     "pages/bwl/beiwanglu",
     "pages/recall_mode/recall_mode",
-    "pages/test/test",
     "pages/bwl/detail/detail",
     "pages/bwl/add_item/add_item"
   ],

@@ -34,7 +34,6 @@ Page({
    */
   onShow: function () {
 
-
   },
 
   /**
@@ -72,4 +71,3 @@ Page({
 
   },
 });
-

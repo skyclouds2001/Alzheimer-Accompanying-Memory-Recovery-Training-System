@@ -1,6 +1,7 @@
 // pages/submitinfo/submitinfo.js
 import Toast from '@vant/weapp/toast/toast';
 import { request } from '../../../lib/request.js';
+
 Page({
 
   /**
@@ -85,12 +86,12 @@ Page({
   /** 提交信息(已调试) */
   postInfo (value) {
     const value2 = {};
-    const edu_level = ['无', '低', '中', '高'];
+    const eduLevel = ['无', '低', '中', '高'];
     // 要传的六个字段-------------------
     value2.age = Number(value.age); // int
     value2.address = value.address[0];// string
     value2.province = value.province[0];// string
-    value2.eduBackground = edu_level[Number(value.eduBgcground)];// string
+    value2.eduBackground = eduLevel[Number(value.eduBgcground)];// string
     value2.childPhotos = value.photos;// string
     value2.pname = value.pname;// string
     // --------------------------------
