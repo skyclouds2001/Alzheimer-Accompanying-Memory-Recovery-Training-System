@@ -28,8 +28,8 @@ Page({
    * @param {obj} param
    */
   send_info: function (param) {
-    const token = wx.getStorageSync('token')
-    const p = request({ url: '/v1/memorandum/add', data: param, method: 'POST',header: { 'authorization': token } });
+    const token = wx.getStorageSync('token');
+    const p = request({ url: '/v1/memorandum/add', data: param, method: 'POST', header: { authorization: token } });
     p.catch((err) => { console.log(err); });
   },
 });

@@ -50,20 +50,20 @@ Page({
   },
 
   onLoad: async function () {
-    // const { token } = app.globalData;
-    // const { data: res } = await request({
-    //   url: '/v1/exercise/get',
-    //   method: 'GET',
-    //   data: {
-    //     PageNum: 1,
-    //     PageSize: 10,
-    //   },
-    //   header: {
-    //     authorization: token,
-    //     'content-type': 'application/x-www-form-urlencoded',
-    //   },
-    // });
-    // console.log(res);
+    const { token } = app.globalData;
+    const { data: res } = await request({
+      url: '/v1/exercise/get',
+      method: 'GET',
+      data: {
+        PageNum: 1,
+        PageSize: 10,
+      },
+      header: {
+        authorization: token,
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+    });
+    console.log(res);
 
     const { trainRecord: record } = this.data;
     const len = colors.length;

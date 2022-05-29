@@ -1,5 +1,5 @@
 // pages/evaluate/report-of-family/report-of-family.js 后端返回作答数据的接口未写 痴呆程度判断未写
-const token = wx.getStorageSync('token')
+const token = wx.getStorageSync('token');
 Page({
 
   /**
@@ -20,19 +20,19 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: '', 
+      url: '',
       method: 'GET',
       header: {
-        'authorization': token
-	  }, 
+        authorization: token,
+      },
       success: function (res) {
         // 等后端接口写好，这里给相关参数赋值
-       console.log(res.data)
+        console.log(res.data);
       },
       fail: function (err) {
-        console.log(err)
-      }
-    })
+        console.log(err);
+      },
+    });
   },
 
   /**
@@ -40,9 +40,6 @@ Page({
    */
   onShow: function () {
 
-
-  }
-
+  },
 
 });
-

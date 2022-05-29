@@ -186,7 +186,7 @@ Page({
    */
   bindwith: function (openIdofElder) {
     const token = wx.getStorageSync('token');
-    const p = request({ url: '/v1/patient/bind', method: 'POST', header: { 'authorization': token , 'content-type': 'application/x-www-form-urlencoded'}, data: { openId: openIdofElder } });
+    const p = request({ url: '/v1/patient/bind', method: 'POST', header: { authorization: token, 'content-type': 'application/x-www-form-urlencoded' }, data: { openId: openIdofElder } });
     p.then(() => { Toast.success('绑定成功'); }, () => { Toast.fail('绑定失败'); });
   },
   /**
