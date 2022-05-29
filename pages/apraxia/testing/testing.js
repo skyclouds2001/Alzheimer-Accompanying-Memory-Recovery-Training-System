@@ -1,6 +1,6 @@
 const grantType = 'client_credentials';
-const clientId = 'xxxxxxxxxxxxxxxxxxx';
-const clientSecret = 'xxxxxxxxxxxxxxx';
+const clientId = 'bE0U2VdG1TrjEk4667wlWf8K';
+const clientSecret = 'RhEuHaDziRMmPYOS9kIxZS3GSLlHmjMz';
 let token = null;
 let base64 = null;
 let apiUrl = null;
@@ -9,6 +9,7 @@ Page({
   data: {
     imageUrl: '../../../images/example.jpg',
     btn_enable: true,
+    result: '',
   },
 
   onReady: function (res) {
@@ -41,7 +42,7 @@ Page({
       sourceType: ['album', 'camera'],
       success (res) {
         const tempFilePaths = res.tempFilePaths;
-        apiUrl = 'xxxxxxxxxxxxxxxxxx';
+        apiUrl = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/gesture';
         that.setData({
           imageUrl: tempFilePaths,
           btn_enable: true,
@@ -63,6 +64,7 @@ Page({
         });
       },
     });
+
     wx.request({
       url: apiUrl + '?access_token=' + token,
       method: 'POST',
@@ -70,24 +72,20 @@ Page({
         'content-type': 'application/x-www-form-urlencoded',
       },
       data: {
-        image: base64,
+        image: encodeURI(base64),
       },
       success: res => {
-        let result = null;
-        let score = 0;
         console.log('recognition_image Success');
         if (res.data.result == null) {
           console.log(res.data.error_msg);
           console.log(base64);
-          result = res.data.error_msg;
         } else {
-          console.log(res.data.result);
-          result = res.data.result[0].name;
-          score = res.data.result[0].score;
+          console.log(res);
+          that.setData({
+            result: res.data.result[0].classname,
+          });
         }
-        that.setData({
-
-        });
+        ;
       },
     });
   },

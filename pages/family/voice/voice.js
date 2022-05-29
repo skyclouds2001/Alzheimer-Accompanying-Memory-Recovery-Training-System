@@ -1,8 +1,10 @@
 // 录音对象
 const recorder = wx.getRecorderManager();
+const ACCESS_KEY = 'YE3fgvbGgZeXtdk0OTdHHUFq';
+const ACCESS_SECRET = 'orGMQMLsdK6prPVInB81IlQCZhKZHiHB';
 function getToken () {
   wx.request({
-    url: `https://openapi.baidu.com/oauth/2.0/token?grant_type=client_credentials&client_id=${ACCESS_KEY}&client_secret=${ACCESS_SECRET}`,
+    url: `https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=${ACCESS_KEY}&client_secret=${ACCESS_SECRET}`,
     method: 'POST',
     success: (res) => {
       // console.log(res);
@@ -27,7 +29,8 @@ function soundReco (data) {
       data: data,
       header: { 'Content-Type': 'audio/pcm;rate=16000' },
       success: (res) => {
-        resolve(res.data.result[0]);
+        resolve(res.data.result);
+        console.log(res);
       },
       fail: reject,
     });
@@ -82,6 +85,7 @@ Page({
    */
   onLoad: function (options) {
     getToken();
+    console.log(wx.getStorageSync('user-token'));
     wx.getSetting({
       success (res) {
         if (!res.authSetting['scope.record']) {
