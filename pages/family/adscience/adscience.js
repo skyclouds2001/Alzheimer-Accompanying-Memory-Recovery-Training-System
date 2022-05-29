@@ -2,6 +2,7 @@
 var alldata = Array()
 /**存新闻的总条数 */
 let newsquantity = 0
+// 为了解决未“登录”的问题
 const token = wx.getStorageSync('token')
 Page({
 
@@ -33,27 +34,28 @@ Page({
       url: 'http://www.thylovezj.space/v1/news/get?pageNum=1&pageSize=1',
       method:'GET',
       header:{
+        // 为了解决未“登录”的问题
         'authorization': token
       },
       success:function(res){
         console.log(res.data)
-        alldata[0] = res.data.data.records[0]
+        newsquantity = res.data.data.records.length
+        // 把需要的后端的数据依次赋值到alldata上
+        for (let index = 0; index < newsquantity; index++) {
+          alldata[index] = res.data.data.records[index]
+        }
 
         console.log('alldata的值')
         console.log(alldata)
-        
-        newsquantity = alldata.length
         console.log('alldata.length的长度')
         console.log(newsquantity)
-
-        if(newsquantity == 0){this.setData({loadfail:true})}
       },
       fail:function(err){
         console.log(err);
       }
     })
     
-    //首页渲染展示新闻列表
+    //首页渲染展示新闻列表，加个延时是因为后端数据获取要一段时间，而微信会直接先读取下面的代码，导致页面无法正常显示（不知道为啥微信有时没按代码从上到下的顺序检索）
     setTimeout(()=>
       {
         for (let index = 0; index<newsquantity; index++) {
@@ -67,8 +69,11 @@ Page({
           })
         }
       },1000)
-
-      
+// 看是否获取到了后端数据，如果没有，则页面显示网络错误
+      setTimeout(()=>
+      {
+        if(newsquantity == 0){this.setData({loadfail:true})}
+    },3000)
   },
 
   /**
