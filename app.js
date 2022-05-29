@@ -17,23 +17,14 @@ App({
 
       const { openid, token } = res.data;
 
-      // 将 openid 与 token 存至 storage 内
+      // 将 openid 与 token 存至 storage 及 globalData 内
+      this.globalData.openid = openid;
+      this.globalData.token = token;
       wx.setStorageSync('openid', openid);
       wx.setStorageSync('token', token);
     } catch (err) {
       console.error(err);
     }
-  },
-
-  onPageNotFound: function (res) {
-    wx.showToast({
-      title: 'Unexpected Error!',
-      icon: 'error',
-    });
-    wx.switchTab({
-      url: './pages/index/index',
-    });
-    console.log({ res });
   },
 
   onShow () {
@@ -48,6 +39,9 @@ App({
   },
 
   globalData: {
+    openid: '',
+    token: '',
+
     mysongs: [],
 
     firstIn: 1,
