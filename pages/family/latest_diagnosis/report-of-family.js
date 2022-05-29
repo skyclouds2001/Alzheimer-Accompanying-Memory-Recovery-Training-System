@@ -12,7 +12,7 @@ Page({
 
   tohome () {
     /** 返回主页面 */
-    wx.switchTab({ url: '/pages/family/family' });
+    wx.redirectTo({ url: '/pages/family/family' });
   },
 
   /**

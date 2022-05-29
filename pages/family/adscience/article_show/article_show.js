@@ -1,4 +1,5 @@
 var alldata = Array()
+const token = wx.getStorageSync('token')
 Page({
 
   /**
@@ -12,8 +13,11 @@ Page({
     //调用后端接口
     self = this,
     wx.request({
-      url: 'https://localhost:8080/v1/news/get',
+      url: 'http://www.thylovezj.space/v1/news/get?pageNum=1&pageSize=1',
       method:'GET',
+      header:{
+        'authorization': token
+      },
       success:function(res){
         console.log(res.data);
         self.setData({
