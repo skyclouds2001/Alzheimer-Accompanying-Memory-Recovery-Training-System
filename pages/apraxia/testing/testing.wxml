@@ -3,7 +3,7 @@
 </view>
 <view>
  <view class="image">
-    <image class="images" bindtap="get_image" src="{{imageUrl}}" mode="aspectFit" />
+    <image class="images" bindtap="get_image" src="{{imageUrl1}}" mode="aspectFit" />
   </view>
   <view class="c">
     <view class="b" wx:key="id">
@@ -13,5 +13,5 @@
   </view>
 </view> 
 <view class="result">
-  <image class="user-avatar" src="{{imageUrl}}"></image>
+  <image class="user-avatar" src="{{imageUrl2}}"></image>
 </view>

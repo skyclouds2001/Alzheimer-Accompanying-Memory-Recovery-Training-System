@@ -7,7 +7,8 @@ let apiUrl = null;
 
 Page({
   data: {
-    imageUrl: '../../../images/example.jpg',
+    imageUrl1: '../../../images/example.jpg',
+    imageUrl2: '../../../images/example.jpg',
     btn_enable: true,
     result: '',
   },
@@ -36,6 +37,7 @@ Page({
       load_title: '正在上传',
       load_message: '正在上传图片,请稍后',
     });
+
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
@@ -44,7 +46,7 @@ Page({
         const tempFilePaths = res.tempFilePaths;
         apiUrl = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/gesture';
         that.setData({
-          imageUrl: tempFilePaths,
+          imageUrl1: tempFilePaths,
           btn_enable: true,
         });
         console.log('My API URL is : ' + apiUrl);
@@ -87,6 +89,21 @@ Page({
         }
         ;
       },
+    });
+    wx.request({
+      url: 'http://127.0.0.1/v1/gesture',
+      data: { recognizedName: that.data.result },
+      method: 'POST',
+      header: {
+        authorization: ' ',
+      },
+      success: (res) => {
+        that.setData({
+          imageUrl2: res.data.image,
+        });
+      },
+      fail: (res) => {},
+      complete: (res) => {},
     });
   },
 
