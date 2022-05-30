@@ -54,7 +54,7 @@ Page({
     }
     if (index0 === 2) {
       wx.switchTab({
-        url: '../../../../pages/family/family',
+        url: './../../../pages/family/family',
       });
     }
   },
