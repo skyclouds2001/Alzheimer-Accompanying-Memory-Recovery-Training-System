@@ -1,4 +1,5 @@
 import { request } from './../../lib/request.js';
+import { formatTime } from './../../utils/util.js';
 
 const app = getApp();
 
@@ -15,67 +16,76 @@ const colors = [
   'rgb(115,51,153)',
 ];
 
+/**
+ * 训练类型
+ */
+const types = [
+  '记忆训练',
+  '手指训练',
+  '音乐治疗',
+];
+
 Page({
 
   data: {
     /**
      * 训练记录
      */
-    trainRecord: [
-      {
-        date: '2022年5月1日',
-        type: '手指训练',
-        time: 34,
-        id: 0,
-      },
-      {
-        date: '2022年5月5日',
-        type: '失认症训练',
-        time: 22,
-        id: 1,
-      },
-      {
-        date: '2022年5月13日',
-        type: '失认症训练',
-        time: 34,
-        id: 2,
-      },
-      {
-        date: '2022年5月25日',
-        type: '手指训练',
-        time: 22,
-        id: 3,
-      },
-    ],
+    records: [],
   },
 
   onLoad: async function () {
-    const { token } = app.globalData;
-    const { data: res } = await request({
-      url: '/v1/exercise/get',
-      method: 'GET',
-      data: {
-        PageNum: 1,
-        PageSize: 10,
-      },
-      header: {
-        authorization: token,
-        'content-type': 'application/x-www-form-urlencoded',
-      },
+    wx.showLoading({
+      title: '获取记录中',
+      mask: true,
     });
-    console.log(res);
 
-    const { trainRecord: record } = this.data;
-    const len = colors.length;
-    record.sort((a, b) => a.id < b.id);
+    const res = await this.getTrainRecord();
+
+    const { records } = res.data;
 
     this.setData({
-      trainRecord: record.map((item, index) => {
+      records: records.map((item, index) => {
         item.direction = index % 2 === 0;
-        item.color = colors[index % len];
+        item.color = colors[index % colors.length];
+        item.id = index;
+        item.date = formatTime(new Date(item.exDate)).split(' ')[0];
+        item.type = types[item.exType];
+        item.time = parseInt(item.exTime) * 60;
+        item.zindex = 9999 - index;
         return item;
       }),
     });
+
+    setTimeout(() => {
+      wx.hideLoading({
+        noConflict: true,
+      });
+    }, 1000);
+  },
+
+  /**
+   * 获取训练记录
+   * @returns {?Object}
+   */
+  async getTrainRecord () {
+    const { token } = app.globalData;
+    try {
+      const { data: res } = await request({
+        url: '/v1/exercise/get',
+        method: 'GET',
+        data: {
+          PageNum: 1,
+          PageSize: 10,
+        },
+        header: {
+          authorization: token,
+        },
+      });
+      return res;
+    } catch (err) {
+      return null;
+    }
   },
 
 });
