@@ -1,3 +1,5 @@
+import Toast from '@vant/weapp/toast/toast';
+
 import { request } from './../../lib/request.js';
 import { formatTime } from './../../utils/util.js';
 
@@ -41,6 +43,10 @@ Page({
     });
 
     const res = await this.getTrainRecord();
+
+    if (!res || res?.status !== 10000) {
+      return Toast.fail('网络异常，请稍后重试');
+    }
 
     const { records } = res.data;
 
