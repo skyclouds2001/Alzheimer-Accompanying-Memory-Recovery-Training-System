@@ -6,6 +6,8 @@
   - https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
 - 后端 HOST
   - http://www.thylovezj.space
+  - 临时测试 http://43.138.103.83:8080
+  - 临时测试 https://8fc6-111-18-45-56.jp.ngrok.io
 - 接口文档
   - https://www.apifox.cn/web/project/977035
 - UI 文档
@@ -45,30 +47,37 @@
 - pages 项目页面目录
   - index 登录首页 `高飞`
   - patient 患者端 | 诊断模块首页 `陈思远`
+    - consultation 线上问诊 `邵昕晨`
+  - bwl 患者端 | 备忘录 `高飞`
+    - add_item 添加备忘录 `高飞`
+    - detail 备忘录详情 `高飞`
   - evaluate 患者端 | 病情评定 `李响=>陈思远`
     - init 开始答题 `陈思远` 
     - main 反馈结果页 `李响=>陈思远`
   - train 患者端 | 训练模块首页 `陈思远`
   - agnosia 患者端 | 失认症恢复模块 `高飞`
-  - apraxia 患者端 | 失用症恢复模块 `王家祥=>邵昕晨`
-    - sports 手指训练列表 `王家祥=>邵昕晨`
-    - vedio 训练视频播放 `王家祥=>邵昕晨`
-    - index 音乐治疗列表 `王家祥=>邵昕晨`
-    - list 歌单列表 `王家祥=>邵昕晨`
-    - mysong 我的收藏歌曲 `王家祥=>邵昕晨`
-    - play 歌曲播放 `王家祥=>邵昕晨`
+  - apraxia 患者端 | 失用症恢复模块 `邵昕晨`
+    - sports 手指训练列表 `邵昕晨`
+    - vedio 训练视频播放 `邵昕晨`
+    - index 音乐治疗列表 `邵昕晨`
+    - list 歌单列表 `邵昕晨`
+    - mysong 我的收藏歌曲 `邵昕晨`
+    - play 歌曲播放 `邵昕晨`
+    - testing 手势检测 `邵昕晨`
   - checkin 患者端 | 每日打卡 `陈思远`
   - mine 患者端 | 个人中心 | 我的 `陈思远`
     - patient-info 个人信息 `陈思远`
     - auction 积分商城 `陈思远`
     - problem-feedback 问题反馈 `陈思远`
     - about 关于我们 `陈思远`
+  - recall_mode 回忆模式 `高飞`
   - train-record 患者端&子女端 | 训练记录 `陈思远`
   - family 子女端 | 首页 `高飞`
     - adscience AD科普 `李响`
     - latest_diagnosis 最新诊断 `李响`
     - Recalltime 回忆时光 `李响`
     - submitinfo 完善患者信息 `高飞`
+    - voice 录入语音 `邵昕晨`
   - zhanghu 子女端 | 账户 `高飞`
     - detail_info 详细信息 `高飞`
     - vip_page VIP会员 `高飞`
