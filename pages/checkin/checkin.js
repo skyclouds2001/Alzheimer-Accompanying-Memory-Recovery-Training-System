@@ -48,9 +48,8 @@ Page({
      * @returns {Day}
      */
     formatter: function (day) {
-      if (this.days.includes(day.date.getDate())) {
+      if (day.type === 'multiple-selected') {
         day.bottomInfo = ' ';
-        day.type = 'selected';
         day.className = 'select';
       } else {
         day.type = '';
@@ -77,17 +76,17 @@ Page({
     recommend: '',
 
     /**
-     * input 输入
+     * input 问题答案输入
      * @type {string}
      */
     inputValue: '',
 
+    /**
+     * 已打卡的具体日期
+     * @type {timestamp[]}
+     */
+    days: [],
   },
-  /**
-   * 已打卡的天
-   * @type {number[]}
-   */
-  days: [],
 
   onLoad: async function () {
     const { token } = app.globalData;
@@ -106,38 +105,37 @@ Page({
     });
 
     try {
-      // 获取用户已打卡日期
-      const { data: res1 } = await request({
-        url: '/v1/patient/sign/signRecord',
-        method: 'GET',
-        data: {},
-        header: {
-          authorization: token,
-          'content-type': 'application/x-www-form-urlencoded',
-        },
-      });
+      // 并行获取用户已打卡日期及已打卡次数
+      const [{ value: { data: res1 } }, { value: { data: res2 } }] = await Promise.allSettled([
+        request({
+          url: '/v1/patient/sign/signRecord',
+          method: 'GET',
+          data: {},
+          header: {
+            authorization: token,
+          },
+        }),
+        request({
+          url: '/v1/patient/sign/count/1',
+          method: 'GET',
+          data: {},
+          header: {
+            authorization: token,
+          },
+        }),
+      ]);
 
-      // 获取用户已打卡次数
-      const { data: res2 } = await request({
-        url: '/v1/patient/sign/count/0',
-        method: 'GET',
-        data: {},
-        header: {
-          authorization: token,
-          'content-type': 'application/x-www-form-urlencoded',
-        },
-      });
-
-      // 检测请求是否成功
-      if (Number(res1.success) !== 10000 || Number(res2.success) !== 10000) {
+      // 检测请求是否成功：特判res1为null的情况
+      if ((res1 !== null && res1?.status !== 10000) || res2?.status !== 10000) {
         throw new Error();
       }
 
       // 设置已打卡日期及已打卡次数
-      this.days = res1.data.days;
       wx.nextTick(() => {
         this.setData({
+          days: res1?.data.days.map(day => new Date(year, month, day).getTime()) ?? [],
           clockDays: res2.data.count,
+          showCalendar: true,
         });
       });
     } catch (err) {
@@ -196,6 +194,7 @@ Page({
           inputValue: '',
         });
         this.clockStep = 3;
+        this.checkinMain();
         break;
       // 此时已打卡，显示已打卡提示信息
       case 3:
@@ -211,17 +210,17 @@ Page({
    * @returns {void}
    */
   async checkinMain () {
-    const token = wx.getStorageSync('token');
+    const { token } = app.globalData;
     try {
       const { data: res } = await request({
         url: '/v1/patient/sign',
         method: 'POST',
         data: {},
         header: {
-          token,
+          authorization: token,
         },
       });
-      if (Number(res.success) !== 10000) {
+      if (Number(res.status) !== 10000) {
         throw new Error();
       }
     } catch (err) {
