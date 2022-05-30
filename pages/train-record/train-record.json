@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "timeline": "/components/timeline/timeline"
+    "timeline": "../../components/timeline/timeline"
   },
   "navigationBarTitleText": "训练记录"
 }
