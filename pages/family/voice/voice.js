@@ -16,7 +16,6 @@ function getToken () {
   });
 }
 
-
 function soundReco (data) {
   return new Promise((resolve, reject) => {
     wx.uploadFile({
@@ -34,7 +33,6 @@ function soundReco (data) {
       },
       fail: reject,
     });
-
   });
 }
 Page({
@@ -99,7 +97,6 @@ Page({
         },
       });
     });
-
   },
   /**
    * 生命周期函数--监听页面加载
@@ -122,4 +119,3 @@ Page({
     });
   },
 });
-

@@ -18,9 +18,9 @@
     <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info"  bindtap="handleSports" type="default" data-index="1" type="default" >手指训练二</van-button>
   </view>
   <view class="b1" wx:key="id">
-    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info"  bindtap="handleSports" type="default" data-index="3" >手指训练三</van-button>
+    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info"  bindtap="handleSports" type="default" data-index="2" >手指训练三</van-button>
   </view>
   <view class="b1" wx:key="id">
-    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info"  bindtap="handleSports" type="default" data-index="4" >手指训练四</van-button>
+    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info"  bindtap="handleSports" type="default" data-index="3" >手指训练四</van-button>
   </view>
 </view>
