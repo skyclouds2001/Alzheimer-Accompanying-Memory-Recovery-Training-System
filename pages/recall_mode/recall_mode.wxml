@@ -12,7 +12,7 @@
 
 <view class="content">
     <view class="item" wx:for="{{item_list}}" wx:key="text">
-        <navigator class="nav"  url="../beiwanglu/beiwanglu" >
+        <navigator class="nav"  url="{{item.path}}" >
         <image src="{{item.url}}" >
             
         </image>
