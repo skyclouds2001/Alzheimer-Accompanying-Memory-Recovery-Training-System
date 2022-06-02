@@ -2,6 +2,7 @@
 const grantType = 'client_credentials';
 const clientId = 'bE0U2VdG1TrjEk4667wlWf8K';
 const clientSecret = 'RhEuHaDziRMmPYOS9kIxZS3GSLlHmjMz';
+const innerAudioContext = wx.createInnerAudioContext();
 let token = null;
 let base64 = null;
 let apiUrl = null;
@@ -10,11 +11,29 @@ Page({
   data: {
     imageUrl1: '../../../images/example.jpg',
     imageUrl2: '../../../images/example.jpg',
-    btn_enable: '0',
+    btnEnable: '0',
     result: '',
+    voiceUrl: '',
+    // voiceUrl: '',
   },
   onReady: function (res) {
+    const that = this;
     // get access_token from BaiDu API
+    wx.request({
+      url: 'http://127.0.0.1/v1/voice',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json', // 默认值
+        authorization: wx.getStorageSync('token'),
+      },
+      success (res) {
+        console.log(res.data);
+        that.setData({
+          voiceUrl: res,
+        });
+      },
+    });
+
     wx.request({
       url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=' + grantType + '&client_id=' + clientId + '&client_secret=' + clientSecret,
       method: 'POST',
@@ -43,7 +62,7 @@ Page({
           apiUrl = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/gesture';
           that.setData({
             imageUrl1: tempFilePaths,
-            btn_enable: '1',
+            btnEnable: '1',
           });
           console.log('My API URL is : ' + apiUrl);
           console.log('Image Path is : ' + tempFilePaths);
@@ -78,7 +97,18 @@ Page({
           image: encodeURI(res),
         },
         success: res => {
+          // 播放音频
           console.log('recognition_image Success');
+          innerAudioContext.autoplay = true;
+          innerAudioContext.src = 'http://music.163.com/song/media/outer/url?id=317151.mp3';// 测试音乐，正式改成that.voiceUrl
+          innerAudioContext.onPlay(() => {
+            console.log('开始播放');
+          });
+          innerAudioContext.onError((res) => {
+            console.log(res.errMsg);
+            console.log(res.errCode);
+          });
+
           if (res.data.result == null) {
             console.log(res.data.error_msg);
             console.log(base64);
@@ -111,4 +141,3 @@ Page({
   },
 
 });
-

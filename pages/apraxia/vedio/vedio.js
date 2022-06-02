@@ -23,7 +23,7 @@ Page({
     fengmian_src: [
       'https://t15.baidu.com/it/u=3026127131,767206361&fm=225&app=113&size=f256,170&n=0&f=JPEG&fmt=auto?s=DD243D721D024D494CF4654E0100E070&sec=1654102800&t=a4418a309d9d72ce05c2a7f7419b5be5',
       'https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft14.baidu.com%2Fit%2Fu%3D2415746346%2C1441692990%26fm%3D225%26app%3D113%26f%3DJPEG%3Fw%3D1920%26h%3D1080%26s%3DC50635761F0145494CF4654E0300E072&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f352,234&n=0&g=0n&q=100?sec=1654091515&t=741525b86f71f968775034c3d66e17b1',
-      'https://f7.baidu.com/it/u=4116229806,3405365495&fm=222&app=108&f=JPEG@s_0,w_660,h_370,q_80',
+      'https://s1.ax1x.com/2022/06/01/XYpVqx.png',
       'https://gimg4.baidu.com/poster/src=http%3A%2F%2Ft13.baidu.com%2Fit%2Fu%3D10588222535126250379%2C11748220370434277129%26fm%3D3008%26app%3D3011%26f%3DJPEG&refer=http%3A%2F%2Fwww.baidu.com&app=2004&size=f352,234&n=0&g=0n&q=100?sec=1654091398&t=958c2c783cba71cb214dad98c99adbd8',
     ],
 
