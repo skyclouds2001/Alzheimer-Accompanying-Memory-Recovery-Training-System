@@ -49,12 +49,12 @@ Page({
     if (index0 === 0) { console.log(0); }
     if (index0 === 1) {
       wx.switchTab({
-        url: './../../pages/patient/patient',
+        url: './../../../pages/patient/patient',
       });
     }
     if (index0 === 2) {
       wx.switchTab({
-        url: '../../pages/family/family',
+        url: './../../../pages/family/family',
       });
     }
   },

@@ -1,3 +1,4 @@
+import { request } from '../../../lib/request';
 Page({
 
   data: {
@@ -84,8 +85,8 @@ Page({
       };
       app.globalData.mysongs.push(song);
 
-      wx.request({
-        url: 'http://www.thylovezj.space/v1/song/add', // 仅为示例，并非真实的接口地址
+      const p = request({
+        url: '/v1/song/add',
         data: {
           songId: this.data.song_id,
           songName: this.data.name,
@@ -97,13 +98,8 @@ Page({
         header: {
           'content-type': 'application/json', // 默认值
         },
-        success (res) {
-          console.log(res.data);
-        },
-        fail (err) {
-          console.log(err);
-        },
       });
+      p.then((res) => { console.log(res.data); }, (err) => { console.log(err); });
       this.setData({
         join: true,
       });
