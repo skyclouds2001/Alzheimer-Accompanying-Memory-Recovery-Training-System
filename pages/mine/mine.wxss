@@ -137,10 +137,6 @@ page {
 .van-icon.van-icon-cross {
   color: black;
 }
-/* 实现遮蔽层覆盖tabbar | 覆盖 vant 原有样式 */
-.van-transition.overlay-index--van-overlay.van-fade-enter-to.van-fade-enter-active {
-  z-index: 99999 !important;
-}
 
 /* 我的积分弹出框 */
 .credit-title {

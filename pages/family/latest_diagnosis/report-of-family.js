@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    score: 66, // 得分
-    result: '', // 判断痴呆程度
+    score: 32.5, // 得分
+    result: '正常', // 判断痴呆程度
   },
 
   tohome () {

@@ -1,8 +1,8 @@
 <!-- 标题 -->
-<view class="title">{{article.title}}</view>
+<view class="title">{{title}}</view>
 <!-- 正文 -->
 <view class="text">
-<rich-text nodes="{{article.text}}"></rich-text>
+<rich-text nodes="{{text}}"></rich-text>
 </view>
 
 
