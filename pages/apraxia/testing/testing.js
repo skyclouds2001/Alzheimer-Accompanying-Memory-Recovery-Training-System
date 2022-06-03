@@ -1,4 +1,5 @@
 
+import { request } from '../../../lib/request.js';
 const grantType = 'client_credentials';
 const clientId = 'bE0U2VdG1TrjEk4667wlWf8K';
 const clientSecret = 'RhEuHaDziRMmPYOS9kIxZS3GSLlHmjMz';
@@ -18,22 +19,27 @@ Page({
   },
   onReady: function (res) {
     const that = this;
-    // get access_token from BaiDu API
-    wx.request({
-      url: 'http://127.0.0.1/v1/voice',
-      method: 'GET',
-      header: {
-        'Content-Type': 'application/json', // 默认值
-        authorization: wx.getStorageSync('token'),
-      },
-      success (res) {
-        console.log(res.data);
-        that.setData({
-          voiceUrl: res,
-        });
-      },
+    // wx.request({
+    //   url: 'http://127.0.0.1/v1/voice',
+    //   method: 'GET',
+    //   header: {
+    //     'Content-Type': 'application/json', // 默认值
+    //     authorization: wx.getStorageSync('token'),
+    //   },
+    //   success (res) {
+    //     console.log(res.data);
+    //     that.setData({
+    //       voiceUrl: res,
+    //     });
+    //   },
+    // });
+    const s = request({ url: '/v1/voice', method: 'GET', header: { authorization: token, 'content-type': 'application/x-www-form-urlencoded' } });
+    s.then(res => {
+      console.log(res);
+      that.setData({
+        voiceUrl: res,
+      });
     });
-
     wx.request({
       url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=' + grantType + '&client_id=' + clientId + '&client_secret=' + clientSecret,
       method: 'POST',
