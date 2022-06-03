@@ -8,13 +8,12 @@ App({
       const { code } = await wx.login({
         timeout: 15000,
       });
-
+    
       // 向服务器请求换取 openid 与 token
       const { data: res } = await request({
         url: `/v1/user/login/${code}`,
         method: 'GET',
       });
-
       const { openid, token } = res.data;
 
       // 将 openid 与 token 存至 storage 及 globalData 内

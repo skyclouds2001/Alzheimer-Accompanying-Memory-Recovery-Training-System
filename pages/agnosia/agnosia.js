@@ -1,3 +1,4 @@
+import { request } from '../../lib/request';
 // 答完题后播放的音频
 const audioRef = wx.createInnerAudioContext();
 // 点击按钮时音频
@@ -100,17 +101,13 @@ Page({
 
   // 训练结束发送成绩
   sendscore () {
-    wx.request({
-      url: 'http://www.thylovezj.space/v1/exercise/add',
+    const p1 = request({
+      url: '/v1/exercise/add',
       data: { exTime: 0, exType: 2, score: this.data.score },
       method: 'POST',
-      success: () => {
-        console.log('push successfully');
-      },
-      fail: () => {
-        console.log('push fail');
-      },
+
     });
+    p1.then(() => { console.log('push successfully'); }, () => { console.log('push fail'); });
   },
 
   onLoad: function () {
@@ -120,48 +117,30 @@ Page({
     audioRefRadio.src = 'http://gaofeifei.3vfree.cn/anniu/click.mp3';
     audioRefFalse.src = 'http://gaofeifei.3vfree.cn/anniu/fault.mp3';
     audioRefTrue.src = 'http://gaofeifei.3vfree.cn/anniu/victory.mp3';
-    wx.request({
-      url: 'http://www.thylovezj.space/v1/problem/get',
+    const p2 = request({
+      url: '/v1/problem/get',
       method: 'post',
       data: {
-        subNumber: 1,
-        objNumber: 1,
-        picNumber: 5,
+        subNumber: 0,
+        objNumber: 0,
+        picNumber: 10,
       },
       header: {
         'content-type': 'application/json', // 默认值
       },
-      success: (res) => {
-        this.setData({
-          question_obj: wx.request({
-            url: 'http://www.thylovezj.space/v1/problem/get',
-            method: 'post',
-            data: {
-              subNumber: 0,
-              objNumber: 0,
-              picNumber: 10,
-            },
-            header: {
-              'content-type': 'application/json', // 默认值
-            },
-            success: (res) => {
-              for (const item in res.data.data) {
-                let a = res.data.data[item].checks;
-                a = a.slice(1, a.length - 1);
-                const arr1 = a.split(',');
-                for (let i = 0; i < arr1.length; i++) {
-                  arr1[i] = arr1[i].slice(1, arr1[i].length - 1);
-                }
-                res.data.data[item].checks = arr1;
-              }
-              this.setData({ question_obj: res.data.data, isloading: false });
-            },
-            fail: () => {
-              this.setData({ isloading: true });
-            },
-          }),
-        });
-      },
     });
+    p2.then((res) => {
+      for (const item in res.data.data) {
+        let a = res.data.data[item].checks;
+        a = a.slice(1, a.length - 1);
+        const arr1 = a.split(',');
+        for (let i = 0; i < arr1.length; i++) {
+          arr1[i] = arr1[i].slice(1, arr1[i].length - 1);
+        }
+        res.data.data[item].checks = arr1;
+      }
+      this.setData({ question_obj: res.data.data, isloading: false });
+    },
+    () => { this.setData({ isloading: true }); });
   },
 });

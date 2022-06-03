@@ -8,7 +8,7 @@
 
 <!-- 日历 -->
 <view class="checkin-calendar">
-  <van-calendar poppable="{{ false }}" type="multiple" readonly color="#32CD32" minDate="{{ minDate }}" maxDate="{{ maxDate }}" formatter="{{ formatter }}" first-day-of-week="{{ 1 }}" show-title="{{ false }}" show-subtitle="{{ false }}" show-confirm="{{ false }}" show-mark="{{ false }}" row-height="{{ 50 }}" />
+  <van-calendar poppable="{{ false }}" type="multiple" readonly color="#32CD32" minDate="{{ minDate }}" maxDate="{{ maxDate }}" default-date="{{ days }}" formatter="{{ formatter }}" first-day-of-week="{{ 1 }}" show-title="{{ false }}" show-subtitle="{{ false }}" show-confirm="{{ false }}" show-mark="{{ false }}" row-height="{{ 50 }}" />
 </view>
 
 <!-- 打卡按钮 -->

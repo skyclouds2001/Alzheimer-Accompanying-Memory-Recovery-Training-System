@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "timeline": "/components/timeline/timeline"
+    "timeline": "/components/timeline/timeline",
+    "van-toast": "@vant/weapp/toast/index"
   },
   "navigationBarTitleText": "训练记录"
 }
