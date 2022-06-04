@@ -109,14 +109,8 @@ Page({
     });
     p1.then(() => { console.log('push successfully'); }, () => { console.log('push fail'); });
   },
-
-  onLoad: function () {
-    // 初始化音频文件
-    audioRef.obeyMuteSwitch = false; // 是否遵循系统静音原则
-    audioRef.src = this.data.audio_src; // 音频地址
-    audioRefRadio.src = 'http://gaofeifei.3vfree.cn/anniu/click.mp3';
-    audioRefFalse.src = 'http://gaofeifei.3vfree.cn/anniu/fault.mp3';
-    audioRefTrue.src = 'http://gaofeifei.3vfree.cn/anniu/victory.mp3';
+  getQuestions () {
+    const token = wx.getStorageSync('token');
     const p2 = request({
       url: '/v1/problem/get',
       method: 'post',
@@ -126,7 +120,8 @@ Page({
         picNumber: 10,
       },
       header: {
-        'content-type': 'application/json', // 默认值
+        'content-type': 'application/json',
+        authorization: token,
       },
     });
     p2.then((res) => {
@@ -142,5 +137,25 @@ Page({
       this.setData({ question_obj: res.data.data, isloading: false });
     },
     () => { this.setData({ isloading: true }); });
+  },
+
+  // getVoice () {
+  //   const taht = this;
+  //   const p3 = request({ url: '/v1/voice', header: { 'Content-Type': 'application/json', authorization: wx.getStorageSync('token') } });
+  //   p3.then((res) => { console.log(this); this.setData({ audio_src: res.data }); }, (err) => { console.log(err); });
+  // },
+
+  onLoad: function () {
+    // 初始化音频文件
+    audioRef.obeyMuteSwitch = false; // 是否遵循系统静音原则
+    audioRef.src = this.data.audio_src; // 音频地址
+    audioRefRadio.src = 'http://gaofeifei.3vfree.cn/anniu/click.mp3';
+    audioRefFalse.src = 'http://gaofeifei.3vfree.cn/anniu/fault.mp3';
+    audioRefTrue.src = 'http://gaofeifei.3vfree.cn/anniu/victory.mp3';
+    this.getQuestions();
+    // this.getVoice();
+  },
+  onUnload: function () {
+    this.restart();
   },
 });
