@@ -96,6 +96,7 @@ Page({
         },
         method: 'POST',
         header: {
+          'authorization':wx.getStorageSync('token'),
           'content-type': 'application/json', // 默认值
         },
       });

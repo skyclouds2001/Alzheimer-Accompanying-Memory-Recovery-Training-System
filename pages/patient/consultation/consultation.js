@@ -48,14 +48,10 @@ Page({
 
     if (index0 === 0) { console.log(0); }
     if (index0 === 1) {
-      wx.switchTab({
-        url: './../../../pages/patient/patient',
-      });
+      console.log(1);
     }
     if (index0 === 2) {
-      wx.switchTab({
-        url: './../../../pages/family/family',
-      });
+      console.log(2);
     }
   },
 

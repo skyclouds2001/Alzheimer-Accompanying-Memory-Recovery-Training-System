@@ -65,3 +65,12 @@
   margin-bottom: 0rpx;
   padding: 0rpx;
 }
+.header {
+  font-size: x-large;
+  margin-top: 50rpx;
+  text-align: center;
+}
+
+Page{
+  background-color: #cfecea;
+}
