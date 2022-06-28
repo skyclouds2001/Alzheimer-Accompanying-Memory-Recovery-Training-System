@@ -37,22 +37,22 @@ Page({
       {
         coverImgUrl: 'https://s1.ax1x.com/2022/05/28/XnT2nS.png',
         name: '找医生',
-      }, {
+      },
+      {
         coverImgUrl: 'https://s1.ax1x.com/2022/05/28/XnTY6K.png',
         name: '预约挂号',
-      }, {
+      },
+      {
         coverImgUrl: 'https://s1.ax1x.com/2022/05/28/XnTcX8.png',
         name: '医院',
       },
     ],
   },
 
-  /**
-   * 页面跳转函数
-   * @param {TouchEvent} e 触摸事件
-  */
-  jumpto: function (e) {
-    const { index } = e.currentTarget.dataset;
+  /** 页面跳转函数**/
+  jumpto: function (event) {
+    const { index } = event.currentTarget.dataset;
+
     console.log(index);
   },
 

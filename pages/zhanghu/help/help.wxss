@@ -1,1 +1,35 @@
-/* pages/zhanghu/help/help.wxss */
+/* pages/connect/connect.wxss */
+.contact {
+  margin: 450rpx auto 40rpx auto;
+}
+.contact:hover {
+  color: pink;
+}
+#te {
+  position: absolute;
+  bottom: 5rpx;
+  left: 250rpx;
+  color: gray;
+}
+#head {
+  font-weight: 600;
+  width: 600rpx;
+  font-size: 80rpx;
+  margin: 15rpx auto;
+  text-indent: 20rpx;
+  color: red;
+  text-shadow: 5rpx 5rpx 5rpx gray;
+}
+#read {
+  color: pink;
+  position: absolute;
+  bottom: 60rpx;
+  left: 300rpx;
+  font-size: medium;
+}
+#read:hover {
+  color: yellow;
+}
+page {
+  background-color:#e6fafa ;
+}
