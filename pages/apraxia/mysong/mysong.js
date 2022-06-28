@@ -1,5 +1,4 @@
 Page({
-
   data: {
     /**
      * 收藏的歌曲
@@ -16,29 +15,31 @@ Page({
   },
 
   onShow: function () {
-    // const app = getApp();
-    // const that = this;
-    // wx.request({
-    //     url: 'example.php', //仅为示例，并非真实的接口地址
-    //     method="GET",
-    //     // data: {
-    //     //   x: '',
-    //     //   y: ''
-    //     // },
-    //     header: {
-    //       'content-type': 'application/json' // 默认值
-    //     },
-    //     success (res) {
-    //       console.log(res)
-    //       that.setData({
-    //         // 默认选取前9个歌单
-    //         mysongs: res,
-    //       });
-    //     }
-    //   });
-    //   this.setData({
-    //   // mysongs: app.globalData.mysongs,
-    // });
+    const that = this;
+    wx.request({
+      url: 'example.php',
+      method: 'GET',
+      data: {
+        x: '',
+        y: '',
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+      },
+      success (res) {
+        console.log(res);
+        that.setData({
+          // 默认选取前9个歌单
+          mysongs: res,
+        });
+      },
+      fail () {
+        console.log(this);
+      },
+    });
+    this.setData({
+      // mysongs: app.globalData.mysongs,
+    });
   },
 
   /**
@@ -47,7 +48,6 @@ Page({
    * @param {Event} e 点击事件对象
    * @returns {void}
    */
-  /*
   play: function (e) {
     const index = e.currentTarget.dataset.index;
     const preIndex = this.data.index;
@@ -75,7 +75,7 @@ Page({
     }
     console.log(this.data.mysongs);
   },
-  */
+
   handleSong (e) {
     const backgroundAudioManager = wx.getBackgroundAudioManager();
     console.log(e.currentTarget.dataset);
@@ -88,5 +88,4 @@ Page({
     });
     console.log(this.data.song_index);
   },
-
 });

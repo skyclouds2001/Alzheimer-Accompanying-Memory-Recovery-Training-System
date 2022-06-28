@@ -37,7 +37,7 @@ Page({
     qrTxt: openid,
 
     /**
-     * 标记是否已绑定
+     * 标记患者是否已绑定子女
      */
     linked: false,
 
@@ -161,6 +161,7 @@ Page({
       showQRcode: true,
     });
   },
+
   /**
    * 绑定患者端及子女端
    * 显示二维码
