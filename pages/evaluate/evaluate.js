@@ -50,6 +50,10 @@ Page({
       const { data: res } = await request({
         url: '/v1/problem/getcgc',
         method: 'GET',
+        header: {
+          'content-type': 'application/json',
+          authorization: wx.getStorageSync('token'),
+        },
       });
 
       // 检测请求是否成功

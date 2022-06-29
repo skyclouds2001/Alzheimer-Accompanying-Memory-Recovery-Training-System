@@ -71,7 +71,7 @@ Page({
       switch (index) {
         case 0: wx.navigateTo({ url: 'submitinfo/submitinfo' }); break;
         case 1: wx.navigateTo({ url: 'voice/voice' }); break;
-        case 2: wx.navigateTo({ url: '#' }); break;
+        case 2: Toast.fail("暂无训练情况"); break;
         case 3: wx.navigateTo({ url: 'latest_diagnosis/report-of-family' }); break;
         case 4: wx.navigateTo({ url: 'adscience/adscience' }); break;
         case 5: wx.navigateTo({ url: 'Recalltime/Recalltime' }); break;
