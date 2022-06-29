@@ -1,7 +1,4 @@
 import { request } from '../../../lib/request';
-
-const app = getApp();
-
 Page({
 
   data: {
@@ -28,6 +25,7 @@ Page({
 
   onShow: function () {
     const backgroundAudioManager = wx.getBackgroundAudioManager();
+    const app = getApp();
     console.log(app.globalData.song);
     const src = `https://music.163.com/song/media/outer/url?id=${this.data.song_id}.mp3`;
     backgroundAudioManager.title = app.globalData.song.name;
@@ -98,8 +96,8 @@ Page({
         },
         method: 'POST',
         header: {
-          authorization: wx.getStorageSync('token'),
-          'Content-Type': 'application/json', // 默认值
+          'authorization':wx.getStorageSync('token'),
+          'content-type': 'application/json', // 默认值
         },
       });
       p.then((res) => { console.log(res.data); }, (err) => { console.log(err); });
