@@ -4,8 +4,6 @@ import { request } from './../../lib/request.js';
 
 const app = getApp();
 
-const today = new Date().getDate();
-
 /**
  * @typedef Day
  * @type {Object}
@@ -92,8 +90,7 @@ Page({
   },
 
   onLoad: async function () {
-    /** TODO: 疑似打卡日期为最后一天时存在 bug */
-
+    /** 疑似打卡日期为最后一天时存在 bug */
     const { token } = app.globalData;
 
     // 当天的日期
@@ -139,7 +136,7 @@ Page({
       // 设置已打卡日期及已打卡次数
       wx.nextTick(() => {
         this.setData({
-          days: res1?.data.days ?? [],
+          days: res1?.data.days.map(day => new Date(year, month, day).getTime()) ?? [],
           clockDays: res2.data.count,
         });
       });
@@ -163,13 +160,7 @@ Page({
    * @returns {void}
    */
   handleClock () {
-    const { inputValue, days } = this.data;
-
-    if (today in days) {
-      Toast('您已打卡啦！');
-      return;
-    }
-
+    const { inputValue } = this.data;
     switch (this.clockStep) {
       // 此时未打卡，显示打卡框并初始化问题一内容
       case 0:
@@ -241,12 +232,12 @@ Page({
       } else {
         const { days, clockDays } = this.data;
         this.setData({
-          days: days.push(new Date().getDate()),
+          days: days.push(new Date().getTime()),
           clockDays: clockDays + 1,
         });
       }
     } catch (err) {
-      Toast.fail('网络异常，请稍后再试');
+      Toast.fail('打卡失败，请稍后再试');
     }
   },
 
