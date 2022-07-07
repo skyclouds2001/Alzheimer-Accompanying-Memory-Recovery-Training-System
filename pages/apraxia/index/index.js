@@ -21,6 +21,8 @@
 import { request } from './../../../lib/request';
 import { cookie } from './../../../data/cloudmusic';
 
+import Toast from '@vant/weapp/toast/toast';
+
 const app = getApp();
 
 Page({
@@ -34,6 +36,11 @@ Page({
   },
 
   onLoad: async function () {
+    Toast.loading({
+      message: '加载中',
+      forbidClick: true,
+      duration: 0,
+    });
     const { data: res } = await request({
       url: '/cloudsearch',
       method: 'POST',
@@ -50,6 +57,7 @@ Page({
     this.setData({
       songs: res.result.playlists.slice(0, 9),
     });
+    Toast.clear();
   },
 
   /**

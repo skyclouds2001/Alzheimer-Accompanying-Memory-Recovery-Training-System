@@ -20,3 +20,5 @@
     <van-button color="#00ae9d" size="large" round type="info" bindtap="handleMySongs" plain type="primary">我的喜欢</van-button>
   </view>
 </view>
+
+<van-toast id="van-toast" />
