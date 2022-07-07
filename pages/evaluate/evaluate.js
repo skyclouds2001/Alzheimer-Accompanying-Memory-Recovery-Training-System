@@ -53,6 +53,7 @@ Page({
         method: 'GET',
         data: {},
         header: {
+          'content-type': 'application/json',
           authorization: token,
         },
       });

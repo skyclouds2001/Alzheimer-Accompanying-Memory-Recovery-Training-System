@@ -1,4 +1,5 @@
 import { formatNumber } from './../../../utils/util.js';
+import Toast from '@vant/weapp/toast/toast';
 
 const currenttime = new Date();
 
@@ -52,7 +53,7 @@ Page({
   /** 页面跳转函数**/
   jumpto: function (event) {
     const { index } = event.currentTarget.dataset;
-
+    Toast.fail("此功能尚未开放")
     console.log(index);
   },
 
