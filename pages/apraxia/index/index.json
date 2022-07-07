@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "音乐治疗",
   "usingComponents": {
     "van-button": "@vant/weapp/button/index"
   }
