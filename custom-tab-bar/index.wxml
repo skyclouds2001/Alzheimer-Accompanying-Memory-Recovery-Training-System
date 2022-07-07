@@ -1,6 +1,4 @@
 <view class="df-tabbar">
-<!-- 病患端（默认） -->
-<block>
   <navigator open-type="switchTab" url="/pages/patient/patient" class="{{ select !== 0 ? 'unselected' : 'selected' }}">
     诊断
   </navigator>
@@ -13,5 +11,4 @@
   <navigator open-type="switchTab" url="/pages/recall_mode/recall_mode" class="{{ select !== 3 ? 'unselected' : 'selected' }}">
     回忆模式
   </navigator>
-</block>
 </view>
