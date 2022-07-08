@@ -1,21 +1,14 @@
- <!-- 背景图片  -->
-<view class="bg">
-  <!-- <image class="background_img" src="https://img2.baidu.com/it/u=831324505,4109834327&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=957"></image> -->
-</view>
+<!-- 背景图片 -->
+<view class="bg"></view>
+
+<!-- 空白 -->
 <view class="block"></view>
+
 <!-- 歌曲内容区 -->
 <view class="container">
-    <view wx:for="{{ array }}" wx:key="id" class="content_item">
-      <view class="item" bindtap="handleItem" data-id="{{item.id}}">
+    <view wx:for="{{ songs }}" wx:key="id" class="content_item">
+      <view class="item" bindtap="handleItem" data-id="{{ item.id }}">
         <image src="{{ item.coverImgUrl }}"></image>
-        <text>{{ item.name }}</text>
-    </view>
-  </view>
-</view>
-<view class="container">
-    <view wx:for="{{ array2 }}" wx:key="id" class="content_item">
-      <view class="item" bindtap="handleItem" data-id="{{item.id}}">
-        <image mode="widthFix" src="{{ item.coverImgUrl }}"></image>
         <text>{{ item.name }}</text>
     </view>
   </view>
@@ -28,3 +21,4 @@
   </view>
 </view>
 
+<van-toast id="van-toast" />

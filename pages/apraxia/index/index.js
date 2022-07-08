@@ -18,73 +18,55 @@
  * @property {number} type
  */
 
+import { request } from './../../../lib/request';
+import { cookie } from './../../../data/cloudmusic';
+
+import Toast from '@vant/weapp/toast/toast';
+
+const app = getApp();
+
 Page({
 
   data: {
     /**
-     * 歌曲列表
+     * 歌曲列表 - 阿尔法脑波音乐
      * @type {Song[]}
      */
-    array: [],
-    array2: [],
+    songs: [],
   },
 
-  onLoad: function () {
-    const that = this;
-    const app = getApp();
-    console.log();
-    wx.request({
-      url: 'https://api.xaneon.com/cloudsearch?',
-      method: 'post',
+  onLoad: async function () {
+    Toast.loading({
+      message: '加载中',
+      forbidClick: true,
+      duration: 0,
+    });
+    const { data: res } = await request({
+      url: '/cloudsearch',
+      method: 'POST',
       data: {
-        cookie: app.globalData.cookie,
+        cookie: cookie,
         keywords: '阿尔法脑波音乐',
         type: 1000,
         timestamp: 1503019930000,
       },
       header: {
-        'content-type': 'application/json', // 默认值
-
+        'Content-Type': 'application/json',
       },
-      success (res) {
-        console.log(res);
-        that.setData({
-          // 默认选取前9个歌单
-          array: res.data.result.playlists.slice(0, 2),
-        });
-      },
+    }, 'https://api.xaneon.com');
+    this.setData({
+      songs: res.result.playlists.slice(0, 9),
     });
-    wx.request({
-      url: 'https://api.xaneon.com/cloudsearch?',
-      method: 'post',
-      data: {
-        cookie: app.globalData.cookie,
-        keywords: '脑部治疗',
-        type: 1000,
-        timestamp: 1503019930011,
-      },
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
-      success (res1) {
-        console.log(res1);
-        that.setData({
-          // 默认选取前9个歌单
-          array2: res1.data.result.playlists.slice(0, 2),
-        });
-      },
-    });
+    Toast.clear();
   },
 
   /**
    * 跳转至歌曲详情页
-   * @function
-   * @param {Event} e
+   * @param {TouchEvent} e
    * @returns {void}
    */
   handleItem (e) {
     const { id } = e.currentTarget.dataset;
-    const app = getApp();
     app.globalData.id = id;
     wx.navigateTo({
       url: `../list/list?listid=${id}`,
@@ -93,7 +75,6 @@ Page({
 
   /**
    * 跳转至我的喜欢歌曲页
-   * @function
    * @returns {void}
    */
   handleMySongs: function () {

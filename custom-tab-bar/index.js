@@ -1,10 +1,3 @@
-/**
- * @typedef {Object} TabbarItem
- * @property {string} name 文字内容
- * @property {string} url 跳转页面链接
- * @property {number} id 内容id
- */
-
 Component({
   data: {
 

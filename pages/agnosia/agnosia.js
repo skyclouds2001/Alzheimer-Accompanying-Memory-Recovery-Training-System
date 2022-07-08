@@ -1,7 +1,8 @@
 import { request } from '../../lib/request';
-// 答完题后播放的音频
+
+// 答完题播放音频
 const audioRef = wx.createInnerAudioContext();
-// 点击按钮时音频
+// 点击按钮音频
 const audioRefRadio = wx.createInnerAudioContext();
 // 错误音效
 const audioRefFalse = wx.createInnerAudioContext();
@@ -35,39 +36,56 @@ Page({
   // 点击submit按钮事件
   change () {
     audioRefRadio.play();
-    this.setData({ isdisable: true });
+    this.setData({
+      isdisable: true,
+    });
+
     // 点击下一题
     if (this.data.index < this.data.question_obj.length - 1) {
       if (this.data.radio === this.data.question_obj[this.data.index].answer) {
-        this.setData({ judge: '正确' });
-        this.setData({ score: this.data.score + 1 });
+        this.setData({
+          judge: '正确',
+          score: this.data.score + 1,
+        });
         audioRefTrue.play();
       } else {
-        this.setData({ judge: '错误' });
+        this.setData({
+          judge: '错误',
+        });
         audioRefFalse.play();
       }
-      this.setData({ show: true });
+      this.setData({
+        show: true,
+      });
       setTimeout(this.disappear, 2000);
     } else {
       // 点击提交，算成绩放音乐
       if (this.data.radio === this.data.question_obj[this.data.index].answer) {
         audioRefTrue.play();
-        this.setData({ score: this.data.score + 1 });
+        this.setData({
+          score: this.data.score + 1,
+        });
       } else {
         audioRefFalse.play();
       }
       audioRef.play();
-      this.setData({ condition: true });
+      this.setData({
+        condition: true,
+      });
       this.sendscore();
     }
   },
 
   disappear () {
-    this.setData({ show: false });
-    this.setData({ index: this.data.index + 1 });
-    this.setData({ radio: '-1' });
+    this.setData({
+      show: false,
+      index: this.data.index + 1,
+      radio: '-1',
+    });
     if (this.data.index === this.data.question_obj.length - 1) {
-      this.setData({ submit_text: '提交' });
+      this.setData({
+        submit_text: '提交',
+      });
     }
   },
 
@@ -101,14 +119,20 @@ Page({
 
   // 训练结束发送成绩
   sendscore () {
-    const p1 = request({
+    request({
       url: '/v1/exercise/add',
       data: { exTime: 0, exType: 2, score: this.data.score },
       method: 'POST',
-
-    });
-    p1.then(() => { console.log('push successfully'); }, () => { console.log('push fail'); });
+    }).then(
+      () => {
+        console.log('push successfully');
+      },
+      () => {
+        console.log('push fail');
+      },
+    );
   },
+
   getQuestions () {
     const token = wx.getStorageSync('token');
     const p2 = request({
@@ -124,19 +148,23 @@ Page({
         authorization: token,
       },
     });
-    p2.then((res) => {
-      for (const item in res.data.data) {
-        let a = res.data.data[item].checks;
-        a = a.slice(1, a.length - 1);
-        const arr1 = a.split(',');
-        for (let i = 0; i < arr1.length; i++) {
-          arr1[i] = arr1[i].slice(1, arr1[i].length - 1);
+    p2.then(
+      (res) => {
+        for (const item in res.data.data) {
+          let a = res.data.data[item].checks;
+          a = a.slice(1, a.length - 1);
+          const arr1 = a.split(',');
+          for (let i = 0; i < arr1.length; i++) {
+            arr1[i] = arr1[i].slice(1, arr1[i].length - 1);
+          }
+          res.data.data[item].checks = arr1;
         }
-        res.data.data[item].checks = arr1;
-      }
-      this.setData({ question_obj: res.data.data, isloading: false });
-    },
-    () => { this.setData({ isloading: true }); });
+        this.setData({ question_obj: res.data.data, isloading: false });
+      },
+      () => {
+        this.setData({ isloading: true });
+      },
+    );
   },
 
   // getVoice () {
@@ -155,7 +183,9 @@ Page({
     this.getQuestions();
     // this.getVoice();
   },
+
   onUnload: function () {
     this.restart();
   },
+
 });

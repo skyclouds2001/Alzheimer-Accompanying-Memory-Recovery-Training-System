@@ -53,5 +53,4 @@ page {
   font-size: 34rpx;
   letter-spacing: 1rpx;
   line-height: 1.25em;
-  text-indent: 2em;
 }

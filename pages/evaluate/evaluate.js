@@ -45,11 +45,17 @@ Page({
   allQuestion: [],
 
   onLoad: async function () {
+    const token = wx.getStorageSync('token');
     try {
       // 请求获取问题和选项
       const { data: res } = await request({
         url: '/v1/problem/getcgc',
         method: 'GET',
+        data: {},
+        header: {
+          'content-type': 'application/json',
+          authorization: token,
+        },
       });
 
       // 检测请求是否成功
