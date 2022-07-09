@@ -7,7 +7,7 @@
 <!-- 歌曲内容区 -->
 <view class="container">
     <view wx:for="{{ songs }}" wx:key="id" class="content_item">
-      <view class="item" bindtap="handleItem" data-id="{{ item.id }}">
+      <view class="item" bind:tap="handleItem" data-id="{{ item.id }}">
         <image src="{{ item.coverImgUrl }}"></image>
         <text>{{ item.name }}</text>
     </view>
@@ -17,7 +17,7 @@
 <!-- 我的喜欢按钮 -->
 <view class="my_songs">
   <view class="btn">
-    <van-button color="#00ae9d" size="large" round type="info" bindtap="handleMySongs" plain type="primary">我的喜欢</van-button>
+    <van-button color="#00ae9d" size="large" round type="info" bind:tap="handleMySongs" plain type="primary">我的喜欢</van-button>
   </view>
 </view>
 

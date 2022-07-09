@@ -23,8 +23,6 @@ import { cookie } from './../../../data/cloudmusic';
 
 import Toast from '@vant/weapp/toast/toast';
 
-const app = getApp();
-
 Page({
 
   data: {
@@ -41,23 +39,29 @@ Page({
       forbidClick: true,
       duration: 0,
     });
-    const { data: res } = await request({
-      url: '/cloudsearch',
-      method: 'POST',
-      data: {
-        cookie: cookie,
-        keywords: '阿尔法脑波音乐',
-        type: 1000,
-        timestamp: 1503019930000,
-      },
-      header: {
-        'Content-Type': 'application/json',
-      },
-    }, 'https://api.xaneon.com');
-    this.setData({
-      songs: res.result.playlists.slice(0, 9),
-    });
-    Toast.clear();
+    try {
+      const { data: res } = await request({
+        url: '/cloudsearch',
+        method: 'POST',
+        data: {
+          cookie: cookie,
+          keywords: '阿尔法脑波音乐',
+          type: 1000,
+          timestamp: 1503019930000,
+        },
+        header: {
+          'Content-Type': 'application/json',
+        },
+      }, 'https://api.xaneon.com');
+
+      this.setData({
+        songs: res.result.playlists.slice(0, 9),
+      });
+      Toast.clear();
+    } catch (err) {
+      console.log(err);
+      Toast.fail('加载失败！');
+    }
   },
 
   /**
@@ -67,9 +71,8 @@ Page({
    */
   handleItem (e) {
     const { id } = e.currentTarget.dataset;
-    app.globalData.id = id;
     wx.navigateTo({
-      url: `../list/list?listid=${id}`,
+      url: `../list/list?id=${id}`,
     });
   },
 
