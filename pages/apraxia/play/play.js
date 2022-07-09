@@ -1,50 +1,57 @@
 import { request } from '../../../lib/request';
+
+const app = getApp();
+
+const backgroundAudioManager = wx.getBackgroundAudioManager();
+
 Page({
 
   data: {
     song_id: 0,
-    imgUrl: '',
+    song_name: '',
+    song_singer: '',
+    song_album: '',
+    song_img: '',
     isPlaying: true,
     isLike: false,
     isPlayingText: '正在播放',
     isLikeText: '不喜欢',
     join: false,
-    name: '',
-    singer: '',
-    album: '',
   },
 
   onLoad: function (options) {
-    this.setData({
-      song_id: options.id,
-      name: options.name,
-      singer: options.singer,
-      album: options.album,
-    }); console.log(1);
-  },
+    this.getOpenerEventChannel().on('send-song-data', (data) => {
+      const { id, album, name, singer } = options;
+      const { img } = data;
+      const src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
 
-  onShow: function () {
-    const backgroundAudioManager = wx.getBackgroundAudioManager();
-    const app = getApp();
-    console.log(app.globalData.song);
-    const src = `https://music.163.com/song/media/outer/url?id=${this.data.song_id}.mp3`;
-    backgroundAudioManager.title = app.globalData.song.name;
-    backgroundAudioManager.epname = app.globalData.song.al.name;
-    backgroundAudioManager.singer = app.globalData.song.ar[0].name;
-    backgroundAudioManager.src = src;
-    this.setData({
-      imgUrl: app.globalData.song_image,
+      // 音频的数据源
+      backgroundAudioManager.src = src;
+      // 音频标题
+      backgroundAudioManager.title = name;
+      // 专辑名
+      backgroundAudioManager.epname = album;
+      // 歌手名
+      backgroundAudioManager.singer = singer;
+      // 封面图 URL
+      backgroundAudioManager.coverImgUrl = img;
+
+      this.setData({
+        song_id: id,
+        song_name: name,
+        song_singer: singer,
+        song_album: album,
+        song_img: img,
+      });
     });
   },
 
   /**
    * 播放暂停功能
-   * @function
    * @returns {void}
    */
-  play: function () {
-    const backgroundAudioManager = wx.getBackgroundAudioManager();
-    if (this.data.isPlaying === true) {
+  play () {
+    if (this.data.isPlaying) {
       backgroundAudioManager.pause();
       this.setData({
         isPlaying: false,
@@ -61,12 +68,9 @@ Page({
 
   /**
    * 喜欢功能
-   * @function
    * @returns {void}
    */
-  like: function () {
-    console.log('222');
-    const app = getApp();
+  like () {
     const src = `https://music.163.com/song/media/outer/url?id=${this.data.song_id}.mp3`;
     this.setData({
       isLike: !this.data.isLike,
@@ -77,9 +81,9 @@ Page({
     if (this.data.isLike && !this.data.join) {
       const song = {
         id: this.data.song_id,
-        singer: this.data.singer,
-        name: this.data.name,
-        album: this.data.album,
+        singer: this.data.song_singer,
+        name: this.data.song_name,
+        album: this.data.song_album,
         src: src,
         isplay: false,
       };
@@ -89,15 +93,15 @@ Page({
         url: '/v1/song/add',
         data: {
           songId: this.data.song_id,
-          songName: this.data.name,
-          album: this.data.album,
+          songName: this.data.song_name,
+          album: this.data.song_album,
           src: src,
-          singer: this.data.singer,
+          singer: this.data.song_singer,
         },
         method: 'POST',
         header: {
-          'authorization':wx.getStorageSync('token'),
-          'content-type': 'application/json', // 默认值
+          authorization: wx.getStorageSync('token'),
+          'content-type': 'application/json',
         },
       });
       p.then((res) => { console.log(res.data); }, (err) => { console.log(err); });
