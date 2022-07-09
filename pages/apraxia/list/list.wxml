@@ -1,26 +1,20 @@
 <!-- 歌单部分 -->
 <view class="header">
-  <view>
-    <image src="{{ coverImg }}" class="cover_img"></image>
+  <view class="cover_img">
+    <image src="{{ coverImg }}" mode="aspectFill" lazy-load></image>
   </view>
   <view class="cover_name">
-    <view class="listname">歌单名称：</view>
-    <view >{{ name }}</view>
+    <view>{{ name }}</view>
   </view>
-</view>
-
-<!-- 背景图片部分 -->
-<view class="image">
-  <image class="background_img" src="https://s1.ax1x.com/2022/05/11/OdslOe.jpg"></image>
 </view>
 
 <!-- 歌曲部分 -->
 <view class="content">
   <view wx:for="{{ song_array }}" wx:key="id">
-    <view bindtap="handleSong" data-id="{{ item.id }}" data-picUrl="{{ item.al.picUrl }}" data-song="{{ item }}" class="item_song">
-      <view class="index {{ index >= 9 ? 'index_big' : 'index_small' }}">
-        <text class="txt" wx:if="{{song_index!==index}}">{{ index + 1 }}</text>
-        <van-icon name="bar-chart-o" wx:else/>
+    <view bind:tap="handleSong" data-id="{{ item.id }}" data-picUrl="{{ item.al.picUrl }}" data-singer="{{ item.ar[0].name }}" data-name="{{ item.name }}" data-album="{{ item.al.name }}" data-song="{{ item }}" class="item_song">
+      <view class="index">
+        <text class="txt {{ index < 3 ? 'txt-special' : '' }}" wx:if="{{ song_index !== index }}">{{ index + 1 }}</text>
+        <van-icon name="bar-chart-o" wx:else />
       </view>
       <view>
         <view class="item_name">{{ item.name }}</view>
@@ -30,3 +24,5 @@
     <van-divider class="divider"></van-divider>
   </view>
 </view>
+
+<van-toast id="van-toast" />
