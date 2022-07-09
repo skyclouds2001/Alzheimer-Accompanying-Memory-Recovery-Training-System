@@ -1,5 +1,3 @@
-@import './../../../style/iconfont.wxss';
-
 /* 背景图片？ */
 .image{
   width: 100%;
@@ -64,11 +62,6 @@
   margin-top: 0rpx;
   margin-bottom: 0rpx;
   padding: 0rpx;
-}
-.header {
-  font-size: x-large;
-  margin-top: 50rpx;
-  text-align: center;
 }
 
 Page{

@@ -1,3 +1,7 @@
+import { request } from '../../../lib/request';
+
+import Toast from '@vant/weapp/toast/toast';
+
 Page({
   data: {
     /**
@@ -14,37 +18,32 @@ Page({
     song_index: Infinity,
   },
 
-  onShow: function () {
-    const that = this;
-    wx.request({
-      url: 'example.php',
-      method: 'GET',
-      data: {
-        x: '',
-        y: '',
-      },
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
-      success (res) {
-        console.log(res);
-        that.setData({
-          // 默认选取前9个歌单
-          mysongs: res,
-        });
-      },
-      fail () {
-        console.log(this);
-      },
-    });
-    this.setData({
-      // mysongs: app.globalData.mysongs,
-    });
+  onShow: async function () {
+    const token = wx.getStorageSync('token');
+    try {
+      const { data: res } = await request({
+        url: '/v1/song/get',
+        method: 'GET',
+        data: {},
+        header: {
+          authorization: token,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (res.status !== 10000) throw new Error('Service Error');
+
+      this.setData({
+        mysongs: res.data || [],
+      });
+    } catch (err) {
+      console.log(err);
+      Toast.fail('加载失败！');
+    }
   },
 
   /**
    * 播放音乐控制
-   * @function
    * @param {Event} e 点击事件对象
    * @returns {void}
    */
