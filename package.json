@@ -49,9 +49,5 @@
     "eslint-plugin-promise": "^5.2.0"
   },
   "private": true,
-  "directories": {
-    "doc": "docs",
-    "lib": "lib"
-  },
-  "author": ""
+  "author": "觅忆 团队"
 }
