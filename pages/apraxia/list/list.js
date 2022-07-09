@@ -19,8 +19,6 @@ import { cookie } from './../../../data/cloudmusic';
 
 import Toast from '@vant/weapp/toast/toast';
 
-const app = getApp();
-
 Page({
 
   data: {
@@ -67,6 +65,7 @@ Page({
         name: name,
         coverImg: coverImgUrl,
       });
+
       setTimeout(() => Toast.clear(), 2500);
     } catch (err) {
       console.log(err);
@@ -80,13 +79,16 @@ Page({
    * @returns {void}
    */
   handleSong: function (e) {
-    const { id, name, album, singer } = e.currentTarget.dataset;
-
-    app.globalData.song_image = e.currentTarget.dataset.picurl;
-    app.globalData.song = e.currentTarget.dataset.song;
+    const { id, name, album, singer, picurl } = e.currentTarget.dataset;
 
     wx.navigateTo({
       url: `./../play/play?id=${id}&name=${name}&singer=${singer}&album=${album}`,
+      success: (res) => {
+        res.eventChannel.emit('send-song-data', {
+          img: picurl,
+        });
+      },
     });
   },
+
 });

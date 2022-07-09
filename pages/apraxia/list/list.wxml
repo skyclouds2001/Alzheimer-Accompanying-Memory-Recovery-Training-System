@@ -11,7 +11,7 @@
 <!-- 歌曲部分 -->
 <view class="content">
   <view wx:for="{{ song_array }}" wx:key="id">
-    <view bind:tap="handleSong" data-id="{{ item.id }}" data-picUrl="{{ item.al.picUrl }}" data-singer="{{ item.ar[0].name }}" data-name="{{ item.name }}" data-album="{{ item.al.name }}" data-song="{{ item }}" class="item_song">
+    <view bind:tap="handleSong" data-id="{{ item.id }}" data-picUrl="{{ item.al.picUrl }}" data-singer="{{ item.ar[0].name }}" data-name="{{ item.name }}" data-album="{{ item.al.name }}" class="item_song">
       <view class="index">
         <text class="txt {{ index < 3 ? 'txt-special' : '' }}" wx:if="{{ song_index !== index }}">{{ index + 1 }}</text>
         <van-icon name="bar-chart-o" wx:else />
