@@ -2,6 +2,10 @@ import { request } from '../../../lib/request';
 
 import Toast from '@vant/weapp/toast/toast';
 
+const token = wx.getStorageSync('token');
+
+const backgroundAudioManager = wx.getBackgroundAudioManager();
+
 Page({
   data: {
     /**
@@ -9,17 +13,9 @@ Page({
      * @type {Song[]}
      */
     mysongs: [],
-
-    /**
-     * 当前播放音乐index
-     * @type {number}
-     */
-    index: Infinity,
-    song_index: Infinity,
   },
 
   onShow: async function () {
-    const token = wx.getStorageSync('token');
     try {
       const { data: res } = await request({
         url: '/v1/song/get',
@@ -31,7 +27,7 @@ Page({
         },
       });
 
-      if (res.status !== 10000) throw new Error('Service Error');
+      if (res.status !== 10000) throw new Error('Request Error!');
 
       this.setData({
         mysongs: res.data || [],
@@ -43,48 +39,24 @@ Page({
   },
 
   /**
-   * 播放音乐控制
-   * @param {Event} e 点击事件对象
+   * 开始播放音乐控制
+   * @param {TouchEvent} e 点击事件对象
    * @returns {void}
    */
-  play: function (e) {
-    const index = e.currentTarget.dataset.index;
-    const preIndex = this.data.index;
-    const backgroundAudioManager = wx.getBackgroundAudioManager();
-    if (index !== preIndex) {
-      backgroundAudioManager.title = e.currentTarget.dataset.name;
-      backgroundAudioManager.epname = e.currentTarget.dataset.album;
-      backgroundAudioManager.singer = e.currentTarget.dataset.singer;
-      backgroundAudioManager.src = e.currentTarget.dataset.src;
-    } else if (e.currentTarget.dataset.isplay) {
-      backgroundAudioManager.pause();
-    } else if (!e.currentTarget.dataset.isplay) {
-      backgroundAudioManager.play();
-    }
-    const song = 'mysongs[' + index + '].isplay';
-    this.setData({
-      [song]: !e.currentTarget.dataset.isplay,
-      index: index,
+  handleSong (e) {
+    Toast.loading({
+      duration: 0,
     });
-    if (e.currentTarget.dataset.index !== preIndex && preIndex !== Infinity) {
-      const preSong = 'mysongs[' + preIndex + '].isplay';
-      this.setData({
-        [preSong]: false,
-      });
-    }
-    console.log(this.data.mysongs);
+
+    const { song } = e.currentTarget.dataset;
+
+    backgroundAudioManager.title = song.songName;
+    backgroundAudioManager.epname = song.album;
+    backgroundAudioManager.singer = song.singer;
+    backgroundAudioManager.src = song.src;
+
+    backgroundAudioManager.onCanplay(() => setTimeout(() => Toast.clear(), 1000));
+    backgroundAudioManager.onError(() => Toast.fail('播放异常！'));
   },
 
-  handleSong (e) {
-    const backgroundAudioManager = wx.getBackgroundAudioManager();
-    console.log(e.currentTarget.dataset);
-    backgroundAudioManager.title = e.currentTarget.dataset.name;
-    backgroundAudioManager.epname = e.currentTarget.dataset.album;
-    backgroundAudioManager.singer = e.currentTarget.dataset.singer;
-    backgroundAudioManager.src = e.currentTarget.dataset.src;
-    this.setData({
-      song_index: e.currentTarget.dataset.index,
-    });
-    console.log(this.data.song_index);
-  },
 });

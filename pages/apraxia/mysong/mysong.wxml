@@ -1,18 +1,8 @@
-<!-- 主要内容区 -->
-<view class="content">
-  <view wx:for="{{ mysongs }}" wx:key="id">
-    <view bindtap="handleSong" class="item_song" data-src="{{item.src}}" data-name="{{item.name}}" data-singer="{{item.singer}}" data-album="{{item.album}}" data-index="{{index}}">
-      <view class="index {{ index >= 9 ? 'index_big' : 'index_small' }}">
-        <text wx:if="{{song_index!==index}}">{{ index + 1 }}</text>
-        <van-icon name="bar-chart-o" wx:else/>
-      </view>
-      <view>
-        <view class="item_name">{{ item.name }}</view>
-        <view class="singer_name">{{ item.singer }} - {{ item.album }}</view>
-      </view>
-    </view>
-    <van-divider class="divider"></van-divider>
-  </view>
+<!-- 歌曲内容区 -->
+<view class="song-list">
+  <van-cell-group inset>
+    <van-cell wx:for="{{ mysongs }}" wx:key="id" title="{{ item.songName }}" label="{{ item.album }}" value="{{ item.singer }}" center clickable is-link bind:click="handleSong" data-song="{{ item }}" />
+  </van-cell-group>
 </view>
 
 <van-toast id="van-toast" />

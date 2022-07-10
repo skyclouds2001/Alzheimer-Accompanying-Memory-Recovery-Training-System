@@ -1,8 +1,10 @@
 {
   "usingComponents": {
-    "van-divider": "@vant/weapp/divider/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-popup": "@vant/weapp/popup/index"
   },
   "navigationBarTitleText": "我的喜欢"
 }
