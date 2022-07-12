@@ -1,26 +1,18 @@
 <view class="image">
-  <image class="images" mode="aspectFill"  src='../../../images/sports.png'></image>
+  <image class="images" mode="aspectFill" src='../../../images/sports.png'></image>
 </view>
 
-<!--<view class="frame">
-  <view wx:for="{{ train_text }}" wx:key="id" bindtap="handleClick" data-index="{{ index }}">
-    <button class="custom-btn btn-12">
-      <span>点击!</span>
-      <span>{{ item }}</span>
-    </button>
+<view class="content">
+  <view class="button">
+    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" bindtap="handleSports" type="default" data-index="0">手指训练一</van-button>
   </view>
-</view>-->
-<view class="c">
-  <view class="b" wx:key="id">
-    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" bindtap="handleSports" type="default" data-index="0" >手指训练一</van-button>
+  <view class="button">
+    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" bindtap="handleSports" type="default" data-index="1" type="default">手指训练二</van-button>
   </view>
-  <view class="b1" wx:key="id">
-    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info"  bindtap="handleSports" type="default" data-index="1" type="default" >手指训练二</van-button>
+  <view class="button">
+    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" bindtap="handleSports" type="default" data-index="2">手指训练三</van-button>
   </view>
-  <view class="b1" wx:key="id">
-    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info"  bindtap="handleSports" type="default" data-index="2" >手指训练三</van-button>
-  </view>
-  <view class="b1" wx:key="id">
-    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info"  bindtap="handleSports" type="default" data-index="3" >手指训练四</van-button>
+  <view class="button">
+    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" bindtap="handleSports" type="default" data-index="3">手指训练四</van-button>
   </view>
 </view>
