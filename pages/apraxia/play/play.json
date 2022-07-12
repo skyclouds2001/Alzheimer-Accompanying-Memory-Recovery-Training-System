@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index"
+  },
   "navigationBarTitleText": "音乐播放"
 }
