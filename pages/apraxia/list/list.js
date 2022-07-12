@@ -44,7 +44,11 @@ Page({
 
   onLoad: async function (options) {
     const { id } = options;
-    Toast.loading('加载中');
+    Toast.loading({
+      message: '加载中...',
+      duration: 0,
+      forbidClick: true,
+    });
 
     try {
       const { data: res } = await request({
@@ -66,7 +70,7 @@ Page({
         coverImg: coverImgUrl,
       });
 
-      setTimeout(() => Toast.clear(), 2500);
+      Toast.clear();
     } catch (err) {
       console.log(err);
       Toast.fail('加载失败！');
