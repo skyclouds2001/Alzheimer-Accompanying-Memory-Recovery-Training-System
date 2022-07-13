@@ -1,10 +1,6 @@
-import { request } from './../../../lib/request';
-
-import { getUserFavMusic } from './../../../api/music';
+import { getUserFavMusic, addUserFavMusic, removeUserFavMusic } from './../../../api/music';
 
 import Toast from '@vant/weapp/toast/toast';
-
-const app = getApp();
 
 const backgroundAudioManager = wx.getBackgroundAudioManager();
 
@@ -27,8 +23,6 @@ Page({
     isLike: false,
     /** 歌曲是否播放中 */
     isPlay: false,
-
-    join: false,
   },
 
   /**
@@ -128,47 +122,31 @@ Page({
    * @returns {void}
    */
   async handleLikeMusic () {
-    const src = `https://music.163.com/song/media/outer/url?id=${this.data.song_id}.mp3`;
+    const { song_id: id, song_name: name, song_singer: singer, song_album: album, isLike: like } = this.data;
+    const src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
     this.setData({
-      song_like: !this.data.song_like,
+      isLike: !like,
     });
-    console.log(this.data.song_like);
-    console.log(this.data.join);
-    if (this.data.song_like && !this.data.join) {
-      const song = {
-        id: this.data.song_id,
-        singer: this.data.song_singer,
-        name: this.data.song_name,
-        album: this.data.song_album,
-        src: src,
-        isplay: false,
-      };
-      app.globalData.mysongs.push(song);
 
-      const p = request({
-        url: '/v1/song/add',
-        data: {
-          songId: this.data.song_id,
-          songName: this.data.song_name,
-          album: this.data.song_album,
-          src: src,
-          singer: this.data.song_singer,
-        },
-        method: 'POST',
-        header: {
-          authorization: wx.getStorageSync('token'),
-          'content-type': 'application/json',
-        },
-      });
-      p.then((res) => { console.log(res.data); }, (err) => { console.log(err); });
+    try {
+      if (like) {
+        await removeUserFavMusic(token, id);
+      } else {
+        await addUserFavMusic(token, {
+          songId: id,
+          songName: name,
+          album,
+          singer,
+          src,
+        });
+      }
+    } catch (err) {
+      Toast.fail('操作失败！');
+      console.log(err);
       this.setData({
-        join: true,
-      });
-    } else if (!this.data.song_like && this.data.join) {
-      app.globalData.mysongs.pop();
-      this.setData({
-        join: false,
+        isLike: like,
       });
     }
   },
+
 });
