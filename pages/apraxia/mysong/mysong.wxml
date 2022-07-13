@@ -1,7 +1,12 @@
 <!-- 歌曲内容区 -->
 <view class="song-list">
   <van-cell-group inset>
-    <van-cell wx:for="{{ mysongs }}" wx:key="id" title="{{ item.songName }}" label="{{ item.album }}" value="{{ item.singer }}" center clickable is-link bind:click="handleSong" data-song="{{ item }}" />
+    <van-cell wx:for="{{ mysongs }}" wx:key="id" title="{{ item.songName }}" label="{{ item.album }}" value="{{ item.singer }}" center clickable bind:click="handleSong" data-song="{{ item }}">
+      <view slot="right-icon">
+        <text decode>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>
+        <van-icon name="play-circle-o" size="50rpx" />
+      </view>
+    </van-cell>
   </van-cell-group>
 </view>
 

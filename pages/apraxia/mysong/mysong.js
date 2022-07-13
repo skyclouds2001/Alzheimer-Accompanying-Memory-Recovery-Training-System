@@ -1,4 +1,4 @@
-import { request } from '../../../lib/request';
+import { getUserFavMusic } from './../../../api/music';
 
 import Toast from '@vant/weapp/toast/toast';
 
@@ -7,6 +7,7 @@ const token = wx.getStorageSync('token');
 const backgroundAudioManager = wx.getBackgroundAudioManager();
 
 Page({
+
   data: {
     /**
      * 收藏的歌曲
@@ -15,22 +16,12 @@ Page({
     mysongs: [],
   },
 
-  onShow: async function () {
+  onLoad: async function () {
     try {
-      const { data: res } = await request({
-        url: '/v1/song/get',
-        method: 'GET',
-        data: {},
-        header: {
-          authorization: token,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (res.status !== 10000) throw new Error('Request Error!');
+      const res = await getUserFavMusic(token);
 
       this.setData({
-        mysongs: res.data || [],
+        mysongs: res,
       });
     } catch (err) {
       console.log(err);
@@ -45,7 +36,9 @@ Page({
    */
   handleSong (e) {
     Toast.loading({
+      message: '加载中...',
       duration: 0,
+      forbidClick: true,
     });
 
     const { song } = e.currentTarget.dataset;
@@ -55,8 +48,9 @@ Page({
     backgroundAudioManager.singer = song.singer;
     backgroundAudioManager.src = song.src;
 
-    backgroundAudioManager.onCanplay(() => setTimeout(() => Toast.clear(), 1000));
+    backgroundAudioManager.onCanplay(() => Toast.clear());
     backgroundAudioManager.onError(() => Toast.fail('播放异常！'));
+    backgroundAudioManager.onEnded(() => Toast('播放结束'));
   },
 
 });
