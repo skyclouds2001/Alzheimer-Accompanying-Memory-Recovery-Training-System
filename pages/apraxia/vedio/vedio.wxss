@@ -1,15 +1,15 @@
 .section {
-  margin: 500rpx auto;
+  margin: 400rpx auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#myVideo {
+.myVideo {
   border-radius: 30rpx;
 }
 
-#tip {
+.tip {
   position: absolute;
   bottom: 250rpx;
   width: 450rpx;
