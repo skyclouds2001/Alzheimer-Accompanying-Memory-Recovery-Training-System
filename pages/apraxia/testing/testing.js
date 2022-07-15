@@ -1,5 +1,5 @@
-
 import { request } from '../../../lib/request';
+
 const grantType = 'client_credentials';
 const clientId = 'bE0U2VdG1TrjEk4667wlWf8K';
 const clientSecret = 'RhEuHaDziRMmPYOS9kIxZS3GSLlHmjMz';
@@ -9,30 +9,17 @@ let base64 = null;
 let apiUrl = null;
 
 Page({
+
   data: {
     imageUrl1: '../../../images/example.jpg',
     imageUrl2: '../../../images/example.jpg',
     btnEnable: '0',
     result: '',
     voiceUrl: '',
-    // voiceUrl: '',
   },
-  onReady: function (res) {
+
+  onReady: function () {
     const that = this;
-    // wx.request({
-    //   url: 'http://127.0.0.1/v1/voice',
-    //   method: 'GET',
-    //   header: {
-    //     'Content-Type': 'application/json', // 默认值
-    //     authorization: wx.getStorageSync('token'),
-    //   },
-    //   success (res) {
-    //     console.log(res.data);
-    //     that.setData({
-    //       voiceUrl: res,
-    //     });
-    //   },
-    // });
     const s = request({ url: '/v1/voice', method: 'GET', header: { authorization: token, 'content-type': 'application/x-www-form-urlencoded' } });
     s.then(res => {
       console.log(res);
@@ -45,7 +32,6 @@ Page({
       method: 'POST',
       success: function (res) {
         console.log('Request successful !');
-        // console.log(res.data)
         token = res.data.access_token;
         console.log('My token is : ' + token);
       },
@@ -62,7 +48,7 @@ Page({
         count: 1,
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
-        success (res) {
+        success: res => {
           const tempFilePaths = res.tempFilePaths;
           console.log(tempFilePaths);
           apiUrl = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/gesture';
@@ -72,18 +58,12 @@ Page({
           });
           console.log('My API URL is : ' + apiUrl);
           console.log('Image Path is : ' + tempFilePaths);
-          // console.log(res)
           wx.getFileSystemManager().readFile({
             filePath: res.tempFilePaths[0],
             encoding: 'base64',
-            // complete: res=> {
-            //   console.log('complete')
-            //   console.log(res)
-            // },
             success: res => {
               base64 = res.data;
               resolve(base64);
-            // console.log('data:image/png;base64,' + base64)
             },
           });
         },
