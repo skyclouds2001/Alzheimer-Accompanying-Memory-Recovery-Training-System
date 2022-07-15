@@ -45,16 +45,28 @@ Page({
     this.sendExerciseRecord(this.timestamp);
   },
 
+  /**
+   * 视频开始及继续播放方法
+   * 记录开始时间戳
+   */
   handleVideoPlay () {
     this.startTimestamp = new Date().getTime();
   },
 
+  /**
+   * 视频暂停播放方法
+   * 记录停止时间戳并保存
+   */
   handleVideoPause () {
     this.endTimestamp = new Date().getTime();
     this.totalTimestamp += (this.endTimestamp = this.startTimestamp);
     this.startTimestamp = this.endTimestamp = 0;
   },
 
+  /**
+   * 视频停止播放方法
+   * 记录停止时间戳
+   */
   handleVideoEnded () {
     this.endTimestamp = new Date().getTime();
     this.totalTimestamp += (this.endTimestamp = this.startTimestamp);
@@ -67,6 +79,10 @@ Page({
     }, 3000);
   },
 
+  /**
+   * 发送视频播放时间即学习时间
+   * @param {number} timestamp 播放时间戳
+   */
   async sendExerciseRecord (timestamp) {
     try {
       await addExerciseRecord(token, {
