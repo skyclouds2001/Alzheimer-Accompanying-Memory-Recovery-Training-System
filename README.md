@@ -14,7 +14,6 @@
   - https://otkyd4jmkr.feishu.cn/docs/doccncy0NdQd5nXGJsIgA829AKd
 - git 仓库
   - https://github.com/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System
-  - 仓库为私有仓库，需申请访问及编辑权限
 - 网易云音乐 API
   - 请求host https://api.xaneon.com
   - 接口文档 https://neteasecloudmusicapi.vercel.app/
@@ -182,3 +181,14 @@
   - token
   - userInfo
   - logs
+
+## 项目开发约定
+
+- git 提交规范
+  feat        增加新功能
+  fix         修复bug
+  docs        只改动了文档相关的内容
+  style       不影响代码含义的改动，例如去掉空格、改变缩进、增删分号
+  build       构造工具的或者外部依赖的改动，例如webpack，npm
+  refactor    代码重构时使用
+  revert      执行git revert打印的message
