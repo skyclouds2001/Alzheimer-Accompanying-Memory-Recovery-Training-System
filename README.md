@@ -6,8 +6,8 @@
   - https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
 - 后端 HOST
   - http://www.thylovezj.space
-  - 临时测试 http://43.138.103.83:8080
-  - 临时测试 https://8fc6-111-18-45-56.jp.ngrok.io
+  - http://43.138.103.83:8080  [测试]
+  - https://8fc6-111-18-45-56.jp.ngrok.io  [测试]
 - 接口文档
   - https://www.apifox.cn/web/project/977035
 - UI 文档
@@ -17,7 +17,7 @@
 - 网易云音乐 API
   - 请求host https://api.xaneon.com
   - 接口文档 https://neteasecloudmusicapi.vercel.app/
-- 微信产生二维码库 wx-qr
+- 微信生成二维码库 wx-qr
   - https://github.com/liuxdi/wx-qr
 - 开发者 Github
   - 陈思远 https://github.com/skyclouds2001
@@ -28,16 +28,23 @@
   - 唐浩瑜 https://github.com/THYLOVEZJ
   - 米国良 https://github.com/MglKsy
   - 李欣悦 https://github.com/Unknownlxy
-  - ~~陈家欢 https://github.com/orangenuinee~~
+  - ~~ 陈家欢 https://github.com/orangenuinee ~~
 
 ## 项目结构
 
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
+  - exercise.js 训练接口
+  - music.js 音乐接口
+  - voice.js 声音接口
 - components 项目组件目录
   - menu 菜单
   - timeline 时间轴
 - custom-tab-bar 自定义tabbar目录
   - index
+- data 数据及设定目录
+  - baiducloud.js 百度云API设定
+  - cloudmusic.js 网易云音乐APIcookie
+  - sportvideo.js 手指训练视频及封面URL
 - docs 项目文档目录
 - images 本地图片目录（未来部分图片应放到云图床上）
 - icons 本地图标目录
