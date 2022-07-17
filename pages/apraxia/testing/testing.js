@@ -107,6 +107,11 @@ Page({
         });
 
         const res = await getGestice(token, result.result[1].classname);
+        /**
+         * todo
+         * OK 返回resultName非全大写
+         * Prayer Congratulation Honour Heart_single Thumb_up Thumb_down ILY Heart_1 Heart_2 Heart_3 Insult 无结果
+         */
         this.setData({
           imageUrl2: res.image,
           result: res.resultName,
