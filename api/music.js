@@ -65,7 +65,7 @@ export const addUserFavMusic = async (token, song) => {
 };
 
 /**
- * 收藏用户喜欢音乐
+ * 删除用户喜欢音乐
  * @param {string} token 用户 token
  * @param {string} id 歌曲名称
  * @returns {Promise<object>}
