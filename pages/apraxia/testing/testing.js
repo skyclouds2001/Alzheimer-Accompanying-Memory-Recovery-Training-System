@@ -46,7 +46,6 @@ Page({
         },
       }, 'https://aip.baidubce.com');
 
-      console.log(res);
       this.access_token = res.access_token;
     } catch (err) {
       console.log(err);
