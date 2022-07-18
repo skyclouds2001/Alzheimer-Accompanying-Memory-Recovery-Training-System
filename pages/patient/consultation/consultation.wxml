@@ -24,7 +24,7 @@
 
     <view class="buttom">
       <view class="time">
-        <van-icon name="user-o" custom-class="icon1" size="18" />{{title}}:
+        <van-icon name="user-o" custom-class="icon1" size="18" />{{ item.position }}
       </view>
       <view class="kong2"></view>
       <view class="ico2">
@@ -35,4 +35,5 @@
 
   </view>
 </view>
+
 <van-toast id="van-toast" />
