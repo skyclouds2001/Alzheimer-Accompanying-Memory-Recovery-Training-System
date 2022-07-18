@@ -12,11 +12,11 @@
     </block>
   </view> -->
 
-  <!-- 客观题四个选项 -->
+  <!-- 客观题选项框 -->
   <view class="allans">
     <block wx:if="{{ question.type === 1 }}">
-      <view bind:tap="handleChooseAnswer">
-        <view class="answer {{ question.reply === index + 1 ? 'select' : '' }}" wx:for="{{ question.checks }}" wx:key="*this" data-id="{{ index + 1 }}">{{ item[0] }} . {{ item[1] }}</view>
+      <view>
+        <view class="answer {{ question.reply === index + 1 ? 'select' : '' }}" wx:for="{{ question.checks }}" wx:key="*this" data-id="{{ index + 1 }}" bind:tap="handleChooseAnswer">{{ item[0] }} . {{ item[1] }}</view>
       </view>
     </block>
 
@@ -27,20 +27,21 @@
   </view>
 
   <!-- 切换按钮 -->
-  <view bind:tap="handleChangePage">
+  <view>
   
     <!--上一题的按钮-->
-    <view wx:if="{{ index > 1 && index <= length }}" class="selfbutton1" data-flag="{{ -1 }}">上一题</view>
+    <view wx:if="{{ index > 1 && index <= length }}" class="selfbutton1" data-flag="{{ -1 }}" bind:tap="handleChangePage">上一题</view>
 
     <!--下一题的按钮-->
-    <view wx:if="{{ index >= 1 && index < length  }}" class="selfbutton2" data-flag="{{ 1 }}">下一题</view>
+    <view wx:if="{{ index >= 1 && index < length  }}" class="selfbutton2" data-flag="{{ 1 }}" bind:tap="handleChangePage">下一题</view>
 
     <!--结束答题的按钮-->
-    <view wx:if="{{ index === length  }}" catch:tap="handleEndAnswer" class="selfbutton2">提交答案</view>
+    <view wx:if="{{ index === length  }}" bind:tap="handleEndAnswer" class="selfbutton2">提交答案</view>
 
   </view>
 
 </view>
 
-<!-- toast提示框 -->
 <van-toast id="van-toast" />
+
+<van-dialog id="van-dialog" />
