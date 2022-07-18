@@ -1,8 +1,11 @@
 import { getHasegawaQuestion } from './../../api/question';
+import { addExerciseRecord } from './../../api/exercise';
 
 import Toast from '@vant/weapp/toast/toast';
 
 import Dialog from '@vant/weapp/dialog/dialog';
+
+const token = wx.getStorageSync('token');
 
 /**
  * @typedef {Object} Question
@@ -48,7 +51,6 @@ Page({
   allQuestion: [],
 
   onLoad: async function () {
-    const token = wx.getStorageSync('token');
     try {
       // 请求获取问题和选项
       const res = await getHasegawaQuestion(token);
@@ -132,7 +134,7 @@ Page({
     Dialog.confirm({
       title: '提示',
       message: '确认结束答题？',
-    }).then(() => {
+    }).then(async () => {
       const score = this.allQuestion.reduce(
         (pre, cur) => (cur.reply === cur.answer ? pre + cur.score : 0),
         0,
@@ -140,7 +142,12 @@ Page({
       wx.navigateTo({
         url: `./../../pages/evaluate/main/main?score=${score}`,
       });
-    }).catch(() => {});
+      await addExerciseRecord(token, {
+        time: 0,
+        type: 2,
+        score,
+      });
+    }).catch(err => console.error(err));
   },
 
 });
