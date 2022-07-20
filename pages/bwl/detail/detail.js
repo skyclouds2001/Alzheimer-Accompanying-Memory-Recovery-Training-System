@@ -1,56 +1,53 @@
-import { request } from '../../../lib/request.js';
+import Toast from '@vant/weapp/toast/toast';
+
+import Dialog from '@vant/weapp/dialog/dialog';
+
+import { getDetailMemorandum, removeMemorandum } from './../../../api/memorandum';
+
+const token = wx.getStorageSync('token');
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
+    /** 事项内容 */
     content: '',
+    /** 事项时间 */
     time: '',
+    /** 事项标题 */
     title: '',
-    recordid: '',
+    /** 事项ID */
+    id: '',
+  },
+
+  onLoad: async function (options) {
+    const { recordid: id, time, title } = options;
+    const [{ content }] = await getDetailMemorandum(token, id);
+    this.setData({
+      id,
+      title,
+      time: time.slice(0, 10),
+      content,
+    });
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 删除记录
    */
-  onShow: function () {
-    const pages = getCurrentPages();
-    const currentPage = pages[pages.length - 1];
-    const options = currentPage.options;
-    console.log(options);
-    const { recordid, time, title } = options;
-    this.getDetail(recordid);
-    const timeformat = time.slice(0, 10);
-    this.setData({ time: timeformat, title, recordid });
-  },
-  /**
-   * 通过recordid和openid获取记录详情
-   * @param {String} recordid
-   */
-  getDetail: async function (recordid) {
-    try {
-      const token = wx.getStorageSync('token');
-      const id = Number(recordid);
-      const res = await request({ url: `/v1/memorandum//get/detail/${id}`, header: { authorization: token } });
-      console.log(res);
-      const { data } = res.data;
-      this.setData({ content: data[0].content });
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  /**
-   * 用openid和recoedid删除记录
-   */
-  delitem () {
-    const token = wx.getStorageSync('token');
-    const recordid = this.data.recordid;
-    const id = Number(recordid);
-    const p = request({ url: `/v1/memorandum/delete/${id}`, header: { authorization: token }, method: 'POST' });
-    p.catch(
-      (err) => { console.log(err); },
-    );
-    wx.redirectTo({ url: '../beiwanglu' });
+  delItem () {
+    Dialog.confirm({
+      title: '警告',
+      message: '确认删除该备忘？',
+    }).then(async () => {
+      const { id } = this.data;
+      const res = await removeMemorandum(token, id);
+      if (res) {
+        Toast.success('删除成功');
+        wx.redirectTo({
+          url: '../beiwanglu',
+        });
+      } else {
+        Toast.fail('删除失败');
+      }
+    }).catch(() => {});
   },
 });
