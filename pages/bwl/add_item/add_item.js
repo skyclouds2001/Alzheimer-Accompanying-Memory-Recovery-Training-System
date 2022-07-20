@@ -5,20 +5,8 @@ import { addMemorandum } from './../../../api/memorandum';
 const token = wx.getStorageSync('token');
 
 Page({
-  data: {
-    /** 导航栏 */
-    element_list: [
-      {
-        title: '事项',
-        url: '../../bwl/beiwanglu',
-      },
-      {
-        title: '添加事项',
-        url: 'add_item/add_item',
-      },
-    ],
-    select_index: 1,
 
+  data: {
     /** 备忘录标题 */
     title: '',
     /** 备忘录内容 */
@@ -42,8 +30,8 @@ Page({
           content: '',
         });
         setTimeout(() => {
-          wx.redirectTo({
-            url: '../beiwanglu',
+          wx.navigateBack({
+            delta: 1,
           });
         }, 1500);
       } else {
