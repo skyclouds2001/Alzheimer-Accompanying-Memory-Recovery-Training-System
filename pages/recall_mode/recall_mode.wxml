@@ -10,13 +10,12 @@
 
 
 <view class="content">
-  <view class="item" wx:for="{{item_list}}" wx:key="text">
-    <navigator class="nav" url="{{item.path}}">
-      <image src="{{item.url}}" />
+  <view class="item" wx:for="{{ item_list }}" wx:key="text">
+    <navigator class="nav" url="{{ item.path }}">
+      <image src="{{ item.url }}" />
     </navigator>
     <view>
-      {{item.text}}
+      {{ item.text }}
     </view>
   </view>
-
 </view>
