@@ -25,13 +25,14 @@ Page({
       const res = await addMemorandum(token, title.trim(), content.trim());
       if (res) {
         Toast.success('提交成功');
-        this.setData({
-          title: '',
-          content: '',
-        });
+        this.getOpenerEventChannel().emit('onAddItem');
         setTimeout(() => {
           wx.navigateBack({
             delta: 1,
+          });
+          this.setData({
+            title: '',
+            content: '',
           });
         }, 1500);
       } else {

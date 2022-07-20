@@ -20,7 +20,7 @@ Page({
   },
 
   onLoad: async function (options) {
-    const { recordid: id, time, title } = options;
+    const { id, time, title } = options;
     const [{ content }] = await getDetailMemorandum(token, id);
     this.setData({
       id,
@@ -42,8 +42,9 @@ Page({
       const res = await removeMemorandum(token, id);
       if (res) {
         Toast.success('删除成功');
-        wx.redirectTo({
-          url: '../beiwanglu',
+        this.getOpenerEventChannel().emit('onRemoveItem');
+        wx.navigateBack({
+          delta: 1,
         });
       } else {
         Toast.fail('删除失败');
