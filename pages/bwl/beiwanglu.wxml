@@ -1,27 +1,27 @@
-
 <!--搜索框(学长打算后期利用es完成)-->
 <view class="search_area">
-<input class="search_ipt"  placeholder="搜索备忘录" placeholder-class="input-placeholder" > 
-</input>
-<view class="search_ico" >
-    <van-icon name="search" color="blue" size="30"/>
-</view>
+  <input class="search_ipt" placeholder="搜索备忘录" placeholder-class="input-placeholder" />
+  <view class="search_ico">
+    <van-icon name="search" color="blue" size="30" />
+  </view>
 </view>
 
 <!--请求结果list -->
-
-<view class="search_content" >
-<navigator class="search_item" wx:for="{{search_item}}" wx:key="record_id" url="./detail/detail?recordid={{item.id}}&time={{item.updateTime}}&title={{item.title}}">
-    <view class="ico"><van-icon name="arrow" /></view>
-    <view class="title" >
-        {{item.title}}
+<view class="search_content">
+  <navigator class="search_item" wx:for="{{ search_item }}" wx:key="record_id" url="./detail/detail?recordid={{ item.id }}&time={{ item.updateTime }}&title={{ item.title }}">
+    <view class="ico">
+      <van-icon name="arrow" />
+    </view>
+    <view class="title">
+      {{ item.title }}
     </view>
     <view class="time">
-        {{item.time}}
+      {{ item.time }}
     </view>
-</navigator>
-
+  </navigator>
 </view>
 
 <!-- tabbar-->
-<new_tab element_list="{{element_list}}" select_index="{{select_index}}"></new_tab>
+<new_tab element_list="{{ element_list }}" select_index="{{ select_index }}"></new_tab>
+
+<van-toast id="van-toast" />

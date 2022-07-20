@@ -1,18 +1,30 @@
-import { request } from '../../lib/request.js';
+import Toast from '@vant/weapp/toast/toast';
+
+import { getSimpleMemorandum } from './../../api/memorandum';
+
+const token = wx.getStorageSync('token');
 
 Page({
   data: {
     /**
-   * 导航栏
-   */
-    element_list: [{ title: '事项', url: 'beiwanglu' }, { title: '添加事项', url: 'add_item/add_item' }],
+     * 导航栏
+     */
+    element_list: [
+      {
+        title: '事项',
+        url: 'beiwanglu',
+      },
+      {
+        title: '添加事项',
+        url: 'add_item/add_item',
+      },
+    ],
     select_index: 0,
 
     /**
-     * 记录信息
+     * 备忘录记录
      */
-    search_item: [
-    ],
+    search_item: [],
   },
 
   /**
@@ -41,27 +53,15 @@ Page({
   //   }, 1500);
   // },
 
-  /**
- *信息申请函数
- * @param {string} querry
- */
-  search_info: async function () {
+  onLoad: async function () {
     try {
-      const token = wx.getStorageSync('token');
-      const res = await request({ url: '/v1/memorandum/get/simple', header: { authorization: token, 'content-type': 'application/x-www-form-urlencoded' } });
-      console.log(res);
-      const { data } = res.data;
-      this.setData({ search_item: data });
-
-      /** 修改data */
+      const res = await getSimpleMemorandum(token);
+      this.setData({
+        search_item: res,
+      });
     } catch (err) {
       console.log(err);
+      Toast.fail('网络异常');
     }
   },
-
-  onShow: function () {
-    /** 请求全部并缓存 */
-    this.search_info();
-  },
-
 });
