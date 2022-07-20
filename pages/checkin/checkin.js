@@ -123,7 +123,7 @@ Page({
         this.clockStep = 3;
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       Toast.fail('网络异常，请稍后重试');
     }
   },
@@ -207,7 +207,7 @@ Page({
         clockDays: clockDays + 1,
       });
     } catch (err) {
-      console.log(err);
+      console.error(err);
       Toast.fail('打卡失败，请稍后再试');
     }
   },

@@ -95,7 +95,7 @@ Page({
       });
     } catch (err) {
       Toast.fail('网络异常!');
-      console.log(err);
+      console.error(err);
     }
   },
 
@@ -142,7 +142,7 @@ Page({
       }
     } catch (err) {
       Toast.fail('操作失败！');
-      console.log(err);
+      console.error(err);
       this.setData({
         isLike: like,
       });

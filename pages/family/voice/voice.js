@@ -58,7 +58,7 @@ Page({
       console.log('Recording!~~~');
     });
     recorder.onError(err => {
-      console.log(err);
+      console.error(err);
     });
   },
 

@@ -144,7 +144,7 @@ Page({
 
       that.setData({ fileList: [{ url }] });
     },
-    (err) => { console.log(err); });
+    (err) => { console.error(err); });
   },
 
   /**

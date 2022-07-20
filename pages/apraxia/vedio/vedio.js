@@ -91,7 +91,7 @@ Page({
         score: 0,
       });
     } catch (err) {
-      console.log(err);
+      console.error(err);
       Toast.fail('网络异常！');
     }
   },

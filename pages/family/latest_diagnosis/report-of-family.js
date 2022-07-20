@@ -30,7 +30,7 @@ Page({
         console.log(res.data);
       },
       fail: function (err) {
-        console.log(err);
+        console.error(err);
       },
     });
   },

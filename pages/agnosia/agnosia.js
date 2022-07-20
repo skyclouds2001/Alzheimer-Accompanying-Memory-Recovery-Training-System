@@ -170,7 +170,7 @@ Page({
   // getVoice () {
   //   const taht = this;
   //   const p3 = request({ url: '/v1/voice', header: { 'Content-Type': 'application/json', authorization: wx.getStorageSync('token') } });
-  //   p3.then((res) => { console.log(this); this.setData({ audio_src: res.data }); }, (err) => { console.log(err); });
+  //   p3.then((res) => { console.log(this); this.setData({ audio_src: res.data }); }, (err) => { console.error(err); });
   // },
 
   onLoad: function () {

@@ -48,7 +48,7 @@ Page({
 
       this.access_token = res.access_token;
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
 
     // 预先请求获取子女声音
@@ -60,7 +60,7 @@ Page({
         voiceUrl: res.url,
       });
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   },
 
@@ -121,7 +121,7 @@ Page({
         });
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
       Toast.fail(err.errMsg);
     }
   },
