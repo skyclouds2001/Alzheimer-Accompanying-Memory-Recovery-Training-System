@@ -2,17 +2,19 @@ page{
     padding: 25rpx;
     background-color: #e6fafa;
 }
+
 .search_area{
     position: relative;
     height: 80rpx;
     margin-bottom: 50rpx;
+
     .search_ipt{
      height: 100%;
      background-color:#f7f7f7;
      padding: 15rpx;
      border-radius: 40rpx;
-
     }
+
     .search_ico{
        position: absolute;
        top: 15rpx;
@@ -20,33 +22,50 @@ page{
     }
 }
 .search_content{
-       margin-top: 20rpx;
-       
-    .search_item{
-        position: relative;
-        height: 150rpx;
-        margin: 35rpx 0;
-        box-shadow: 5rpx 5rpx 5rpx #aaa;
-        border-radius: 20rpx;
-        background-color: white;
-        padding: 25rpx;
-        .ico{
-            position: absolute;
-            right: 20rpx;
-            top:55rpx
-        }
-        .title{
-            font-size: larger;
-            font-weight: 600;
-            white-space:nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .time{
-            margin-top: 15rpx;
-            color: #888888;
-            font-size:large;
-        }
+  margin-top: 20rpx;
+      
+  .search_item{
+    position: relative;
+    height: 150rpx;
+    margin: 35rpx 0;
+    box-shadow: 5rpx 5rpx 5rpx #aaa;
+    border-radius: 20rpx;
+    background-color: white;
+    padding: 25rpx;
+
+    .ico{
+        position: absolute;
+        right: 20rpx;
+        top:55rpx
     }
 
+    .title{
+        font-size: larger;
+        font-weight: 600;
+        white-space:nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .time{
+        margin-top: 15rpx;
+        color: #888888;
+        font-size:large;
+    }
+  }
+}
+
+.button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 50rpx 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

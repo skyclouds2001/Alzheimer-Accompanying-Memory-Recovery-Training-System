@@ -6,25 +6,29 @@ const token = wx.getStorageSync('token');
 
 Page({
   data: {
-    /**
-     * 导航栏
-     */
-    element_list: [
-      {
-        title: '事项',
-        url: 'beiwanglu',
-      },
-      {
-        title: '添加事项',
-        url: 'add_item/add_item',
-      },
-    ],
-    select_index: 0,
-
-    /**
-     * 备忘录记录
-     */
+    /** 备忘录记录 */
     search_item: [],
+  },
+
+  onLoad: async function () {
+    try {
+      const res = await getSimpleMemorandum(token);
+      this.setData({
+        search_item: res,
+      });
+    } catch (err) {
+      console.log(err);
+      Toast.fail('网络异常');
+    }
+  },
+
+  /**
+   * 点击添加事项跳转至相应页面
+   */
+  handleNavigate () {
+    wx.navigateTo({
+      url: './../../pages/bwl/add_item/add_item',
+    });
   },
 
   /**
@@ -53,15 +57,4 @@ Page({
   //   }, 1500);
   // },
 
-  onLoad: async function () {
-    try {
-      const res = await getSimpleMemorandum(token);
-      this.setData({
-        search_item: res,
-      });
-    } catch (err) {
-      console.log(err);
-      Toast.fail('网络异常');
-    }
-  },
 });
