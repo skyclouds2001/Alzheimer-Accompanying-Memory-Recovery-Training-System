@@ -1,16 +1,6 @@
 <!-- 答题阶段 -->
 <block wx:if="{{ condition }}">
 
-  <!-- 弹出答题结果 -->
-  <van-transition show="{{ show }}" custom-class="block" duration="{{ { enter: 500, leave: 500 } }}">
-    <view id="tip">{{ judge }}</view>
-  </van-transition>
-
-  <!-- 加载提示 -->
-  <view id="loadingtip" hidden="{{ !isloading }}">
-    <van-loading size="80px" color="#1989fa">加载中...</van-loading>
-  </view>
-
   <!-- 分数显示框 -->
   <view id="scoreshow">
     <van-tag plain size='large' color="#ffe1e1" text-color="#ad0000">score：{{ score }}</van-tag>
@@ -18,15 +8,15 @@
 
   <!-- 题目图片 -->
   <view id="img">
-    <image src="{{ question_obj[ index ].name }}" mode="aspectFit"></image>
+    <image src="{{ questions[ index ].name }}" mode="aspectFit"></image>
   </view>
 
   <!-- 选项栏 -->
   <view id="chose">
     <van-radio-group value="{{ radio }}" bind:change="onChange">
       <van-cell-group>
-        <van-cell wx:for="{{ question_obj[index].checks }}" wx:key="*this" wx:for-item="it" wx:for-index="ind" title="{{ it }}" clickable data-name="{{ ind + 1 }}" bind:click="onClick">
-          <van-radio slot="right-icon" name="{{ ind + 1 }}" />
+        <van-cell wx:for="{{ questions[index].checks }}" wx:key="*this" wx:for-item="it" wx:for-index="id" title="{{ it }}" clickable data-name="{{ id + 1 }}" bind:click="onClick">
+          <van-radio slot="right-icon" name="{{ id + 1 }}" />
         </van-cell>
       </van-cell-group>
     </van-radio-group>
@@ -34,8 +24,13 @@
 
   <!-- 提交按钮 -->
   <view>
-    <button id="submit" disabled="{{ isdisable }}" bind:tap="change">{{ question_obj.length === index ? '提交' : '下一题' }}</button>
+    <button id="submit" disabled="{{ isdisable }}" bind:tap="handleSubmitAnswer">{{ questions.length === index ? '提交' : '下一题' }}</button>
   </view>
+
+  <!-- 弹出答题结果 -->
+  <van-transition show="{{ show }}" custom-class="block" duration="{{ { enter: 500, leave: 500 } }}">
+    <view id="tip">{{ judge }}</view>
+  </van-transition>
 
 </block>
 
@@ -52,6 +47,11 @@
   <navigator open-type="navigateBack" delta="{{ 1 }}" id="restart">返回</navigator>
 
 </block>
+
+<!-- 加载提示 -->
+<view id="loadingtip" hidden="{{ !isloading }}">
+  <van-loading size="80px" color="#1989fa">加载中...</van-loading>
+</view>
 
 <van-toast id="van-toast" />
 
