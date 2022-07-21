@@ -15,6 +15,3 @@ $RECYCLE.BIN/
 # Node.js
 node_modules/
 miniprogram_npm/
-
-# wexin
-project.private.config.json
