@@ -1,7 +1,14 @@
+import Toast from '@vant/weapp/toast/toast';
+import Dialog from '@vant/weapp/dialog/dialog';
+
+import { getQuestion } from './../../api/question';
+
 import { request } from '../../lib/request';
 
+const token = wx.getStorageSync('token');
+
 // 答完题播放音频
-const audioRef = wx.createInnerAudioContext();
+const audioRefEnding = wx.createInnerAudioContext();
 // 点击按钮音频
 const audioRefRadio = wx.createInnerAudioContext();
 // 错误音效
@@ -10,11 +17,16 @@ const audioRefFalse = wx.createInnerAudioContext();
 const audioRefTrue = wx.createInnerAudioContext();
 
 Page({
+
   data: {
+    /** 标记当前是否正在加载资源 */
     isloading: true,
+
     isdisable: true,
-    // 是否隐藏组件
-    condition: false,
+
+    /** 答题阶段 | 结束阶段 */
+    condition: true,
+
     // 弹出框显示
     show: false,
     judge: '正确',
@@ -31,6 +43,48 @@ Page({
     // 结尾音频地址
     audio_src:
       'http://aimg8.dlszyht.net.cn/ueditor/file/823/1644869/1553422829215244.mp3',
+  },
+
+  onLoad: function () {
+    // 初始化音频文件
+    audioRefEnding.obeyMuteSwitch = false; // 是否遵循系统静音原则
+    audioRefEnding.src = this.data.audio_src; // 音频地址
+    audioRefRadio.src = 'http://gaofeifei.3vfree.cn/anniu/click.mp3';
+    audioRefFalse.src = 'http://gaofeifei.3vfree.cn/anniu/fault.mp3';
+    audioRefTrue.src = 'http://gaofeifei.3vfree.cn/anniu/victory.mp3';
+
+    // 显示提示确认框
+    Dialog.confirm({
+      title: '提示',
+      message: '现在开始训练',
+      confirmButtonText: '开始训练',
+      cancelButtonText: '取消训练',
+    }).then(async () => {
+      Toast('即将开始训练');
+
+      // 获取训练题库
+      try {
+        const res = await getQuestion(token, 0, 0, 10);
+        res.forEach(v => (v.checks = JSON.parse(v.checks)));
+        setTimeout(() => {
+          this.setData({
+            question_obj: res,
+            isloading: false,
+          });
+        }, 1500);
+      } catch (err) {
+        console.error(err);
+        Toast.fail('网络异常');
+      }
+      // this.getVoice();
+    }).catch(() => {
+      Toast('即将退出训练');
+      setTimeout(() => {
+        wx.navigateBack({
+          delta: 1,
+        });
+      }, 1500);
+    });
   },
 
   // 点击submit按钮事件
@@ -68,7 +122,7 @@ Page({
       } else {
         audioRefFalse.play();
       }
-      audioRef.play();
+      audioRefEnding.play();
       this.setData({
         condition: true,
       });
@@ -89,32 +143,18 @@ Page({
     }
   },
 
-  onChange (event) {
+  onChange (e) {
     this.setData({
-      radio: event.detail,
+      radio: e.detail,
     });
   },
-  onClick (event) {
+  onClick (e) {
     audioRefRadio.play();
-    const { name } = event.currentTarget.dataset;
+    const { name } = e.currentTarget.dataset;
     this.setData({
       radio: name,
       isdisable: false,
     });
-  },
-  restart () {
-    this.setData({
-      score: 0,
-      radio: '-1',
-      condition: false,
-      show: false,
-      judge: '正确',
-      submit_text: '下一题',
-      index: 0,
-    });
-    audioRefRadio.play();
-    audioRef.pause();
-    audioRef.seek(0);
   },
 
   // 训练结束发送成绩
@@ -133,59 +173,10 @@ Page({
     );
   },
 
-  getQuestions () {
-    const token = wx.getStorageSync('token');
-    const p2 = request({
-      url: '/v1/problem/get',
-      method: 'post',
-      data: {
-        subNumber: 0,
-        objNumber: 0,
-        picNumber: 10,
-      },
-      header: {
-        'content-type': 'application/json',
-        authorization: token,
-      },
-    });
-    p2.then(
-      (res) => {
-        for (const item in res.data.data) {
-          let a = res.data.data[item].checks;
-          a = a.slice(1, a.length - 1);
-          const arr1 = a.split(',');
-          for (let i = 0; i < arr1.length; i++) {
-            arr1[i] = arr1[i].slice(1, arr1[i].length - 1);
-          }
-          res.data.data[item].checks = arr1;
-        }
-        this.setData({ question_obj: res.data.data, isloading: false });
-      },
-      () => {
-        this.setData({ isloading: true });
-      },
-    );
-  },
-
   // getVoice () {
   //   const taht = this;
-  //   const p3 = request({ url: '/v1/voice', header: { 'Content-Type': 'application/json', authorization: wx.getStorageSync('token') } });
+  //   const p3 = request({ url: '/v1/voice', header: { 'Content-Type': 'application/json', authorization: token } });
   //   p3.then((res) => { console.log(this); this.setData({ audio_src: res.data }); }, (err) => { console.error(err); });
   // },
-
-  onLoad: function () {
-    // 初始化音频文件
-    audioRef.obeyMuteSwitch = false; // 是否遵循系统静音原则
-    audioRef.src = this.data.audio_src; // 音频地址
-    audioRefRadio.src = 'http://gaofeifei.3vfree.cn/anniu/click.mp3';
-    audioRefFalse.src = 'http://gaofeifei.3vfree.cn/anniu/fault.mp3';
-    audioRefTrue.src = 'http://gaofeifei.3vfree.cn/anniu/victory.mp3';
-    this.getQuestions();
-    // this.getVoice();
-  },
-
-  onUnload: function () {
-    this.restart();
-  },
 
 });
