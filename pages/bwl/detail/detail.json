@@ -2,5 +2,6 @@
   "usingComponents": {
     "van-toast": "@vant/weapp/toast/index",
     "van-dialog": "@vant/weapp/dialog/index"
-  }
+  },
+  "navigationBarTitleText": "备忘详情"
 }
