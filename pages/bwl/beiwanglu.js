@@ -1,10 +1,11 @@
 import Toast from '@vant/weapp/toast/toast';
 
-import { getSimpleMemorandum } from './../../api/memorandum';
+import { getSimpleMemorandum, getSearchMemorandum } from './../../api/memorandum';
 
 const token = wx.getStorageSync('token');
 
 Page({
+
   data: {
     /** 备忘录记录 */
     search_item: [],
@@ -72,26 +73,22 @@ Page({
    * 搜索模块()
    * 当搜索框中有值时发请求
    */
-  // Timeid: -1,
+  timerID: -1,
+
   /**
-   *  input事件
+   *  输入响应事件
    */
+  handleInput (e) {
+    const { value } = e.detail;
+    console.log(value);
 
-  // handdleInput (e) {
-  //   let { value } = e.detail;
-  //   /**
-  //    * 空值返回*显示全部
-  //    * 非空返回value显示符合条件的部分记录
-  //    */
-
-  //   if (!value.trim()) {
-  //     value = '*';
-  //   }
-  //   // 防止重复请求
-  //   clearTimeout(this.Timeid);
-  //   this.Timeid = setTimeout(() => {
-  //     this.search_info(value);
-  //   }, 1500);
-  // },
+    // 节流-防止重复请求
+    clearTimeout(this.timerID);
+    this.timerID = setTimeout(async () => {
+      // todo 该接口异常
+      const res = await getSearchMemorandum(token, value.trim());
+      console.log(res);
+    }, 2000);
+  },
 
 });

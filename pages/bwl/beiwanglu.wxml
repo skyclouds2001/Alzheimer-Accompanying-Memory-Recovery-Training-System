@@ -1,6 +1,6 @@
 <!-- 搜索框 -->
 <view class="search_area">
-  <input class="search_ipt" placeholder="搜索备忘录" placeholder-class="input-placeholder" />
+  <input class="search_ipt" placeholder="搜索备忘录" placeholder-class="input-placeholder" 	bind:input="handleInput" />
   <view class="search_ico">
     <van-icon name="search" color="blue" size="30" />
   </view>
