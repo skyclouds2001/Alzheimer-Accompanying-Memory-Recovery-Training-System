@@ -115,7 +115,7 @@ export const getDetailMemorandum = async (token, id) => {
 export const getSearchMemorandum = async (token, search) => {
   try {
     const { data: res } = await request({
-      url: `localhost:8080/v1/memorandum/get/${search}`,
+      url: `/v1/memorandum/get/${search}`,
       method: 'GET',
       header: {
         Authorization: token,
