@@ -33,7 +33,7 @@ export const getQuestion = async (token, sub = 0, obj = 0, pic = 0) => {
   try {
     const { data: res } = await request({
       url: '/v1/problem/get',
-      method: 'GET',
+      method: 'POST',
       header: {
         Authorization: token,
         'Content-Type': 'application/json',
