@@ -1,8 +1,7 @@
 import Toast from '@vant/weapp/toast/toast';
 import Dialog from '@vant/weapp/dialog/dialog';
 
-const app = getApp();
-const { openid } = app.globalData;
+const openid = wx.getStorageSync('openid');
 
 Page({
 

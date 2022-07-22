@@ -130,6 +130,10 @@ page {
   z-index: 99999 !important;
 }
 
+.popup-outer {
+  z-index: 999999 !important;
+}
+
 .qrcode {
   background-color: rgba(255, 255, 255, 1) !important;
   backdrop-filter: blur(5rpx);
