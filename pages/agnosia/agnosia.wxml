@@ -13,9 +13,9 @@
 
   <!-- 选项栏 -->
   <view id="chose">
-    <van-radio-group value="{{ radio }}" bind:change="onChange">
+    <van-radio-group value="{{ radio }}">
       <van-cell-group>
-        <van-cell wx:for="{{ questions[index].checks }}" wx:key="*this" wx:for-item="it" wx:for-index="id" title="{{ it }}" clickable data-name="{{ id + 1 }}" bind:click="onClick">
+        <van-cell wx:for="{{ questions[index].checks }}" wx:key="*this" wx:for-item="it" wx:for-index="id" title="{{ it }}" clickable data-name="{{ id + 1 }}" bind:click="handleSelectRadio">
           <van-radio slot="right-icon" name="{{ id + 1 }}" />
         </van-cell>
       </van-cell-group>

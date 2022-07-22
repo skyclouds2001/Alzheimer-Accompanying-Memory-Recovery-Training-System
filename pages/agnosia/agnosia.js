@@ -50,13 +50,18 @@ Page({
   },
 
   onLoad: function () {
+    // 设置 innerAudio 静音选项
+    wx.setInnerAudioOption({
+      obeyMuteSwitch: false,
+    });
+
     // 显示提示确认框
     Dialog.confirm({
       title: '提示',
       message: '确认开始训练吗',
       confirmButtonText: '开始训练',
       cancelButtonText: '取消训练',
-    }).then(async () => {
+    }).then(async () => { // 确认训练
       Toast('即将开始训练');
 
       // 获取训练题库
@@ -77,7 +82,7 @@ Page({
         const res = await getVoice(token);
         audioRefEnding.src = res.data;
       } catch (err) {}
-    }).catch(() => {
+    }).catch(() => { // 取消训练
       Toast('即将退出训练');
       setTimeout(() => {
         wx.navigateBack({
@@ -93,8 +98,17 @@ Page({
     });
   },
 
-  /** 选项选择 */
-  onClick (e) {
+  onUnload: function () {
+    // 恢复 innerAudio 静音选项
+    wx.setInnerAudioOption({
+      obeyMuteSwitch: true,
+    });
+  },
+
+  /**
+   * 选项选择
+   */
+  handleSelectRadio (e) {
     audioRefRadio.play();
     const { name } = e.currentTarget.dataset;
     this.setData({
