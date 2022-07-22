@@ -55,7 +55,7 @@ Page({
       }, 'https://api.xaneon.com');
 
       this.setData({
-        songs: res.result.playlists.slice(0, 9),
+        songs: res.result.playlists,
       });
       Toast.clear();
     } catch (err) {
