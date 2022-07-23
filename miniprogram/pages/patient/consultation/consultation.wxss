@@ -123,3 +123,8 @@
   font-weight: 500;
   font-size: large;
 }
+
+.doctor-box {
+  margin: 0;
+  padding: 25rpx 0;
+}
