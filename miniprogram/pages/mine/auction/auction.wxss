@@ -115,3 +115,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10rpx;
 }
+
+.empty-item iamge {
+  width: 300rpx !important;
+  height: 300rpx !important;
+}
