@@ -83,5 +83,5 @@ page::before, page::after {
   background-color: rgb(63, 177, 165);
 }
 .pro-btn:active {
-  background-color: rgb(128, 226, 216);
+  background-color: rgb(32, 114, 106);
 }
