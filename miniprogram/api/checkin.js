@@ -52,7 +52,7 @@ export const getCheckinRecord = async (token) => {
 };
 
 /**
- * 获取用户当月打卡记录
+ * 签到
  * @param {string} token
  */
 export const postCheckinRecord = async (token) => {
