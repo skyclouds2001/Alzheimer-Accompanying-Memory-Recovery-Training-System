@@ -26,14 +26,10 @@ App({
     }
 
     // 云开发初始化
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力');
-    } else {
-      wx.cloud.init({
-        traceUser: true,
-        env: 'cloud1-9gkmm50g8213d619',
-      });
-    }
+    wx.cloud.init({
+      traceUser: true,
+      env: 'cloud1-9gkmm50g8213d619',
+    });
   },
 
   globalData: {
