@@ -35,7 +35,7 @@ export const addExerciseRecord = async (token, {
 };
 
 /**
- * 上传训练记录
+ * 获取训练记录
  * @param {string} token
  */
 export const getExerciseRecord = async (token, num = 1, size = 10) => {
