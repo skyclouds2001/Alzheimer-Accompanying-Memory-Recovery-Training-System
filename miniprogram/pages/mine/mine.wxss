@@ -129,9 +129,12 @@ page {
 
   z-index: 99999 !important;
 }
+.van-transition {
+  z-index: 99999 !important;
+}
 
 .popup-outer {
-  z-index: 999999 !important;
+  z-index: 99999 !important;
 }
 
 .qrcode {

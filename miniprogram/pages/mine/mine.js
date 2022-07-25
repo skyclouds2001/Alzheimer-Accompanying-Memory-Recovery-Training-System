@@ -137,7 +137,10 @@ Page({
    */
   handleExitLogin () {
     Dialog.confirm({
+      title: '提示',
       message: '确认退出登录？',
+      zIndex: 999999,
+      closeOnClickOverlay: true,
     }).then(() => {
       // 确认退出，清空个人信息
       this.isLogined = false;
