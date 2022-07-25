@@ -91,4 +91,6 @@
   background-color: #53b6aa;
   border-radius: 20rpx;
   color: white;
+  line-height: 100rpx;
+  text-align: center;
 }

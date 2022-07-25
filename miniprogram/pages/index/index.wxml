@@ -21,5 +21,9 @@
 </view>
 
 <view id="box">
-  <button id="detail" bindtap="show_detail">详情点击此处</button>
+  <button id="detail" bind:tap="show_detail">详情点击此处</button>
 </view>
+
+<van-toast id="van-toast">
+  <van-icon name="info-o" size="50px" />
+</van-toast>
