@@ -17,33 +17,40 @@ Page({
         src1: 'https://s1.ax1x.com/2022/05/14/O6XE34.png',
         text: '完善信息',
         src2: 'https://s1.ax1x.com/2022/05/14/O6vAX9.png',
+        url: './submitinfo/submitinfo',
       },
       {
         src1: 'https://s1.ax1x.com/2022/05/14/O6XVgJ.png',
         text: '录入语音',
         src2: 'https://s1.ax1x.com/2022/05/14/O6vVmR.png',
+        url: './voice/voice',
       },
       {
         src1: 'https://s1.ax1x.com/2022/05/14/O6XZv9.png',
         text: '训练情况',
         src2: 'https://s1.ax1x.com/2022/05/14/O6vk6J.png',
+        url: './train-record/train-record',
       },
       {
         src1: 'https://s1.ax1x.com/2022/05/14/O6XmuR.png',
         text: '最新诊断',
         src2: 'https://s1.ax1x.com/2022/05/14/O6vZ01.png',
+        url: './latest_diagnosis/report-of-family',
       },
       {
         src1: 'https://s1.ax1x.com/2022/05/15/OR8NbF.png',
         text: 'AD科普',
         src2: 'https://s1.ax1x.com/2022/05/15/ORGka4.png',
+        url: './adscience/adscience',
       },
       {
         src1: 'https://s1.ax1x.com/2022/05/15/OR8dUJ.png',
         text: '回忆时光',
         src2: 'https://s1.ax1x.com/2022/05/15/ORGAIJ.png',
+        url: './Recalltime/Recalltime',
       },
     ],
+
     /**
      * 用户昵称
      */
@@ -74,39 +81,12 @@ Page({
     }
   },
 
-  // 界面跳转
-  jumpto: function (event) {
-    const { index } = event.currentTarget.dataset;
-    switch (index) {
-      case 0:
-        wx.navigateTo({ url: 'submitinfo/submitinfo' });
-        break;
-      case 1:
-        wx.navigateTo({ url: 'voice/voice' });
-        break;
-      case 2:
-        wx.navigateTo({ url: 'train-record/train-record' });
-        break;
-      case 3:
-        wx.navigateTo({ url: 'latest_diagnosis/report-of-family' });
-        break;
-      case 4:
-        wx.navigateTo({ url: 'adscience/adscience' });
-        break;
-      case 5:
-        wx.navigateTo({ url: 'Recalltime/Recalltime' });
-        break;
-    }
-  },
-
   async onGetUserProfile () {
     // 判断用户是否已获取微信头像与昵称
-    if (this.isLogined) {
-      return;
-    }
+    if (this.isLogined) return;
 
     try {
-      // 调用wx接口获取用户信息
+      // 请求获取用户信息
       const { userInfo } = await wx.getUserProfile({
         desc: '请授权我们使用您的个人信息',
         lang: 'zh_CN',
