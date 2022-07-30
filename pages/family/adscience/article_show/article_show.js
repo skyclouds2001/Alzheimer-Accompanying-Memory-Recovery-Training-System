@@ -11,6 +11,9 @@ Page({
         title: res.title,
         text: res.content.replaceAll('\\n', '\n'),
       });
+      wx.setNavigationBarTitle({
+        title: `文章详情-${res.title}`,
+      });
     });
   },
 
