@@ -55,7 +55,7 @@ Page({
       console.log(alldata);
       console.log('alldata.length的长度');
       console.log(newsquantity);
-    }, (err) => { console.log(err); });
+    }, (err) => { console.error(err); });
 
     // 首页渲染展示新闻列表，加个延时是因为后端数据获取要一段时间，而微信会直接先读取下面的代码，导致页面无法正常显示（不知道为啥微信有时没按代码从上到下的顺序检索）
     setTimeout(() => {

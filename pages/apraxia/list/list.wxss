@@ -16,20 +16,23 @@
 
 .cover_name {
   font-size: 40rpx;
-  line-height: 1.25em;
+  line-height: 1.5em;
   text-align: center;
 
   margin: 0;
-  padding: 10rpx 100rpx;
+  padding: 25rpx 100rpx;
 
   position: fixed;
   left: 0;
   top: 0;
 
-  background-color: rgba(245, 245, 245, 1);
+  background: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.75) 10rpx);
+  background-size: 20rpx 20rpx;
+  backdrop-filter: blur(10rpx);
 }
 .cover_name > view {
   color: black;
+  font-weight: bold;
 }
 
 /* 歌单歌曲 */

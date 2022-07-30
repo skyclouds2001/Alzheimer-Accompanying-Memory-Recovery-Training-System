@@ -1,8 +1,8 @@
 import Toast from '@vant/weapp/toast/toast';
 
-import { request } from './../../lib/request.js';
+import { getCheckinDays, getCheckinRecord, postCheckinRecord } from './../../api/checkin';
 
-const app = getApp();
+const token = wx.getStorageSync('token');
 
 /**
  * @typedef Day
@@ -90,8 +90,7 @@ Page({
   },
 
   onLoad: async function () {
-    /** 疑似打卡日期为最后一天时存在 bug */
-    const { token } = app.globalData;
+    /** todo 打卡日期为最后一天时存在 bug */
 
     // 当天的日期
     const date = new Date();
@@ -99,6 +98,7 @@ Page({
     const year = date.getFullYear();
     const month = date.getMonth();
     const startDay = 1;
+    const today = date.getDate();
     const endDay = new Date(year, month + 1, 0).getDate();
 
     // 设置日历时间范围，默认为所在月份的第一天与最后一天
@@ -108,39 +108,22 @@ Page({
     });
 
     try {
-      // 并行获取用户已打卡日期及已打卡次数
-      const [{ value: { data: res1 } }, { value: { data: res2 } }] = await Promise.allSettled([
-        // 获取已打卡日期
-        request({
-          url: '/v1/patient/sign/signRecord',
-          method: 'GET',
-          data: {},
-          header: {
-            authorization: token,
-          },
-        }),
-        // 获取已打卡次数
-        request({
-          url: '/v1/patient/sign/count/1',
-          method: 'GET',
-          data: {},
-          header: {
-            authorization: token,
-          },
-        }),
-      ]);
-
-      // 检测请求是否成功：特判res1为空字符串的情况
-      if ((res1 !== '' && res1?.status !== 10000) || res2?.status !== 10000) throw new Error();
+      // 获取用户已打卡日期及已打卡次数
+      const res1 = await getCheckinDays(token);
+      const res2 = await getCheckinRecord(token);
 
       // 设置已打卡日期及已打卡次数
-      wx.nextTick(() => {
-        this.setData({
-          days: res1?.data.days.map(day => new Date(year, month, day).getTime()) ?? [],
-          clockDays: res2.data.count,
-        });
+      this.setData({
+        clockDays: res1.count,
+        days: res2?.days.map(day => new Date(year, month, day).getTime()) ?? [],
       });
+
+      // 检测当日是否已打卡并更新进度
+      if (res2?.days.includes(today)) {
+        this.clockStep = 3;
+      }
     } catch (err) {
+      console.error(err);
       Toast.fail('网络异常，请稍后重试');
     }
   },
@@ -215,28 +198,16 @@ Page({
    * @returns {void}
    */
   async updateCheckin () {
-    const { token } = app.globalData;
-
     try {
-      const { data: res } = await request({
-        url: '/v1/patient/sign',
-        method: 'POST',
-        data: {},
-        header: {
-          authorization: token,
-        },
+      const res = await postCheckinRecord(token);
+      Toast.success(res);
+      const { days, clockDays } = this.data;
+      this.setData({
+        days: days.push(new Date().getTime()),
+        clockDays: clockDays + 1,
       });
-
-      if (res?.status !== 10000) {
-        throw new Error();
-      } else {
-        const { days, clockDays } = this.data;
-        this.setData({
-          days: days.push(new Date().getTime()),
-          clockDays: clockDays + 1,
-        });
-      }
     } catch (err) {
+      console.error(err);
       Toast.fail('打卡失败，请稍后再试');
     }
   },

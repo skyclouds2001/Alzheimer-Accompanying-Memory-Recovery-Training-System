@@ -1,31 +1,21 @@
-<view id="bgcbox">回忆 </view>
+<view id="bgcbox">回忆</view>
+
 <view class="img1">
-    <image src="https://s1.ax1x.com/2022/05/24/XPUVYj.png">
-        
-    </image>
+  <image src="https://s1.ax1x.com/2022/05/24/XPUVYj.png" />
 </view>
 
 <view class="tip">
-    留下回忆，留下美好时光
+  留下回忆，留下美好时光
 </view>
 
 
 <view class="content">
-    <view class="item" wx:for="{{item_list}}" wx:key="text">
-        <navigator class="nav"  url="{{item.path}}" >
-        <image src="{{item.url}}" >
-            
-        </image>
-        </navigator>
-        <view>
-            {{item.text}}
-        </view>
+  <view class="item" wx:for="{{ item_list }}" wx:key="text">
+    <navigator class="nav" url="{{ item.path }}">
+      <image src="{{ item.url }}" />
+    </navigator>
+    <view>
+      {{ item.text }}
     </view>
-
+  </view>
 </view>
-
-
-
-
-
-

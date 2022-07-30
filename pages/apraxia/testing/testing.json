@@ -2,7 +2,8 @@
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
     "van-row": "@vant/weapp/row/index",
-    "van-col": "@vant/weapp/col/index"
+    "van-col": "@vant/weapp/col/index",
+    "van-toast": "@vant/weapp/toast/index"
   },
   "navigationBarTitleText": "手势检测"
 }

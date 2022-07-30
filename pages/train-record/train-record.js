@@ -1,9 +1,25 @@
+/**
+ * @typedef Record
+ * @property {string} color
+ * @property {string} date
+ * @property {boolean} direction
+ * @property {number} id
+ * @property {number} time
+ * @property {string} type
+ * @property {number} zindex
+ * @property {string} exDate
+ * @property {string} exTime
+ * @property {number} exType
+ * @property {number} score
+ */
+
 import Toast from '@vant/weapp/toast/toast';
 
-import { request } from './../../lib/request.js';
+import { getExerciseRecord } from './../../api/exercise';
+
 import { formatTime } from './../../utils/util.js';
 
-const app = getApp();
+const token = wx.getStorageSync('token');
 
 /**
  * 训练记录的颜色
@@ -32,6 +48,7 @@ Page({
   data: {
     /**
      * 训练记录
+     * @type {Record[]}
      */
     records: [],
   },
@@ -42,56 +59,32 @@ Page({
       mask: true,
     });
 
-    const res = await this.getTrainRecord();
+    try {
+      const { records } = await getExerciseRecord(token);
 
-    if (!res || res?.status !== 10000) {
-      return Toast.fail('网络异常，请稍后重试');
-    }
-
-    const { records } = res.data;
-
-    this.setData({
-      records: records.map((item, index) => {
+      records.forEach((item, index) => {
         item.direction = index % 2 === 0;
         item.color = colors[index % colors.length];
         item.id = index;
         item.date = formatTime(new Date(item.exDate)).split(' ')[0];
         item.type = types[item.exType];
         item.time = parseInt(item.exTime) * 60;
-        item.zindex = 9999 - index;
-        return item;
-      }),
-    });
+        item.zindex = 99 - index;
+      });
+
+      this.setData({
+        records,
+      });
+    } catch (err) {
+      console.error(err);
+      Toast.fail('网络异常！');
+    }
 
     setTimeout(() => {
       wx.hideLoading({
         noConflict: true,
       });
     }, 1000);
-  },
-
-  /**
-   * 获取训练记录
-   * @returns {?Object}
-   */
-  async getTrainRecord () {
-    const { token } = app.globalData;
-    try {
-      const { data: res } = await request({
-        url: '/v1/exercise/get',
-        method: 'GET',
-        data: {
-          PageNum: 1,
-          PageSize: 10,
-        },
-        header: {
-          authorization: token,
-        },
-      });
-      return res;
-    } catch (err) {
-      return null;
-    }
   },
 
 });

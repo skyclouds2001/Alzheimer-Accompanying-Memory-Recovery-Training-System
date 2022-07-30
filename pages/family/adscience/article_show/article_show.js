@@ -35,7 +35,7 @@ Page({
         alldata[index] = res.data.data.records[index];
       }
     },
-    (err) => { console.log(err); });
+    (err) => { console.error(err); });
     // options.id是用户点击上一个页面后传回的相应的新闻的id值，根据此展示出相应的新闻
     // console.log(options.id)
 

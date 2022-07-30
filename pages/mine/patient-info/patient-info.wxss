@@ -10,7 +10,7 @@ page {
   width: 100vw;
   height: 100vh;
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -2;
@@ -39,7 +39,7 @@ page {
   width: 90%;
   height: auto;
   margin: 0 5%;
-  padding: 150rpx 0 0;
+  padding: 150rpx 0 50rpx;
 
   position: relative;
 }

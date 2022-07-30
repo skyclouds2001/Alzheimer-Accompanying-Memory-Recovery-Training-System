@@ -38,8 +38,8 @@
     "packNpmManually": true,
     "packNpmRelationList": [
       {
-        "packageJsonPath": "./package.json",
-        "miniprogramNpmDistDir": "./"
+        "packageJsonPath": "package.json",
+        "miniprogramNpmDistDir": ""
       }
     ],
     "minifyWXSS": true,
@@ -52,7 +52,7 @@
     "useStaticServer": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.24.0",
+  "libVersion": "2.25.0",
   "appid": "wxe2338866c2fecb01",
   "projectname": "AD个性化恢复训练小助手",
   "simulatorType": "wechat",
@@ -62,5 +62,8 @@
     "tabSize": 2
   },
   "condition": {},
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/"
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
+  "miniprogramRoot": "",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "srcMiniprogramRoot": ""
 }

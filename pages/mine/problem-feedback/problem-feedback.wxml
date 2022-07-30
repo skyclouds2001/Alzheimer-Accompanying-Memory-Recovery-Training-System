@@ -7,3 +7,5 @@
 <view class="pro-submit">
   <button class="pro-btn" bind:tap="handleSubmitFeedback">提交</button>
 </view>
+
+<van-toast id="van-toast" />

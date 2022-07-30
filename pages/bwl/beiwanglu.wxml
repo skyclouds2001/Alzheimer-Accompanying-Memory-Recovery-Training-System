@@ -1,27 +1,28 @@
-
-<!--搜索框(学长打算后期利用es完成)-->
+<!-- 搜索框 -->
 <view class="search_area">
-<input class="search_ipt"  placeholder="搜索备忘录" placeholder-class="input-placeholder" > 
-</input>
-<view class="search_ico" >
-    <van-icon name="search" color="blue" size="30"/>
-</view>
+  <input class="search_ipt" placeholder="搜索备忘录" placeholder-class="input-placeholder" 	bind:input="handleInput" />
+  <view class="search_ico">
+    <van-icon name="search" color="blue" size="30" />
+  </view>
 </view>
 
-<!--请求结果list -->
-
-<view class="search_content" >
-<navigator class="search_item" wx:for="{{search_item}}" wx:key="record_id" url="./detail/detail?recordid={{item.id}}&time={{item.updateTime}}&title={{item.title}}">
-    <view class="ico"><van-icon name="arrow" /></view>
-    <view class="title" >
-        {{item.title}}
+<!-- 请求结果list -->
+<view class="search_content">
+  <view class="search_item" wx:for="{{ search_item }}" wx:key="record_id" bind:tap="handleNavigateDetail" data-id="{{ item.id }}" data-time="{{ item.updateTime }}" data-title="{{ item.title }}">
+    <view class="ico">
+      <van-icon name="arrow" />
+    </view>
+    <view class="title">
+      {{ item.title }}
     </view>
     <view class="time">
-        {{item.time}}
+      {{ item.time }}
     </view>
-</navigator>
-
+  </view>
 </view>
 
-<!-- tabbar-->
-<new_tab element_list="{{element_list}}" select_index="{{select_index}}"></new_tab>
+<view class="button">
+  <van-button color="rgb(84, 184, 172)" icon="plus" round bind:click="handleNavigateAdd">添加事项</van-button>
+</view>
+
+<van-toast id="van-toast" />

@@ -24,6 +24,12 @@ App({
     } catch (err) {
       console.error(err);
     }
+
+    // 云开发初始化
+    wx.cloud.init({
+      traceUser: true,
+      env: 'cloud1-9gkmm50g8213d619',
+    });
   },
 
   globalData: {

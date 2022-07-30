@@ -72,7 +72,7 @@ Page({
 
       Toast.clear();
     } catch (err) {
-      console.log(err);
+      console.error(err);
       Toast.fail('加载失败！');
     }
   },

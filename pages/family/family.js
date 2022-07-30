@@ -1,16 +1,17 @@
 import Toast from '@vant/weapp/toast/toast';
 
 Page({
+
   data: {
-  /**
-   * 页面的初始数据
-   */
-    element_list: [{ title: '首页', url: '../family/family' }, { title: '账户', url: '../zhanghu/zhanghu' }],
+    element_list: [
+      { title: '首页', url: '../family/family' },
+      { title: '账户', url: '../zhanghu/zhanghu' },
+    ],
     select_index: 0,
 
     /**
-   * tab模块组
-   */
+     * tab模块组
+     */
     tab_list: [
       {
         src1: 'https://s1.ax1x.com/2022/05/14/O6XE34.png',
@@ -42,42 +43,59 @@ Page({
         text: '回忆时光',
         src2: 'https://s1.ax1x.com/2022/05/15/ORGAIJ.png',
       },
-
     ],
     /**
      * 用户昵称
-     * @type {string}
      */
     nickName: '请点击头像登录',
 
     /**
      * 用户头像url
-     * @type {string}
      */
     avatarUrl: '/images/empty-image-default.png',
-
   },
 
   /**
    * 标记用户是否已登录
-   * @type {boolean}
    */
   isLogined: false,
+
+  onLoad: async function () {
+    // 从存储提取用户信息
+    const userInfo = wx.getStorageSync('userInfo') || {};
+
+    // 判断是否已存在信息，是则设置数据并更新
+    if (JSON.stringify(userInfo) !== '{}') {
+      this.setData({
+        avatarUrl: userInfo.avatarUrl,
+        nickName: userInfo.nickName,
+      });
+      this.isLogined = true;
+    }
+  },
 
   // 界面跳转
   jumpto: function (event) {
     const { index } = event.currentTarget.dataset;
-    if (this.isLogined) {
-      switch (index) {
-        case 0: wx.navigateTo({ url: 'submitinfo/submitinfo' }); break;
-        case 1: wx.navigateTo({ url: 'voice/voice' }); break;
-        case 2: Toast.fail("暂无训练情况"); break;
-        case 3: wx.navigateTo({ url: 'latest_diagnosis/report-of-family' }); break;
-        case 4: wx.navigateTo({ url: 'adscience/adscience' }); break;
-        case 5: wx.navigateTo({ url: 'Recalltime/Recalltime' }); break;
-      }
-    } else {
-      Toast.fail('请先登录');
+    switch (index) {
+      case 0:
+        wx.navigateTo({ url: 'submitinfo/submitinfo' });
+        break;
+      case 1:
+        wx.navigateTo({ url: 'voice/voice' });
+        break;
+      case 2:
+        wx.navigateTo({ url: 'train-record/train-record' });
+        break;
+      case 3:
+        wx.navigateTo({ url: 'latest_diagnosis/report-of-family' });
+        break;
+      case 4:
+        wx.navigateTo({ url: 'adscience/adscience' });
+        break;
+      case 5:
+        wx.navigateTo({ url: 'Recalltime/Recalltime' });
+        break;
     }
   },
 
@@ -116,31 +134,5 @@ Page({
       Toast.fail('授权失败');
     }
   },
-  /**
-   * 检测用户信息是否在缓存中
-   */
-  check_userinfo: async function () {
-    // 从存储提取用户信息
-    const userInfo = wx.getStorageSync('userInfo') || {};
 
-    // 判断是否已存在信息
-    // 设置数据并更新
-    if ('nickName' in userInfo && 'avatarUrl' in userInfo) {
-      this.setData({
-        avatarUrl: userInfo.avatarUrl,
-        nickName: userInfo.nickName,
-      });
-      this.isLogined = true;
-    } else {
-      this.setData({
-        nickName: '请点击头像登录',
-        avatarUrl: '/images/empty-image-default.png',
-      });
-      this.isLogined = false;
-    }
-  },
-
-  onShow: function () {
-    this.check_userinfo();
-  },
 });

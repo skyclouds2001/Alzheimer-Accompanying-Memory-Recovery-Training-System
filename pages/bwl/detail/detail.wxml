@@ -1,24 +1,24 @@
 <view class="head">
-<view class="title">
+  <view class="title">
     {{title}}
-</view>
-<vie w class="time">
+  </view>
+  <vie w class="time">
     {{time}}
-</vie>
+  </vie>
 </view>
-
-
 
 <view class="main">
-<view class="content">
-    {{content}}
-</view>  
+  <view class="content">
+    {{ content }}
+  </view>
 </view>
 
 <view class="del_area">
-    <button class="del" bindtap="delitem">
+  <button class="del" bind:tap="delItem">
     删除该事项
-    </button>
+  </button>
 </view>
 
+<van-toast id="van-toast" />
 
+<van-dialog id="van-dialog" />

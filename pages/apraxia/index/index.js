@@ -55,11 +55,11 @@ Page({
       }, 'https://api.xaneon.com');
 
       this.setData({
-        songs: res.result.playlists.slice(0, 9),
+        songs: res.result.playlists,
       });
       Toast.clear();
     } catch (err) {
-      console.log(err);
+      console.error(err);
       Toast.fail('加载失败！');
     }
   },

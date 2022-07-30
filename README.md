@@ -6,8 +6,8 @@
   - https://otkyd4jmkr.feishu.cn/docs/doccnziWkIfyYHZbt7CiwN4j7Bg
 - 后端 HOST
   - http://www.thylovezj.space
-  - 临时测试 http://43.138.103.83:8080
-  - 临时测试 https://8fc6-111-18-45-56.jp.ngrok.io
+  - http://43.138.103.83:8080  [测试]
+  - https://8fc6-111-18-45-56.jp.ngrok.io  [测试]
 - 接口文档
   - https://www.apifox.cn/web/project/977035
 - UI 文档
@@ -17,7 +17,7 @@
 - 网易云音乐 API
   - 请求host https://api.xaneon.com
   - 接口文档 https://neteasecloudmusicapi.vercel.app/
-- 微信产生二维码库 wx-qr
+- 微信生成二维码库 wx-qr
   - https://github.com/liuxdi/wx-qr
 - 开发者 Github
   - 陈思远 https://github.com/skyclouds2001
@@ -28,16 +28,32 @@
   - 唐浩瑜 https://github.com/THYLOVEZJ
   - 米国良 https://github.com/MglKsy
   - 李欣悦 https://github.com/Unknownlxy
-  - ~~陈家欢 https://github.com/orangenuinee~~
+  - ~~ 陈家欢 https://github.com/orangenuinee ~~
 
 ## 项目结构
 
 - api 接口方法目录（主要关于与后端交互的接口方法的模块）
+  - album.js 相册接口
+  - checkin.js 打卡接口
+  - exercise.js 训练接口
+  - gesture.js 百度云结果识别接口
+  - memorandum.js 备忘录接口
+  - music.js 音乐接口
+  - news.js 新闻接口
+  - patient.js 病人接口
+  - question.js 问题接口
+  - voice.js 声音接口
 - components 项目组件目录
   - menu 菜单
   - timeline 时间轴
+  - new-tabbar 类 tabbar 组件
 - custom-tab-bar 自定义tabbar目录
-  - index
+- data 数据及设定目录
+  - auctiongoods.js 商城商品信息
+  - baiducloud.js 百度云API设定
+  - cloudmusic.js 网易云音乐APIcookie
+  - patientinfo.js 示例病人信息
+  - sportvideo.js 手指训练视频及封面URL
 - docs 项目文档目录
 - images 本地图片目录（未来部分图片应放到云图床上）
 - icons 本地图标目录
@@ -92,7 +108,7 @@
 
 ## 项目初始化
 
-- 预先安装node/npm并配置node/npm的系统变量
+- 预先安装node/npm并配置node/npm命令行调用
 
 - 根目录运行命令行
 
@@ -109,25 +125,7 @@
 
 - 使用vant
 
-  参考 https://vant-contrib.gitee.io/
-
-  以使用van-button为例
-
-  - 页面json文件配置
-
-  ```json
-  {
-    "usingComponents": {
-      "van-button": "@vant/weapp/button/index"
-    }
-  }
-  ```
-
-  - 页面wxml文件使用
-
-  ```html
-  <van-button type="default">默认按钮</van-button>
-  ```
+  参考 https://vant-contrib.gitee.io/ 官方文档
 
 - 使用 eslint
 
@@ -136,7 +134,7 @@
 
   参考 https://eslint.bootcss.com/
 
-  项目根目录使用终端或命令行运行命令行
+  项目根目录使用终端或命令行运行命令
 
   ```shell
   npm run lint
@@ -163,7 +161,7 @@
   - 暂时使用系统默认导航栏
 
 - 小程序基础库版本
-  - `2.23.4`
+  - `2.25.0`
 
 - DEBUG 模式
   - 临时在app.json中开启debug模式，方便后续调试（发布时应当移除！！！）
@@ -179,8 +177,8 @@
 - Storage 设定
   - openid
   - token
-  - userInfo
-  - logs
+  - userInfo: { avatarUrl, nickName } 昵称及头像
+  - user-type 用户类型，1为老人，2为子女
 
 ## 项目开发约定
 

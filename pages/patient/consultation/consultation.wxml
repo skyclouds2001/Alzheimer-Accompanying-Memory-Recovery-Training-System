@@ -11,28 +11,33 @@
   </view>
 </view>
 
-<view class="h2">
-  <text>专家号</text>
-</view>
+<view class="doctor-box">
+  <view class="h2">
+    <text>专家号</text>
+  </view>
 
-<view class="items" data-index="{{ index }}" bindtap="jumpto" wx:for="{{ login_obj }}" wx:key="whos">
-  <van-image src="{{ item.img_src }}" width="200rpx" height="200rpx" fit="cover" lazy-load class="icon" />
-  <view class="kong"></view>
-  <view class="left">
-    <view class="h1">{{ item.whos }}医生</view>
-    <view class="describe">{{ item.describe }}</view>
+  <view class="items" data-index="{{ index }}" bind:tap="jumpto" wx:for="{{ login_obj }}" wx:key="whos">
 
-    <view class="buttom">
-      <view class="time">
-        <van-icon name="user-o" custom-class="icon1" size="18" />{{title}}:
-      </view>
-      <view class="kong2"></view>
-      <view class="ico2">
-        <van-icon custom-class="icon" name="records" size="16" color="#f07e78" />
-        <view class="tt">{{ item.work_time }} 年</view>
+    <van-image src="{{ item.img_src }}" width="200rpx" height="200rpx" fit="cover" lazy-load class="icon" />
+    <view class="kong"></view>
+
+    <view class="left">
+      <view class="h1">{{ item.whos }}医生</view>
+      <view class="describe">{{ item.describe }}</view>
+
+      <view class="buttom">
+        <view class="time">
+          <van-icon name="user-o" custom-class="icon1" size="18" />{{ item.position }}
+        </view>
+        <view class="kong2"></view>
+        <view class="ico2">
+          <van-icon custom-class="icon" name="records" size="16" color="#f07e78" />
+          <view class="tt">{{ item.work_time }} 年</view>
+        </view>
       </view>
     </view>
 
   </view>
 </view>
+
 <van-toast id="van-toast" />

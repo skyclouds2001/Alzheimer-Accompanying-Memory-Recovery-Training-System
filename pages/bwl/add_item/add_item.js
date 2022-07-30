@@ -1,36 +1,47 @@
-import { request } from '../../../lib/request.js';
+import Toast from '@vant/weapp/toast/toast';
+
+import { addMemorandum } from './../../../api/memorandum';
+
+const token = wx.getStorageSync('token');
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    /**
-   * 导航栏
-   */
-    element_list: [{ title: '事项', url: '../../bwl/beiwanglu' }, { title: '添加事项', url: 'add_item/add_item' }],
-    select_index: 1,
-  },
-  /**
-   * 绑定提交事件
-   * @param {e} event
-   */
-  handdleSubmit (event) {
-    const { title, content } = event.detail.value;
-    this.send_info({ title, content });
-    wx.redirectTo({
-      url: '../beiwanglu',
-    });
+    /** 备忘录标题 */
+    title: '',
+    /** 备忘录内容 */
+    content: '',
   },
 
   /**
-   * 发送数据到后台
-   * @param {obj} param
+   * 提交备忘录表单
    */
-  send_info: function (param) {
-    const token = wx.getStorageSync('token');
-    const p = request({ url: '/v1/memorandum/add', data: param, method: 'POST', header: { authorization: token } });
-    p.then((res) => { console.log(res); });
-    p.catch((err) => { console.log(err); });
+  async handleSubmit () {
+    const { title, content } = this.data;
+    if (!title.trim()) return Toast.fail('');
+    if (!content.trim()) return Toast.fail('');
+
+    try {
+      const res = await addMemorandum(token, title.trim(), content.trim());
+      if (res) {
+        Toast.success('提交成功');
+        this.getOpenerEventChannel().emit('onAddItem');
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1,
+          });
+          this.setData({
+            title: '',
+            content: '',
+          });
+        }, 1500);
+      } else {
+        Toast.fail('提交失败');
+      }
+    } catch (err) {
+      console.error(err);
+      Toast.fail('提交失败');
+    }
   },
+
 });
