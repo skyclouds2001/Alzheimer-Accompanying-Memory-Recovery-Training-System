@@ -1,5 +1,5 @@
 /* 上面的方框盒子 */
-.topbox{
+.topbox {
   border: 1px solid #e6e5e3;
   margin-left: 60rpx;
   margin-right: 60rpx;
@@ -21,12 +21,11 @@
   margin-top: 10px;
   margin-bottom: 350rpx;
 
-  /* csy */
   color: #000000b7;
 }
 
 /* 当未查询到作答数据时 */
-.nofound{
+.nofound {
   font-size: 45rpx;
   text-align: center;
   margin-top: 60px;
@@ -34,31 +33,10 @@
   color: #3b3b3be8;
 }
 
-/* 返回按钮 */
-.back-button {
-  border: 1px solid #e6e5e3;
-  width: 260px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 50rpx;
-  border-radius: 5%;
-  background-color: #54b7ab;
-
-  /* csy */
-  font-size: 37rpx;
-  letter-spacing: 5rpx;
-  font-weight: bold;
-  color: white;
-  border-radius: 25rpx;
-}
-
 /* 提示 */
 .tips {
   margin-top: 100rpx;
-  
-  /* csy */
+
   padding: 0 20rpx;
   font-size: 28rpx;
   color: #838383d3;
