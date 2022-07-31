@@ -1,101 +1,91 @@
 <view id="bgcbox">完善患者信息</view>
 
-<form bindsubmit="formSubmit" >
-<view id="user_info">
-<!-- 头像 -->
-<view id="user_ico"><image id="user_img" src="{{avatarUrl}}" mode="aspectFit"></image></view>
+<form bind:submit="formSubmit">
 
-<!-- 姓名 -->
-<view id="name">
-<view>姓名</view>
-<input name="pname" type="text" placeholder="请输入患者的姓名" class="input" placeholder-style="color:#bebec7;"/>
-</view>
-
-<van-row gutter="15">
-  <van-col span="12">性别</van-col>
-  <van-col span="12">国家或地区</van-col>
-</van-row>
-<view class="block"></view>
-<van-row gutter="15">
-  <!-- 性别选择 -->
-  <van-col span="12">
-    <picker name="sex" bindchange="bindPickerChange1" value="{{index1}}" range="{{array1}}">
-    <view class="picker1">
-      {{array1[index1]}}
+  <view id="user_info">
+    <!-- 头像 -->
+    <view id="user_ico">
+      <image id="user_img" src="{{ avatarUrl }}" mode="aspectFit"></image>
     </view>
-  </picker>
-  </van-col>
-  <!-- 国家或地区选择 -->
-  <van-col span="12">
-    <picker name="place" bindchange="bindPickerChange2" value="{{index2}}" range="{{array2}}">
-    <view class="picker1" >
-      {{array2[index2]}} 
+
+    <!-- 姓名 -->
+    <view id="name">
+      <view>姓名</view>
+      <input name="name" type="text" placeholder="请输入患者的姓名" class="input" placeholder-style="color:#bebec7;" />
     </view>
-  </picker>
-  </van-col>
-</van-row>
 
-<view class="block2"></view>
-<view>文化程度</view>
-<view class="block"></view>
-<picker name="eduBgcground" bindchange="bindPickerChange3"  value="{{index3}}" range="{{array3}}">
-    <view class="picker1">
-      {{array3[index3]}}
-    </view>
-  </picker>
+    <van-row gutter="15">
+      <van-col span="12">性别</van-col>
+      <van-col span="12">国家或地区</van-col>
+    </van-row>
+    <van-row gutter="15">
+      <!-- 性别选择 -->
+      <van-col span="12">
+        <picker name="sex" bind:change="bindPickerChange1" value="{{ sex_index }}" range="{{ array1 }}">
+          <view class="picker1">
+            {{ array1[sex_index] }}
+          </view>
+        </picker>
+      </van-col>
+      <!-- 国家或地区选择 -->
+      <van-col span="12">
+        <picker name="place" bind:change="bindPickerChange2" value="{{ area_index }}" range="{{ array2 }}">
+          <view class="picker1">
+            {{ array2[area_index] }}
+          </view>
+        </picker>
+      </van-col>
+    </van-row>
 
-
-  <van-row gutter="15">
-  <van-col span="12">出生地</van-col>
-  <van-col span="12">居住地</van-col>
-</van-row>
-<view class="block"></view>
-  <van-row gutter="15">
-  <!-- 出生地 -->
-  <van-col span="12">
-    <picker name="province" bindchange="bindPickerChange4" customItem="{{customitem}}"  level="province" mode = "region" value="{{place1}}">
-    <view class="picker1" >
-      {{place1[0]}} 
-    </view>
-  </picker>
-  </van-col>
-  <!-- 居住地-->
-  <van-col span="12">
-    <picker name="address" bindchange="bindPickerChange5" customItem="{{customitem}}"  level="province" mode = "region" value="{{place2}}">
-    <view class="picker1" >
-      {{place2[0]}} 
-    </view>
-  </picker>
-  </van-col>
-</van-row>
+    <view>文化程度</view>
+    <picker name="edu" bindchange="bindPickerChange3" value="{{index3}}" range="{{array3}}">
+      <view class="picker1">
+        {{array3[index3]}}
+      </view>
+    </picker>
 
 
+    <van-row gutter="15">
+      <van-col span="12">出生地</van-col>
+      <van-col span="12">居住地</van-col>
+    </van-row>
+    <van-row gutter="15">
+      <!-- 出生地 -->
+      <van-col span="12">
+        <picker name="province" bindchange="bindPickerChange4" customItem="{{customitem}}" level="province" mode="region" value="{{place1}}">
+          <view class="picker1">
+            {{place1[0]}}
+          </view>
+        </picker>
+      </van-col>
+      <!-- 居住地-->
+      <van-col span="12">
+        <picker name="address" bindchange="bindPickerChange5" customItem="{{customitem}}" level="province" mode="region" value="{{place2}}">
+          <view class="picker1">
+            {{place2[0]}}
+          </view>
+        </picker>
+      </van-col>
+    </van-row>
 
-<view class="block2"></view>
-<view>年龄</view>
-<input name="age" type="text" placeholder="请输入患者的年龄" class="input" placeholder-style="color:#bebec7;"/>
+    <view>年龄</view>
+    <input name="age" type="text" placeholder="请输入患者的年龄" class="input" placeholder-style="color:#bebec7;" />
 
-<view class="block2"></view>
-<view>电话号码</view>
-<input  name="phone_number"type="text" placeholder="请输入患者的电话号码" class="input" placeholder-style="color:#bebec7;"/>
+    <view>电话号码</view>
+    <input name="phone" type="text" placeholder="请输入患者的电话号码" class="input" placeholder-style="color:#bebec7;" />
 
-<view class="block2"></view>
-<view>兴趣爱好</view>
-<input name="hobby" type="text" placeholder="请输入患者的兴趣爱好" class="input" placeholder-style="color:#bebec7;"/>
-<view>患者照片</view>
+    <view>兴趣爱好</view>
+    <input name="hobby" type="text" placeholder="请输入患者的兴趣爱好" class="input" placeholder-style="color:#bebec7;" />
+    <view>患者照片</view>
 
-<view class="block2"></view>
-<van-uploader name="img" file-list="{{ fileList }}" preview-full-image="true" multiple="true" 
-        preview-image="true"
-        max-count="1"
-        bind:after-read="uoload" 
-        deletable="{{ true }}"
-        bind:delete="del"
-         />
+    <van-uploader name="img" file-list="{{ fileList }}" preview-full-image="true" multiple="true" preview-image="true" max-count="1" bind:after-read="uoload" deletable="{{ true }}" bind:delete="del" />
 
-</view>
-<view id="btn_area">
-<button form-type="submit" id="submit_btn">确定</button>
-</view>
+  </view>
+
+  <view id="btn_area">
+    <button form-type="submit" id="submit_btn">确定</button>
+  </view>
+
 </form>
-<van-toast id="van-toast" /> 
+
+<van-toast id="van-toast" />
