@@ -1,7 +1,8 @@
 {
-  "usingComponents": {"van-button": "@vant/weapp/button/index",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index"
   },
-  "navigationBarTitleText": "录入语言"
+  "navigationBarTitleText": "录入语音"
 }
