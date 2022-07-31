@@ -67,7 +67,6 @@ export const getSimpleMemorandum = async (token) => {
       method: 'GET',
       header: {
         Authorization: token,
-        'Content-Type': 'application/json',
       },
       data: {},
     });
@@ -93,7 +92,6 @@ export const getDetailMemorandum = async (token, id) => {
       method: 'GET',
       header: {
         Authorization: token,
-        'Content-Type': 'application/json',
       },
       data: {},
     });
@@ -119,7 +117,6 @@ export const getSearchMemorandum = async (token, search) => {
       method: 'GET',
       header: {
         Authorization: token,
-        'Content-Type': 'application/json',
       },
       data: {},
     });

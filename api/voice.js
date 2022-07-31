@@ -11,7 +11,6 @@ export const getVoice = async (token) => {
       method: 'GET',
       header: {
         authorization: token,
-        'Content-Type': 'application/json',
       },
       data: {},
     });

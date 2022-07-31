@@ -11,7 +11,6 @@ export const getHasegawaQuestion = async (token) => {
       method: 'GET',
       header: {
         Authorization: token,
-        'Content-Type': 'application/json',
       },
       data: {},
     });

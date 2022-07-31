@@ -12,7 +12,6 @@ export const getCheckinDays = async (token, type = 0) => {
       method: 'GET',
       header: {
         Authorization: token,
-        'Content-Type': 'application/json',
       },
       data: {},
     });
@@ -37,7 +36,6 @@ export const getCheckinRecord = async (token) => {
       method: 'GET',
       header: {
         authorization: token,
-        'Content-Type': 'application/json',
       },
       data: {},
     });
