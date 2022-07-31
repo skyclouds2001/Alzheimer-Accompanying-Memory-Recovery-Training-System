@@ -1,5 +1,7 @@
 # 阿尔兹海默症陪伴型记忆恢复训练系统
 
+[![OSCS Status](https://www.oscs1024.com/platform/badge/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.svg?size=small)](https://www.oscs1024.com/project/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System?ref=badge_small)
+
 ## 项目资料
 
 - 产品文档
