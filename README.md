@@ -181,6 +181,7 @@
   - token
   - userInfo: { avatarUrl, nickName } 昵称及头像
   - user-type 用户类型，1为老人，2为子女
+  - patient-id 子女对应患者的openid | 仅子女端
 
 ## 项目开发约定
 
