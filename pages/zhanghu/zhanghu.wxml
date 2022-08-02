@@ -1,6 +1,8 @@
 <view id="bgcbox">账户</view>
+
 <!-- 扫一扫 -->
-<van-icon name="scan" size="35"  class="scanico" bindtap="scanCode"/>
+<van-icon name="scan" size="35" class="scanico" bind:tap="handleScanCode" />
+
 <!-- 用户头像及昵称部分 -->
 <view class="user-info">
   <!-- 用户头像 -->
@@ -12,56 +14,40 @@
     <view class="nickname-text">{{ nickName }}</view>
   </view>
 </view>
+
 <!-- 选项 -->
-
 <van-cell-group inset custom-class="list" bind:tap="handleOpenPopup">
-  <van-cell title="详细信息"  is-link icon="user-o" data-id="{{1}}"/>
-  <van-cell title="vip会员"  is-link icon="vip-card-o" data-id="{{2}}" />
-  <van-cell title="会员兑换码" is-link icon="gift-o" data-id="{{3}}" />
-  <van-cell title="帮助" is-link  icon="question-o" data-id="{{4}}"/>
-  <van-cell title="退出"  is-link icon="close" data-id="{{5}}"/>
-
+  <van-cell title="详细信息" is-link icon="user-o" data-id="{{ 1 }}" />
+  <van-cell title="vip会员" is-link icon="vip-card-o" data-id="{{ 2 }}" />
+  <van-cell title="会员兑换码" is-link icon="gift-o" data-id="{{ 3 }}" />
+  <van-cell title="帮助" is-link icon="question-o" data-id="{{ 4 }}" />
+  <van-cell title="退出" is-link icon="close" data-id="{{ 5 }}" />
 </van-cell-group>
 
 <!-- 会员兑换码弹出层 -->
-<van-dialog
-  use-slot
-  show="{{ show }}"
-  show-cancel-button="{{false}}"
-  show-confirm-button="{{false}}"
-  width="400px"
-  bind:close="clear"
-  z-index="{{5}}"
->
+<van-dialog id="exchange-dialog" use-slot show="{{ show }}" show-confirm-button="{{ false }}" show-cancel-button="{{ false }}" width="400px" bind:close="clear">
 
-  <view class="title">
-  您的兑换码是
-  </view>
+  <view class="title">您的兑换码是</view>
 
   <view class="input_area">
-  
     <view class='content'>
- 
-   <block wx:for="{{Length}}" wx:key="item">
-   <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input>
-   </block>
-
+      <block wx:for="{{ 4 }}" wx:key="item">
+        <input class='iptbox' value="{{ value.length >= index + 1 ? value[index] : '' }}" disabled password='{{ ispassword }}' catchtap='tap' />
+      </block>
+    </view>
+    <input name="password" password="{{ true }}" class='ipt' maxlength="{{ 4 }}" focus="{{ isFocus }}" bindinput="focus" />
   </view>
-  <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input> 
-</view>
-<view class="btn_area">
-<button class="cancel" bindtap="cancel">
-取消
-</button>
-<button class="check" bindtap="check">
-激活
-</button>
-</view>
+
+  <view class="btn_area">
+    <button class="cancel" bind:tap="cancelInput">取消</button>
+    <button class="check" bind:tap="confirmInput">激活</button>
+  </view>
+
 </van-dialog>
-<!-- 弹出模态框：退出登录使用 -->
+
 <van-dialog id="van-dialog" />
-<!-- 激活是否成功提示 -->
+
 <van-toast id="van-toast" />
 
 <!-- tabbar -->
-<new_tab element_list="{{element_list}}" select_index="{{select_index}}"></new_tab>
+<new_tab element_list="{{ element_list }}" select_index="{{ select_index }}"></new_tab>
