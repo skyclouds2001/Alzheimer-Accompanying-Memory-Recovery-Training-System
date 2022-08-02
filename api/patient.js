@@ -15,7 +15,7 @@ export const bindRelation = async (token, openid) => {
         'Content-Type': 'application/json',
       },
       data: {
-        openId: openid,
+        openid: openid,
       },
     });
     if (res.status === 10000) {
