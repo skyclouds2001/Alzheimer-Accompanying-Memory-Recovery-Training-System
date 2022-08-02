@@ -114,12 +114,12 @@ Page({
     switch (id) {
       case 1:
         wx.navigateTo({
-          url: '/pages/mine/patient-info/patient-info',
+          url: './detail_info/detail_info',
         });
         break;
       case 2:
         wx.navigateTo({
-          url: 'vip_page/vip_page',
+          url: './vip_page/vip_page',
         });
         break;
       case 3:
@@ -129,7 +129,7 @@ Page({
         break;
       case 4:
         wx.navigateTo({
-          url: 'help/help',
+          url: './help/help',
         });
         break;
       case 5:
