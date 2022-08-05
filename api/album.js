@@ -73,7 +73,6 @@ export const getAlbumFolderAndImage = async (token, parent) => {
       method: 'GET',
       header: {
         Authorization: token,
-        'Content-Type': 'application/json',
       },
       data: {
         parentId: parent,

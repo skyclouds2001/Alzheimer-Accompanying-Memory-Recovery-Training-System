@@ -2,18 +2,18 @@
 <view class="head_box">
   <image mode="widthFix" src="https://s1.ax1x.com/2022/05/18/OTj0XR.png"> </image>
 </view>
-<!-- 中间菜单 -->
 
+<!-- 中间菜单 -->
 <view class="middle_box">
   <view class="h1">会员权益</view>
   <view class="item_box1">
-     <view class="item1" wx:for="{{item_list1}}" wx:key="text">
+    <view class="item1" wx:for="{{item_list1}}" wx:key="text">
       <view class="left1">
-      <image src="{{item.src}}" mode="widthFix"></image>
-     </view>
+        <image src="{{item.src}}" mode="widthFix"></image>
+      </view>
       <view class="right1">
         <view class="text1">
-           {{item.text}}
+          {{item.text}}
         </view>
         <view class="describe1">
           {{item.describe}}
@@ -26,22 +26,20 @@
 
 <!-- 尾部菜单 -->
 <view class="tail_box">
-  
+
   <view id="line1">
 
     <view class="item" wx:for="{{item_list2}}" wx:key="text">
       <view class="top2">
         <image src="{{item.src}}" mode="widthFix"></image>
-        
+
       </view>
-      <view class="buttom2">
-           {{item.text}}
-      </view>
+      <view class="buttom2">{{item.text}}</view>
     </view>
   </view>
 
   <view id="line2">
-    <view class="choice {{select_index===index ? 'selected' : ''}}" wx:for="{{price_list}}" wx:key="time" data-choice="{{index}}" bindtap="select" >
+    <view class="choice {{select_index===index ? 'selected' : ''}}" wx:for="{{price_list}}" wx:key="time" data-choice="{{index}}" bindtap="select">
       <view class="time">{{item.time}}</view>
       <view class="price1">
         <view class="fuhao">￥</view>
@@ -51,18 +49,13 @@
       <view class="tip">{{item.describe}}</view>
     </view>
   </view>
-  <view class="tip2">
-  到期按￥30.0自动续费，可随时取消
-  </view>
+  <view class="tip2">到期按￥30.0自动续费，可随时取消</view>
 </view>
 <view class="permission">
-  <label ><radio bindtap="change_radio" value="isagreed" checked="{{ischecked}}"></radio> 已阅读并同意<navigator id="xieyi" url="#">《付费协议》</navigator ></label>
+  <label>
+    <radio bindtap="change_radio" value="isagreed" checked="{{ischecked}}"></radio> 已阅读并同意<navigator id="xieyi" url="#">《付费协议》</navigator>
+  </label>
 </view>
 <view id="submit"><button id="submit_btn" disabled="{{!ischecked||select_index===-1}}" bindtap="active">立即开通</button></view>
 
-<!-- 临时提示框 -->
 <van-toast id="van-toast" />
-
-
-
-

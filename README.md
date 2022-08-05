@@ -1,5 +1,7 @@
 # 阿尔兹海默症陪伴型记忆恢复训练系统
 
+[![OSCS Status](https://www.oscs1024.com/platform/badge/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System.svg?size=small)](https://www.oscs1024.com/project/skyclouds2001/Alzheimer-Accompanying-Memory-Recovery-Training-System?ref=badge_small)
+
 ## 项目资料
 
 - 产品文档
@@ -179,6 +181,7 @@
   - token
   - userInfo: { avatarUrl, nickName } 昵称及头像
   - user-type 用户类型，1为老人，2为子女
+  - patient-id 子女对应患者的openid | 仅子女端
 
 ## 项目开发约定
 

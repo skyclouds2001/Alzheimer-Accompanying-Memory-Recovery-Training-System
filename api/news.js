@@ -13,7 +13,6 @@ export const getNews = async (token, num = 1, size = 10) => {
       method: 'GET',
       header: {
         Authorization: token,
-        'Content-Type': 'application/json',
       },
       data: {
         pageNum: num,

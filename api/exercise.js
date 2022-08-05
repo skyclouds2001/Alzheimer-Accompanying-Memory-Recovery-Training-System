@@ -45,7 +45,6 @@ export const getExerciseRecord = async (token, num = 1, size = 10) => {
       method: 'GET',
       header: {
         authorization: token,
-        'Content-Type': 'application/x-www-form-urlencoded',
       },
       data: {
         PageNum: num,
