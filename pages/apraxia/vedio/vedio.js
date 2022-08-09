@@ -18,7 +18,6 @@ Page({
      * 视频封面
      */
     fengmian_src: '',
-
     /**
      * 当前播放视频index
      */

@@ -1,5 +1,7 @@
 .section {
   margin: 400rpx auto;
+.section{
+  margin: 300rpx auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +24,4 @@
   line-height: 100rpx;
   right: 150rpx;
   border-radius: 25rpx;
-}
-
-page {
-  background: url(https://s1.ax1x.com/2022/05/11/OdslOe.jpg);
 }
