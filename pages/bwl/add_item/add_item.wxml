@@ -1,40 +1,15 @@
-<form bindsubmit="handdleSubmit" >
-
-
-
-<view class="title_area" >
-<view class="h1">
-     标题
-</view>
-     <input class="title" value="" type="text" placeholder="请在此输入标题" placeholder-style="" name="title">
- </input>
+<view class="title_area">
+  <view class="h1">标题</view>
+  <input class="title" model:value="{{ title }}" type="text" placeholder="请在此输入标题" placeholder-style="" />
 </view>
 
-
-
-
- <view class="content_area" >
- <view class="h1">
-     内容
- </view>
-  <textarea class="content" value="" placeholder="请在此输入内容" placeholder-style="" name="content" maxlength="2000">
-     
- </textarea>    
- </view>
-
-<view class="btn_area" >
-    <button class="submit" size="default" form-type="submit" >
-        创建事项
-    </button>
+<view class="content_area">
+  <view class="h1">内容</view>
+  <textarea class="content" model:value="{{ content }}" placeholder="请在此输入内容" placeholder-style="" maxlength="2000" />
 </view>
-    
-</form>
 
+<view class="btn_area">
+  <button class="submit" size="default" bind:tap="handleSubmit">创建事项</button>
+</view>
 
-
-
-
-
-
-<!--tabbar-->
-<new_tab element_list="{{element_list}}" select_index="{{select_index}}"></new_tab>
+<van-toast id="van-toast" />

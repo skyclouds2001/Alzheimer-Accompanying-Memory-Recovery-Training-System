@@ -4,5 +4,5 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-image": "@vant/weapp/image/index"
   },
-  "navigationBarTitleText": "个人信息"
+  "navigationBarTitleText": "详细信息"
 }

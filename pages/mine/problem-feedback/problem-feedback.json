@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index"
+  },
   "navigationBarTitleText": "问题反馈"
 }

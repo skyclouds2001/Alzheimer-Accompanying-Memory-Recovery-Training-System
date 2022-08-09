@@ -3,6 +3,7 @@
 Thumbs.db
 $RECYCLE.BIN/
 .vscode/
+.idea/
 
 # macOS
 .DS_Store
@@ -14,6 +15,3 @@ $RECYCLE.BIN/
 # Node.js
 node_modules/
 miniprogram_npm/
-
-# wexin
-project.private.config.json

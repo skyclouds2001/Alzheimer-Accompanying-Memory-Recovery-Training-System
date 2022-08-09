@@ -1,7 +1,10 @@
+const token = wx.getStorageSync('token');
+
 // 录音对象
 const recorder = wx.getRecorderManager();
 const ACCESS_KEY = 'YE3fgvbGgZeXtdk0OTdHHUFq';
 const ACCESS_SECRET = 'orGMQMLsdK6prPVInB81IlQCZhKZHiHB';
+
 function getToken () {
   wx.request({
     url: `https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=${ACCESS_KEY}&client_secret=${ACCESS_SECRET}`,
@@ -23,7 +26,7 @@ function soundReco (data) {
       filePath: data,
       name: 'file',
       header: {
-        authorization: wx.getStorageSync('token'),
+        authorization: token,
       },
       formData: {
         method: 'POST',
@@ -35,18 +38,34 @@ function soundReco (data) {
     });
   });
 }
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
     audio_path: '',
     audio_data: undefined,
     recognize_result: '',
     URL: '',
   },
+
+  onLoad: function () {
+    getToken();
+
+    console.log(wx.getStorageSync('user-token'));
+    wx.getSetting({
+      success (res) {
+        if (!res.authSetting['scope.record']) {
+          wx.authorize({
+            scope: 'scope.record',
+            success () {
+              wx.startRecord();
+            },
+          });
+        }
+      },
+    });
+  },
+
   startRecord () {
     const options = {
       sampleRate: 16000, // 采样率16k
@@ -58,7 +77,7 @@ Page({
       console.log('Recording!~~~');
     });
     recorder.onError(err => {
-      console.log(err);
+      console.error(err);
     });
   },
 
@@ -75,7 +94,7 @@ Page({
         url: 'https://4b4e-111-18-45-56.jp.ngrok.io/v1/voice',
         data: { url: that.data.URL },
         header: {
-          authorization: wx.getStorageSync('token'),
+          authorization: token,
         },
         method: 'POST',
         success: (result) => {},
@@ -98,24 +117,5 @@ Page({
       });
     });
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    getToken();
 
-    console.log(wx.getStorageSync('user-token'));
-    wx.getSetting({
-      success (res) {
-        if (!res.authSetting['scope.record']) {
-          wx.authorize({
-            scope: 'scope.record',
-            success () {
-              wx.startRecord();
-            },
-          });
-        }
-      },
-    });
-  },
 });

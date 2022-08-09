@@ -1,9 +1,15 @@
-<!-- 标题 -->
-<view class="title">{{title}}</view>
-<!-- 正文 -->
-<view class="text">
-<rich-text nodes="{{text}}"></rich-text>
+<!-- 背景 -->
+<view class="bg"></view>
+
+<view class="article">
+  <!-- 标题 -->
+  <view class="title">{{ title }}</view>
+
+  <!-- 正文 -->
+  <view class="text">
+    <rich-text nodes="{{ text }}" user-select></rich-text>
+  </view>
+
 </view>
 
-
-
+<view class="empty" style="height: 1rpx;"></view>

@@ -1,3 +1,7 @@
 {
-  "usingComponents": {"new_tab":"../../../components/new_tabbar/new_tabbar"}
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index",
+    "new_tab": "../../../components/new_tabbar/new_tabbar"
+  },
+  "navigationBarTitleText": "添加备忘"
 }

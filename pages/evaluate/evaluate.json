@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-dialog": "@vant/weapp/dialog/index"
   },
   "navigationBarTitleText": "病情评定"
 }

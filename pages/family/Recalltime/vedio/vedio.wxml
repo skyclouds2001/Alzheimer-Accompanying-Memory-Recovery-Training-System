@@ -1,19 +1,18 @@
 <view class="count_summary">
-<view class="toptext">{{albumquantity}}相册</view>
-<view class="toptext">{{photoquantity}}照片</view>
-<view class="toptext">{{videoquantity}}视频</view>
+  <view class="toptext">{{albumquantity}}相册</view>
+  <view class="toptext">{{photoquantity}}照片</view>
+  <view class="toptext">{{videoquantity}}视频</view>
 </view>
 
 <view class="totalbox">
-<view class class="photobox"><image src="/images/add_video.png" class="photo"></image></view>
-<view class="text">新建视频</view>
+  <view class class="photobox">
+    <image src="/images/add_video.png" class="photo"></image>
+  </view>
+  <view class="text">新建视频</view>
 </view>
 
 <view class="false_tabbar">
-<view class="skippage" bindtap="album">相册</view>
-<view class="skippage" bindtap="photo">照片</view>
-<view class="skippage1">视频</view>
+  <navigator class="skippage" url="./../Recalltime">相册</navigator>
+  <navigator class="skippage" url="./../photo/photo">照片</navigator>
+  <navigator class="skippage-current" url="./">视频</navigator>
 </view>
-<!-- <df-tabbar></df-tabbar> -->
-
-

@@ -1,27 +1,29 @@
+<view class="items" data-index="{{ index }}" bindtap="jumpto" wx:for="{{ login_obj }}" wx:key="whos">
 
+  <image src="{{ item.img_src }}" class="icon"></image>
+  <view class="kong"></view>
+  <view class="left">
+    <view class="h1">我是{{ item.whos }}</view>
+    <view class="describe">{{ item.describe }}</view>
 
-<view class="items" data-index="{{index}}" bindtap="jumpto" wx:for="{{login_obj}}" wx:key="whos">
+    <view class="buttom">
+      <view class="time">
+        <icon class="ico1" type="waiting" size="18" color="#bae2dd"></icon>{{ hour }}:{{ min }}
+      </view>
+      <view class="kong2"></view>
+      <view class="ico2">
+        <icon class="phone" type="success" size="15" color="#f07e78"></icon>
+        <view class="tt">进入</view>
+      </view>
+    </view>
 
-<image src="{{item.img_src}}" class="icon"></image>
-<view class="kong"></view>
-<view class="left">
-<view class="h1">我是{{item.whos}}</view>
-<view class="describe">{{item.describe}}</view>
-
-<view class="buttom">
-<view class="time" ><icon class="ico1" type="waiting" size="18" color="#bae2dd"></icon>{{hour}}:{{min}}</view>
-<view class="kong2"></view>
-<view class="ico2">
-<icon class="phone" type="success" size="15" color="#f07e78"></icon>
-<view class="tt">进入</view>
- </view>
-</view>
-
-</view>
+  </view>
 </view>
 
 <view id="box">
-  <button id="detail" bindtap="show_detail">详情点击此处</button>
+  <button id="detail" bind:tap="show_detail">详情点击此处</button>
 </view>
 
-
+<van-toast id="van-toast">
+  <van-icon name="info-o" size="50px" />
+</van-toast>
