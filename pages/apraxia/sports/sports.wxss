@@ -1,89 +1,39 @@
-page{
+page {
+  width: 100vw;
+  height: 100vh;
+}
+
+.image {
   width: 100%;
-  height: 100%;
+  height: 560rpx;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  left: 0rpx;
+  top: 0rpx;
 }
 
-/* 按钮 */
-.frame {
-  width: 90%;
-  margin: 40px auto;
-  text-align: center;
-}
-button {
-  margin: 20px;
-}
-
-/* 自引入按钮样式 */
-.custom-btn {
-  width: 130px;
-  height: 40px;
-  color: #fff;
-  border-radius: 5px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  box-shadow:
-    inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    7px 7px 20px 0px rgba(0,0,0,.1),
-    4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
-}
-.btn-12{
-  position: relative;
-  padding-left: 0rpx;
-  border:none;
-  box-shadow: none;
-  width: 140px;
-  height: 40px;
-  line-height: 42px;
-  perspective: 230px;
-}
-.btn-12 span {
-  background: rgb(0,172,238);
-  background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
-  display: block;
+.images {
+  top: 0rpx;
+  width: 100%;
+  height: 560rpx;
+  overflow: hidden;
   position: absolute;
-  width: 140px;
-  height: 40px;
-  box-shadow:
-    inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    7px 7px 20px 0px rgba(0,0,0,.1),
-    4px 4px 5px 0px rgba(0,0,0,.1);
-  border-radius: 5px;
-  margin:0px;
-  text-align: center;
-  box-sizing: border-box;
-  transition: all .3s;
 }
-.btn-12 span:nth-child(1) {
-  box-shadow:
-    -7px -7px 20px 0px #fff9,
-    -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002,
-    4px 4px 5px 0px #0001;
-  transform: rotateX(90deg);
-  transform-origin: 50% 50% -20px;
+
+.content {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
 }
-.btn-12 span:nth-child(2) {
-  transform: rotateX(0deg);
-  transform-origin: 50% 50% -20px;
+
+.button {
+  margin: 20px;
+  width: 80%;
+  flex-direction: column;
+  align-items: center
 }
-.btn-12:hover span:nth-child(1) {
-  box-shadow:
-    inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    7px 7px 20px 0px rgba(0,0,0,.1),
-    4px 4px 5px 0px rgba(0,0,0,.1);
-  transform: rotateX(0deg);
-}
-.btn-12:hover span:nth-child(2) {
-  box-shadow:
-    inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    7px 7px 20px 0px rgba(0,0,0,.1),
-    4px 4px 5px 0px rgba(0,0,0,.1);
-  color: transparent;
-  transform: rotateX(-90deg);
+
+.btn {
+  border-radius: 30rpx !important;
 }

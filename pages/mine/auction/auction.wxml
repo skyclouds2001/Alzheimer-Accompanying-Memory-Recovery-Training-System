@@ -1,0 +1,35 @@
+<!-- 搜索框 -->
+<view class="search-bar">
+  <van-search value="{{ value }}" placeholder="搜索" shape="round" input-align="left" left-icon="" right-icon="search" bind:search="handleSearch" />
+</view>
+
+<!-- 类型选择 -->
+<view class="choose-btn">
+  <view class="choose-item classify">
+    <view class="icon"><van-icon name="filter-o" /></view>
+    <view class="text">分类</view>
+  </view>
+  <view class="choose-item discount">
+    <view class="icon"><van-icon name="discount" /></view>
+    <view class="text">优惠</view>
+  </view>
+  <view class="choose-item shoppingmall">
+    <view class="icon"><van-icon name="shopping-cart-o" /></view>
+    <view class="text">超市</view>
+  </view>
+</view>
+
+<!-- 商品列表 -->
+<view class="good-list">
+  <block wx:for="{{ goodsList }}" wx:key="id">
+    <view class="good-item">
+      <van-image custom-class="good-item-image" src="{{ item.url }}" fit="cover" lazy-load />
+      <view class="good-item-title">{{ item.title }}</view>
+      <view class="good-item-price">{{ item.price }}积分</view>
+      <view class="good-item-like"><van-icon name="like-o" /></view>
+    </view>
+    <view class="good-item" wx:if="{{ goodsList.length % 2 === 1 }}">
+      <van-empty class="empty-item" />
+    </view>
+  </block>
+</view>

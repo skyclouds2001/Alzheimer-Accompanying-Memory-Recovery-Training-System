@@ -3,6 +3,7 @@
 Thumbs.db
 $RECYCLE.BIN/
 .vscode/
+.idea/
 
 # macOS
 .DS_Store
@@ -11,7 +12,7 @@ $RECYCLE.BIN/
 .TemporaryItems
 .Trashes
 
-# Node.js
+# npm
 node_modules/
 miniprogram_npm/
 

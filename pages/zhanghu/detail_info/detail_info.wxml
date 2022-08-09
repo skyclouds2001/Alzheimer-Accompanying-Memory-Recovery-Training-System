@@ -1,0 +1,26 @@
+<view class="bg"></view>
+
+<view class="content">
+
+  <!-- 用户头像 -->
+  <view class="avator-img">
+    <van-image fit="cover" lazy-load custom-class="avator" src="{{ avatar }}" />
+  </view>
+
+  <!-- 用户信息列表 -->
+  <van-cell-group inset custom-class="userinfo-list">
+    <van-cell title="姓名" value="{{ info.name }}" />
+    <van-cell title="性别" value="{{ info.sex }}" />
+    <van-cell title="民族" value="{{ info.nationality }}" />
+    <van-cell title="年龄" value="{{ info.age }}" />
+    <van-cell title="国家" value="{{ info.nation }}" />
+    <van-cell title="文化程度" value="{{ info.edu }}" />
+    <van-cell title="出生地" value="{{ info.birthland }}" />
+    <van-cell title="现居地" value="{{ info.liveplace }}" />
+    <van-cell title="家庭住址" value="{{ info.address }}" />
+    <van-cell title="电话号码" value="{{ info.phone }}" />
+    <van-cell title="电子邮箱" value="{{ info.email }}" />
+    <van-cell title="兴趣爱好" value="{{ info.hobby }}" />
+  </van-cell-group>
+
+</view>

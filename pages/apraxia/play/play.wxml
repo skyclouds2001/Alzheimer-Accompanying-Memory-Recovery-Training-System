@@ -1,14 +1,15 @@
 <view class="content">
   <!-- 背景大图 -->
-  <image class="big_img" src="{{ imgUrl }}"></image>
-  <view class="title">{{ name }}</view>
+  <image class="big_img" src="{{ song_img }}"></image>
+
+  <!-- <view class="title">{{ song_name }}</view> -->
 
   <!-- 中间区域 -->
   <view class="middle">
     <swiper class="middle-swiper">
       <swiper-item class="cd-wrapper">
         <view class="cd-image">
-          <image src="{{ imgUrl }}"></image>
+          <image class="{{ isPlay ? 'animate' : ''}}" mode="aspectFill" src="{{ song_img }}"></image>
         </view>
       </swiper-item>
     </swiper>
@@ -16,9 +17,9 @@
 
   <!-- 播放控制 -->
   <view class="controls">
-    <text class="text">{{ isPlayingText }}</text>
-    <text class="icon {{ isPlaying ? 'iconfont icon-stop' : 'iconfont icon-play' }}" bindtap="play"></text>
-    <text class="text">{{ isLikeText }}</text>
-    <text class="icon {{ isLike ? 'iconfont icon-like' : 'iconfont icon-dislike' }}" bindtap="like"></text>
+    <view class="icon {{ isPlay ? 'iconfont icon-stop' : 'iconfont icon-play' }}" bind:tap="handlePlayMusic"></view>
+    <view class="icon {{ isLike ? 'iconfont icon-like' : 'iconfont icon-dislike' }}" bind:tap="handleLikeMusic"></view>
   </view>
 </view>
+
+<van-toast id="van-toast" />

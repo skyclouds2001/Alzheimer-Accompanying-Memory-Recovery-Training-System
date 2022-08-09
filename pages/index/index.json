@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "mp-tabs": "../../components/tabs/index"
-  }
+    "van-toast": "@vant/weapp/toast/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
+  "navigationBarTitleText": "登录"
 }

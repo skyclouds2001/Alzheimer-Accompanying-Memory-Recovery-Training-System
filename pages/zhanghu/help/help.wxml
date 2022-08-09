@@ -1,0 +1,4 @@
+<text id="te">联系电话：10086</text>
+<button open-type="contact" class="contact" type="warn">联系我们</button>
+<button open-type="feedback" class="feedback" type="primary">意见反馈</button>
+<navigator id="read" url="javascript:;">消费者须知</navigator>

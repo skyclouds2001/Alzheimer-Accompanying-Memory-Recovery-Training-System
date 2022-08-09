@@ -1,0 +1,62 @@
+/* 整个展示框 */
+.showbox {
+  height: 250rpx;
+  margin: 25rpx;
+  padding: 25rpx 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 1rpx solid #ccc;
+}
+
+/* 图片 */
+.picture {
+  flex: 1;
+
+  width: 200rpx;
+  height: 200rpx;
+}
+
+/* 标题及内容盒子 */
+.newstext {
+  flex: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* 标题 */
+.newstitle {
+  font-weight: 500;
+  font-size: 40rpx;
+  letter-spacing: 1rpx;
+  line-height: 1.5em;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  height: 1.5em;
+
+  overflow: hidden;
+}
+
+/* 文章简介 */
+.partcontent {
+  line-height: 1.25em;
+  text-overflow: ellipsis;
+
+  height: 2.5em;
+
+  overflow: hidden;
+}
+
+/* 盒子向右箭头 */
+.box-icon {
+  flex: 0.25;
+}

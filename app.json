@@ -1,10 +1,19 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/train/train",
+    "pages/patient/patient",
+    "pages/patient/consultation/consultation",
     "pages/mine/mine",
+    "pages/mine/auction/auction",
+    "pages/mine/patient-info/patient-info",
+    "pages/mine/problem-feedback/problem-feedback",
+    "pages/mine/about/about",
+    "pages/train-record/train-record",
     "pages/checkin/checkin",
     "pages/evaluate/evaluate",
     "pages/evaluate/main/main",
+    "pages/evaluate/init/init",
     "pages/apraxia/apraxia",
     "pages/apraxia/index/index",
     "pages/apraxia/list/list",
@@ -12,8 +21,26 @@
     "pages/apraxia/play/play",
     "pages/apraxia/sports/sports",
     "pages/apraxia/vedio/vedio",
+    "pages/apraxia/testing/testing",
     "pages/agnosia/agnosia",
-    "pages/logs/logs"
+    "pages/family/family",
+    "pages/family/voice/voice",
+    "pages/family/submitinfo/submitinfo",
+    "pages/family/latest_diagnosis/report-of-family",
+    "pages/family/adscience/adscience",
+    "pages/family/adscience/article_show/article_show",
+    "pages/family/Recalltime/Recalltime",
+    "pages/family/Recalltime/photo/photo",
+    "pages/family/Recalltime/vedio/vedio",
+    "pages/zhanghu/zhanghu",
+    "pages/zhanghu/detail_info/detail_info",
+    "pages/zhanghu/vip_page/vip_page",
+    "pages/zhanghu/help/help",
+    "pages/bwl/beiwanglu",
+    "pages/bwl/detail/detail",
+    "pages/bwl/add_item/add_item",
+    "pages/recall_mode/recall_mode",
+    "pages/family/train-record/train-record"
   ],
   "entryPagePath": "pages/index/index",
   "window": {
@@ -24,46 +51,49 @@
     "backgroundColor": "#fff",
     "backgroundTextStyle": "dark",
     "restartStrategy": "homePage",
-    "initialRenderingCache": "static",
-    "visualEffectInBackground": "hidden"
+    "initialRenderingCache": "static"
   },
   "tabBar": {
+    "custom": true,
     "color": "#2c2c2c",
     "selectedColor": "#158261",
     "backgroundColor": "#fff",
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "./icons/home.png",
-        "selectedIconPath": "./icons/home-selected.png"
+        "pagePath": "pages/patient/patient",
+        "text": "诊断"
       },
       {
-        "pagePath": "pages/evaluate/evaluate",
-        "text": "诊断",
-        "iconPath": "./icons/diagnose.png",
-        "selectedIconPath": "./icons/diagnose-selected.png"
+        "pagePath": "pages/train/train",
+        "text": "训练"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的",
-        "iconPath": "./icons/mine.png",
-        "selectedIconPath": "./icons/mine-selected.png"
+        "text": "我的"
+      },
+      {
+        "pagePath": "pages/recall_mode/recall_mode",
+        "text": "回忆模式"
       }
     ],
     "position": "bottom"
   },
   "networkTimeout": {
-    "request": 15000,
-    "uploadFile": 15000,
-    "downloadFile": 15000,
-    "connectSocket": 15000
+    "request": 30000,
+    "uploadFile": 30000,
+    "downloadFile": 30000,
+    "connectSocket": 30000
   },
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
-  "requiredBackgroundModes": ["audio"],
-
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "usingComponents": {
+    "df-tabbar": "./custom-tab-bar/index",
+    "i-menu": "./components/menu/menu"
+  },
   "debug": true,
   "debugOptions": {
     "enableFPSPanel": true

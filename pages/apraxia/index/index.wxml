@@ -1,22 +1,24 @@
 <!-- 背景图片 -->
-<view class="image">
-  <image class="background_img" src="https://img2.baidu.com/it/u=4253176896,1055633857&fm=253&fmt=auto&app=138&f=JPEG?w=748&h=500"></image>
-</view>
+<view class="bg"></view>
+
+<!-- 空白 -->
+<view class="block"></view>
 
 <!-- 歌曲内容区 -->
 <view class="container">
-    <view wx:for="{{ array }}" wx:key="id" class="content_item">
-      <view class="item" bindtap="handleItem" data-id="{{item.id}}">
-        <image src="{{ item.picUrl }}"></image>
-        <text>{{ item.name }}</text>
+  <view wx:for="{{ songs }}" wx:key="id" class="content_item">
+    <view class="item" bind:tap="handleItem" data-id="{{ item.id }}">
+      <image src="{{ item.coverImgUrl }}" mode="aspectFit" lazy-load></image>
+      <text>{{ item.name }}</text>
     </view>
   </view>
 </view>
 
 <!-- 我的喜欢按钮 -->
 <view class="my_songs">
-    <button class="button" bindtap="handleMySongs">
-      <span>我的喜欢</span>
-    </button>
+  <view class="btn">
+    <van-button color="#00ae9d" size="large" round type="info" bind:tap="handleMySongs" plain type="primary">我的喜欢</van-button>
+  </view>
 </view>
 
+<van-toast id="van-toast" />

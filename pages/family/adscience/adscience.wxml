@@ -1,0 +1,14 @@
+<view class="showbox" wx:for="{{ newslist }}" wx:key="id" data-id="{{ item.id }}" bind:tap="handleOpenArticleInfo">
+  <view class="picture">
+    <van-image width="100" height="100" src="{{ item.pic }}" fit="cover" lazy-load show-error show-loading />
+  </view>
+  <view class="newstext">
+    <view class="newstitle">{{ item.title }}</view>
+    <view class="partcontent">{{ item.introduction }}</view>
+  </view>
+  <view class="box-icon">
+    <van-icon name="arrow" />
+  </view>
+</view>
+
+<van-toast id="van-toast" />

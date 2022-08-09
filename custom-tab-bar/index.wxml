@@ -1,0 +1,14 @@
+<view class="df-tabbar">
+  <navigator open-type="switchTab" url="/pages/patient/patient" class="{{ select !== 0 ? 'unselected' : 'selected' }}">
+    诊断
+  </navigator>
+  <navigator open-type="switchTab" url="/pages/train/train" class="{{ select !== 1 ? 'unselected' : 'selected' }}">
+    训练
+  </navigator>
+  <navigator open-type="switchTab" url="/pages/mine/mine" class="{{ select !== 2 ? 'unselected' : 'selected' }}">
+    个人中心
+  </navigator>
+  <navigator open-type="switchTab" url="/pages/recall_mode/recall_mode" class="{{ select !== 3 ? 'unselected' : 'selected' }}">
+    回忆模式
+  </navigator>
+</view>

@@ -1,0 +1,42 @@
+.df-tabbar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 5em;
+  margin: 0;
+  padding: 1em 5vw;
+
+  background-color: white;
+  box-shadow: 0 0 5rpx #ccc;
+
+  font-size: 32rpx;
+}
+
+.unselected, .selected {
+  width: 33%;
+  height: 3em;
+  margin: 0 5rpx;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000rpx;
+
+  transition: all 250ms ease-in-out 0;
+}
+
+.unselected {
+  color: rgb(84, 184, 172);
+  background-color: rgb(230, 250, 250);
+}
+.selected {
+  color: rgb(230, 250, 250);
+  background-color: rgb(84, 184, 172);
+}

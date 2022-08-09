@@ -1,0 +1,97 @@
+.count_summary {
+  /* 顶部的数据展示（包括上了三个部分） */
+  border: 1px solid #ffffff;
+  height: 28px;
+  width: 165px;
+  margin: 0 auto;
+  margin-bottom: 55px;
+  margin-top: 5px;
+}
+
+.toptext {
+  /* 顶部三个部分的每一个部分的配置 */
+  float: left;
+  font-size: 17px;
+  color: #424242f3;
+  margin-left: 6px;
+  height: 1px;
+}
+
+.totalbox {
+  /* 包括照片和下面的文字 */
+  border: 1px solid #ffffff;
+  float: left;
+  margin-left: 6.5%;
+  margin-bottom: 40px;
+}
+
+.photobox {
+  /* 放照片的框子 */
+  border: 1px solid #ffffff;
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 18px;
+  box-shadow: 0 2.5px 4px 1.5px #646464a2;
+}
+
+.photo {
+  /* 新建文件的提示图片 */
+  width: 130rpx;
+  height: 130rpx;
+  margin-left: 85rpx;
+  margin-top: 85rpx;
+}
+
+.text {
+  /* 照片框下面的简介文字 */
+  text-align: center;
+  color: #3d3d3d;
+  margin-top: 15px;
+}
+
+/* 包括相册照片视频三个项 */
+.false_tabbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 10rpx 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0 5rpx 0 #eee;
+}
+
+/* 下面两项是false-tabbar部分 */
+/* 单个项 */
+.skippage {
+  border: 1px solid #6868680a;
+  width: 215rpx;
+  height: 95rpx;
+  margin-left: 5px;
+  border-radius: 30px;
+  background-color: #edfbfb;
+  font-size: 18px;
+  color: #54b7ab;
+  text-align: center;
+  padding-top: 20rpx;
+  float: left
+}
+
+/* 当前页面下被选择的项 */
+.skippage-current {
+  border: 1px solid #6868680a;
+  width: 215rpx;
+  height: 95rpx;
+  margin-left: 5px;
+  border-radius: 30px;
+  background-color: #54b7ab;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 20rpx;
+  float: left
+}

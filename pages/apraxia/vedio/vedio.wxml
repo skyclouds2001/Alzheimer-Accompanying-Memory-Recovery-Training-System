@@ -1,4 +1,7 @@
 <view class="section">
-  <video id="myVideo" src="{{ vedio_src[index] }}" controls title="手指训练{{ index }}" poster="{{fengmian_src[index]}}"></video>
+  <video class="myVideo" src="{{ vedio_src }}" controls title="手指训练{{ index }}" poster="{{ fengmian_src }}" bindplay="handleVideoPlay" bindpause="handleVideoPause" bindended="handleVideoEnded"></video>
 </view>
-<view id="tip">请跟我一起做吧</view>
+
+<view class="tip">请跟我一起做吧</view>
+
+<van-toast id="van-toast" />

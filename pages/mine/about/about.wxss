@@ -1,0 +1,56 @@
+page {
+  font-size: 36rpx;
+
+  width: 100vw;
+  height: 100vh;
+  padding: 100rpx 0;
+
+  position: relative;
+
+  --theme-color: #54b8ac;
+}
+
+/* 背景特殊图案元素 */
+.bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -10;
+
+  background-color: white;
+
+  width: 100vw;
+  height: 100vh;
+}
+.bg::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -5;
+
+  content: '';
+
+  background-color: var(--theme-color, rgb(84, 184, 172));
+  border-radius: 50rpx;
+
+  width: 100vw;
+  height: 100vh;
+
+  transform: translateY(-50%);
+}
+
+/* 内容 */
+.about-us {
+  width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 50rpx;
+
+  background-color: white;
+  border-radius: 50rpx;
+  box-shadow: 5rpx 5rpx 10rpx #aaa;
+
+  font-size: 34rpx;
+  letter-spacing: 1rpx;
+  line-height: 1.25em;
+}

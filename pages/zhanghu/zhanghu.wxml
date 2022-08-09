@@ -1,0 +1,53 @@
+<view id="bgcbox">账户</view>
+
+<!-- 扫一扫 -->
+<van-icon name="scan" size="35" class="scanico" bind:tap="handleScanCode" />
+
+<!-- 用户头像及昵称部分 -->
+<view class="user-info">
+  <!-- 用户头像 -->
+  <view class="avatar">
+    <van-image width="100" height="100" src="{{ avatarUrl }}" fit="cover" show-loading show-error lazy-load bind:click="onGetUserProfile" custom-class="avatar-img" image-class="img"></van-image>
+  </view>
+  <!-- 用户昵称 -->
+  <view class="nickname">
+    <view class="nickname-text">{{ nickName }}</view>
+  </view>
+</view>
+
+<!-- 选项 -->
+<van-cell-group inset custom-class="list" bind:tap="handleOpenPopup">
+  <van-cell title="详细信息" is-link icon="user-o" data-id="{{ 1 }}" />
+  <van-cell title="vip会员" is-link icon="vip-card-o" data-id="{{ 2 }}" />
+  <van-cell title="会员兑换码" is-link icon="gift-o" data-id="{{ 3 }}" />
+  <van-cell title="帮助" is-link icon="question-o" data-id="{{ 4 }}" />
+  <van-cell title="退出" is-link icon="close" data-id="{{ 5 }}" />
+</van-cell-group>
+
+<!-- 会员兑换码弹出层 -->
+<van-dialog id="exchange-dialog" use-slot show="{{ show }}" show-confirm-button="{{ false }}" show-cancel-button="{{ false }}" width="400px" bind:close="clear">
+
+  <view class="title">您的兑换码是</view>
+
+  <view class="input_area">
+    <view class='content'>
+      <block wx:for="{{ 4 }}" wx:key="item">
+        <input class='iptbox' value="{{ value.length >= index + 1 ? value[index] : '' }}" disabled password='{{ ispassword }}' catchtap='tap' />
+      </block>
+    </view>
+    <input name="password" password="{{ true }}" class='ipt' maxlength="{{ 4 }}" focus="{{ isFocus }}" bindinput="focus" />
+  </view>
+
+  <view class="btn_area">
+    <button class="cancel" bind:tap="cancelInput">取消</button>
+    <button class="check" bind:tap="confirmInput">激活</button>
+  </view>
+
+</van-dialog>
+
+<van-dialog id="van-dialog" />
+
+<van-toast id="van-toast" />
+
+<!-- tabbar -->
+<new_tab element_list="{{ element_list }}" select_index="{{ select_index }}"></new_tab>

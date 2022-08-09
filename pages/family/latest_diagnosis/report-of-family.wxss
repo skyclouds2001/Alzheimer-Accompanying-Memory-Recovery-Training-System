@@ -1,0 +1,43 @@
+/* 上面的方框盒子 */
+.topbox {
+  border: 1px solid #e6e5e3;
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 1px #a5a5a544;
+}
+
+/* 得分 */
+.score {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* 判断结果 */
+.result {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 350rpx;
+
+  color: #000000b7;
+}
+
+/* 当未查询到作答数据时 */
+.nofound {
+  font-size: 45rpx;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 200px;
+  color: #3b3b3be8;
+}
+
+/* 提示 */
+.tips {
+  margin-top: 100rpx;
+
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #838383d3;
+}

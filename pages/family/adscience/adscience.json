@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-image": "@vant/weapp/image/index"
+  },
+  "navigationBarTitleText": "科普文章"
+}

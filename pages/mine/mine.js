@@ -1,39 +1,7 @@
 import Toast from '@vant/weapp/toast/toast';
 import Dialog from '@vant/weapp/dialog/dialog';
 
-// import { request } from './../../lib/request.js';
-
-/**
- * @typedef {Object} Info
- * @property {string} name 姓名
- * @property {string} gender 性别
- * @property {number} age 年龄
- * @property {string} location 家庭住址
- * @property {string} birthSite 出生省份
- * @property {string} educate 文化水平
- */
-
-/**
- * @typedef {Object} Day
- * @property {Date} date 日期对应的Date对象
- * @property {string} type 日期类型
- * @property {string} text 中间显示的文字
- * @property {string} topInfo 上方的提示信息
- * @property {string} bottomInfo 下方的提示信息
- * @property {string} className 自定义 className
- */
-/**
- * @typedef {number} timestamp
- */
-
-/**
- * @typedef {Object} Good
- * @property {number} credit 商品积分
- * @property {string} title 商品名称
- * @property {string} desc 商品描述
- * @property {URL} url 商品图片链接
- * @property {number} id 商品id
- */
+const openid = wx.getStorageSync('openid');
 
 Page({
 
@@ -51,127 +19,31 @@ Page({
     avatarUrl: '/images/empty-image-default.png',
 
     /**
-     * 标记显示popup与否及其下标
-     * * 0 无
-     * * 1 个人信息
-     * * 2 打卡记录
-     * * 3 训练记录
-     * * 4 我的积分
-     * * 5 积分商城
-     * * 6 问题反馈
-     * * 7 关于我们
-     * * 8 退出登录
-     * @type {0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8}
+     * 标记显示popup与否
+     * @type {boolean}
      */
-    show: 0,
-
-    /**
-     * 个人信息
-     * `show=1`
-     * @type {Info}
-     */
-    personInfo: {
-      name: '未知',
-      gender: '男',
-      age: 74,
-      location: '陕西省西安市长安区北雷村12号',
-      birthSite: '陕西省',
-      educate: '初中',
-    },
-
-    /**
-     * 打卡天数
-     * `show=2`
-     * @type {number}
-     */
-    clockDays: 0,
-
-    /**
-     * 日历的时间范围-起始日期
-     * `show=2`
-     * @type {timestamp}
-     */
-    minDate: new Date().getTime(),
-    /**
-     * 日历的时间范围-结束日期
-     * `show=2`
-     * @type {timestamp}
-     */
-    maxDate: new Date().getTime(),
-    /**
-     * 负责对日历进行初始化的函数方法
-     * `show=2`
-     * @function
-     * @param {Day} day
-     * @returns {Day}
-     */
-    formatter: function (day) {
-      if (day.date.getDate() === 1) {
-        day.bottomInfo = ' ';
-        day.type = 'selected';
-        day.className = 'select';
-      } else {
-        day.type = '';
-      }
-      return day;
-    },
-
-    /**
-     * 训练记录
-     * `show=3`
-     * @type {Logs[]}
-     */
-    record: [
-      {
-        date: '2022-03-12',
-        logs: [
-          {
-            time: '12:23:54',
-            content: '例子',
-          },
-          {
-            time: '23:47:51',
-            content: '例子',
-          },
-        ],
-      },
-    ],
+    show: false,
 
     /**
      * 积分数量
-     * `show=4`
      * @type {number}
      */
     credit: 123,
 
     /**
-     * 商品列表
-     * `show=5`
-     * @type {Good}
+     * 二维码显示字符串信息
      */
-    goods: [
-      {
-        credit: 23.99,
-        title: '商品名称',
-        desc: '商品描述',
-        url: '/images/key.png',
-        id: 0,
-      },
-      {
-        credit: 126.99,
-        title: '商品名称',
-        desc: '商品描述',
-        url: '/images/match.png',
-        id: 1,
-      },
-    ],
+    qrTxt: openid,
 
     /**
-     * 跟踪问题反馈 textarea 输入内容
-     * `show=6`
-     * @type {string}
+     * 标记患者是否已绑定子女
      */
-    feedback: '',
+    linked: false,
+
+    /**
+     * 标记是否显示二维码
+     */
+    showQRcode: false,
   },
 
   /**
@@ -186,41 +58,27 @@ Page({
 
     // 判断是否已存在信息
     // 设置数据并更新
-    if ('nickName' in userInfo && 'avatarUrl' in userInfo) {
+    if (JSON.stringify(userInfo) !== '{}') {
       this.setData({
         avatarUrl: userInfo.avatarUrl,
         nickName: userInfo.nickName,
       });
       this.isLogined = true;
     }
+  },
 
-    // 当天的日期
-    const date = new Date();
-    // 当天的年份、月份、日份
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const day = new Date(year, month + 1, 0).getDate();
-
-    // 设置日历时间范围，默认为所在月份的第一天与最后一天
-    this.setData({
-      minDate: new Date(year, month, 1).getTime(),
-      maxDate: new Date(year, month, day).getTime(),
-    });
-
-    // 获取用户已打卡次数及已打卡日期
-    // const res = await request({
-    //   url: '',
-    //   method: 'GET',
-    //   data: {},
-    //   header: {},
-    // });
-    // console.log(res);
+  onShow: function () {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        select: 2,
+      });
+    }
   },
 
   /**
    * 处理用户登录换取用户微信头像及微信昵称
    */
-  async onGetUserProfile () {
+  async handleGetUserProfile () {
     // 判断用户是否已获取微信头像与昵称
     if (this.isLogined) {
       return;
@@ -229,11 +87,11 @@ Page({
     try {
       // 调用wx接口获取用户信息
       const { userInfo } = await wx.getUserProfile({
-        desc: '请授权我们使用您的个人信息',
+        desc: '请授权我们使用您的昵称及头像',
         lang: 'zh_CN',
       });
 
-      // data设置用户信息
+      // 设置用户信息
       this.setData({
         avatarUrl: userInfo.avatarUrl,
         nickName: userInfo.nickName,
@@ -248,7 +106,7 @@ Page({
         nickName: userInfo.nickName,
       });
 
-      // 更新已登录状态
+      // 更新登录状态
       this.isLogined = true;
     } catch (err) {
       // 显示授权失败提示
@@ -257,64 +115,62 @@ Page({
   },
 
   /**
-   * 点击菜单列表
-   * 显示对应的popup
-   * @param {TouchEvent} e 触摸事件
+   * 显示积分页面
    */
-  handleOpenPopup (e) {
-    const { id } = e.target.dataset;
-    if ([1, 2, 3, 4, 5, 6, 7].includes(id)) {
-      // 检测是否已登录
-      if (!this.isLogined) {
-        return Toast('请先登录！');
-      }
-      // 显示对应弹窗
-      this.setData({
-        show: id,
-      });
-    } else if (id === 8) {
-      // 弹出退出登录确认模态框
-      Dialog.confirm({
-        message: '是否确认退出登录？',
-      }).then(() => {
-        // 确认退出，清空个人信息
-        this.isLogined = false;
-        this.setData({
-          avatarUrl: '/images/empty-image-default.png',
-          nickName: '请点击头像登录',
-        });
-        wx.removeStorageSync('userInfo');
-      }).catch(() => {
-        // 取消退出，无额外操作
-      });
-    }
-  },
-
-  /**
-   * 关闭popup事件
-   */
-  handleClosePopup () {
+  handleOpenCredit () {
     this.setData({
-      show: 0,
+      show: true,
     });
   },
 
   /**
-   * 提交问题反馈内容
+   * 关闭积分页面
    */
-  async handleFeedback () {
-    // const { feedback } = this.data;
-    // const res = await request({
-    //   url: '',
-    //   method: '',
-    //   data: {
-    //     feedback,
-    //   },
-    //   header: {},
-    // });
-    // console.log(res);
+  handleCloseCredit () {
     this.setData({
-      feedback: '',
+      show: false,
+    });
+  },
+
+  /**
+   * 退出登录
+   */
+  handleExitLogin () {
+    Dialog.confirm({
+      title: '提示',
+      message: '确认退出登录？',
+      zIndex: 999999,
+      closeOnClickOverlay: true,
+    }).then(() => {
+      // 确认退出，清空个人信息
+      this.isLogined = false;
+      this.setData({
+        avatarUrl: '/images/empty-image-default.png',
+        nickName: '请点击头像登录',
+      });
+      wx.removeStorageSync('userInfo');
+    }).catch(() => {
+      // 取消退出，无额外操作
+    });
+  },
+
+  /**
+   * 绑定患者端及子女端
+   * 显示二维码
+   */
+  handleBind () {
+    this.setData({
+      showQRcode: true,
+    });
+  },
+
+  /**
+   * 绑定患者端及子女端
+   * 显示二维码
+   */
+  handleClose () {
+    this.setData({
+      showQRcode: false,
     });
   },
 

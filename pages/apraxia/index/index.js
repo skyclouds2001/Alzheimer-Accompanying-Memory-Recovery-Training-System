@@ -18,50 +18,66 @@
  * @property {number} type
  */
 
+import { request } from './../../../lib/request';
+import { cookie } from './../../../data/cloudmusic';
+
+import Toast from '@vant/weapp/toast/toast';
+
 Page({
 
   data: {
     /**
-     * 歌曲列表
+     * 歌曲列表 - 阿尔法脑波音乐
      * @type {Song[]}
      */
-    array: [],
+    songs: [],
   },
 
-  onLoad: function () {
-    const that = this;
-    wx.request({
-      url: 'https://api.xaneon.com/personalized',
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
-      success (res) {
-        that.setData({
-          // 默认选取前9个歌单
-          array: res.data.result.slice(0, 9),
-        });
-      },
+  onLoad: async function () {
+    Toast.loading({
+      message: '加载中',
+      forbidClick: true,
+      duration: 0,
     });
+    try {
+      const { data: res } = await request({
+        url: '/cloudsearch',
+        method: 'POST',
+        data: {
+          cookie: cookie,
+          keywords: '阿尔法脑波音乐',
+          type: 1000,
+          timestamp: 1503019930000,
+        },
+        header: {
+          'Content-Type': 'application/json',
+        },
+      }, 'https://api.xaneon.com');
+
+      this.setData({
+        songs: res.result.playlists,
+      });
+      Toast.clear();
+    } catch (err) {
+      console.error(err);
+      Toast.fail('加载失败！');
+    }
   },
 
   /**
    * 跳转至歌曲详情页
-   * @function
-   * @param {Event} e
+   * @param {TouchEvent} e
    * @returns {void}
    */
   handleItem (e) {
     const { id } = e.currentTarget.dataset;
-    const app = getApp();
-    app.globalData.id = id;
     wx.navigateTo({
-      url: `../list/list?listid=${id}`,
+      url: `../list/list?id=${id}`,
     });
   },
 
   /**
    * 跳转至我的喜欢歌曲页
-   * @function
    * @returns {void}
    */
   handleMySongs: function () {

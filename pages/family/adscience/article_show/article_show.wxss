@@ -1,0 +1,51 @@
+.bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -10;
+
+  background-color: white;
+
+  width: 100vw;
+  height: 100vh;
+}
+.bg::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -5;
+
+  content: '';
+
+  background-color: var(--theme-color, rgb(84, 184, 172));
+  border-radius: 50rpx;
+
+  width: 100vw;
+  height: 100vh;
+
+  transform: translateY(calc(-50vh));
+}
+
+.article {
+  width: calc(100vw - 100rpx);
+  height: auto;
+  margin: 25rpx 50rpx;
+  padding: 25rpx;
+
+  border-radius: 25rpx;
+  background-color: white;
+  box-shadow: 2.5rpx 2.5rpx 5rpx #999;
+}
+
+.title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+  line-height: 3em;
+}
+
+.text {
+  font-size: 18px;
+  white-space: pre-wrap;
+}

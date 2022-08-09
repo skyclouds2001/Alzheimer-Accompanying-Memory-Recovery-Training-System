@@ -8,9 +8,7 @@
     "van-popup": "@vant/weapp/popup/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-button": "@vant/weapp/button/index",
-    "van-calendar": "@vant/weapp/calendar/index",
-    "van-card": "@vant/weapp/card/index",
-    "timeline": "/components/timeline/timeline"
+    "qr-container": "wx-qr"
   },
-  "navigationBarTitleText": "我的"
+  "navigationBarTitleText": "个人中心"
 }

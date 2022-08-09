@@ -1,0 +1,8 @@
+
+<view class="tab_new">
+
+  <navigator class="tab_elements {{index===select_index?'selected':''}}" wx:for="{{element_list}}" wx:key="title" url="{{item.url}}" open-type="redirect">
+    {{item.title}}
+  </navigator>
+
+</view>
