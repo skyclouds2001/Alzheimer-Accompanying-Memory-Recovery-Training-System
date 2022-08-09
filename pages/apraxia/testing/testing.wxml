@@ -1,17 +1,24 @@
 <!--pages/apraxia/testing/testing.wxml-->
 <view class="bg">
 </view>
+
 <view>
- <view class="image">
-    <image class="images" bindtap="get_image" src="{{imageUrl}}" mode="aspectFit" />
+  <view class="image">
+    <image class="images" bind:tap="showAnalyseResult" src="{{ imageUrl1 }}" mode="aspectFit" />
   </view>
+
   <view class="c">
     <view class="b" wx:key="id">
-      <van-button  custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" bindtap="handleSports" type="default" data-index="0" wx:if="{{btn_enable}}">识别成功，你做的是“{{}}”手势</van-button>
-      <van-button custom-class="btn1" color="rgb(84, 184, 172)" size="large" round type="primary" bindtap="handleSports" plain hairline type="info" data-index="0" wx:else>识别失败，请再试一次吧</van-button>
+      <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" type="default" wx:if="{{ btnEnable === 0 }}">点击图片识别</van-button>
+      <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" type="default" wx:elif="{{ btnEnable === 1 }}">识别成功，你做的是“{{ result }}”手势</van-button>
+      <van-button custom-class="btn1" color="rgb(84, 184, 172)" size="large" round type="primary" plain hairline type="info" wx:else>识别失败，请再试一次吧</van-button>
     </view>
   </view>
-</view> 
-<view class="result">
-  <image class="user-avatar" src="{{imageUrl}}"></image>
+
 </view>
+
+<view class="result">
+  <image class="user-avatar" mode="aspectFill" src="{{ imageUrl2 }}"></image>
+</view>
+
+<van-toast id="van-toast" />

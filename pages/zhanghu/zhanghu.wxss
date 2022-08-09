@@ -1,5 +1,5 @@
 #bgcbox {
-  position:absolute;
+  position: absolute;
   height: 330rpx;
   width: 720rpx;
   display: flex;
@@ -14,11 +14,13 @@
   border-radius: 0 0 60rpx 60rpx;
   z-index: -1;
 }
-.scanico{
+
+.scanico {
   position: absolute;
   top: 20rpx;
   right: 30rpx;
 }
+
 /* 用户头像及昵称 */
 .user-info {
   width: calc(100vw - 100rpx);
@@ -41,20 +43,23 @@
   justify-content: center;
   align-items: center;
 }
+
 .avatar-img {
   width: 175rpx !important;
   height: 175rpx !important;
-  border-radius: 25rpx ;
+  border-radius: 25rpx;
   box-shadow: 10rpx 10rpx 25rpx #ccc;
 }
+
 .img {
-  border-radius: 25rpx ;
+  border-radius: 25rpx;
 }
 
 /* 昵称 */
 .nickname {
   flex: 2;
 }
+
 .nickname-text {
   display: flex;
   align-items: center;
@@ -70,7 +75,8 @@
 
   box-shadow: 10rpx 10rpx 25rpx #ccc;
 }
-.input_area{
+
+.input_area {
   height: 250rpx;
   display: flex;
   justify-content: center;
@@ -78,7 +84,8 @@
   color: #55c5ab;
   font-size: x-large;
 }
-.title{
+
+.title {
   height: 150rpx;
   font-size: x-large;
   font-weight: 500;
@@ -87,43 +94,47 @@
   align-items: flex-end;
 }
 
-.content{
+.content {
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.iptbox{
+
+.iptbox {
   width: 110rpx;
   height: 110rpx;
-  border:1rpx solid #b2b0bb;
+  border: 1rpx solid #b2b0bb;
   border-radius: 20rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.ipt{
+
+.ipt {
   width: 0;
   height: 0;
 }
-.btn_area{
+
+.btn_area {
   height: 200rpx;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
 
 
 }
+
 .check,
-.cancel{
-   height: 100rpx;
-   width: 300rpx;
-   background-color: #54b5aa;
-   color: white;
-   font-size: large;
-   border-radius: 30rpx;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+.cancel {
+  height: 100rpx;
+  width: 300rpx;
+  background-color: #54b5aa;
+  color: white;
+  font-size: large;
+  border-radius: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

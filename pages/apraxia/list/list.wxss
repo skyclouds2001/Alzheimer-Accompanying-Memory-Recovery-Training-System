@@ -1,74 +1,79 @@
 /* 歌单名称及图片部分 */
-.image{
+.header {
   width: 100%;
-  height: 100%;
+}
+
+.cover_img {
   position: fixed;
-  left: 0rpx;
-  top: 0rpx;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }
-.header{
-  height: 200rpx;
-  width: 100%;
-  display: flex;
-  margin-bottom: 20rpx;
+.cover_img > image {
+  width: 100vw;
+  height: 100vh;
 }
-.cover_img{
-  width: 200rpx;
-  height: 200rpx;
-}
-.listname{
-  margin-left: 0;
-  font-size: 60rpx;
-}
-.cover_name{
-  font-size: 44rpx;
+
+.cover_name {
+  font-size: 40rpx;
+  line-height: 1.5em;
   text-align: center;
-  margin-top:10rpx;
+
+  margin: 0;
+  padding: 25rpx 100rpx;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  background: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.75) 10rpx);
+  background-size: 20rpx 20rpx;
+  backdrop-filter: blur(10rpx);
 }
-.background_img{
-  width: 100%;
-  height: 100%;
-  opacity: 0.5;
-}
-.content{
-  position: relative;
-  z-index:1
+.cover_name > view {
+  color: black;
+  font-weight: bold;
 }
 
 /* 歌单歌曲 */
-.item_song{
+.content{
+  margin-top: 150rpx;
+  padding: 0 50rpx;
+}
+
+.item_song {
   display: flex;
   height: 120rpx;
 }
-.index{
+
+.index {
   text-align: center;
   vertical-align: baseline;
   font-size: 60rpx;
   margin-left: 50rpx;
-  align-self:center
+  align-self: center;
+  margin-right: 50rpx;
 }
-.index_small{
-  margin-right: 65rpx;
-}
-.index_big{
-  margin-right: 25rpx;
-}
-.item_name{
+
+.item_name {
   font-size: 44rpx;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 200;
 }
-.singer_name{
-  font-size:30rpx;
+
+.singer_name {
+  font-size: 30rpx;
   margin-top: 0rpx;
   padding: 0rpx;
-
 }
-.divider{
+
+.divider {
   margin-top: 0rpx;
   margin-bottom: 0rpx;
   padding: 0rpx;
 }
-.txt{
-  font-size: medium;
+
+.txt {
+  font-size: 40rpx;
+  font-weight: 500;
 }

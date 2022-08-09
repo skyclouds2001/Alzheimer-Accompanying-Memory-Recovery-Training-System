@@ -1,19 +1,31 @@
 @import './../../../style/iconfont.wxss';
 
-.content{
-  width: 100%;
-  height: 100%;
-  background: #222;
+.content {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: transparent;
+  overflow: hidden;
+
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.big_img {
+  width: 110%;
+  height: 110%;
+
   position: fixed;
-  left: 0rpx;
-  top: 0rpx;
+  left: -5%;
+  top: -5%;
+
+  z-index: -1;
+
+  filter: blur(10rpx) brightness(50%) saturate(75%) contrast(95%);
 }
-.big_img{
-  width: 100%;
-  height: 100%;
-  opacity: 0.1;
-}
-.title{
+
+.title {
   width: 100%;
   font-size: 40rpx;
   position: absolute;
@@ -22,22 +34,25 @@
   color: white;
   text-align: center;
 }
-.middle{
+
+.middle {
   width: 100%;
   height: 700rpx;
-  /*background-color: red;*/
   position: absolute;
-  top:170rpx;
+  top: 170rpx;
   left: 0rpx;
 }
-.middle-swiper{
+
+.middle-swiper {
   width: 100%;
   height: 100%;
 }
-.cd-wrapeer{
+
+.cd-wrapeer {
   width: 100%;
 }
-.cd-image{
+
+.cd-image {
   width: 600rpx;
   height: 600rpx;
   margin: 50rpx auto;
@@ -46,54 +61,64 @@
   justify-content: center;
   align-items: center;
 }
-.cd-image image{
+
+.cd-image image {
   box-sizing: content-box;
   width: 400rpx;
   height: 400rpx;
 
   border-radius: 50%;
-  border:#222 solid 100rpx;
+  border: #222 solid 100rpx;
 
-  animation:zhuan 6s linear infinite
+  filter: saturate(110%);
 }
-@keyframes zhuan{
-  from{
+.animate {
+  animation: rotation 6s linear infinite;
+}
+
+@keyframes rotation {
+  from {
     transform: rotate(0deg);
   }
-  to{
+  to {
     transform: rotate(360deg);
   }
 }
-.lyric-wrapeer{
+
+.lyric-wrapeer {
   width: 80%;
   height: 100%;
   margin: 0 auto;
 }
-.lyric-wrapeer text{
+
+.lyric-wrapeer text {
   display: block;
 }
-::webkit scrollbar{
-  width: 0rpx;
-  height: 0rpx;
-}
-.controls{
+
+.controls {
   width: 100%;
-  height: 150rpx;
-  position: absolute;
-  bottom: 50rpx;
+  height: 200rpx;
+  margin: 0;
+  padding: 25rpx 0;
+
+  position: fixed;
+  bottom: 0rpx;
   left: 0rpx;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  backdrop-filter: blur(10rpx);
 }
-.controls image{
-  width: 120rpx;
-  height: 120rpx;
-  margin-left: 102rpx;
-  margin-top: 17rpx;
-}
-.text{
-font-size: 66rpx;
-text-align: center;
-vertical-align: baseline;
-}
-.icon{
-  margin-top: 30rpx;
+
+.icon {
+  font-size: 125rpx !important;
+  font-weight: 500;
+
+  width: 1em;
+  height: 1em;
+
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.75);
 }

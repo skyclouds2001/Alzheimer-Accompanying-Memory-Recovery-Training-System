@@ -1,0 +1,51 @@
+page {
+  padding: 35rpx;
+  background-color: #d0e2e2;
+}
+.head {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx;
+  height: 200rpx;
+  background-color: white;
+  border-radius: 35rpx;
+}
+.head .title {
+  word-break: break-all;
+  white-space: normal;
+  font-size: larger;
+  font-weight: 600;
+}
+.head .time {
+  font-size: medium;
+}
+.main .content {
+  padding: 30rpx;
+  font-size: large;
+  margin-top: 80rpx;
+  height: 100rpx;
+  background-color: white;
+  border-radius: 15rpx;
+}
+.del_area {
+  position: fixed;
+  width: 600rpx;
+  bottom: 50rpx;
+  left: 75rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.del_area .del {
+  width: 500rpx;
+  height: 100rpx;
+  background-color: #54b8ac;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35rpx;
+  color: white;
+  font-weight: 500;
+}

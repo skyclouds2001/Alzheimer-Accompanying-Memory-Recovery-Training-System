@@ -28,5 +28,8 @@
       <view class="good-item-price">{{ item.price }}积分</view>
       <view class="good-item-like"><van-icon name="like-o" /></view>
     </view>
+    <view class="good-item" wx:if="{{ goodsList.length % 2 === 1 }}">
+      <van-empty class="empty-item" />
+    </view>
   </block>
 </view>

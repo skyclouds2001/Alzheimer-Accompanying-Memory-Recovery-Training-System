@@ -1,40 +1,20 @@
-var alldata = Array()
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    title:'',
-    text:''
+    title: '',
+    text: '',
   },
-  onLoad: function (options){
-    //调用后端接口
-    self = this,
-    wx.request({
-      url: 'https://localhost:8080/v1/news/get',
-      method:'GET',
-      success:function(res){
-        console.log(res.data);
-        self.setData({
-          alldata : res.data.date.records
-        })
-      },
-      fail:function(err){
-        console.log(err);
-      }
-    })
-    // options.id是用户点击上一个页面后传回的相应的新闻的id值，根据此展示出相应的新闻
-    // console.log(options.id)
-    let idmatching = options.id
-    for (let index = 0; idmatching != alldata[index].id; index++) {
+
+  onLoad: function () {
+    this.getOpenerEventChannel().on('news', res => {
       this.setData({
-        title:this.data.common[index].title,
-        text:this.data.common[index].content
-      })
-    }
-   
-  }
+        title: res.title,
+        text: res.content.replaceAll('\\n', '\n'),
+      });
+      wx.setNavigationBarTitle({
+        title: `文章详情-${res.title}`,
+      });
+    });
+  },
 
-
-})
+});

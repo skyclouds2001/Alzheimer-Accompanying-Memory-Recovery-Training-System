@@ -7,8 +7,9 @@
     "van-cell": "../../miniprogram_npm/@vant/weapp/cell/index",
     "van-cell-group": "../../miniprogram_npm/@vant/weapp/cell-group/index",
     "van-tag": "@vant/weapp/tag/index",
-    "van-loading": "@vant/weapp/loading/index"
-  }
-
-  
+    "van-loading": "@vant/weapp/loading/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+  },
+  "navigationBarTitleText": "失认症训练"
 }

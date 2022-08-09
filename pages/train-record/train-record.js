@@ -1,4 +1,27 @@
 /**
+ * @typedef Record
+ * @property {string} color
+ * @property {string} date
+ * @property {boolean} direction
+ * @property {number} id
+ * @property {number} time
+ * @property {string} type
+ * @property {number} zindex
+ * @property {string} exDate
+ * @property {string} exTime
+ * @property {number} exType
+ * @property {number} score
+ */
+
+import Toast from '@vant/weapp/toast/toast';
+
+import { getExerciseRecord } from './../../api/exercise';
+
+import { formatTime } from './../../utils/util.js';
+
+const token = wx.getStorageSync('token');
+
+/**
  * 训练记录的颜色
  */
 const colors = [
@@ -11,43 +34,57 @@ const colors = [
   'rgb(115,51,153)',
 ];
 
+/**
+ * 训练类型
+ */
+const types = [
+  '记忆训练',
+  '手指训练',
+  '音乐治疗',
+];
+
 Page({
 
   data: {
     /**
      * 训练记录
+     * @type {Record[]}
      */
-    trainRecord: [
-      {
-        date: '2022年5月1日',
-        text: '跑步60分钟',
-        id: 0,
-      },
-      {
-        date: '2022年5月1日',
-        text: '跑步60分钟',
-        id: 1,
-      },
-      {
-        date: '2022年5月1日',
-        text: '跑步60分钟',
-        id: 2,
-      },
-    ],
+    records: [],
   },
 
-  onLoad () {
-    const { trainRecord: record } = this.data;
-    const len = colors.length;
-    record.sort((a, b) => a.id < b.id);
-
-    this.setData({
-      trainRecord: record.map((item, index) => {
-        item.direction = index % 2;
-        item.color = colors[index % len];
-        return item;
-      }),
+  onLoad: async function () {
+    wx.showLoading({
+      title: '获取记录中',
+      mask: true,
     });
+
+    try {
+      const { records } = await getExerciseRecord(token);
+
+      records.forEach((item, index) => {
+        item.direction = index % 2 === 0;
+        item.color = colors[index % colors.length];
+        item.id = index;
+        item.date = formatTime(new Date(item.exDate)).split(' ')[0];
+        item.type = types[item.exType];
+        item.time = parseInt(item.exTime) * 60;
+        item.zindex = 99 - index;
+      });
+
+      this.setData({
+        records,
+      });
+    } catch (err) {
+      console.error(err);
+      Toast.fail('网络异常！');
+    }
+
+    setTimeout(() => {
+      wx.hideLoading({
+        noConflict: true,
+      });
+    }, 1000);
   },
 
 });

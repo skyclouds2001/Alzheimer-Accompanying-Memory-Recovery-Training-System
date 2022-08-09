@@ -1,7 +1,9 @@
 {
-  "usingComponents": { 
-                       "van-image": "@vant/weapp/image/index",
-                       "df-tabbar":"../../custom-tab-bar/index",
-                       "van-toast": "@vant/weapp/toast/index"
-                      }
+  "usingComponents": {
+    "van-image": "@vant/weapp/image/index",
+    "df-tabbar": "../../custom-tab-bar/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "new_tab": "../../components/new_tabbar/new_tabbar"
+  },
+  "navigationBarTitleText": "首页"
 }

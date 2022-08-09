@@ -1,3 +1,24 @@
+/**
+ * @typedef Song
+ * @type {Object}
+ * @property {string} alg
+ * @property {boolean} canDislike
+ * @property {string} copywriter
+ * @property {boolean} highQuality
+ * @property {number} id
+ * @property {string} name
+ * @property {string} picUrl
+ * @property {number} playCount
+ * @property {number} trackCount
+ * @property {timestamp} trackNumberUpdateTime
+ * @property {number} type
+ */
+
+import { request } from './../../../lib/request';
+import { cookie } from './../../../data/cloudmusic';
+
+import Toast from '@vant/weapp/toast/toast';
+
 Page({
 
   data: {
@@ -19,49 +40,59 @@ Page({
      * @type {string}
      */
     coverImg: '',
-    
   },
 
-  onShow: function () {
-    const that = this;
-    const app = getApp();
-    const ts = Date.parse(new Date());
-    wx.request({
-      url: `https://api.xaneon.com/playlist/detail?timestamp=${ts}`, // 仅为示例，并非真实的接口地址
-      method: 'POST',
-      data: {
-        id: app.globalData.id,
-        cookie: app.globalData.cookie,
-      },
-      header: {
-        'content-type': 'application/json', // 默认值
-      },
-      success (res) {
-        that.setData({
-          song_array: res.data.playlist.tracks,
-          name: res.data.playlist.name,
-          coverImg: res.data.playlist.coverImgUrl,
+  onLoad: async function (options) {
+    const { id } = options;
+    Toast.loading({
+      message: '加载中...',
+      duration: 0,
+      forbidClick: true,
+    });
+
+    try {
+      const { data: res } = await request({
+        url: `/playlist/detail?timestamp=${new Date().getTime()}`,
+        method: 'POST',
+        data: {
+          id: id,
+          cookie: cookie,
+        },
+        header: {
+          'Content-Type': 'application/json',
+        },
+      }, 'https://api.xaneon.com');
+
+      const { tracks, name, coverImgUrl } = res.playlist;
+      this.setData({
+        song_array: tracks,
+        name: name,
+        coverImg: coverImgUrl,
+      });
+
+      Toast.clear();
+    } catch (err) {
+      console.error(err);
+      Toast.fail('加载失败！');
+    }
+  },
+
+  /**
+   * 点击详细音乐跳转
+   * @param {TouchEvent} e 点击事件对象
+   * @returns {void}
+   */
+  handleSong: function (e) {
+    const { id, name, album, singer, picurl } = e.currentTarget.dataset;
+
+    wx.navigateTo({
+      url: `./../play/play?id=${id}&name=${name}&singer=${singer}&album=${album}`,
+      success: (res) => {
+        res.eventChannel.emit('send-song-data', {
+          img: picurl,
         });
       },
     });
   },
 
-  /**
-   * 点击详细音乐跳转
-   * @function
-   * @param {Event} e 点击事件对象
-   * @returns {void}
-   */
-  handleSong: function (e) {
-    const app = getApp();
-    app.globalData.song_image = e.currentTarget.dataset.picurl;
-    const id = e.currentTarget.dataset.id;
-    const name = e.currentTarget.dataset.song.name;
-    const singer = e.currentTarget.dataset.song.ar[0].name;
-    const album = e.currentTarget.dataset.song.al.name;
-    app.globalData.song = e.currentTarget.dataset.song;
-    wx.navigateTo({
-      url: `../play/play?id=${id}&name=${name}&singer=${singer}&album=${album}`,
-    });
-  },
 });

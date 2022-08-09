@@ -1,5 +1,7 @@
 {
-  "usingComponents": {"van-button": "@vant/weapp/button/index",
+  "navigationBarTitleText": "失用症训练",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index"
   }

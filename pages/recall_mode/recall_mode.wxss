@@ -1,1 +1,66 @@
-/* pages/recall_mode/recall_mode.wxss */
+#bgcbox {
+  position: absolute;
+  height: 430rpx;
+  width: 720rpx;
+  display: flex;
+  background-color: #53b6aa;
+  color: white;
+  font-weight: 500;
+  font-size: 50rpx;
+  letter-spacing: 5rpx;
+  justify-content: center;
+  line-height: 200rpx;
+  left: 15rpx;
+  top: 0;
+  border-radius: 0 0 60rpx 60rpx;
+  z-index: -1;
+}
+
+.img1 {
+  width: 620rpx;
+  margin: 0 auto;
+  margin-top: 180rpx;
+}
+
+.img1 image {
+  height: 380rpx;
+  width: 100%;
+  border-radius: 35rpx;
+}
+
+.tip {
+  margin: 30rpx;
+  font-size: x-large;
+  color: #5f5f5f;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.content .item {
+  height: 340rpx;
+  width: 230rpx;
+  border-radius: 25rpx;
+  margin: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: #a3a3a4;
+  font-size: 30rpx;
+}
+
+.content .item .nav {
+  width: 100%;
+  height: 85%;
+}
+
+.content .item .nav image {
+  width: 100%;
+  height: 100%;
+  border-radius: 25rpx;
+  border: 2rpx solid gray;
+}
