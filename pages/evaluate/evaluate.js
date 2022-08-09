@@ -1,12 +1,17 @@
-import { request } from './../../lib/request.js';
+import { getHasegawaQuestion } from './../../api/question';
+import { addExerciseRecord } from './../../api/exercise';
 
 import Toast from '@vant/weapp/toast/toast';
+
+import Dialog from '@vant/weapp/dialog/dialog';
+
+const token = wx.getStorageSync('token');
 
 /**
  * @typedef {Object} Question
  * @property {number} type 问题类型
- * * 1 静态客观题
- * * 2 动态客观题？？？？？
+ * * 1 客观题
+ * * 2 主观题
  * @property {string} name 问题题干
  * @property {?number} answer 问题答案(正整数)
  * @property {?string | string[]} checks 问题选项
@@ -16,6 +21,7 @@ import Toast from '@vant/weapp/toast/toast';
  */
 
 Page({
+
   data: {
     /**
      * 当前问题
@@ -47,24 +53,15 @@ Page({
   onLoad: async function () {
     try {
       // 请求获取问题和选项
-      const { data: res } = await request({
-        url: '/v1/problem/getcgc',
-        method: 'GET',
-      });
-
-      // 检测请求是否成功
-      if (Number(res.status) !== 10000) {
-        throw new Error();
-      }
+      const res = await getHasegawaQuestion(token);
 
       // 预处理问题（选项）及保存问题内容
-      const question = res.data;
-      question.forEach((v) => {
-        v.checks = v.checksn ? v.checks.slice(1, -1).split(',').map((v) => v.split('.')) : null;
+      res.forEach((v) => {
+        v.checks = v.checks ? v.checks.slice(1, -1).split(',').map(v => v.split('.')) : null;
         v.reply = 0;
       });
-      /** todo:根据问题类型做初始化操作 */
-      this.allQuestion = question;
+      /** 根据问题类型做初始化操作 */
+      this.allQuestion = res;
 
       // 初始化问题数据
       const current = 1;
@@ -74,24 +71,18 @@ Page({
         length: this.allQuestion.length,
       });
     } catch (err) {
-      Toast.fail('网络异常，请稍后再试');
+      console.error(err);
+      Toast.fail('网络异常');
     }
   },
 
   /**
    * 客观题选择选项
-   * @function
    * @param {TouchEvent} e 点击事件参数
-   * @returns {void}
    */
   handleChooseAnswer (e) {
     // 提取当前点击选项
     const { id } = e.target.dataset;
-
-    // 判断是否点击的是选项
-    if (!id) {
-      return;
-    }
 
     // 将选项更新入data中
     const { question } = this.data;
@@ -107,30 +98,23 @@ Page({
    * @param {CustomEvent} e 点击事件参数
    * @returns {void}
    */
-  // handleInputConfirm (e) {
-  //   const { value } = e.detail;
-  //   if (!value) {
-  //     return;
-  //   }
-  //   const { question } = this.data;
-  //   question.reply = value;
-  //   this.setData({
-  //     question,
-  //   });
-  // },
+  handleInputConfirm (e) {
+    const { value } = e.detail;
+
+    const { question } = this.data;
+    question.reply = value;
+    this.setData({
+      question,
+    });
+  },
 
   /**
    * 切换题目
-   * @function
    * @param {TouchEvent} e 点击事件参数
-   * @returns {void}
    */
   handleChangePage (e) {
     // 提取判定标志，点击的是向前一页还是向后一页
     const { flag } = e.target.dataset;
-    if (!flag) {
-      return;
-    }
 
     // 提取当前页数
     const { index: current } = this.data;
@@ -144,17 +128,26 @@ Page({
 
   /**
    * 结束答题
-   * @function
    * @param {TouchEvent} e 点击事件参数
-   * @returns {void}
    */
   handleEndAnswer () {
-    const score = this.allQuestion.reduce(
-      (p, c) => (c.reply === c.answer ? p + c.score : 0),
-      0,
-    );
-    wx.navigateTo({
-      url: `./../../pages/evaluate/main/main?score=${score}`,
-    });
+    Dialog.confirm({
+      title: '提示',
+      message: '确认结束答题？',
+    }).then(async () => {
+      const score = this.allQuestion.reduce(
+        (pre, cur) => (cur.reply === cur.answer ? pre + cur.score : 0),
+        0,
+      );
+      wx.navigateTo({
+        url: `./../../pages/evaluate/main/main?score=${score}`,
+      });
+      await addExerciseRecord(token, {
+        time: 0,
+        type: 2,
+        score,
+      });
+    }).catch(err => console.error(err));
   },
+
 });

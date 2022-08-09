@@ -1,8 +1,7 @@
 import Toast from '@vant/weapp/toast/toast';
 import Dialog from '@vant/weapp/dialog/dialog';
 
-const app = getApp();
-const { openid } = app.globalData;
+const openid = wx.getStorageSync('openid');
 
 Page({
 
@@ -37,7 +36,7 @@ Page({
     qrTxt: openid,
 
     /**
-     * 标记是否已绑定
+     * 标记患者是否已绑定子女
      */
     linked: false,
 
@@ -138,7 +137,10 @@ Page({
    */
   handleExitLogin () {
     Dialog.confirm({
+      title: '提示',
       message: '确认退出登录？',
+      zIndex: 999999,
+      closeOnClickOverlay: true,
     }).then(() => {
       // 确认退出，清空个人信息
       this.isLogined = false;
@@ -161,6 +163,7 @@ Page({
       showQRcode: true,
     });
   },
+
   /**
    * 绑定患者端及子女端
    * 显示二维码

@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/train/train",
     "pages/patient/patient",
-    "pages/patient/consultation/consultation",    
+    "pages/patient/consultation/consultation",
     "pages/mine/mine",
     "pages/mine/auction/auction",
     "pages/mine/patient-info/patient-info",
@@ -37,9 +37,10 @@
     "pages/zhanghu/vip_page/vip_page",
     "pages/zhanghu/help/help",
     "pages/bwl/beiwanglu",
-    "pages/recall_mode/recall_mode",
     "pages/bwl/detail/detail",
-    "pages/bwl/add_item/add_item"
+    "pages/bwl/add_item/add_item",
+    "pages/recall_mode/recall_mode",
+    "pages/family/train-record/train-record"
   ],
   "entryPagePath": "pages/index/index",
   "window": {

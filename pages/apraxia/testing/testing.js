@@ -1,107 +1,129 @@
+import Toast from '@vant/weapp/toast/toast';
+
 import { request } from '../../../lib/request';
-const grantType = 'client_credentials';
-const clientId = 'bE0U2VdG1TrjEk4667wlWf8K';
-const clientSecret = 'RhEuHaDziRMmPYOS9kIxZS3GSLlHmjMz';
-let token = null;
-let base64 = null;
-let apiUrl = null;
+
+import { getVoice } from './../../../api/voice';
+import { getGestice } from './../../../api/gesture';
+
+import { baiduCloudConfig } from './../../../data/baiducloud';
+
+const innerAudioContext = wx.createInnerAudioContext();
+
+const fileSystemManager = wx.getFileSystemManager();
+
+const token = wx.getStorageSync('token');
 
 Page({
+
   data: {
     imageUrl1: '../../../images/example.jpg',
     imageUrl2: '../../../images/example.jpg',
-    btn_enable: '0',
+    btnEnable: 0,
     result: '',
+
+    /** 子女声音文件URL */
+    voiceUrl: '',
   },
-  onReady: function (res) {
-    // get access_token from BaiDu API
-    wx.request({
-      url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=' + grantType + '&client_id=' + clientId + '&client_secret=' + clientSecret,
-      method: 'POST',
-      success: function (res) {
-        console.log('Request successful !');
-        // console.log(res.data)
-        token = res.data.access_token;
-        console.log('My token is : ' + token);
-      },
-      fail: function (res) {
-        console.log('Fail to request !');
-        console.log(res);
-      },
-    });
-  },
-  chooseImg: function () {
-    return new Promise((resolve, reject) => {
-      const that = this;
-      wx.chooseImage({
-        count: 1,
-        sizeType: ['original', 'compressed'],
-        sourceType: ['album', 'camera'],
-        success (res) {
-          const tempFilePaths = res.tempFilePaths;
-          console.log(tempFilePaths);
-          apiUrl = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/gesture';
-          that.setData({
-            imageUrl1: tempFilePaths,
-            btn_enable: '1',
-          });
-          console.log('My API URL is : ' + apiUrl);
-          console.log('Image Path is : ' + tempFilePaths);
-          // console.log(res)
-          wx.getFileSystemManager().readFile({
-            filePath: res.tempFilePaths[0],
-            encoding: 'base64',
-            // complete: res=> {
-            //   console.log('complete')
-            //   console.log(res)
-            // },
-            success: res => {
-              base64 = res.data;
-              resolve(base64);
-            // console.log('data:image/png;base64,' + base64)
-            },
-          });
-        },
-      });
-    });
-  },
-  get_image: function (res) {
-    const that = this;
-    this.chooseImg().then(res => {
-      wx.request({
-        url: apiUrl + '?access_token=' + token,
+  /**
+   * 百度云API token
+   * @type {?string}
+   */
+  access_token: null,
+
+  onLoad: async function () {
+    // 请求获取百度云 access_token
+    try {
+      const { data: res } = await request({
+        url: '/oauth/2.0/token',
         method: 'POST',
         header: {
-          'content-type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
         data: {
-          image: encodeURI(res),
+          grant_type: baiduCloudConfig.type,
+          client_id: baiduCloudConfig.id,
+          client_secret: baiduCloudConfig.secret,
         },
-        success: res => {
-          console.log('recognition_image Success');
-          if (res.data.result == null) {
-            console.log(res.data.error_msg);
-            console.log(base64);
-          } else {
-            console.log(res);
-            that.setData({
-              result: res.data.result[0].classname,
-              imageUrl2: 'https://mgl-image.oss-cn-beijing.aliyuncs.com/gesture/22.jpeg',
-            });
-          }
-          const token = wx.getStorageSync('token');
-          const p = request({
-            url: '/v1/gesture',
-            data: { recognizedName: that.result },
-            method: 'POST',
-            header: {
-              authorization: token,
-            },
-          });
-          p.then((res) => { that.setData({ imageUrl2: res.data.image }); }, (err) => { console.log(err); });
-        },
+      }, 'https://aip.baidubce.com');
+
+      this.access_token = res.access_token;
+    } catch (err) {
+      console.error(err);
+    }
+
+    // 预先请求获取子女声音
+    try {
+      // todo: 接口异常
+      const res = await getVoice(token);
+      console.log(res);
+      this.setData({
+        voiceUrl: res.url,
       });
-    });
+    } catch (err) {
+      console.error(err);
+    }
+  },
+
+  async showAnalyseResult () {
+    try {
+      const res = await wx.chooseMedia({
+        count: 1,
+        mediaType: ['image'],
+        sourceType: ['album', 'camera'],
+        sizeType: ['original', 'compressed'],
+        camera: 'back',
+      });
+      this.setData({
+        imageUrl1: res.tempFiles[0].tempFilePath,
+      });
+
+      const data = fileSystemManager.readFileSync(res.tempFiles[0].tempFilePath, 'base64');
+
+      const accessToken = this.access_token;
+      // file: https://cloud.baidu.com/doc/BODY/s/4k3cpywrv
+      const { data: result } = await request({
+        url: '/rest/2.0/image-classify/v1/gesture',
+        method: 'POST',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        data: {
+          access_token: accessToken,
+          image: data,
+        },
+      }, 'https://aip.baidubce.com');
+
+      if (result.result_num > 0) {
+        const { voiceUrl } = this.data;
+        innerAudioContext.autoplay = true;
+        // todo: 临时音频文件
+        innerAudioContext.src = voiceUrl ?? 'http://music.163.com/song/media/outer/url?id=317151.mp3';
+
+        // todo: result analyse
+        this.setData({
+          result: result.result[1].classname,
+          imageUrl2: 'https://mgl-image.oss-cn-beijing.aliyuncs.com/gesture/22.jpeg',
+        });
+
+        const res = await getGestice(token, result.result[1].classname);
+        /**
+         * todo
+         * OK 返回resultName非全大写
+         * Prayer Congratulation Honour Heart_single Thumb_up Thumb_down ILY Heart_1 Heart_2 Heart_3 Insult 无结果
+         */
+        this.setData({
+          imageUrl2: res.image,
+          result: res.resultName,
+        });
+      } else {
+        this.setData({
+          btnEnable: -1,
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      Toast.fail(err.errMsg);
+    }
   },
 
 });

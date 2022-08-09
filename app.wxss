@@ -1,4 +1,5 @@
-@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
+/* @import '@vant/weapp/common/index.wxss'; */
+@import 'miniprogram_npm/@vant/weapp/common/index.wxss';
 
 page {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
@@ -9,13 +10,3 @@ page, view, scroll-view, swiper, button, input, textarea, label, navigator, imag
   padding: 0;
 	box-sizing: border-box;
 }
-
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 

@@ -1,18 +1,18 @@
 <text class="ctext">\n请准备</text>
 <view class="image">
-  <image class="images" mode="aspectFill"  src='/images/family-voice.jpg'></image>
+  <image class="images" mode="aspectFill" src='/images/family-voice.jpg'></image>
 </view>
-<!-- <i-menu  bgimg="" c etext="" etext="" btns="{{ btn_list }}" class="text"></i-menu> -->
+
 <text class="ctext">请说“做的真好，辛苦了”\n\n</text>
 <text class="etext">录入时请在安静的环境中</text>
 <text class="etext">并与手机保持 30 厘米左右的距离\n\n</text>
+
 <view class="c">
-    <view class="b">
-        <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" type="default"  bindtouchstart='startRecord' bindtouchend="stopRecord">开始录入</van-button>
-    </view>
+  <view class="b">
+    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" type="default" bindtouchstart='startRecord' bindtouchend="stopRecord">开始录入</van-button>
+  </view>
 
-    <view class="b">
-        <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" type="default"  bindtap='pushRecord'>上传</van-button>
-    </view>
-
+  <view class="b">
+    <van-button custom-class="btn" color="rgb(84, 184, 172)" size="large" round type="info" type="default" bindtap='pushRecord'>上传</van-button>
+  </view>
 </view>

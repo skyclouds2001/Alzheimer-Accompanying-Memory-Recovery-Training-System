@@ -1,106 +1,121 @@
-.head_box image{
+.head_box image {
   width: 100%;
 }
-.middle_box{
+
+.middle_box {
   padding: 10rpx;
   height: 470rpx;
-
-
 }
-.item_box1{
+
+.item_box1 {
   height: 300rpx;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
 }
-.h1{
+
+.h1 {
   font-size: x-large;
   font-weight: 600;
   margin-bottom: 20rpx;
 }
-.item1{
+
+.item1 {
   height: 100rpx;
   width: 360rpx;
-   display: flex;
-   justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
-.left1{
+
+.left1 {
   flex: 1.5;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.right1{
+
+.right1 {
   flex: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.text1{
+
+.text1 {
   flex: 1;
   font-weight: 600;
   font-size: large;
 }
-.describe1{
+
+.describe1 {
   flex: 1;
   color: #b6b6b6;
   font-size: small;
 }
-.left1 image{
+
+.left1 image {
   width: 70%;
 }
-.buttom1{
+
+.buttom1 {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: large;
   font-weight: 600;
 }
-.tail_box{
+
+.tail_box {
   display: flex;
   flex-direction: column;
-  height:750rpx ;
+  height: 750rpx;
   align-content: space-around;
 }
-#line1{
+
+#line1 {
   height: 300rpx;
   display: flex;
   justify-content: space-around;
   align-content: center;
   padding: 15rpx;
 }
-.item{
+
+.item {
   width: 150rpx;
   height: 250rpx;
   display: flex;
   flex-direction: column;
 }
-.top2{
+
+.top2 {
   flex: 2;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.top2 image{
+
+.top2 image {
   width: 65%;
 }
-.buttom2{
+
+.buttom2 {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items:flex-start;
+  align-items: flex-start;
   font-size: medium;
   color: #b6b6b6;
 }
-#line2{
+
+#line2 {
   height: 400rpx;
   padding: 5rpx;
   display: flex;
   justify-content: space-around;
-
 }
-.choice{
+
+.choice {
   position: relative;
   height: 350rpx;
   width: 230rpx;
@@ -110,27 +125,31 @@
   flex-direction: column;
   color: white;
 }
-.time{
+
+.time {
   flex: 2;
   display: flex;
   padding: 15rpx;
   align-items: flex-end;
   font-size: larger;
 }
-.price1{
+
+.price1 {
   flex: 2;
   display: flex;
   justify-content: center;
   align-items: flex-end;
 }
-.fuhao{
+
+.fuhao {
   font-size: large;
 }
-.money{
+
+.money {
   font-size: xx-large;
 }
 
-.price2{
+.price2 {
   flex: 2;
   text-decoration: line-through;
   display: flex;
@@ -138,42 +157,48 @@
   color: #ddd0da;
   font-size: x-large;
 }
-.tip{
-  position:absolute;
+
+.tip {
+  position: absolute;
   top: 0;
   right: 0;
   width: 200rpx;
   height: 40rpx;
-  background:linear-gradient(to right,#a4c9e7, #e1b6b1);
+  background: linear-gradient(to right, #a4c9e7, #e1b6b1);
   border-radius: 5rpx 30rpx 5rpx 30rpx;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.tip2{
+
+.tip2 {
   height: 100rpx;
   color: #d7d7d7;
   font-size: large;
   line-height: 100rpx;
   text-align: center;
 }
-#xieyi{
+
+#xieyi {
   display: inline;
   color: black;
 }
-.permission{
+
+.permission {
   display: flex;
   align-items: center;
   justify-content: center;
   color: gray;
 }
-#submit{
+
+#submit {
   height: 250rpx;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#submit_btn{
+
+#submit_btn {
   height: 100rpx;
   width: 700rpx;
   background-color: #53b4a9;
@@ -182,7 +207,8 @@
   justify-content: center;
   align-items: center;
 }
-.selected{
-  transform: translate(0,-15rpx);
+
+.selected {
+  transform: translate(0, -15rpx);
   box-shadow: 8rpx 8rpx 8rpx #aaa;
 }

@@ -31,11 +31,11 @@
 <!-- 自定义 tabbar -->
 <df-tabbar></df-tabbar>
 
-<!-- 弹出模态框：退出登录使用 -->
+<!-- 弹出模态框-退出登录使用 -->
 <van-dialog id="van-dialog" />
 
 <!-- 我的积分 -->
-<van-popup custom-class="popup" show="{{ show }}" position="center" safe-area-inset-top closeable lock-scroll bind:close="handleCloseCredit">
+<van-popup class="popup-outer" custom-class="popup" show="{{ show }}" position="center" safe-area-inset-top closeable lock-scroll bind:close="handleCloseCredit">
   <view class="credit-title">您目前的积分为</view>
   <view class="credit-count">{{ credit }}</view>
 </van-popup>
@@ -43,7 +43,7 @@
 <!-- 提示框 -->
 <van-toast id="van-toast" />
 
-<!-- 用户端绑定二维码 -->
-<van-popup custom-class="popup qrcode" show="{{ showQRcode }}" position="center" closeable safe-area-inset-top lock-scroll bind:close="handleClose">
+<!-- 用户端绑定二维码 todo -->
+<van-popup class="popup-outer" custom-class="popup qrcode" show="{{ showQRcode }}" position="center" closeable safe-area-inset-top lock-scroll bind:close="handleClose">
   <qr-container canvasMode text="{{ qrTxt }}" size="500"></qr-container>
 </van-popup>

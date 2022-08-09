@@ -1,67 +1,94 @@
-import { request } from '../../lib/request.js';
+import Toast from '@vant/weapp/toast/toast';
+
+import { getSimpleMemorandum, getSearchMemorandum } from './../../api/memorandum';
+
+const token = wx.getStorageSync('token');
 
 Page({
-  data: {
-    /**
-   * 导航栏
-   */
-    element_list: [{ title: '事项', url: 'beiwanglu' }, { title: '添加事项', url: 'add_item/add_item' }],
-    select_index: 0,
 
-    /**
-     * 记录信息
-     */
-    search_item: [
-    ],
+  data: {
+    /** 备忘录记录 */
+    search_item: [],
+  },
+
+  onLoad: async function () {
+    try {
+      const res = await getSimpleMemorandum(token);
+      this.setData({
+        search_item: res,
+      });
+    } catch (err) {
+      console.error(err);
+      Toast.fail('网络异常');
+    }
+  },
+
+  /**
+   * 点击添加事项跳转至相应页面
+   */
+  handleNavigateAdd () {
+    wx.navigateTo({
+      url: './../../pages/bwl/add_item/add_item',
+      events: {
+        onAddItem: async function () {
+          try {
+            const res = await getSimpleMemorandum(token);
+            this.setData({
+              search_item: res,
+            });
+          } catch (err) {
+            console.error(err);
+            Toast.fail('网络异常');
+          }
+        },
+      },
+    });
+  },
+
+  /**
+   * 点击查看事项详情跳转至相应页面
+   * @param {TouchEvent} e 点击按钮事件
+   */
+  handleNavigateDetail (e) {
+    const { id, time, title } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `./../../pages/bwl/detail/detail?id=${id}&time=${time}&title=${title}`,
+      events: {
+        onRemoveItem: async function () {
+          try {
+            const res = await getSimpleMemorandum(token);
+            this.setData({
+              search_item: res,
+            });
+          } catch (err) {
+            console.error(err);
+            Toast.fail('网络异常');
+          }
+        },
+      },
+    });
   },
 
   /**
    * 搜索模块()
    * 当搜索框中有值时发请求
    */
-  // Timeid: -1,
+  timerID: -1,
+
   /**
-   *  input事件
+   *  输入响应事件
    */
+  handleInput (e) {
+    const { value } = e.detail;
+    console.log(value);
 
-  // handdleInput (e) {
-  //   let { value } = e.detail;
-  //   /**
-  //    * 空值返回*显示全部
-  //    * 非空返回value显示符合条件的部分记录
-  //    */
-
-  //   if (!value.trim()) {
-  //     value = '*';
-  //   }
-  //   // 防止重复请求
-  //   clearTimeout(this.Timeid);
-  //   this.Timeid = setTimeout(() => {
-  //     this.search_info(value);
-  //   }, 1500);
-  // },
-
-  /**
- *信息申请函数
- * @param {string} querry
- */
-  search_info: async function () {
-    try {
-      const token = wx.getStorageSync('token');
-      const res = await request({ url: '/v1/memorandum/get/simple', header: { authorization: token, 'content-type': 'application/x-www-form-urlencoded' } });
+    // 节流-防止重复请求
+    clearTimeout(this.timerID);
+    this.timerID = setTimeout(async () => {
+      // todo 该接口异常
+      const res = await getSearchMemorandum(token, value.trim());
       console.log(res);
-      const { data } = res.data;
-      this.setData({ search_item: data });
-
-      /** 修改data */
-    } catch (err) {
-      console.log(err);
-    }
-  },
-
-  onShow: function () {
-    /** 请求全部并缓存 */
-    this.search_info();
+    }, 2000);
   },
 
 });
